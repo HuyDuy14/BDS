@@ -16,6 +16,8 @@ target 'BDS' do
   pod 'ObjectMapper'
   pod 'Alamofire'
   pod 'SwiftMessages'
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
   pod 'SwiftyJSON'
   pod 'KMPlaceholderTextView'
   pod 'ACProgressHUD'

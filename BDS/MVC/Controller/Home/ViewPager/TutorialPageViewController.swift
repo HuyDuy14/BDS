@@ -15,11 +15,11 @@ class TutorialPageViewController: UIPageViewController {
     
     fileprivate(set) lazy var orderedViewControllers: [UIViewController] = {
         // The view controllers will be shown in this order
-        return [self.newViewController("ViewController"),
-                self.newViewController("ViewController"),
-                self.newViewController("ViewController"),
-                self.newViewController("ViewController"),
-                self.newViewController("ViewController")
+        return [self.newViewController("HomeMenuViewController"),
+                self.newViewController("HomeMenuViewController"),
+                self.newViewController("MapsViewController"),
+                self.newViewController("HomeMenuViewController"),
+                self.newViewController("HomeMenuViewController")
                 ]
     }()
     

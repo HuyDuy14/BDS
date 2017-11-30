@@ -7,7 +7,10 @@
 //
 
 import UIKit
+import GoogleMaps
+import GooglePlaces
 
+let API_KEY_GOOGLE = "AIzaSyDeHiOsROpzfS0K2ys91RoZhym8tGSbtYE"
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,7 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     static var shared = (UIApplication.shared.delegate as? AppDelegate)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        GMSServices.provideAPIKey(API_KEY_GOOGLE)
+        GMSPlacesClient.provideAPIKey(API_KEY_GOOGLE)
         return true
     }
 

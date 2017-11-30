@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13195E251FD05B4600C60533 /* HomeMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13195E241FD05B4600C60533 /* HomeMenuViewController.swift */; };
+		13195E281FD05DC500C60533 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13195E271FD05DC500C60533 /* MapsViewController.swift */; };
 		13372E8C1FD0093400041A57 /* InforUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13372E8A1FD0093400041A57 /* InforUserViewController.swift */; };
 		13372E8D1FD0093400041A57 /* InforUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13372E8B1FD0093400041A57 /* InforUserViewController.xib */; };
 		13372E8F1FD009A300041A57 /* GetViewXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13372E8E1FD009A300041A57 /* GetViewXib.swift */; };
@@ -76,6 +78,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13195E241FD05B4600C60533 /* HomeMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuViewController.swift; sourceTree = "<group>"; };
+		13195E271FD05DC500C60533 /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
 		13372E8A1FD0093400041A57 /* InforUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InforUserViewController.swift; sourceTree = "<group>"; };
 		13372E8B1FD0093400041A57 /* InforUserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InforUserViewController.xib; sourceTree = "<group>"; };
 		13372E8E1FD009A300041A57 /* GetViewXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetViewXib.swift; sourceTree = "<group>"; };
@@ -178,6 +182,14 @@
 				A71483AE8F5B58DFCA958F97 /* Pods-BDSUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		13195E261FD05DB000C60533 /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				13195E271FD05DC500C60533 /* MapsViewController.swift */,
+			);
+			path = Maps;
 			sourceTree = "<group>";
 		};
 		13372E891FD0091C00041A57 /* User */ = {
@@ -321,6 +333,7 @@
 		139E649D1FCF04EB00117E0B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				13195E261FD05DB000C60533 /* Maps */,
 				13372E891FD0091C00041A57 /* User */,
 				13AB375F1FCF9E87000BA67D /* Home */,
 				139E64C91FCF08C800117E0B /* Register */,
@@ -425,6 +438,7 @@
 			isa = PBXGroup;
 			children = (
 				13AB37601FCF9E94000BA67D /* ViewPager */,
+				13195E241FD05B4600C60533 /* HomeMenuViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -762,9 +776,13 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BDS/Pods-BDS-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -782,6 +800,7 @@
 				139E64C71FCF08C000117E0B /* LoginViewController.swift in Sources */,
 				139E64A11FCF076700117E0B /* ExtensionUIImageView.swift in Sources */,
 				139E64B11FCF07F800117E0B /* HeaderViewController.swift in Sources */,
+				13195E251FD05B4600C60533 /* HomeMenuViewController.swift in Sources */,
 				139E64901FCF049400117E0B /* Result.swift in Sources */,
 				139E64971FCF04BA00117E0B /* ExtensionDate.swift in Sources */,
 				139E64601FCF030300117E0B /* ViewController.swift in Sources */,
@@ -804,6 +823,7 @@
 				139E64B91FCF084900117E0B /* ItemMenuObject.swift in Sources */,
 				139E64A51FCF07C600117E0B /* MIDatePicker.swift in Sources */,
 				139E645E1FCF030300117E0B /* AppDelegate.swift in Sources */,
+				13195E281FD05DC500C60533 /* MapsViewController.swift in Sources */,
 				139E64CC1FCF08DB00117E0B /* ContainerSingUpViewController.swift in Sources */,
 				139E64BC1FCF085500117E0B /* RightMenuViewController.swift in Sources */,
 				139E649F1FCF050300117E0B /* CustomUIView.swift in Sources */,
