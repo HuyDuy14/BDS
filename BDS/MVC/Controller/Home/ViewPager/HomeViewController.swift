@@ -14,8 +14,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var titleView: UILabel!
     @IBOutlet var imageMenu: [UIImageView]!
     
-    var listImage: [String] = ["icon_Content_off","icon_friend_off","icon_chat_off","icon_calendar_on","icon_calendar_on"]
-    var listImageOff: [String] = ["icon_Content_on","icon_friend_on","icon_chat_on","icon_calendar_off","icon_calendar_off"]
+    var listImage: [String] = ["icon_home_off","icon_tax_off","icon_map_off","icon_cell_off","icon_off"]
+    var listImageOff: [String] = ["icon_menu_home_on","icon_tax_on","icon_map_on","icon_cell_on","icon_on"]
 
     var index: Int = 0
     override func viewDidLoad() {

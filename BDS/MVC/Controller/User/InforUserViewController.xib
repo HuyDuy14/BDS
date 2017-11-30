@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13529"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InforUserViewController" customModule="BDS" customModuleProvider="target">
+            <connections>
+                <outlet property="containerView" destination="dHr-ci-643" id="OUg-1S-dKU"/>
+                <outlet property="headerView" destination="5Cj-yH-GYm" id="ORR-Hf-YXv"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Cj-yH-GYm" customClass="HeaderViewController" customModule="BDS" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="RGC-zn-eqb"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dHr-ci-643">
+                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="5Cj-yH-GYm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5vh-AJ-Zqh"/>
+                <constraint firstItem="5Cj-yH-GYm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="C6M-53-s9Q"/>
+                <constraint firstAttribute="bottom" secondItem="dHr-ci-643" secondAttribute="bottom" id="e2u-4J-eAQ"/>
+                <constraint firstItem="dHr-ci-643" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="eHM-tD-8IO"/>
+                <constraint firstItem="dHr-ci-643" firstAttribute="top" secondItem="5Cj-yH-GYm" secondAttribute="bottom" id="gnv-2P-41u"/>
+                <constraint firstAttribute="trailing" secondItem="dHr-ci-643" secondAttribute="trailing" id="jS9-k4-nH3"/>
+                <constraint firstAttribute="trailing" secondItem="5Cj-yH-GYm" secondAttribute="trailing" id="rQ2-Hy-rOb"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

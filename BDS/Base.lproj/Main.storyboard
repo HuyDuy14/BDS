@@ -93,7 +93,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Ah-7L-eRl">
                                                 <rect key="frame" x="0.0" y="0.0" width="75.5" height="50"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_Content_on" translatesAutoresizingMaskIntoConstraints="NO" id="DxK-Vr-gQN">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_menu_home_on" translatesAutoresizingMaskIntoConstraints="NO" id="DxK-Vr-gQN">
                                                         <rect key="frame" x="24" y="11" width="28" height="28"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="EDt-fK-zAu"/>
@@ -134,7 +134,7 @@
                                                             <action selector="btn1:" destination="7rP-KN-WWW" eventType="touchUpInside" id="jK5-TC-gQo"/>
                                                         </connections>
                                                     </button>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_friend_off" translatesAutoresizingMaskIntoConstraints="NO" id="Imw-nD-301">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_tax_off" translatesAutoresizingMaskIntoConstraints="NO" id="Imw-nD-301">
                                                         <rect key="frame" x="23.5" y="11" width="28" height="28"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="28" id="1f9-JX-XOT"/>
@@ -165,7 +165,7 @@
                                                             <action selector="btn2:" destination="7rP-KN-WWW" eventType="touchUpInside" id="0Ad-28-cuf"/>
                                                         </connections>
                                                     </button>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_chat_off" translatesAutoresizingMaskIntoConstraints="NO" id="nTT-qI-UWU">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_map_off" translatesAutoresizingMaskIntoConstraints="NO" id="nTT-qI-UWU">
                                                         <rect key="frame" x="24" y="11" width="28" height="28"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="28" id="SxD-fa-toF"/>
@@ -197,7 +197,7 @@
                                                             <action selector="btn3:" destination="7rP-KN-WWW" eventType="touchUpInside" id="uPt-ET-wfP"/>
                                                         </connections>
                                                     </button>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_calendar_on" translatesAutoresizingMaskIntoConstraints="NO" id="1Ct-RC-AAd">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_cell_off" translatesAutoresizingMaskIntoConstraints="NO" id="1Ct-RC-AAd">
                                                         <rect key="frame" x="23.5" y="11" width="28" height="28"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="28" id="7Za-19-eZK"/>
@@ -229,7 +229,7 @@
                                                             <action selector="btn4:" destination="7rP-KN-WWW" eventType="touchUpInside" id="Lg8-ii-kag"/>
                                                         </connections>
                                                     </button>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_calendar_on" translatesAutoresizingMaskIntoConstraints="NO" id="6pG-Jz-6h2">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_off" translatesAutoresizingMaskIntoConstraints="NO" id="6pG-Jz-6h2">
                                                         <rect key="frame" x="23.5" y="11" width="28" height="28"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="28" id="GJn-Jr-59i"/>
@@ -519,11 +519,12 @@
     </scenes>
     <resources>
         <image name="header_cover" width="16" height="16"/>
-        <image name="icon_Content_on" width="170" height="170"/>
-        <image name="icon_calendar_on" width="170" height="170"/>
-        <image name="icon_chat_off" width="170" height="170"/>
-        <image name="icon_friend_off" width="170" height="170"/>
+        <image name="icon_cell_off" width="27" height="29"/>
+        <image name="icon_map_off" width="37" height="33"/>
+        <image name="icon_menu_home_on" width="31" height="25"/>
+        <image name="icon_off" width="32" height="27"/>
         <image name="icon_plachoder" width="16" height="16"/>
+        <image name="icon_tax_off" width="26" height="26"/>
         <image name="menu_right" width="22" height="20"/>
     </resources>
 </document>

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13372E8C1FD0093400041A57 /* InforUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13372E8A1FD0093400041A57 /* InforUserViewController.swift */; };
+		13372E8D1FD0093400041A57 /* InforUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13372E8B1FD0093400041A57 /* InforUserViewController.xib */; };
+		13372E8F1FD009A300041A57 /* GetViewXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13372E8E1FD009A300041A57 /* GetViewXib.swift */; };
+		13372E951FD00C1200041A57 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13372E941FD00C1200041A57 /* User.storyboard */; };
+		13372E971FD00C3300041A57 /* EditInforUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13372E961FD00C3300041A57 /* EditInforUserViewController.swift */; };
+		13372E9B1FD0118400041A57 /* SaveCurrentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13372E9A1FD0118400041A57 /* SaveCurrentVC.swift */; };
 		139E645E1FCF030300117E0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E645D1FCF030300117E0B /* AppDelegate.swift */; };
 		139E64601FCF030300117E0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E645F1FCF030300117E0B /* ViewController.swift */; };
 		139E64631FCF030300117E0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 139E64611FCF030300117E0B /* Main.storyboard */; };
@@ -70,6 +76,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13372E8A1FD0093400041A57 /* InforUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InforUserViewController.swift; sourceTree = "<group>"; };
+		13372E8B1FD0093400041A57 /* InforUserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InforUserViewController.xib; sourceTree = "<group>"; };
+		13372E8E1FD009A300041A57 /* GetViewXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetViewXib.swift; sourceTree = "<group>"; };
+		13372E941FD00C1200041A57 /* User.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
+		13372E961FD00C3300041A57 /* EditInforUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInforUserViewController.swift; sourceTree = "<group>"; };
+		13372E9A1FD0118400041A57 /* SaveCurrentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveCurrentVC.swift; sourceTree = "<group>"; };
 		139E645A1FCF030300117E0B /* BDS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BDS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		139E645D1FCF030300117E0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		139E645F1FCF030300117E0B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +180,25 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		13372E891FD0091C00041A57 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				13372E8A1FD0093400041A57 /* InforUserViewController.swift */,
+				13372E8B1FD0093400041A57 /* InforUserViewController.xib */,
+				13372E941FD00C1200041A57 /* User.storyboard */,
+				13372E961FD00C3300041A57 /* EditInforUserViewController.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		13372E991FD0116D00041A57 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				13372E9A1FD0118400041A57 /* SaveCurrentVC.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		139E64511FCF030300117E0B = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +224,7 @@
 		139E645C1FCF030300117E0B /* BDS */ = {
 			isa = PBXGroup;
 			children = (
+				13372E991FD0116D00041A57 /* Util */,
 				139E649A1FCF04D900117E0B /* MVC */,
 				139E64931FCF04A900117E0B /* Extension */,
 				139E648C1FCF047D00117E0B /* Network */,
@@ -249,6 +281,7 @@
 				139E64951FCF04BA00117E0B /* ExtensionString.swift */,
 				139E64961FCF04BA00117E0B /* UIColorExtensions.swift */,
 				139E64A01FCF076700117E0B /* ExtensionUIImageView.swift */,
+				13372E8E1FD009A300041A57 /* GetViewXib.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -288,6 +321,7 @@
 		139E649D1FCF04EB00117E0B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				13372E891FD0091C00041A57 /* User */,
 				13AB375F1FCF9E87000BA67D /* Home */,
 				139E64C91FCF08C800117E0B /* Register */,
 				139E64C41FCF089600117E0B /* Login */,
@@ -541,12 +575,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				139E64AD1FCF07E500117E0B /* PickerView.xib in Resources */,
+				13372E951FD00C1200041A57 /* User.storyboard in Resources */,
 				139E64B21FCF07F800117E0B /* HeaderViewController.xib in Resources */,
 				139E64CF1FCF091800117E0B /* Login.storyboard in Resources */,
 				139E64681FCF030300117E0B /* LaunchScreen.storyboard in Resources */,
 				139E64651FCF030300117E0B /* Assets.xcassets in Resources */,
 				139E64631FCF030300117E0B /* Main.storyboard in Resources */,
 				139E64A61FCF07C600117E0B /* MIDatePicker.xib in Resources */,
+				13372E8D1FD0093400041A57 /* InforUserViewController.xib in Resources */,
 				139E64D11FCF099700117E0B /* Register.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -751,12 +787,15 @@
 				139E64601FCF030300117E0B /* ViewController.swift in Sources */,
 				139E64911FCF049400117E0B /* API.swift in Sources */,
 				13AB37641FCF9EA6000BA67D /* TutorialPageViewController.swift in Sources */,
+				13372E8F1FD009A300041A57 /* GetViewXib.swift in Sources */,
 				139E64B61FCF083900117E0B /* ItemViewCellMenu.swift in Sources */,
 				139E64C31FCF088000117E0B /* UISideMenuNavigationController.swift in Sources */,
 				139E64C21FCF088000117E0B /* SideMenuTransition.swift in Sources */,
 				13AB376D1FCFA056000BA67D /* BaseTableViewController.swift in Sources */,
 				13AB37661FCF9EAD000BA67D /* NaviHomeViewController.swift in Sources */,
 				139E64CD1FCF08DB00117E0B /* SingUpViewController.swift in Sources */,
+				13372E8C1FD0093400041A57 /* InforUserViewController.swift in Sources */,
+				13372E971FD00C3300041A57 /* EditInforUserViewController.swift in Sources */,
 				139E64C11FCF088000117E0B /* SideMenuManager.swift in Sources */,
 				139E64921FCF049400117E0B /* APIClient.swift in Sources */,
 				139E64981FCF04BA00117E0B /* ExtensionString.swift in Sources */,
@@ -768,6 +807,7 @@
 				139E64CC1FCF08DB00117E0B /* ContainerSingUpViewController.swift in Sources */,
 				139E64BC1FCF085500117E0B /* RightMenuViewController.swift in Sources */,
 				139E649F1FCF050300117E0B /* CustomUIView.swift in Sources */,
+				13372E9B1FD0118400041A57 /* SaveCurrentVC.swift in Sources */,
 				139E64991FCF04BA00117E0B /* UIColorExtensions.swift in Sources */,
 				13AB37681FCF9FAC000BA67D /* NaviLoginViewController.swift in Sources */,
 				139E64AC1FCF07E500117E0B /* PickerView.swift in Sources */,
