@@ -18,6 +18,7 @@ class TutorialPageViewController: UIPageViewController {
         return [self.newViewController("ViewController"),
                 self.newViewController("ViewController"),
                 self.newViewController("ViewController"),
+                self.newViewController("ViewController"),
                 self.newViewController("ViewController")
                 ]
     }()
@@ -28,7 +29,7 @@ class TutorialPageViewController: UIPageViewController {
         dataSource = self
         delegate = self
         
-        if let initialViewController = orderedViewControllers[indext] as? UIViewController {
+        if let initialViewController = orderedViewControllers.first {
             scrollToViewController(initialViewController)
         }
         

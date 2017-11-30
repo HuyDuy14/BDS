@@ -17,7 +17,6 @@ let PASSWORD = "password"
 class LoginViewController: BaseTableViewController {
 
     @IBOutlet weak var btnLogin: CustomRoundButton!
-    @IBOutlet weak var btnSingUp: CustomRoundButton!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var pass: UITextField!
 
@@ -65,14 +64,7 @@ class LoginViewController: BaseTableViewController {
         
 
     }
-
-    @IBAction func buttonSingUp(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Register", bundle: nil)
-        let singUp = storyboard.instantiateViewController(withIdentifier: "ContainerSingUpViewController") as! ContainerSingUpViewController
-        self.navigationController?.pushViewController(singUp, animated: true)
-    }
-    
-    
+        
     @IBAction func resetPassButtonDidTap(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Register", bundle: nil)
         let singUp = storyboard.instantiateViewController(withIdentifier: "ContainerSingUpViewController") as! ContainerSingUpViewController

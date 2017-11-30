@@ -14,8 +14,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var titleView: UILabel!
     @IBOutlet var imageMenu: [UIImageView]!
     
-    var listImage: [String] = ["icon_Content_off","icon_friend_off","icon_chat_off","icon_calendar_on",]
-    var listImageOff: [String] = ["icon_Content_on","icon_friend_on","icon_chat_on","icon_calendar_off"]
+    var listImage: [String] = ["icon_Content_off","icon_friend_off","icon_chat_off","icon_calendar_on","icon_calendar_on"]
+    var listImageOff: [String] = ["icon_Content_on","icon_friend_on","icon_chat_on","icon_calendar_off","icon_calendar_off"]
 
     var index: Int = 0
     override func viewDidLoad() {
@@ -44,47 +44,34 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func btn0(_ sender: Any) {
-        self.tutorialPageViewController?.scrollToViewController(index: 0)
-        for i in 0..<4
-        {
-            if i == 0
-            {
-                self.imageMenu[i].image =  UIImage(named: self.listImageOff[i])
-            } else {
-                self.imageMenu[i].image =  UIImage(named: self.listImage[i])
-            }
-        }
-
+    self.tutorialPageViewController?.scrollToViewController(index: 0)
+       self.setImagePage(index: 0)
     }
     @IBAction func btn1(_ sender: Any) {
-        self.tutorialPageViewController?.scrollToViewController(index: 1)
-        for i in 0..<4
-        {
-            if i == 1
-            {
-                self.imageMenu[i].image =  UIImage(named: self.listImageOff[i])
-            } else {
-                self.imageMenu[i].image =  UIImage(named: self.listImage[i])
-            }
-        }
+    self.tutorialPageViewController?.scrollToViewController(index: 1)
+       self.setImagePage(index: 1)
     }
 
     @IBAction func btn2(_ sender: Any) {
-        self.tutorialPageViewController?.scrollToViewController(index: 2)
-        for i in 0..<4
-        {
-            if i == 2
-            {
-                self.imageMenu[i].image =  UIImage(named: self.listImageOff[i])
-            } else {
-                self.imageMenu[i].image =  UIImage(named: self.listImage[i])
-            }
-        }    }
+    self.tutorialPageViewController?.scrollToViewController(index: 2)
+        self.setImagePage(index: 2)
+    }
+    
     @IBAction func btn3(_ sender: Any) {
-        self.tutorialPageViewController?.scrollToViewController(index: 3)
-        for i in 0..<4
+    self.tutorialPageViewController?.scrollToViewController(index: 3)
+        self.setImagePage(index: 3)
+       
+    }
+    @IBAction func btn4(_ sender: Any) {
+    self.tutorialPageViewController?.scrollToViewController(index: 4)
+        self.setImagePage(index: 4)
+    }
+    
+    func setImagePage(index:Int)
+    {
+        for i in 0..<5
         {
-            if i == 3
+            if i == index
             {
                 self.imageMenu[i].image =  UIImage(named: self.listImageOff[i])
             } else {
@@ -92,7 +79,7 @@ class HomeViewController: UIViewController {
             }
         }
     }
-  
+    
     @IBAction func acctionCallView(_ sender: Any) {
 
     }
@@ -108,15 +95,7 @@ extension HomeViewController: TutorialPageViewControllerDelegate {
 
     func tutorialPageViewController(_ tutorialPageViewController: TutorialPageViewController,
                                     didUpdatePageIndex index: Int) {
-        for i in 0..<4
-        {
-            if i == index
-            {
-                self.imageMenu[i].image =  UIImage(named: self.listImageOff[i])
-            } else {
-                self.imageMenu[i].image =  UIImage(named: self.listImage[i])
-            }
-        }
+        self.setImagePage(index: index)
         
     }
 

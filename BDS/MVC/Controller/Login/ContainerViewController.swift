@@ -21,9 +21,9 @@ class ContainerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
-    override func viewWillLayoutSubviews() {
-        self.view.layoutIfNeeded()
-
+    @IBAction func resgisterButtonDidTap(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Register", bundle: nil)
+        let singUp = storyboard.instantiateViewController(withIdentifier: "ContainerSingUpViewController") as! ContainerSingUpViewController
+        self.present(singUp, animated: true, completion: nil)
     }
 }

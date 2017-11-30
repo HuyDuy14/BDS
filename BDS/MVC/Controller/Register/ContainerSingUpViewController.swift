@@ -19,9 +19,9 @@ class ContainerSingUpViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.headerView.delegate = self
-      
-        self.headerView.setTitleView(title: "Đăng ký tài khoản")
+//        self.headerView.delegate = self
+//      
+//        self.headerView.setTitleView(title: "Đăng ký tài khoản")
             
         let storyboard = UIStoryboard(name: "Register", bundle: nil)
         let showView = storyboard.instantiateViewController(withIdentifier: "SingUpViewController") as? SingUpViewController
@@ -41,5 +41,8 @@ class ContainerSingUpViewController: BaseViewController {
         self.cotainerView.addSubview(navigationController.view)
     }
 
-
+    @IBAction func closeButtonDidTap(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
