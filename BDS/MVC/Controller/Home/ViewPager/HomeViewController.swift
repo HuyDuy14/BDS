@@ -19,7 +19,8 @@ class HomeViewController: UIViewController {
 
     var index: Int = 0
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
+        SaveCurrentVC.shared.homeController = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,26 +45,27 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func btn0(_ sender: Any) {
-    self.tutorialPageViewController?.scrollToViewController(index: 0)
+        self.tutorialPageViewController?.scrollToViewController(index: 0)
        self.setImagePage(index: 0)
     }
     @IBAction func btn1(_ sender: Any) {
-    self.tutorialPageViewController?.scrollToViewController(index: 1)
+        self.tutorialPageViewController?.scrollToViewController(index: 1)
        self.setImagePage(index: 1)
     }
 
     @IBAction func btn2(_ sender: Any) {
-    self.tutorialPageViewController?.scrollToViewController(index: 2)
+        self.tutorialPageViewController?.scrollToViewController(index: 2)
         self.setImagePage(index: 2)
     }
     
     @IBAction func btn3(_ sender: Any) {
     self.tutorialPageViewController?.scrollToViewController(index: 3)
-        self.setImagePage(index: 3)
+    
+    self.setImagePage(index: 3)
        
     }
     @IBAction func btn4(_ sender: Any) {
-    self.tutorialPageViewController?.scrollToViewController(index: 4)
+        self.tutorialPageViewController?.scrollToViewController(index: 4)
         self.setImagePage(index: 4)
     }
     

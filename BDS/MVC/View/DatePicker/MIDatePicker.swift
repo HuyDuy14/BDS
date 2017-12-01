@@ -32,8 +32,8 @@ class MIDatePicker: UIView {
 
         var animationDuration: TimeInterval = 0.3
 
-        var contentBackgroundColor: UIColor = UIColor.lightGray
-        var headerBackgroundColor: UIColor = UIColor.white
+//        var contentBackgroundColor: UIColor = UIColor.lightGray
+//        var headerBackgroundColor: UIColor = UIColor.white
 //        var confirmButtonColor: UIColor = UIColor.blue
 //        var cancelButtonColor: UIColor = UIColor.black
 
@@ -89,8 +89,8 @@ class MIDatePicker: UIView {
 //        confirmButton.setTitleColor(config.confirmButtonColor, for: UIControlState())
 //        cancelButton.setTitleColor(config.cancelButtonColor, for: UIControlState())
 
-        headerView.backgroundColor = config.headerBackgroundColor
-        backgroundView.backgroundColor = config.contentBackgroundColor
+//        headerView.backgroundColor = config.headerBackgroundColor
+//        backgroundView.backgroundColor = config.contentBackgroundColor
 
         // Overlay view constraints setup
 

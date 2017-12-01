@@ -11,4 +11,5 @@ import UIKit
 class SaveCurrentVC: NSObject {
     static var shared = SaveCurrentVC()
     var inforUserVC:InforUserViewController!
+    var homeController:HomeViewController!
 }

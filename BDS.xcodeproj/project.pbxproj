@@ -15,6 +15,17 @@
 		13372E951FD00C1200041A57 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13372E941FD00C1200041A57 /* User.storyboard */; };
 		13372E971FD00C3300041A57 /* EditInforUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13372E961FD00C3300041A57 /* EditInforUserViewController.swift */; };
 		13372E9B1FD0118400041A57 /* SaveCurrentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13372E9A1FD0118400041A57 /* SaveCurrentVC.swift */; };
+		1344BE041FD12E3000498108 /* LandForSaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344BE031FD12E3000498108 /* LandForSaleViewController.swift */; };
+		1344BE061FD12E4100498108 /* LandForSaleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344BE051FD12E4100498108 /* LandForSaleViewCell.swift */; };
+		1344BE091FD13EEF00498108 /* NewsLikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344BE081FD13EEF00498108 /* NewsLikeViewController.swift */; };
+		1344BE0C1FD1415B00498108 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344BE0B1FD1415B00498108 /* ProjectsViewController.swift */; };
+		1344BE0E1FD1417400498108 /* ProjectViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344BE0D1FD1417400498108 /* ProjectViewCell.swift */; };
+		1344BE111FD143E900498108 /* ContactViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344BE101FD143E900498108 /* ContactViewCell.swift */; };
+		1344BE131FD143F700498108 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344BE121FD143F700498108 /* ContactsViewController.swift */; };
+		1344BE161FD1460C00498108 /* MenuHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1344BE151FD1460C00498108 /* MenuHome.storyboard */; };
+		1344BE181FD149D800498108 /* SearchContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344BE171FD149D800498108 /* SearchContactViewController.swift */; };
+		1344BE1F1FD14E2F00498108 /* SearchProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344BE1E1FD14E2F00498108 /* SearchProjectsViewController.swift */; };
+		134E23DD1FD0F8CD005387B7 /* InforMapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134E23DC1FD0F8CD005387B7 /* InforMapsViewController.swift */; };
 		139E645E1FCF030300117E0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E645D1FCF030300117E0B /* AppDelegate.swift */; };
 		139E64601FCF030300117E0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E645F1FCF030300117E0B /* ViewController.swift */; };
 		139E64631FCF030300117E0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 139E64611FCF030300117E0B /* Main.storyboard */; };
@@ -86,6 +97,17 @@
 		13372E941FD00C1200041A57 /* User.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
 		13372E961FD00C3300041A57 /* EditInforUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInforUserViewController.swift; sourceTree = "<group>"; };
 		13372E9A1FD0118400041A57 /* SaveCurrentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveCurrentVC.swift; sourceTree = "<group>"; };
+		1344BE031FD12E3000498108 /* LandForSaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandForSaleViewController.swift; sourceTree = "<group>"; };
+		1344BE051FD12E4100498108 /* LandForSaleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandForSaleViewCell.swift; sourceTree = "<group>"; };
+		1344BE081FD13EEF00498108 /* NewsLikeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsLikeViewController.swift; sourceTree = "<group>"; };
+		1344BE0B1FD1415B00498108 /* ProjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
+		1344BE0D1FD1417400498108 /* ProjectViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewCell.swift; sourceTree = "<group>"; };
+		1344BE101FD143E900498108 /* ContactViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewCell.swift; sourceTree = "<group>"; };
+		1344BE121FD143F700498108 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		1344BE151FD1460C00498108 /* MenuHome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MenuHome.storyboard; sourceTree = "<group>"; };
+		1344BE171FD149D800498108 /* SearchContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContactViewController.swift; sourceTree = "<group>"; };
+		1344BE1E1FD14E2F00498108 /* SearchProjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProjectsViewController.swift; sourceTree = "<group>"; };
+		134E23DC1FD0F8CD005387B7 /* InforMapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InforMapsViewController.swift; sourceTree = "<group>"; };
 		139E645A1FCF030300117E0B /* BDS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BDS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		139E645D1FCF030300117E0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		139E645F1FCF030300117E0B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				13195E271FD05DC500C60533 /* MapsViewController.swift */,
+				134E23DC1FD0F8CD005387B7 /* InforMapsViewController.swift */,
 			);
 			path = Maps;
 			sourceTree = "<group>";
@@ -197,8 +220,8 @@
 			children = (
 				13372E8A1FD0093400041A57 /* InforUserViewController.swift */,
 				13372E8B1FD0093400041A57 /* InforUserViewController.xib */,
-				13372E941FD00C1200041A57 /* User.storyboard */,
 				13372E961FD00C3300041A57 /* EditInforUserViewController.swift */,
+				13372E941FD00C1200041A57 /* User.storyboard */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -209,6 +232,51 @@
 				13372E9A1FD0118400041A57 /* SaveCurrentVC.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		1344BE021FD12E1000498108 /* LandForSale */ = {
+			isa = PBXGroup;
+			children = (
+				1344BE031FD12E3000498108 /* LandForSaleViewController.swift */,
+				1344BE051FD12E4100498108 /* LandForSaleViewCell.swift */,
+			);
+			path = LandForSale;
+			sourceTree = "<group>";
+		};
+		1344BE071FD13ECC00498108 /* ListNewsLike */ = {
+			isa = PBXGroup;
+			children = (
+				1344BE081FD13EEF00498108 /* NewsLikeViewController.swift */,
+			);
+			path = ListNewsLike;
+			sourceTree = "<group>";
+		};
+		1344BE0A1FD1414700498108 /* Projects */ = {
+			isa = PBXGroup;
+			children = (
+				1344BE0B1FD1415B00498108 /* ProjectsViewController.swift */,
+				1344BE0D1FD1417400498108 /* ProjectViewCell.swift */,
+				1344BE1E1FD14E2F00498108 /* SearchProjectsViewController.swift */,
+			);
+			path = Projects;
+			sourceTree = "<group>";
+		};
+		1344BE0F1FD143D300498108 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				1344BE101FD143E900498108 /* ContactViewCell.swift */,
+				1344BE121FD143F700498108 /* ContactsViewController.swift */,
+				1344BE171FD149D800498108 /* SearchContactViewController.swift */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		1344BE141FD145F900498108 /* MenuHome */ = {
+			isa = PBXGroup;
+			children = (
+				1344BE151FD1460C00498108 /* MenuHome.storyboard */,
+			);
+			path = MenuHome;
 			sourceTree = "<group>";
 		};
 		139E64511FCF030300117E0B = {
@@ -333,6 +401,10 @@
 		139E649D1FCF04EB00117E0B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1344BE0F1FD143D300498108 /* Contacts */,
+				1344BE0A1FD1414700498108 /* Projects */,
+				1344BE071FD13ECC00498108 /* ListNewsLike */,
+				1344BE021FD12E1000498108 /* LandForSale */,
 				13195E261FD05DB000C60533 /* Maps */,
 				13372E891FD0091C00041A57 /* User */,
 				13AB375F1FCF9E87000BA67D /* Home */,
@@ -437,6 +509,7 @@
 		13AB375F1FCF9E87000BA67D /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				1344BE141FD145F900498108 /* MenuHome */,
 				13AB37601FCF9E94000BA67D /* ViewPager */,
 				13195E241FD05B4600C60533 /* HomeMenuViewController.swift */,
 			);
@@ -592,6 +665,7 @@
 				13372E951FD00C1200041A57 /* User.storyboard in Resources */,
 				139E64B21FCF07F800117E0B /* HeaderViewController.xib in Resources */,
 				139E64CF1FCF091800117E0B /* Login.storyboard in Resources */,
+				1344BE161FD1460C00498108 /* MenuHome.storyboard in Resources */,
 				139E64681FCF030300117E0B /* LaunchScreen.storyboard in Resources */,
 				139E64651FCF030300117E0B /* Assets.xcassets in Resources */,
 				139E64631FCF030300117E0B /* Main.storyboard in Resources */,
@@ -727,6 +801,7 @@
 				"${BUILT_PRODUCTS_DIR}/KMPlaceholderTextView/KMPlaceholderTextView.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/Pulley/Pulley.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
@@ -741,6 +816,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMPlaceholderTextView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulley.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
@@ -796,6 +872,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1344BE061FD12E4100498108 /* LandForSaleViewCell.swift in Sources */,
+				1344BE131FD143F700498108 /* ContactsViewController.swift in Sources */,
 				13AB37631FCF9EA6000BA67D /* HomeViewController.swift in Sources */,
 				139E64C71FCF08C000117E0B /* LoginViewController.swift in Sources */,
 				139E64A11FCF076700117E0B /* ExtensionUIImageView.swift in Sources */,
@@ -804,26 +882,34 @@
 				139E64901FCF049400117E0B /* Result.swift in Sources */,
 				139E64971FCF04BA00117E0B /* ExtensionDate.swift in Sources */,
 				139E64601FCF030300117E0B /* ViewController.swift in Sources */,
+				1344BE181FD149D800498108 /* SearchContactViewController.swift in Sources */,
 				139E64911FCF049400117E0B /* API.swift in Sources */,
 				13AB37641FCF9EA6000BA67D /* TutorialPageViewController.swift in Sources */,
 				13372E8F1FD009A300041A57 /* GetViewXib.swift in Sources */,
+				1344BE1F1FD14E2F00498108 /* SearchProjectsViewController.swift in Sources */,
 				139E64B61FCF083900117E0B /* ItemViewCellMenu.swift in Sources */,
 				139E64C31FCF088000117E0B /* UISideMenuNavigationController.swift in Sources */,
 				139E64C21FCF088000117E0B /* SideMenuTransition.swift in Sources */,
+				1344BE041FD12E3000498108 /* LandForSaleViewController.swift in Sources */,
 				13AB376D1FCFA056000BA67D /* BaseTableViewController.swift in Sources */,
 				13AB37661FCF9EAD000BA67D /* NaviHomeViewController.swift in Sources */,
+				1344BE0E1FD1417400498108 /* ProjectViewCell.swift in Sources */,
 				139E64CD1FCF08DB00117E0B /* SingUpViewController.swift in Sources */,
+				1344BE0C1FD1415B00498108 /* ProjectsViewController.swift in Sources */,
 				13372E8C1FD0093400041A57 /* InforUserViewController.swift in Sources */,
 				13372E971FD00C3300041A57 /* EditInforUserViewController.swift in Sources */,
 				139E64C11FCF088000117E0B /* SideMenuManager.swift in Sources */,
 				139E64921FCF049400117E0B /* APIClient.swift in Sources */,
 				139E64981FCF04BA00117E0B /* ExtensionString.swift in Sources */,
+				1344BE091FD13EEF00498108 /* NewsLikeViewController.swift in Sources */,
 				139E64AB1FCF07E500117E0B /* ModelPicker.swift in Sources */,
 				139E64C81FCF08C000117E0B /* ContainerViewController.swift in Sources */,
 				139E64B91FCF084900117E0B /* ItemMenuObject.swift in Sources */,
 				139E64A51FCF07C600117E0B /* MIDatePicker.swift in Sources */,
+				1344BE111FD143E900498108 /* ContactViewCell.swift in Sources */,
 				139E645E1FCF030300117E0B /* AppDelegate.swift in Sources */,
 				13195E281FD05DC500C60533 /* MapsViewController.swift in Sources */,
+				134E23DD1FD0F8CD005387B7 /* InforMapsViewController.swift in Sources */,
 				139E64CC1FCF08DB00117E0B /* ContainerSingUpViewController.swift in Sources */,
 				139E64BC1FCF085500117E0B /* RightMenuViewController.swift in Sources */,
 				139E649F1FCF050300117E0B /* CustomUIView.swift in Sources */,
@@ -1001,7 +1087,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HGL8WW52HU;
 				INFOPLIST_FILE = BDS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huy.BDS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1018,7 +1104,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HGL8WW52HU;
 				INFOPLIST_FILE = BDS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huy.BDS;
 				PRODUCT_NAME = "$(TARGET_NAME)";

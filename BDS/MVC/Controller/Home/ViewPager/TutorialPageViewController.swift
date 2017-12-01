@@ -16,10 +16,10 @@ class TutorialPageViewController: UIPageViewController {
     fileprivate(set) lazy var orderedViewControllers: [UIViewController] = {
         // The view controllers will be shown in this order
         return [self.newViewController("HomeMenuViewController"),
-                self.newViewController("HomeMenuViewController"),
-                self.newViewController("MapsViewController"),
-                self.newViewController("HomeMenuViewController"),
-                self.newViewController("HomeMenuViewController")
+                self.newViewController("ProjectsViewController"),
+                self.newViewController("PulleyViewController"),
+                self.newViewController("LandForSaleViewController"),
+                self.newViewController("NewsLikeViewController")
                 ]
     }()
     
@@ -75,6 +75,7 @@ class TutorialPageViewController: UIPageViewController {
      */
     fileprivate func scrollToViewController(_ viewController: UIViewController,
                                             direction: UIPageViewControllerNavigationDirection = .forward) {
+       
         setViewControllers([viewController],
                            direction: direction,
                            animated: true,
@@ -90,6 +91,7 @@ class TutorialPageViewController: UIPageViewController {
     fileprivate func notifyTutorialDelegateOfNewIndex() {
         if let firstViewController = viewControllers?.first,
             let index = orderedViewControllers.index(of: firstViewController) {
+
             tutorialDelegate?.tutorialPageViewController(self,
                                                          didUpdatePageIndex: index)
         }
@@ -117,7 +119,6 @@ extension TutorialPageViewController: UIPageViewControllerDataSource {
         guard orderedViewControllers.count > previousIndex else {
             return nil
         }
-        
         return orderedViewControllers[previousIndex]
     }
     

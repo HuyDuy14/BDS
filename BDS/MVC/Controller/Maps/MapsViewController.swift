@@ -11,6 +11,7 @@ import GoogleMaps
 import GooglePlaces
 import CoreLocation
 import UserNotifications
+import Pulley
 
 class MapsViewController: BaseViewController {
 
@@ -24,6 +25,7 @@ class MapsViewController: BaseViewController {
     var destinationLongtitude: Double = 0
     let zoomLevel: Float = 15.0
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,7 +36,7 @@ class MapsViewController: BaseViewController {
     {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        mapView.settings.myLocationButton = true
+        mapView.settings.myLocationButton = false
         mapView.isMyLocationEnabled = true
         mapView.setMinZoom(6, maxZoom: 16)
         mapView.delegate = self
@@ -44,6 +46,16 @@ class MapsViewController: BaseViewController {
             locationManager.startUpdatingLocation()
         }
         
+    }
+    
+    @IBAction func zoomButtonDidTap(_ sender: Any) {
+    }
+    
+    @IBAction func DButtonDidTap(_ sender: Any) {
+    }
+    
+    @IBAction func presendMenuButtonDidTap(_ sender: Any) {
+       self.showMenuView()
     }
     
 }
@@ -107,3 +119,4 @@ extension MapsViewController: GMSMapViewDelegate {
         return true
     }
 }
+

@@ -21,6 +21,7 @@ target 'BDS' do
   pod 'SwiftyJSON'
   pod 'KMPlaceholderTextView'
   pod 'ACProgressHUD'
+  pod 'Pulley'
   target 'BDSTests' do
     inherit! :search_paths
     # Pods for testing

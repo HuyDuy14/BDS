@@ -78,10 +78,17 @@ class BaseViewController: UIViewController {
     func hiddenNavBar(hidden: Bool) {
         self.navigationController?.setNavigationBarHidden(hidden, animated: false)
     }
+    
     func pushViewController(viewController:UIViewController!){
         if viewController == nil {return}
         self.navigationController?.pushViewController(viewController, animated: true)
-        
+    }
+    
+    func showMenuView()
+    {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let menuview = storyboard.instantiateViewController(withIdentifier: "UISideMenuNavigationController") as? UISideMenuNavigationController
+        self.present(menuview!, animated: true, completion: nil)
     }
 
 }

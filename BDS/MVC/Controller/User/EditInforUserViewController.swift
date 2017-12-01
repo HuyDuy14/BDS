@@ -20,8 +20,8 @@ class EditInforUserViewController: UITableViewController {
     @IBOutlet weak var newPass: UITextField!
     @IBOutlet weak var enterPass: UITextField!
     
-    weak var datePicker = MIDatePicker.getFromNib()
-    weak var pickerView = PickerView.getFromNib()
+    var datePicker = MIDatePicker.getFromNib()
+    var pickerView = PickerView.getFromNib()
     var listPicker:[ModelPicker] = [ModelPicker(id: 0, name: "Hà Nội"),ModelPicker(id: 2, name: "Thanh Hoá"),ModelPicker(id: 3, name: "Nam Định")]
     var index:Int = 0
     var dateSelect:Date = Date()
@@ -38,8 +38,8 @@ class EditInforUserViewController: UITableViewController {
     // MARK: - config Controller
     func settingConfig()
     {
-        self.datePicker?.delegate = self
-        self.pickerView?.delegate = self
+        self.datePicker.delegate = self
+        self.pickerView.delegate = self
     }
     
     // MARK: - UIAction
@@ -50,14 +50,14 @@ class EditInforUserViewController: UITableViewController {
     }
     
     @IBAction func birthdayButtonDidTap(_ sender: Any) {
-       self.datePicker?.config.startDate = self.dateSelect
-       self.datePicker?.show(inVC: SaveCurrentVC.shared.inforUserVC)
+       self.datePicker.config.startDate = self.dateSelect
+       self.datePicker.show(inVC: SaveCurrentVC.shared.inforUserVC)
     }
     
     @IBAction func cityButtonDidTap(_ sender: Any) {
-        self.pickerView?.listData = self.listPicker
-        self.pickerView?.index = self.index
-        self.pickerView?.show(inVC: SaveCurrentVC.shared.inforUserVC)
+        self.pickerView.listData = self.listPicker
+        self.pickerView.index = self.index
+        self.pickerView.show(inVC: SaveCurrentVC.shared.inforUserVC)
     }
 }
 
