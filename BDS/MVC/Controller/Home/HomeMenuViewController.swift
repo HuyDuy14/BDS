@@ -33,4 +33,17 @@ class HomeMenuViewController: BaseViewController {
         self.pushViewController(viewController: searchView!)
 
     }
+    
+    @IBAction func newsButtonDidTap(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
+        let newsController = storyboard.instantiateViewController(withIdentifier: "NewsViewController") as? NewsViewController
+        self.pushViewController(viewController: newsController!)
+    }
+    
+    @IBAction func searchLandForSaleButtonDidTap(_ sender: Any) {
+        SaveCurrentVC.shared.homeController.tutorialPageViewController?.scrollToViewController(index: 3)
+        
+    }
+    
+    
 }

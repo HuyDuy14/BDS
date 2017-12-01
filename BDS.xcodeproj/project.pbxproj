@@ -25,6 +25,13 @@
 		1344BE161FD1460C00498108 /* MenuHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1344BE151FD1460C00498108 /* MenuHome.storyboard */; };
 		1344BE181FD149D800498108 /* SearchContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344BE171FD149D800498108 /* SearchContactViewController.swift */; };
 		1344BE1F1FD14E2F00498108 /* SearchProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344BE1E1FD14E2F00498108 /* SearchProjectsViewController.swift */; };
+		1344BE211FD1558200498108 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344BE201FD1558200498108 /* NewsViewController.swift */; };
+		1344BE231FD1559200498108 /* NewsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344BE221FD1559200498108 /* NewsViewCell.swift */; };
+		1344BE261FD159CB00498108 /* PopupCategoryNewsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344BE251FD159CB00498108 /* PopupCategoryNewsViewCell.swift */; };
+		1344BE281FD159E000498108 /* PopupCategoryNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344BE271FD159E000498108 /* PopupCategoryNewsViewController.swift */; };
+		1344BE2A1FD15E4B00498108 /* DetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344BE291FD15E4B00498108 /* DetailNewsViewController.swift */; };
+		1344BE2C1FD15EEB00498108 /* ExtensionUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344BE2B1FD15EEB00498108 /* ExtensionUILabel.swift */; };
+		1344BE2E1FD162F100498108 /* SearchLandForSaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344BE2D1FD162F100498108 /* SearchLandForSaleViewController.swift */; };
 		134E23DD1FD0F8CD005387B7 /* InforMapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134E23DC1FD0F8CD005387B7 /* InforMapsViewController.swift */; };
 		139E645E1FCF030300117E0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E645D1FCF030300117E0B /* AppDelegate.swift */; };
 		139E64601FCF030300117E0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E645F1FCF030300117E0B /* ViewController.swift */; };
@@ -107,6 +114,13 @@
 		1344BE151FD1460C00498108 /* MenuHome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MenuHome.storyboard; sourceTree = "<group>"; };
 		1344BE171FD149D800498108 /* SearchContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContactViewController.swift; sourceTree = "<group>"; };
 		1344BE1E1FD14E2F00498108 /* SearchProjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProjectsViewController.swift; sourceTree = "<group>"; };
+		1344BE201FD1558200498108 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		1344BE221FD1559200498108 /* NewsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewCell.swift; sourceTree = "<group>"; };
+		1344BE251FD159CB00498108 /* PopupCategoryNewsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupCategoryNewsViewCell.swift; sourceTree = "<group>"; };
+		1344BE271FD159E000498108 /* PopupCategoryNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupCategoryNewsViewController.swift; sourceTree = "<group>"; };
+		1344BE291FD15E4B00498108 /* DetailNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailNewsViewController.swift; sourceTree = "<group>"; };
+		1344BE2B1FD15EEB00498108 /* ExtensionUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUILabel.swift; sourceTree = "<group>"; };
+		1344BE2D1FD162F100498108 /* SearchLandForSaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLandForSaleViewController.swift; sourceTree = "<group>"; };
 		134E23DC1FD0F8CD005387B7 /* InforMapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InforMapsViewController.swift; sourceTree = "<group>"; };
 		139E645A1FCF030300117E0B /* BDS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BDS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		139E645D1FCF030300117E0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -239,6 +253,7 @@
 			children = (
 				1344BE031FD12E3000498108 /* LandForSaleViewController.swift */,
 				1344BE051FD12E4100498108 /* LandForSaleViewCell.swift */,
+				1344BE2D1FD162F100498108 /* SearchLandForSaleViewController.swift */,
 			);
 			path = LandForSale;
 			sourceTree = "<group>";
@@ -246,7 +261,11 @@
 		1344BE071FD13ECC00498108 /* ListNewsLike */ = {
 			isa = PBXGroup;
 			children = (
+				1344BE241FD159B800498108 /* PopUp */,
 				1344BE081FD13EEF00498108 /* NewsLikeViewController.swift */,
+				1344BE201FD1558200498108 /* NewsViewController.swift */,
+				1344BE221FD1559200498108 /* NewsViewCell.swift */,
+				1344BE291FD15E4B00498108 /* DetailNewsViewController.swift */,
 			);
 			path = ListNewsLike;
 			sourceTree = "<group>";
@@ -277,6 +296,15 @@
 				1344BE151FD1460C00498108 /* MenuHome.storyboard */,
 			);
 			path = MenuHome;
+			sourceTree = "<group>";
+		};
+		1344BE241FD159B800498108 /* PopUp */ = {
+			isa = PBXGroup;
+			children = (
+				1344BE251FD159CB00498108 /* PopupCategoryNewsViewCell.swift */,
+				1344BE271FD159E000498108 /* PopupCategoryNewsViewController.swift */,
+			);
+			path = PopUp;
 			sourceTree = "<group>";
 		};
 		139E64511FCF030300117E0B = {
@@ -362,6 +390,7 @@
 				139E64961FCF04BA00117E0B /* UIColorExtensions.swift */,
 				139E64A01FCF076700117E0B /* ExtensionUIImageView.swift */,
 				13372E8E1FD009A300041A57 /* GetViewXib.swift */,
+				1344BE2B1FD15EEB00498108 /* ExtensionUILabel.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -872,7 +901,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1344BE281FD159E000498108 /* PopupCategoryNewsViewController.swift in Sources */,
 				1344BE061FD12E4100498108 /* LandForSaleViewCell.swift in Sources */,
+				1344BE261FD159CB00498108 /* PopupCategoryNewsViewCell.swift in Sources */,
 				1344BE131FD143F700498108 /* ContactsViewController.swift in Sources */,
 				13AB37631FCF9EA6000BA67D /* HomeViewController.swift in Sources */,
 				139E64C71FCF08C000117E0B /* LoginViewController.swift in Sources */,
@@ -889,10 +920,12 @@
 				1344BE1F1FD14E2F00498108 /* SearchProjectsViewController.swift in Sources */,
 				139E64B61FCF083900117E0B /* ItemViewCellMenu.swift in Sources */,
 				139E64C31FCF088000117E0B /* UISideMenuNavigationController.swift in Sources */,
+				1344BE2A1FD15E4B00498108 /* DetailNewsViewController.swift in Sources */,
 				139E64C21FCF088000117E0B /* SideMenuTransition.swift in Sources */,
 				1344BE041FD12E3000498108 /* LandForSaleViewController.swift in Sources */,
 				13AB376D1FCFA056000BA67D /* BaseTableViewController.swift in Sources */,
 				13AB37661FCF9EAD000BA67D /* NaviHomeViewController.swift in Sources */,
+				1344BE231FD1559200498108 /* NewsViewCell.swift in Sources */,
 				1344BE0E1FD1417400498108 /* ProjectViewCell.swift in Sources */,
 				139E64CD1FCF08DB00117E0B /* SingUpViewController.swift in Sources */,
 				1344BE0C1FD1415B00498108 /* ProjectsViewController.swift in Sources */,
@@ -904,11 +937,14 @@
 				1344BE091FD13EEF00498108 /* NewsLikeViewController.swift in Sources */,
 				139E64AB1FCF07E500117E0B /* ModelPicker.swift in Sources */,
 				139E64C81FCF08C000117E0B /* ContainerViewController.swift in Sources */,
+				1344BE2C1FD15EEB00498108 /* ExtensionUILabel.swift in Sources */,
 				139E64B91FCF084900117E0B /* ItemMenuObject.swift in Sources */,
 				139E64A51FCF07C600117E0B /* MIDatePicker.swift in Sources */,
 				1344BE111FD143E900498108 /* ContactViewCell.swift in Sources */,
 				139E645E1FCF030300117E0B /* AppDelegate.swift in Sources */,
 				13195E281FD05DC500C60533 /* MapsViewController.swift in Sources */,
+				1344BE2E1FD162F100498108 /* SearchLandForSaleViewController.swift in Sources */,
+				1344BE211FD1558200498108 /* NewsViewController.swift in Sources */,
 				134E23DD1FD0F8CD005387B7 /* InforMapsViewController.swift in Sources */,
 				139E64CC1FCF08DB00117E0B /* ContainerSingUpViewController.swift in Sources */,
 				139E64BC1FCF085500117E0B /* RightMenuViewController.swift in Sources */,

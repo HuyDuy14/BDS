@@ -18,4 +18,10 @@ extension Date
         dateformater.dateFormat = formater
         return dateformater.string(from: self)
     }
+    
+    public var formatDateDD:String {
+        let dateformater = DateFormatter()
+        dateformater.dateFormat = "dd-MM-yyyy"
+        return dateformater.string(from: self)
+    }
 }

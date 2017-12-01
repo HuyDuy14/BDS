@@ -1,5 +1,5 @@
 //
-//  SearchProjectsViewController.swift
+//  SearchLandForSaleViewController.swift
 //  BDS
 //
 //  Created by Duy Huy on 12/1/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchProjectsViewController: BaseViewController {
+class SearchLandForSaleViewController: BaseViewController {
 
     @IBOutlet weak var headerView: HeaderViewController!
     
@@ -53,6 +53,12 @@ class SearchProjectsViewController: BaseViewController {
         
     }
     
+    @IBAction func selectAcreageButtonDidTap(_ sender: Any) {
+        self.pickerView.listData = self.listPicker
+        self.pickerView.index = 0
+        self.pickerView.show(inVC: self)
+    }
+    
     @IBAction func searchButtonDidTap(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let detailSearch = storyboard.instantiateViewController(withIdentifier: "ProjectsViewController") as? ProjectsViewController
@@ -60,10 +66,11 @@ class SearchProjectsViewController: BaseViewController {
         self.pushViewController(viewController: detailSearch!)
     }
     
-
+    
+    
 }
 
-extension SearchProjectsViewController:PickerViewDelegate
+extension SearchLandForSaleViewController:PickerViewDelegate
 {
     func miPickerViewDidCancelSelection(_ amPicker: PickerView) {
         
@@ -73,4 +80,5 @@ extension SearchProjectsViewController:PickerViewDelegate
         
     }
 }
+
 

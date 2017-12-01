@@ -26,7 +26,14 @@ class ProjectsViewController: BaseViewController {
 
     // MARK: - back to mapsviewcontroller
     @IBAction func backToMapsButtonDidTap(_ sender: Any) {
-        SaveCurrentVC.shared.homeController.tutorialPageViewController?.scrollToViewController(index: 2)
+        if isBackHome == true {
+            SaveCurrentVC.shared.homeController.tutorialPageViewController?.scrollToViewController(index: 2)
+        }
+        else
+        {
+           SaveCurrentVC.shared.homeController.tutorialPageViewController?.scrollToViewController(index: 2)
+            self.popToRootViewController(controller: SaveCurrentVC.shared.homeController)
+        }
     }
     
     @IBAction func backToHomeButtonDidTap(_ sender: Any) {

@@ -336,6 +336,9 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uA0-KG-T5X">
                                                 <rect key="frame" x="0.0" y="0.0" width="125" height="128"/>
+                                                <connections>
+                                                    <action selector="searchLandForSaleButtonDidTap:" destination="NZR-W3-kcE" eventType="touchUpInside" id="vSI-6I-Rhd"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -497,6 +500,9 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IRV-sB-oX6">
                                                 <rect key="frame" x="0.0" y="0.0" width="125" height="128"/>
+                                                <connections>
+                                                    <action selector="newsButtonDidTap:" destination="NZR-W3-kcE" eventType="touchUpInside" id="v7t-9Y-V87"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -650,7 +656,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g73-rC-hS0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2110" y="-5"/>
+            <point key="canvasLocation" x="2109.5999999999999" y="-5.8470764617691158"/>
         </scene>
         <!--Maps View Controller-->
         <scene sceneID="MHl-j6-9ZS">

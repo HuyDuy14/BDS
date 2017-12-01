@@ -131,7 +131,9 @@ public extension UIViewController {
     func popToView() {
         self.navigationController?.popViewController(animated: true)
     }
-
+    func popToRootViewController(controller:UIViewController) {
+        self.navigationController?.popToViewController(controller, animated: true)
+    }
     
 }
 

@@ -53,6 +53,9 @@ class LandForSaleViewController: BaseViewController {
     }
     
     @IBAction func searchButtonDidTap(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
+        let searchController = storyboard.instantiateViewController(withIdentifier: "SearchLandForSaleViewController") as? SearchLandForSaleViewController
+        self.pushViewController(viewController: searchController!)
     }
 
 }
