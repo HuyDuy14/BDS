@@ -9,8 +9,11 @@
 import UIKit
 import GoogleMaps
 import GooglePlaces
+import GoogleSignIn
+import FBSDKCoreKit
 
 let API_KEY_GOOGLE = "AIzaSyDeHiOsROpzfS0K2ys91RoZhym8tGSbtYE"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -23,6 +26,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    @available(iOS 9.0, *)
+    func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey: Any])
+        -> Bool {
+            
+            let googleDidHandle = GIDSignIn.sharedInstance().handle(
+                url,
+                sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+                annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+            let facebookDidHandle = FBSDKApplicationDelegate.sharedInstance().application(application, open: url, options: options)
+            return googleDidHandle || facebookDidHandle
+            
+    }
+    
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        
+        let googleDidHandle = GIDSignIn.sharedInstance().handle(url as URL!,
+                                                                sourceApplication: sourceApplication,
+                                                                annotation: annotation)
+        let facebookDidHandle = FBSDKApplicationDelegate.sharedInstance().application(
+            application,
+            open: url as URL!,
+            sourceApplication: sourceApplication,
+            annotation: annotation)
+        
+        return  googleDidHandle || facebookDidHandle
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

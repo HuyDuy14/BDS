@@ -338,6 +338,9 @@
                                                             <real key="value" value="1"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="loginFBButtonDidTap:" destination="fhF-lt-1QO" eventType="touchUpInside" id="JGK-VV-fuJ"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omc-xM-rcP" customClass="CustomRoundButton" customModule="BDS" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="5.5" width="151.5" height="40"/>
@@ -356,6 +359,9 @@
                                                             <real key="value" value="1"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="loginGoogleButtonDidTap:" destination="fhF-lt-1QO" eventType="touchUpInside" id="2Le-Mi-nIM"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -403,9 +409,6 @@
                                                             <real key="value" value="0.0"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
-                                                    <connections>
-                                                        <action selector="resetPassButtonDidTap:" destination="fhF-lt-1QO" eventType="touchUpInside" id="YdG-DW-lz7"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -426,6 +429,8 @@
                     <navigationItem key="navigationItem" id="AMD-WO-5Xa"/>
                     <connections>
                         <outlet property="btnLogin" destination="qPD-S6-b1l" id="eBB-OD-hRd"/>
+                        <outlet property="btnLoginFb" destination="K0c-qE-cKz" id="tRR-v3-MEa"/>
+                        <outlet property="btnLoginGoogle" destination="omc-xM-rcP" id="d7O-y5-P8m"/>
                         <outlet property="email" destination="97A-Vr-1oP" id="Ez4-aF-7eg"/>
                         <outlet property="pass" destination="0TM-ud-zG8" id="nql-9l-p50"/>
                     </connections>

@@ -445,6 +445,9 @@
                     <navigationItem key="navigationItem" id="5IW-Sv-ZcY"/>
                     <connections>
                         <outlet property="btnSingUp" destination="JHi-RJ-Xi6" id="p7d-mQ-ej8"/>
+                        <outlet property="email" destination="x1y-Vu-yQD" id="4RM-nW-QWD"/>
+                        <outlet property="pass" destination="Lpc-fX-U5Q" id="VK0-Bp-agZ"/>
+                        <outlet property="username" destination="IkL-vm-Bdq" id="nRh-9a-J0h"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T62-JE-neD" userLabel="First Responder" sceneMemberID="firstResponder"/>

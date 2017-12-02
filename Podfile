@@ -22,6 +22,10 @@ target 'BDS' do
   pod 'KMPlaceholderTextView'
   pod 'ACProgressHUD'
   pod 'Pulley'
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKShareKit'
+  pod 'FBSDKLoginKit'
+  pod 'GoogleSignIn'
   target 'BDSTests' do
     inherit! :search_paths
     # Pods for testing

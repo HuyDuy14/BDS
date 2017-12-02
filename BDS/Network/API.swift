@@ -10,6 +10,10 @@ import UIKit
 
 class API: NSObject {
 
-    static var serverURL = "http://truongtieuhoc.vn/web_service/"
-    static var settingApp = "tth-setting-button.php"
+    static var serverURL = "https://chobatdongsan.com.vn/webservice/"
+    static var registerUser = "register.php"
+    static var loginUser = "login.php"
+    static var getCity = "get_city.php"
+    static var loginFB = "loginfb.php"
+    static var loginGG = "logingg.php"
 }

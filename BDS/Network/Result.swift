@@ -12,7 +12,7 @@ import UIKit
 class Result:NSObject {
     
     var status: Int!
-    var message: String?
+    var message: String = ""
     var data: [String : Any]?
     var dataArray:NSArray?
     var error:NSError!
@@ -23,14 +23,13 @@ class Result:NSObject {
     }
     
     internal  init(result:NSDictionary) {
-        self.status = result.object(forKey: "code") as? Int
-        self.message = result.object(forKey: "msg") as? String
+        self.status = result.object(forKey: "errorId") as? Int
+        self.message = (result.object(forKey: "message") as? String) ?? ""
         if let data = result.object(forKey: "data")  as? [String : Any] {
             self.data = data
         } else {
             self.dataArray = result.object(forKey: "data")  as? NSArray
         }
-        self.url = (result.object(forKey: "url") as? String ?? "")
     }
 }
 

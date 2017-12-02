@@ -73,6 +73,9 @@
 		13AB37681FCF9FAC000BA67D /* NaviLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AB37671FCF9FAC000BA67D /* NaviLoginViewController.swift */; };
 		13AB376C1FCFA056000BA67D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AB376A1FCFA056000BA67D /* BaseViewController.swift */; };
 		13AB376D1FCFA056000BA67D /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AB376B1FCFA056000BA67D /* BaseTableViewController.swift */; };
+		13FB33121FD2C33C00FC5B55 /* ModelCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FB33111FD2C33C00FC5B55 /* ModelCity.swift */; };
+		13FB33141FD2F0B800FC5B55 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FB33131FD2F0B800FC5B55 /* Util.swift */; };
+		13FB33161FD2FA2100FC5B55 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13FB33151FD2FA2100FC5B55 /* GoogleService-Info.plist */; };
 		2A6A97D6285928BA06896700 /* Pods_BDS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A82C875BBC16DE7D48AEA19F /* Pods_BDS.framework */; };
 		7D1611BDE519527BFB3733E3 /* Pods_BDSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13A027B7BA22F07E221AA08B /* Pods_BDSUITests.framework */; };
 		FDF5F9EFC7884E57D38CD649 /* Pods_BDSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B22BDC33268E63372188012D /* Pods_BDSTests.framework */; };
@@ -169,6 +172,9 @@
 		13AB37671FCF9FAC000BA67D /* NaviLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviLoginViewController.swift; sourceTree = "<group>"; };
 		13AB376A1FCFA056000BA67D /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		13AB376B1FCFA056000BA67D /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
+		13FB33111FD2C33C00FC5B55 /* ModelCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCity.swift; sourceTree = "<group>"; };
+		13FB33131FD2F0B800FC5B55 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		13FB33151FD2FA2100FC5B55 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2606DAFFDB4CDFDC8A3E08E1 /* Pods-BDS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BDS.release.xcconfig"; path = "Pods/Target Support Files/Pods-BDS/Pods-BDS.release.xcconfig"; sourceTree = "<group>"; };
 		7FAE74201135EFE1B63FFA08 /* Pods-BDSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BDSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BDSUITests/Pods-BDSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9BAE4B0B6757005A3C69BD2D /* Pods-BDSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BDSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BDSTests/Pods-BDSTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -244,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				13372E9A1FD0118400041A57 /* SaveCurrentVC.swift */,
+				13FB33131FD2F0B800FC5B55 /* Util.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -332,6 +339,7 @@
 		139E645C1FCF030300117E0B /* BDS */ = {
 			isa = PBXGroup;
 			children = (
+				13FB33151FD2FA2100FC5B55 /* GoogleService-Info.plist */,
 				13372E991FD0116D00041A57 /* Util */,
 				139E649A1FCF04D900117E0B /* MVC */,
 				139E64931FCF04A900117E0B /* Extension */,
@@ -422,6 +430,7 @@
 		139E649C1FCF04E600117E0B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				13FB33101FD2C32700FC5B55 /* City */,
 				139E64B71FCF084000117E0B /* Menu */,
 			);
 			path = Model;
@@ -564,6 +573,14 @@
 			path = BaseController;
 			sourceTree = "<group>";
 		};
+		13FB33101FD2C32700FC5B55 /* City */ = {
+			isa = PBXGroup;
+			children = (
+				13FB33111FD2C33C00FC5B55 /* ModelCity.swift */,
+			);
+			path = City;
+			sourceTree = "<group>";
+		};
 		CFDE574777E5158DA4BE5493 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -695,6 +712,7 @@
 				139E64B21FCF07F800117E0B /* HeaderViewController.xib in Resources */,
 				139E64CF1FCF091800117E0B /* Login.storyboard in Resources */,
 				1344BE161FD1460C00498108 /* MenuHome.storyboard in Resources */,
+				13FB33161FD2FA2100FC5B55 /* GoogleService-Info.plist in Resources */,
 				139E64681FCF030300117E0B /* LaunchScreen.storyboard in Resources */,
 				139E64651FCF030300117E0B /* Assets.xcassets in Resources */,
 				139E64631FCF030300117E0B /* Main.storyboard in Resources */,
@@ -826,7 +844,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-BDS/Pods-BDS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ACProgressHUD/ACProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FTIndicator/FTIndicator.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/KMPlaceholderTextView/KMPlaceholderTextView.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
@@ -841,7 +866,14 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ACProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FTIndicator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMPlaceholderTextView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
@@ -884,6 +916,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-BDS/Pods-BDS-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -911,6 +944,7 @@
 				139E64B11FCF07F800117E0B /* HeaderViewController.swift in Sources */,
 				13195E251FD05B4600C60533 /* HomeMenuViewController.swift in Sources */,
 				139E64901FCF049400117E0B /* Result.swift in Sources */,
+				13FB33121FD2C33C00FC5B55 /* ModelCity.swift in Sources */,
 				139E64971FCF04BA00117E0B /* ExtensionDate.swift in Sources */,
 				139E64601FCF030300117E0B /* ViewController.swift in Sources */,
 				1344BE181FD149D800498108 /* SearchContactViewController.swift in Sources */,
@@ -922,6 +956,7 @@
 				139E64C31FCF088000117E0B /* UISideMenuNavigationController.swift in Sources */,
 				1344BE2A1FD15E4B00498108 /* DetailNewsViewController.swift in Sources */,
 				139E64C21FCF088000117E0B /* SideMenuTransition.swift in Sources */,
+				13FB33141FD2F0B800FC5B55 /* Util.swift in Sources */,
 				1344BE041FD12E3000498108 /* LandForSaleViewController.swift in Sources */,
 				13AB376D1FCFA056000BA67D /* BaseTableViewController.swift in Sources */,
 				13AB37661FCF9EAD000BA67D /* NaviHomeViewController.swift in Sources */,
@@ -1125,7 +1160,7 @@
 				INFOPLIST_FILE = BDS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.huy.BDS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.huy.BDS.vn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1142,7 +1177,7 @@
 				INFOPLIST_FILE = BDS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.huy.BDS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.huy.BDS.vn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

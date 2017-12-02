@@ -13,10 +13,9 @@ import ACProgressHUD
 
 class APIClient: NSObject {
     static let shared = APIClient()
-    var header: HTTPHeaders = [
-        "Authorization": "Basic b21paHJtOm9taW5leHQyMDE3"
-        ] as HTTPHeaders
-    
+    let headers = [
+        "Content-Type": "application/x-www-form-urlencoded"
+    ]
     //MARK: - Base function. Not change this section
     //======================================================
     func request(path: String, method: HTTPMethod, params: Parameters!) -> Observable<Result> {
@@ -24,24 +23,22 @@ class APIClient: NSObject {
         let manager = Alamofire.SessionManager.default
         manager.session.configuration.timeoutIntervalForRequest = 180
         
-        
         let url = URL(string: "\(API.serverURL)\(path)")
         return Observable.create {
             observer in
-            let request = Alamofire.request(url!, method: method, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON {
+            let request = Alamofire.request(url!, method: method, parameters: params, encoding: URLEncoding.httpBody, headers: self.headers).responseJSON {
                 response in
                 switch response.result {
                 case .success(let value):
                     if let dict = value as? NSDictionary {
-                        if let result: Result = Result(result: dict) {
-                            if result.status == 200 {
-                                observer.onNext(result)
-                            } else {
-                                self.showAlert(message: result.message!)
-                                //                                 observer.onNext(result)
-                                ACProgressHUD.hide()
-                            }
+                        let result = Result(result: dict)
+                        if result.status == 200 {
+                            observer.onNext(result)
+                        } else {
+                            self.showAlert(message: result.message)
+                            ACProgressHUD.hide()
                         }
+                        
                     }
                 case .failure(let error):
                     print(error)
@@ -56,10 +53,11 @@ class APIClient: NSObject {
         }
     }
     
-    func requestChat(path: String, method: HTTPMethod, params: Parameters!) -> Observable<Result> {
+    func requestGet(path: String, method: HTTPMethod, params: Parameters!) -> Observable<Result> {
         // Set timeout for 3'
         let manager = Alamofire.SessionManager.default
         manager.session.configuration.timeoutIntervalForRequest = 180
+        
         let url = URL(string: "\(API.serverURL)\(path)")
         return Observable.create {
             observer in
@@ -68,17 +66,18 @@ class APIClient: NSObject {
                 switch response.result {
                 case .success(let value):
                     if let dict = value as? NSDictionary {
-                        if let result: Result = Result(result: dict) {
-                            if result.status == 200 {
-                                observer.onNext(result)
-                            } else {
-                                ACProgressHUD.hide()
-                            }
+                        let result = Result(result: dict)
+                        if result.status == 200 {
+                            observer.onNext(result)
+                        } else {
+                            self.showAlert(message: result.message)
+                            ACProgressHUD.hide()
                         }
+                        
                     }
-                case .failure(_):
-                    //                    print(error)
-                    //                    self.showAlert(message: "Lỗi mạng mời bạn kiểm tra lại")
+                case .failure(let error):
+                    print(error)
+                    self.showAlert(message: "Lỗi mạng mời bạn kiểm tra lại")
                     ACProgressHUD.hide()
                 }
                 observer.onCompleted()
@@ -88,7 +87,7 @@ class APIClient: NSObject {
             }
         }
     }
-    
+   
     func requestUploadImage(path: String, image: UIImage, method: HTTPMethod, params: Parameters!, completion: ((_ result: Result) -> Void)?)
     {
         let manager = Alamofire.SessionManager.default
@@ -114,14 +113,15 @@ class APIClient: NSObject {
                 
                 upload.responseJSON { response in
                     if let dict = response.result.value as? NSDictionary {
-                        if let result: Result = Result(result: dict) {
-                            if result.status == 200 {
-                                completion?(result)
-                            } else {
-                                ACProgressHUD.hide()
-                            }
+                        let result = Result(result: dict)
+                        if result.status == 200 {
+                            completion?(result)
+                        } else {
+                            
+                            ACProgressHUD.hide()
                         }
-                    } else
+                    }
+                    else
                     {
                         self.showAlert(message: "Gặp vấn đề khi tải ảnh mời bạn thử lại")
                         ACProgressHUD.hide()
@@ -143,20 +143,47 @@ class APIClient: NSObject {
     //MARK: - Request error
     
     //MARK: - Authen API
-    func settingApp() -> Observable<Result> {
-        return self.request(path: API.settingApp, method: .post, params: nil)
-    }
     
-    func login(nameUser: String, password: String) -> Observable<Result> {
+    func registerUser(email:String,username:String,password:String) -> Observable<Result>
+    {
         let params: Parameters = [
-            "txtNameId": nameUser,
-            "txtPassword": password,
-            "type-send": 2
+            "email": email,
+            "username": username,
+            "password": password
             ] as Parameters
-        return self.request(path: API.settingApp, method: .post, params: params)
+        return self.request(path: API.registerUser, method: .post, params: params)
     }
     
-
+    func login(username: String, password: String) -> Observable<Result> {
+        let params: Parameters = [
+            "username": username,
+            "password": password
+            ] as Parameters
+        return self.requestGet(path: API.loginUser, method: .get, params: params)
+    }
+    
+    func getCity() -> Observable<Result> {
+        return self.requestGet(path: API.getCity, method: .get, params: nil)
+    }
+    
+    func loginFB(fbid:String,name:String)-> Observable<Result>
+    {
+        let params: Parameters = [
+            "fbid": fbid
+//            "name":name
+            ] as Parameters
+        return self.requestGet(path: API.loginFB, method: .get, params: params)
+    }
+    
+    func loginGG(email:String,fbid:String,name:String)-> Observable<Result>
+    {
+        let params: Parameters = [
+            "email":email,
+            "ggid": fbid,
+            "name":name
+            ] as Parameters
+        return self.requestGet(path: API.loginGG, method: .get, params: params)
+    }
     
     func showAlert(message: String) {
         _ = UIAlertView.show(withTitle: "", message: NSLocalizedString(message, comment: ""), cancelButtonTitle: "OK", otherButtonTitles: nil, tap: nil)
