@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class ProjectsViewController: BaseViewController {
 
@@ -15,15 +17,25 @@ class ProjectsViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var isBackHome:Bool = true
-    
+    let disposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-       
-        
+        self.loadData()
+    
     }
-
+    // MARK: - Get data
+    func loadData()
+    {
+        self.showHUD("")
+        APIClient.shared.getLandForSale(type: "sale").asObservable().bind(onNext: {result in
+            
+            self.hideHUD()
+            
+        }).disposed(by: self.disposeBag)
+    }
+    
     // MARK: - back to mapsviewcontroller
     @IBAction func backToMapsButtonDidTap(_ sender: Any) {
         if isBackHome == true {

@@ -29,7 +29,7 @@ extension UIImageView {
         }
     }
     
-    func setImageUrlQBChat(url:String!){
+    func setImageUrlNews(url:String!){
         if url != nil && url != "" {
             self.kf.setImage(with: URL(string: url), placeholder: UIImage(named: "icon_plachoder_chat"))
         } else {

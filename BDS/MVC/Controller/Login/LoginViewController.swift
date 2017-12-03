@@ -89,7 +89,7 @@ class LoginViewController: BaseTableViewController {
     func login(username: String, pass: String) {
         self.showHUD("Login")
         APIClient.shared.login(username: username, password: pass).asObservable().bind(onNext: { result in
-            AppDelegate.shared?.setHomeRootViewControoler()
+            
             UserDefaults.standard.set("", forKey: FBID)
             UserDefaults.standard.set("", forKey: FBNAME)
             UserDefaults.standard.set(username, forKey: USERNAME)
@@ -97,6 +97,8 @@ class LoginViewController: BaseTableViewController {
             UserDefaults.standard.set("", forKey: GGID)
             UserDefaults.standard.set("", forKey: GGEMAIL)
             UserDefaults.standard.set("", forKey: GGNAME)
+            Util.shared.currentUser = UserModel(JSON: result.data!)!
+            AppDelegate.shared?.setHomeRootViewControoler()
             self.hideHUD()
         }).disposed(by: self.disposeBag)
     }
@@ -188,12 +190,13 @@ extension LoginViewController
     func loginWidth_fb( fbid: String,name:String) {
         self.showHUD("Login")
         APIClient.shared.loginFB( fbid: fbid, name: name).asObservable().bind(onNext: { result in
-            AppDelegate.shared?.setHomeRootViewControoler()
              UserDefaults.standard.set(fbid, forKey: FBID)
              UserDefaults.standard.set(name, forKey: FBNAME)
              UserDefaults.standard.set("", forKey: USERNAME)
              UserDefaults.standard.set("", forKey: PASSWORD)
              UserDefaults.standard.set("", forKey: GGID)
+             Util.shared.currentUser = UserModel(JSON: result.data!)!
+             AppDelegate.shared?.setHomeRootViewControoler()
             self.hideHUD()
         }).disposed(by: self.disposeBag)
     }
@@ -214,7 +217,6 @@ extension LoginViewController:GIDSignInDelegate,GIDSignInUIDelegate
     {
         self.showHUD("Login")
         APIClient.shared.loginGG(email: email, fbid: ggID, name: name).asObservable().bind(onNext: { result in
-            AppDelegate.shared?.setHomeRootViewControoler()
             UserDefaults.standard.set("", forKey: FBID)
             UserDefaults.standard.set("", forKey: FBNAME)
             UserDefaults.standard.set("", forKey: USERNAME)
@@ -222,6 +224,8 @@ extension LoginViewController:GIDSignInDelegate,GIDSignInUIDelegate
             UserDefaults.standard.set(ggID, forKey: GGID)
             UserDefaults.standard.set(email, forKey: GGEMAIL)
             UserDefaults.standard.set(name, forKey: GGNAME)
+            Util.shared.currentUser = UserModel(JSON: result.data!)!
+            AppDelegate.shared?.setHomeRootViewControoler()
             self.hideHUD()
         }).disposed(by: self.disposeBag)
     }

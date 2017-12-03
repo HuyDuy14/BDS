@@ -73,6 +73,11 @@
 		13AB37681FCF9FAC000BA67D /* NaviLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AB37671FCF9FAC000BA67D /* NaviLoginViewController.swift */; };
 		13AB376C1FCFA056000BA67D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AB376A1FCFA056000BA67D /* BaseViewController.swift */; };
 		13AB376D1FCFA056000BA67D /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AB376B1FCFA056000BA67D /* BaseTableViewController.swift */; };
+		13B744531FD3BF5300A778A7 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B744521FD3BF5300A778A7 /* UserModel.swift */; };
+		13B744551FD3C53F00A778A7 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B744541FD3C53F00A778A7 /* NewsModel.swift */; };
+		13B744581FD3CBE700A778A7 /* news.html in Resources */ = {isa = PBXBuildFile; fileRef = 13B744571FD3CBE600A778A7 /* news.html */; };
+		13B7445A1FD3D1EC00A778A7 /* BrokerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B744591FD3D1EC00A778A7 /* BrokerModel.swift */; };
+		13B7445C1FD3D37B00A778A7 /* DistrictModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7445B1FD3D37B00A778A7 /* DistrictModel.swift */; };
 		13FB33121FD2C33C00FC5B55 /* ModelCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FB33111FD2C33C00FC5B55 /* ModelCity.swift */; };
 		13FB33141FD2F0B800FC5B55 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FB33131FD2F0B800FC5B55 /* Util.swift */; };
 		13FB33161FD2FA2100FC5B55 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13FB33151FD2FA2100FC5B55 /* GoogleService-Info.plist */; };
@@ -172,6 +177,11 @@
 		13AB37671FCF9FAC000BA67D /* NaviLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviLoginViewController.swift; sourceTree = "<group>"; };
 		13AB376A1FCFA056000BA67D /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		13AB376B1FCFA056000BA67D /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
+		13B744521FD3BF5300A778A7 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		13B744541FD3C53F00A778A7 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		13B744571FD3CBE600A778A7 /* news.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = news.html; sourceTree = "<group>"; };
+		13B744591FD3D1EC00A778A7 /* BrokerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrokerModel.swift; sourceTree = "<group>"; };
+		13B7445B1FD3D37B00A778A7 /* DistrictModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistrictModel.swift; sourceTree = "<group>"; };
 		13FB33111FD2C33C00FC5B55 /* ModelCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCity.swift; sourceTree = "<group>"; };
 		13FB33131FD2F0B800FC5B55 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		13FB33151FD2FA2100FC5B55 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -416,6 +426,7 @@
 		139E649B1FCF04E100117E0B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				13B744561FD3CBDC00A778A7 /* WebView */,
 				13AB37691FCFA038000BA67D /* BaseController */,
 				139E64BD1FCF086000117E0B /* CustomerMenu */,
 				139E64B31FCF081400117E0B /* Cell */,
@@ -432,6 +443,9 @@
 			children = (
 				13FB33101FD2C32700FC5B55 /* City */,
 				139E64B71FCF084000117E0B /* Menu */,
+				13B744521FD3BF5300A778A7 /* UserModel.swift */,
+				13B744541FD3C53F00A778A7 /* NewsModel.swift */,
+				13B744591FD3D1EC00A778A7 /* BrokerModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -573,10 +587,19 @@
 			path = BaseController;
 			sourceTree = "<group>";
 		};
+		13B744561FD3CBDC00A778A7 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				13B744571FD3CBE600A778A7 /* news.html */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
 		13FB33101FD2C32700FC5B55 /* City */ = {
 			isa = PBXGroup;
 			children = (
 				13FB33111FD2C33C00FC5B55 /* ModelCity.swift */,
+				13B7445B1FD3D37B00A778A7 /* DistrictModel.swift */,
 			);
 			path = City;
 			sourceTree = "<group>";
@@ -708,6 +731,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				139E64AD1FCF07E500117E0B /* PickerView.xib in Resources */,
+				13B744581FD3CBE700A778A7 /* news.html in Resources */,
 				13372E951FD00C1200041A57 /* User.storyboard in Resources */,
 				139E64B21FCF07F800117E0B /* HeaderViewController.xib in Resources */,
 				139E64CF1FCF091800117E0B /* Login.storyboard in Resources */,
@@ -936,6 +960,7 @@
 			files = (
 				1344BE281FD159E000498108 /* PopupCategoryNewsViewController.swift in Sources */,
 				1344BE061FD12E4100498108 /* LandForSaleViewCell.swift in Sources */,
+				13B7445A1FD3D1EC00A778A7 /* BrokerModel.swift in Sources */,
 				1344BE261FD159CB00498108 /* PopupCategoryNewsViewCell.swift in Sources */,
 				1344BE131FD143F700498108 /* ContactsViewController.swift in Sources */,
 				13AB37631FCF9EA6000BA67D /* HomeViewController.swift in Sources */,
@@ -961,6 +986,8 @@
 				13AB376D1FCFA056000BA67D /* BaseTableViewController.swift in Sources */,
 				13AB37661FCF9EAD000BA67D /* NaviHomeViewController.swift in Sources */,
 				1344BE231FD1559200498108 /* NewsViewCell.swift in Sources */,
+				13B7445C1FD3D37B00A778A7 /* DistrictModel.swift in Sources */,
+				13B744551FD3C53F00A778A7 /* NewsModel.swift in Sources */,
 				1344BE0E1FD1417400498108 /* ProjectViewCell.swift in Sources */,
 				139E64CD1FCF08DB00117E0B /* SingUpViewController.swift in Sources */,
 				1344BE0C1FD1415B00498108 /* ProjectsViewController.swift in Sources */,
@@ -984,6 +1011,7 @@
 				139E64CC1FCF08DB00117E0B /* ContainerSingUpViewController.swift in Sources */,
 				139E64BC1FCF085500117E0B /* RightMenuViewController.swift in Sources */,
 				139E649F1FCF050300117E0B /* CustomUIView.swift in Sources */,
+				13B744531FD3BF5300A778A7 /* UserModel.swift in Sources */,
 				13372E9B1FD0118400041A57 /* SaveCurrentVC.swift in Sources */,
 				139E64991FCF04BA00117E0B /* UIColorExtensions.swift in Sources */,
 				13AB37681FCF9FAC000BA67D /* NaviLoginViewController.swift in Sources */,

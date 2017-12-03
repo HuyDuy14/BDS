@@ -14,7 +14,7 @@ class Result:NSObject {
     var status: Int!
     var message: String = ""
     var data: [String : Any]?
-    var dataArray:NSArray?
+    var dataArray:NSArray =  NSArray()
     var error:NSError!
     var url:String!
     
@@ -28,7 +28,7 @@ class Result:NSObject {
         if let data = result.object(forKey: "data")  as? [String : Any] {
             self.data = data
         } else {
-            self.dataArray = result.object(forKey: "data")  as? NSArray
+            self.dataArray = result.object(forKey: "data")  as? NSArray ?? []
         }
     }
 }

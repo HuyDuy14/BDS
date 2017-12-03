@@ -162,15 +162,12 @@ class APIClient: NSObject {
         return self.requestGet(path: API.loginUser, method: .get, params: params)
     }
     
-    func getCity() -> Observable<Result> {
-        return self.requestGet(path: API.getCity, method: .get, params: nil)
-    }
-    
     func loginFB(fbid:String,name:String)-> Observable<Result>
     {
         let params: Parameters = [
-            "fbid": fbid
-//            "name":name
+            "fbid": fbid,
+            "name":"",
+            "email": ""
             ] as Parameters
         return self.requestGet(path: API.loginFB, method: .get, params: params)
     }
@@ -183,6 +180,47 @@ class APIClient: NSObject {
             "name":name
             ] as Parameters
         return self.requestGet(path: API.loginGG, method: .get, params: params)
+    }
+    
+    func getCity() -> Observable<Result> {
+        return self.requestGet(path: API.getCity, method: .get, params: nil)
+    }
+    
+    func getDistrict(id:String) -> Observable<Result> {
+        let params: Parameters = [
+            "id":id
+            ] as Parameters
+        return self.requestGet(path: API.district, method: .get, params: params)
+    }
+    
+    func getWard(id_city:String,id_district:String) -> Observable<Result> {
+        let params: Parameters = [
+            "id_city":id_city,
+            id_district:id_district
+            ] as Parameters
+        return self.requestGet(path: API.getWard, method: .get, params: params)
+    }
+    
+    func getLandForSale(type:String) -> Observable<Result> {
+        let params: Parameters = [
+            "type":type
+            ] as Parameters
+        return self.requestGet(path: API.landForSale, method: .get, params: params)
+    }
+    
+    func getNews(id:String) -> Observable<Result> {
+        let params: Parameters = [
+            "id":id
+            ] as Parameters
+        return self.requestGet(path: API.getNews, method: .get, params: params)
+    }
+    
+    func saveNews(id:String) -> Observable<Result> {
+        let params: Parameters =
+            [
+                "id":id
+            ] as Parameters
+        return self.requestGet(path: API.saveNews, method: .get, params: params)
     }
     
     func showAlert(message: String) {

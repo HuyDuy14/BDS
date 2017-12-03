@@ -50,7 +50,7 @@ class SingUpViewController: BaseTableViewController {
             return
         }
         
-        if Util.shared.isValidEmail(email: self.email.text!)
+        if !Util.shared.isValidEmail(email: self.email.text!)
         {
             self.showAlert("Nhập sai định dạng email")
             self.email.becomeFirstResponder()
