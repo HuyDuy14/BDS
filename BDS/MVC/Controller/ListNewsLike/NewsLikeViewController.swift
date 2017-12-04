@@ -30,7 +30,7 @@ class NewsLikeViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.getDataNews()
+        self.tbaleView.reloadData()
     }
     
     func refresh(_ sender: Any) {
@@ -75,6 +75,7 @@ extension NewsLikeViewController:UITableViewDelegate,UITableViewDataSource
             let cell = self.tbaleView.dequeueReusableCell(withIdentifier: "NewsLikeViewCell") as! LandForSaleViewCell
             cell.loadDataNewsCell(cell: self.listData[indexPath.row], index: indexPath.row)
             cell.delegate = self
+            cell.imageLike.tintColor = UIColor.red
             return cell
         }
         return UITableViewCell()

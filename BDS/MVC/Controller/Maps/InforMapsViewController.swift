@@ -95,7 +95,7 @@ class InforMapsViewController: BaseViewController {
                 if  velocity.y >= 0 {
                     self.view.frame = CGRect(x: 0, y: self.partialView, width: self.view.frame.width, height: self.view.frame.height)
                 } else {
-                    self.view.frame = CGRect(x: 0, y: self.fullView, width: self.view.frame.width, height: self.view.frame.height)
+                    self.view.frame = CGRect(x: 0, y: self.fullView, width: self.view.frame.width, height: self.partialView)
                 }
                 
             }, completion: { [weak self] _ in

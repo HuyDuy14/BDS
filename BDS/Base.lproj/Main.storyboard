@@ -916,8 +916,8 @@
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HuyDuy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAn-PA-d3M">
-                                        <rect key="frame" x="20" y="136" width="335" height="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAn-PA-d3M">
+                                        <rect key="frame" x="20" y="136" width="335" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1088,6 +1088,7 @@
                     <navigationItem key="navigationItem" id="dEC-kk-G3C"/>
                     <connections>
                         <outlet property="tableView" destination="9iv-yV-om2" id="liK-hT-Czw"/>
+                        <outlet property="username" destination="xAn-PA-d3M" id="FSU-NK-IQA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o4y-VH-Zix" userLabel="First Responder" sceneMemberID="firstResponder"/>

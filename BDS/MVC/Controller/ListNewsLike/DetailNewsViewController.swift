@@ -69,7 +69,7 @@ class DetailNewsViewController: BaseViewController {
         {
             APIClient.shared.cancelNews(id: news.id).asObservable().bind(onNext: { result in
                 self.hideHUD()
-               for i in 0..<Util.shared.listNewsSave.count
+               for i in 0..<Util.shared.listNewsSave.count - 1
                {
                     if Util.shared.listNewsSave[i].id == self.news.id {
                         Util.shared.listNewsSave.remove(at: i)
