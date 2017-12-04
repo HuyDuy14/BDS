@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ACProgressHUD
+import ACProgressHUD_Swift
 import UIAlertView_Blocks
 import RxSwift
 import RxCocoa

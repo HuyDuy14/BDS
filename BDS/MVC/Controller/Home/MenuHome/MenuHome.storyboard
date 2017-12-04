@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -547,25 +548,6 @@
                                     <constraint firstItem="Fwm-4S-nsm" firstAttribute="leading" secondItem="yCJ-Qg-lKW" secondAttribute="leading" constant="60" id="gMW-MI-gVO"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYY-08-FB2">
-                                <rect key="frame" x="94" y="500" width="187.5" height="40"/>
-                                <color key="backgroundColor" red="0.31764705879999999" green="0.67843137249999996" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="QTs-sP-bcD"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                <state key="normal" title="Tìm kiếm dự án">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="6"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="searchButtonDidTap:" destination="bxi-YZ-SyD" eventType="touchUpInside" id="GsX-B3-POj"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6eb-dm-fjw">
                                 <rect key="frame" x="0.0" y="390" width="375" height="80"/>
                                 <subviews>
@@ -614,6 +596,25 @@
                                     <constraint firstItem="w26-DO-Nbo" firstAttribute="leading" secondItem="6eb-dm-fjw" secondAttribute="leading" constant="60" id="tpb-ky-rxL"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYY-08-FB2">
+                                <rect key="frame" x="94" y="500" width="187.5" height="40"/>
+                                <color key="backgroundColor" red="0.31764705879999999" green="0.67843137249999996" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="QTs-sP-bcD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="Tìm kiếm dự án">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="searchButtonDidTap:" destination="bxi-YZ-SyD" eventType="touchUpInside" id="GsX-B3-POj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -642,7 +643,11 @@
                         <viewLayoutGuide key="safeArea" id="Xkg-V0-bgW"/>
                     </view>
                     <connections>
+                        <outlet property="city" destination="AqN-oD-j0x" id="Sb3-lS-AGM"/>
+                        <outlet property="district" destination="Fwm-4S-nsm" id="ojU-R7-vVy"/>
                         <outlet property="headerView" destination="ZZc-lB-7z3" id="kGP-tq-KSO"/>
+                        <outlet property="monney" destination="w26-DO-Nbo" id="jT9-Bs-ifv"/>
+                        <outlet property="typeLand" destination="lBz-Iq-Brx" id="izL-bk-NUY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gku-zG-5IS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -814,6 +819,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cil-FZ-OF2">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <connections>
+                                    <action selector="closeViewButtonDidTap:" destination="T2O-Bb-Iyf" eventType="touchUpInside" id="pmA-ao-1OD"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Csk-Zf-b72">
                                 <rect key="frame" x="50" y="144" width="275" height="400"/>
                                 <subviews>
@@ -860,14 +871,14 @@
                                                             </constraints>
                                                         </view>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_category_news" translatesAutoresizingMaskIntoConstraints="NO" id="ol8-A8-EEW">
-                                                            <rect key="frame" x="30" y="10" width="24" height="24"/>
+                                                            <rect key="frame" x="12" y="10" width="24" height="24"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="24" id="AoL-Gj-Uyf"/>
                                                                 <constraint firstAttribute="width" constant="24" id="h2Y-Qi-o0L"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pB-T6-zBy">
-                                                            <rect key="frame" x="58" y="13.5" width="39" height="18"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pB-T6-zBy">
+                                                            <rect key="frame" x="40" y="13.5" width="216" height="18"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -878,7 +889,8 @@
                                                         <constraint firstAttribute="bottom" secondItem="fG5-lK-eam" secondAttribute="bottom" id="GYE-ZT-mf3"/>
                                                         <constraint firstAttribute="trailing" secondItem="fG5-lK-eam" secondAttribute="trailing" id="GYd-2n-c69"/>
                                                         <constraint firstItem="fG5-lK-eam" firstAttribute="leading" secondItem="mkH-De-Mhd" secondAttribute="leading" id="Kum-qW-ysC"/>
-                                                        <constraint firstItem="ol8-A8-EEW" firstAttribute="leading" secondItem="mkH-De-Mhd" secondAttribute="leading" constant="30" id="pIp-Ht-d6a"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="4pB-T6-zBy" secondAttribute="trailing" constant="4" id="aGs-Fw-fGa"/>
+                                                        <constraint firstItem="ol8-A8-EEW" firstAttribute="leading" secondItem="mkH-De-Mhd" secondAttribute="leading" constant="12" id="pIp-Ht-d6a"/>
                                                         <constraint firstItem="ol8-A8-EEW" firstAttribute="centerY" secondItem="mkH-De-Mhd" secondAttribute="centerY" id="rey-jO-I26"/>
                                                         <constraint firstItem="4pB-T6-zBy" firstAttribute="leading" secondItem="ol8-A8-EEW" secondAttribute="trailing" constant="4" id="wrB-m5-vA9"/>
                                                     </constraints>
@@ -923,22 +935,18 @@
                             <constraint firstItem="Csk-Zf-b72" firstAttribute="leading" secondItem="mwH-un-c4W" secondAttribute="leading" constant="50" id="E5P-LN-ACG"/>
                             <constraint firstItem="mwH-un-c4W" firstAttribute="trailing" secondItem="Csk-Zf-b72" secondAttribute="trailing" constant="50" id="PYX-2v-mnw"/>
                             <constraint firstItem="Csk-Zf-b72" firstAttribute="centerY" secondItem="mwH-un-c4W" secondAttribute="centerY" id="UQf-05-PgU"/>
+                            <constraint firstItem="cil-FZ-OF2" firstAttribute="leading" secondItem="mwH-un-c4W" secondAttribute="leading" id="blW-JU-6y4"/>
+                            <constraint firstItem="cil-FZ-OF2" firstAttribute="top" secondItem="mwH-un-c4W" secondAttribute="top" id="duU-hB-NaG"/>
+                            <constraint firstItem="mwH-un-c4W" firstAttribute="bottom" secondItem="cil-FZ-OF2" secondAttribute="bottom" id="etT-Wj-sHs"/>
+                            <constraint firstItem="mwH-un-c4W" firstAttribute="trailing" secondItem="cil-FZ-OF2" secondAttribute="trailing" id="wKg-u6-N2B"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mwH-un-c4W"/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="101-fc-2WS" appends="YES" id="cMz-XC-h6l"/>
-                        </connections>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="nPT-7z-iiQ" id="9IB-pf-MV8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QEm-3x-xsV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="101-fc-2WS">
-                    <connections>
-                        <action selector="closeViewButtonDidTap:" destination="T2O-Bb-Iyf" id="Yoa-Id-6WW"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="5085.6000000000004" y="1312.8935532233884"/>
         </scene>
@@ -1020,6 +1028,13 @@
                                         </constraints>
                                         <state key="normal" image="icon_in_news"/>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_like" translatesAutoresizingMaskIntoConstraints="NO" id="SN7-lt-dPr">
+                                        <rect key="frame" x="284" y="23" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="24" id="p8h-md-uMx"/>
+                                            <constraint firstAttribute="height" constant="24" id="qoX-EH-NJu"/>
+                                        </constraints>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OT6-Aw-a7a">
                                         <rect key="frame" x="271" y="10" width="50" height="50"/>
                                         <constraints>
@@ -1027,20 +1042,22 @@
                                             <constraint firstAttribute="width" constant="50" id="aME-Ae-T9e"/>
                                         </constraints>
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" image="icon_like"/>
                                         <connections>
+                                            <action selector="saveNewsButtonDidTap:" destination="9Lx-rq-0GT" eventType="touchUpInside" id="BUX-YP-fW8"/>
                                             <action selector="selectCategoryButtonDidTap:" destination="Y1H-Yn-zci" eventType="touchUpInside" id="u2b-8x-hK2"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="SN7-lt-dPr" firstAttribute="centerX" secondItem="OT6-Aw-a7a" secondAttribute="centerX" id="BXF-LQ-hMh"/>
                                     <constraint firstItem="LTn-bB-cHM" firstAttribute="leading" secondItem="Bu6-ou-JOg" secondAttribute="leading" id="HjE-S1-Loa"/>
                                     <constraint firstAttribute="height" constant="70" id="K0c-DZ-H3h"/>
                                     <constraint firstItem="wKt-ih-nmS" firstAttribute="centerY" secondItem="Bu6-ou-JOg" secondAttribute="centerY" id="OK5-BB-tld"/>
                                     <constraint firstAttribute="trailing" secondItem="wKt-ih-nmS" secondAttribute="trailing" id="bbg-rk-Y8N"/>
                                     <constraint firstItem="wKt-ih-nmS" firstAttribute="leading" secondItem="OT6-Aw-a7a" secondAttribute="trailing" constant="4" id="c0M-77-zDj"/>
                                     <constraint firstItem="OT6-Aw-a7a" firstAttribute="centerY" secondItem="wKt-ih-nmS" secondAttribute="centerY" id="cV7-BL-eSt"/>
+                                    <constraint firstItem="SN7-lt-dPr" firstAttribute="centerY" secondItem="OT6-Aw-a7a" secondAttribute="centerY" id="lAv-Dv-yTH"/>
                                     <constraint firstItem="LTn-bB-cHM" firstAttribute="centerY" secondItem="Bu6-ou-JOg" secondAttribute="centerY" id="rRm-hI-DOL"/>
                                 </constraints>
                             </view>
@@ -1066,6 +1083,7 @@
                         <outlet property="heightImage" destination="A70-rB-3sL" id="gt0-bY-JhO"/>
                         <outlet property="heightView" destination="BPm-W2-tkG" id="i2Q-Rw-Eao"/>
                         <outlet property="imageBanner" destination="NmP-80-0gk" id="ivd-SY-W10"/>
+                        <outlet property="newsSave" destination="SN7-lt-dPr" id="RbV-DP-irI"/>
                         <outlet property="titleNews" destination="nuN-XL-qLr" id="Qim-VG-lEh"/>
                     </connections>
                 </viewController>

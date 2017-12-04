@@ -11,6 +11,8 @@ import GoogleMaps
 import GooglePlaces
 import GoogleSignIn
 import FBSDKCoreKit
+import RxCocoa
+import RxSwift
 
 let API_KEY_GOOGLE = "AIzaSyDeHiOsROpzfS0K2ys91RoZhym8tGSbtYE"
 
@@ -19,10 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     static var shared = (UIApplication.shared.delegate as? AppDelegate)
-
+    let disposeBag = DisposeBag()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         GMSServices.provideAPIKey(API_KEY_GOOGLE)
         GMSPlacesClient.provideAPIKey(API_KEY_GOOGLE)
+        self.loadDataCity()
         return true
     }
 
@@ -92,6 +96,25 @@ extension AppDelegate
         let initialViewController = storyboard.instantiateViewController(withIdentifier: "NaviLoginViewController")
         self.window?.rootViewController = initialViewController
         self.window?.makeKeyAndVisible()
+    }
+}
+
+extension AppDelegate
+{
+    func loadDataCity()
+    {
+        Util.shared.listCity = []
+        APIClient.shared.getCity().asObservable().bind(onNext: { result in
+            for data in result.dataArray
+            {
+                if let dic = data as? [String:Any]
+                {
+                    let city = ModelCity(JSON: dic)
+                    Util.shared.listCity.append(city!)
+                }
+            }
+            
+        }).disposed(by: self.disposeBag)
     }
 }
 

@@ -76,7 +76,7 @@
                                                     </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -178,32 +178,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="0pB-Bh-iy9">
-                                        <rect key="frame" x="0.0" y="336" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0pB-Bh-iy9" id="pYn-rw-A3R">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mật khẩu củ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tDa-Rt-IkK">
-                                                    <rect key="frame" x="20" y="3" width="335" height="38"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="38" id="dSp-rY-Exm"/>
-                                                    </constraints>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                                </textField>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="tDa-Rt-IkK" firstAttribute="leading" secondItem="pYn-rw-A3R" secondAttribute="leading" constant="20" id="CpC-7a-WHg"/>
-                                                <constraint firstAttribute="trailing" secondItem="tDa-Rt-IkK" secondAttribute="trailing" constant="20" id="eFH-Pb-fnY"/>
-                                                <constraint firstItem="tDa-Rt-IkK" firstAttribute="centerY" secondItem="pYn-rw-A3R" secondAttribute="centerY" id="tHU-gy-xTv"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="NlS-oQ-LWQ">
-                                        <rect key="frame" x="0.0" y="380" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="336" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NlS-oQ-LWQ" id="fNg-Bc-6XY">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -226,32 +202,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="3Km-nC-bRK">
-                                        <rect key="frame" x="0.0" y="424" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Km-nC-bRK" id="OKv-Zt-dWk">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nhập lại mật khẩu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IPd-Ev-yuc">
-                                                    <rect key="frame" x="20" y="3" width="335" height="38"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="38" id="Awm-Tr-374"/>
-                                                    </constraints>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                                </textField>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="IPd-Ev-yuc" secondAttribute="trailing" constant="20" id="OvH-qc-1Jt"/>
-                                                <constraint firstItem="IPd-Ev-yuc" firstAttribute="centerY" secondItem="OKv-Zt-dWk" secondAttribute="centerY" id="gVW-e8-f2J"/>
-                                                <constraint firstItem="IPd-Ev-yuc" firstAttribute="leading" secondItem="OKv-Zt-dWk" secondAttribute="leading" constant="20" id="iT6-jf-2xH"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="7P4-r3-obq">
-                                        <rect key="frame" x="0.0" y="468" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="380" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7P4-r3-obq" id="oF9-3p-n5J">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -329,10 +281,8 @@
                         <outlet property="avatarUser" destination="XJu-cU-mJf" id="Nm7-8H-31z"/>
                         <outlet property="birthday" destination="R23-og-Nz3" id="ZzF-vB-nMG"/>
                         <outlet property="city" destination="5by-tO-ciW" id="F1q-qp-0QE"/>
-                        <outlet property="enterPass" destination="IPd-Ev-yuc" id="VV0-wa-LSo"/>
                         <outlet property="fullName" destination="aLG-xn-meK" id="DVE-cr-wZ3"/>
                         <outlet property="newPass" destination="2Pu-YV-twn" id="Ic9-F6-dmf"/>
-                        <outlet property="oldPass" destination="tDa-Rt-IkK" id="mpI-Sp-CFc"/>
                         <outlet property="phone" destination="vwp-KT-EBZ" id="DiS-mK-ppz"/>
                     </connections>
                 </tableViewController>

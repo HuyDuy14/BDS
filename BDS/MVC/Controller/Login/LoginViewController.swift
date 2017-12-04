@@ -9,7 +9,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
-import ACProgressHUD
+import ACProgressHUD_Swift
 import GoogleSignIn
 import FBSDKLoginKit
 import FBSDKCoreKit

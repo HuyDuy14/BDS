@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ACProgressHUD
+import ACProgressHUD_Swift
 import UIAlertView_Blocks
 
 class BaseViewController: UIViewController {
@@ -117,11 +117,13 @@ public extension UIViewController {
         return navigationController?.navigationBar
     }
     func showHUD(_ message: String) {
-        ACProgressHUD.showLoading(withCustomMessage: message)
+        let progressView = ACProgressHUD.shared
+        progressView.progressText = message
+        progressView.showHUD()
     }
     
     func hideHUD() {
-        ACProgressHUD.hide()
+       ACProgressHUD.shared.hideHUD()
     }
     
     func showAlert(_ message: String) {

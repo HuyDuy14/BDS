@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 import RxSwift
-import ACProgressHUD
+import ACProgressHUD_Swift
 
 class APIClient: NSObject {
     static let shared = APIClient()
@@ -36,14 +36,14 @@ class APIClient: NSObject {
                             observer.onNext(result)
                         } else {
                             self.showAlert(message: result.message)
-                            ACProgressHUD.hide()
+                           ACProgressHUD.shared.hideHUD()
                         }
                         
                     }
                 case .failure(let error):
                     print(error)
                     self.showAlert(message: "Lỗi mạng mời bạn kiểm tra lại")
-                    ACProgressHUD.hide()
+                   ACProgressHUD.shared.hideHUD()
                 }
                 observer.onCompleted()
             }
@@ -71,14 +71,14 @@ class APIClient: NSObject {
                             observer.onNext(result)
                         } else {
                             self.showAlert(message: result.message)
-                            ACProgressHUD.hide()
+                           ACProgressHUD.shared.hideHUD()
                         }
                         
                     }
                 case .failure(let error):
                     print(error)
                     self.showAlert(message: "Lỗi mạng mời bạn kiểm tra lại")
-                    ACProgressHUD.hide()
+                   ACProgressHUD.shared.hideHUD()
                 }
                 observer.onCompleted()
             }
@@ -118,20 +118,20 @@ class APIClient: NSObject {
                             completion?(result)
                         } else {
                             
-                            ACProgressHUD.hide()
+                           ACProgressHUD.shared.hideHUD()
                         }
                     }
                     else
                     {
                         self.showAlert(message: "Gặp vấn đề khi tải ảnh mời bạn thử lại")
-                        ACProgressHUD.hide()
+                       ACProgressHUD.shared.hideHUD()
                     }
                 }
                 
             case .failure(let encodingError):
                 print(encodingError)
                 self.showAlert(message: "Lỗi mạng mời bạn kiểm tra lại")
-                ACProgressHUD.hide()
+               ACProgressHUD.shared.hideHUD()
                 
             }
         }
@@ -215,13 +215,60 @@ class APIClient: NSObject {
         return self.requestGet(path: API.getNews, method: .get, params: params)
     }
     
+    func getNewsSave() -> Observable<Result> {
+        let params: Parameters = [
+            "id":Util.shared.currentUser.id
+            ] as Parameters
+        return self.requestGet(path: API.listNewsSave, method: .get, params: params)
+    }
+    
+    func getListLandSale(page:Int) -> Observable<Result> {
+        let params: Parameters = [
+            "page":page
+            ] as Parameters
+        return self.requestGet(path: API.listLandSale, method: .get, params: params)
+    }
+    
     func saveNews(id:String) -> Observable<Result> {
         let params: Parameters =
             [
-                "id":id
+                "id_news":id,
+                "id_user":Util.shared.currentUser.id
             ] as Parameters
-        return self.requestGet(path: API.saveNews, method: .get, params: params)
+        return self.request(path: API.saveNews, method: .post, params: params)
     }
+    
+    func cancelNews(id:String) -> Observable<Result> {
+        let params: Parameters =
+            [
+                "id_news":id,
+                "id_user":Util.shared.currentUser.id
+                ] as Parameters
+        return self.request(path: API.cancelNews, method: .post, params: params)
+    }
+    
+    func updateUserInfor(userInfor:UserModel,pass:String) -> Observable<Result> {
+        var params: Parameters =
+            [
+                "id":userInfor.id,
+                "phone":userInfor.poster_phone,
+                "name":userInfor.username,
+                "birthday":userInfor.birthday,
+                "city_id":userInfor.city_id,
+                "city_name":userInfor.city_name
+               
+            ] as Parameters
+        if pass.count > 0
+        {
+            params["password"] = pass
+        }
+        return self.request(path: API.updateUser, method: .post, params: params)
+    }
+    
+    func getCategoryNews() -> Observable<Result> {
+        return self.requestGet(path: API.categoryNews, method: .post, params: nil)
+    }
+    
     
     func showAlert(message: String) {
         _ = UIAlertView.show(withTitle: "", message: NSLocalizedString(message, comment: ""), cancelButtonTitle: "OK", otherButtonTitles: nil, tap: nil)

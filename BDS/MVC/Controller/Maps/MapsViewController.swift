@@ -11,11 +11,11 @@ import GoogleMaps
 import GooglePlaces
 import CoreLocation
 import UserNotifications
-import Pulley
 
 class MapsViewController: BaseViewController {
 
     @IBOutlet weak var mapView: GMSMapView!
+    var inforMaps:InforMapsViewController!
     
     var isGrantedNotificationAccess: Bool = false
     let locationManager = CLLocationManager()
@@ -24,7 +24,8 @@ class MapsViewController: BaseViewController {
     var destinationLatitude: Double = 0
     var destinationLongtitude: Double = 0
     let zoomLevel: Float = 15.0
-    
+    var listLatitudes: [Double] = []
+    var listLongitudes: [Double] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +46,7 @@ class MapsViewController: BaseViewController {
         } else {
             locationManager.startUpdatingLocation()
         }
+        self.addBottomSheetView()
         
     }
     
@@ -56,6 +58,20 @@ class MapsViewController: BaseViewController {
     
     @IBAction func presendMenuButtonDidTap(_ sender: Any) {
        self.showMenuView()
+    }
+    
+    func addBottomSheetView() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let bottomSheetViewController = storyboard.instantiateViewController(withIdentifier: "InforMapsViewController") as? InforMapsViewController
+        self.inforMaps = bottomSheetViewController
+        
+        self.addChildViewController(bottomSheetViewController!)
+        self.view.addSubview((bottomSheetViewController?.view)!)
+        bottomSheetViewController?.didMove(toParentViewController: self)
+        bottomSheetViewController?.controller.delegate = self
+        let height = view.frame.height
+        let width  = view.frame.width
+        bottomSheetViewController?.view.frame = CGRect(x: 0, y: self.view.frame.maxY, width: width, height: height)
     }
     
 }
@@ -117,6 +133,29 @@ extension MapsViewController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         
         return true
+    }
+}
+extension MapsViewController:LandForSaleViewControllerDelegate
+{
+    func disLoadDataMaps(_ controller: LandForSaleViewController, listData: [LandSaleModel]) {
+        self.inforMaps.numberNews.text = " \(listData.count) tin rao"
+        self.mapView.clear()
+        self.listLatitudes = []
+        self.listLongitudes = []
+        for data in listData
+        {
+            let lat = data.land_lat
+            let log = data.land_lng
+            self.listLatitudes.append(Double(lat)!)
+            self.listLongitudes.append(Double(log)!)
+          
+        }
+        for i in 0..<self.listLongitudes.count {
+            let coordinates = CLLocationCoordinate2D(latitude: self.listLatitudes[i], longitude: self.listLongitudes[i])
+            let marker = GMSMarker(position: coordinates)
+            marker.map = self.mapView
+            marker.userData = listData[i]
+        }
     }
 }
 

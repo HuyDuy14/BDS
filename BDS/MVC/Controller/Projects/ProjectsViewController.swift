@@ -25,6 +25,7 @@ class ProjectsViewController: BaseViewController {
         self.loadData()
     
     }
+    
     // MARK: - Get data
     func loadData()
     {

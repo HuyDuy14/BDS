@@ -12,7 +12,7 @@ import ObjectMapper
 class ModelCity: Mappable {
 
     var name:String = ""
-    var id: String = ""
+    var id: String = "0"
     var type:String = ""
     var published:String = ""
     var ordering = ""

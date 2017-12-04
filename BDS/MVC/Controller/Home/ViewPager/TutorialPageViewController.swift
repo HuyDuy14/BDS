@@ -17,7 +17,7 @@ class TutorialPageViewController: UIPageViewController {
         // The view controllers will be shown in this order
         return [self.newViewController("HomeMenuViewController"),
                 self.newViewController("ProjectsViewController"),
-                self.newViewController("PulleyViewController"),
+                self.newViewController("MapsViewController"),
                 self.newViewController("LandForSaleViewController"),
                 self.newViewController("NewsLikeViewController")
                 ]

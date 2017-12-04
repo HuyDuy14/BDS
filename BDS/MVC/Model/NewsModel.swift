@@ -17,7 +17,7 @@ class NewsModel: Mappable {
     var category_name = ""
     var summary = ""
     var content = ""
-    
+    var isLike:Bool = false
     required convenience init?(map: Map) {
         self.init()
     }

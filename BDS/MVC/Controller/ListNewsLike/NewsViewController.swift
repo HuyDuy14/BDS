@@ -17,6 +17,7 @@ class NewsViewController: BaseViewController {
     var refreshControl: UIRefreshControl!
     let disposeBag = DisposeBag()
     var listData:[NewsModel] = []
+    var idCategory:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,23 +27,65 @@ class NewsViewController: BaseViewController {
         self.refreshControl.attributedTitle = NSAttributedString(string: "")
         refreshControl?.addTarget(self, action: #selector(NewsViewController.refresh(_:)), for: UIControlEvents.valueChanged)
         self.tableView.addSubview(refreshControl!)
-        self.showHUD("")
-        self.getData()
+//        self.showHUD("")
+        self.getData(idCategory: self.idCategory)
+        self.showPopSelectCategory()
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.getDataNews()
+    }
+    
+    func showPopSelectCategory()
+    {
+        let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
+        let vcCategory = storyboard.instantiateViewController(withIdentifier: "PopupCategoryNewsViewController") as? PopupCategoryNewsViewController
+        vcCategory?.finish = { id in
+            self.showHUD("")
+            self.idCategory = id
+            self.listData = []
+           self.getData(idCategory: id)
+        }
+        vcCategory?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        vcCategory?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+        self.present(vcCategory!, animated: true, completion: nil)
     }
     
     func refresh(_ sender: Any) {
         self.listData = []
-        self.getData()
+        self.getData(idCategory: self.idCategory)
     }
     
     // MARK : - Get Data
-    func getData()
+    
+    func getDataNews()
     {
-        APIClient.shared.getNews(id: "11").asObservable().bind(onNext: { result in
+        Util.shared.listNewsSave = []
+        APIClient.shared.getNewsSave().asObservable().bind(onNext: { result in
             for data in result.dataArray {
                 if let dic = data as? [String:Any] {
                     let newsModel = NewsModel(JSON: dic)
+                    Util.shared.listNewsSave.append(newsModel!)
+                }
+            }
+          
+        }).disposed(by: self.disposeBag)
+    }
+    
+    func getData(idCategory:String)
+    {
+        APIClient.shared.getNews(id:idCategory).asObservable().bind(onNext: { result in
+            for data in result.dataArray {
+                if let dic = data as? [String:Any] {
+                    let newsModel = NewsModel(JSON: dic)
+                    for dataNews in Util.shared.listNewsSave
+                    {
+                        if dataNews.id == newsModel?.id {
+                            newsModel?.isLike = true
+                        }
+                    }
                     self.listData.append(newsModel!)
                 }
             }
@@ -59,15 +102,7 @@ class NewsViewController: BaseViewController {
     }
     
     @IBAction func selectCategoryButtonDidTap(_ sender: Any) {
-        
-        let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
-        let vcCategory = storyboard.instantiateViewController(withIdentifier: "PopupCategoryNewsViewController") as? PopupCategoryNewsViewController
-        vcCategory?.finish = { index in
-            print(index)
-        }
-        vcCategory?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-        vcCategory?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-        self.present(vcCategory!, animated: true, completion: nil)
+      self.showPopSelectCategory()
     }
 }
 extension NewsViewController:UITableViewDelegate,UITableViewDataSource
@@ -75,10 +110,19 @@ extension NewsViewController:UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.listData.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if self.listData.count > indexPath.row {
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "NewsViewCell") as! NewsViewCell
             cell.loadDataCell(news: self.listData[indexPath.row],index: indexPath.row)
+            if self.listData[indexPath.row].isLike == true
+            {
+                cell.btnSaveNews.tintColor = UIColor.red
+            }
+            else
+            {
+                cell.btnSaveNews.tintColor = UIColor.lightGray
+            }
             cell.delegate = self
             return cell
         }
@@ -97,12 +141,36 @@ extension NewsViewController:UITableViewDelegate,UITableViewDataSource
 }
 extension NewsViewController:NewsViewCellDelegate
 {
+    func updateRow(item: NewsModel!, status: Bool,index:Int)
+    {
+        if index >= 0 {
+            self.listData[index].isLike = status
+            let indexPath = NSIndexPath(row: index, section: 0)
+            var arrayIndext: [NSIndexPath] = []
+            arrayIndext.append(indexPath)
+            self.tableView.beginUpdates()
+            self.tableView.reloadRows(at: arrayIndext as [IndexPath], with: UITableViewRowAnimation.fade)
+            self.tableView.endUpdates()
+        }
+        
+    }
+    
     func saveNews(_ cell: NewsViewCell, news: NewsModel,index:Int) {
         
         self.showHUD("")
-        APIClient.shared.saveNews(id: news.id).asObservable().bind(onNext: { result in
-            self.showAlert("Lưu tin thành công")
-            self.hideHUD()
-        }).disposed(by: self.disposeBag)
+        if news.isLike == false
+        {
+            APIClient.shared.saveNews(id: news.id).asObservable().bind(onNext: { result in
+                self.hideHUD()
+                self.updateRow(item: news, status: true, index: index)
+            }).disposed(by: self.disposeBag)
+        }
+        else
+        {
+            APIClient.shared.cancelNews(id: news.id).asObservable().bind(onNext: { result in
+                self.hideHUD()
+                self.updateRow(item: news, status: false, index: index)
+            }).disposed(by: self.disposeBag)
+        }
     }
 }

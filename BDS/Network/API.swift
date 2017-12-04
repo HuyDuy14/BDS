@@ -20,6 +20,11 @@ class API: NSObject {
     static  var landForSale = "ype_land.php"
     static var getNews = "get_news_by_category.php"
     static var saveNews = "save_news.php"
+    static var cancelNews = "cancel_news.php"
     static var district = "get_district.php"
     static var getWard = "get_ward.php"
+    static var listLandSale = "list_land_sale.php"
+    static var categoryNews = "get_news_caterory.php"
+    static var updateUser = "update_profile.php"
+    static var listNewsSave = "list_news_save.php"
 }

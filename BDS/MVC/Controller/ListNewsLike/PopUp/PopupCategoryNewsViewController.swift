@@ -10,13 +10,14 @@ import UIKit
 
 class PopupCategoryNewsViewController: BaseViewController {
 
-    var finish:((_ index:Int)->Void)?
-    var listName:[String] = ["Tin bất động sản","Tin xã hội","Tin giải trí","Tin kinh tế","Tin khám phá","Tin sức khoẻ"]
+    var finish:((_ id:String)->Void)?
+    var listName:[CategoryNewsModel] = Util.shared.listCategoryNews
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }
@@ -34,12 +35,14 @@ extension PopupCategoryNewsViewController:UITableViewDataSource,UITableViewDeleg
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "PopupCategoryNewsViewCell") as! PopupCategoryNewsViewCell
-        cell.nameCell.text = self.listName[indexPath.row]
+        cell.nameCell.text = self.listName[indexPath.row].name
+        cell.imageCell.setImageUrlNews(url: API.linkImage + self.listName[indexPath.row].icon)
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.finish!(indexPath.row)
+     
+        self.finish!( self.listName[indexPath.row].id)
         self.dismiss(animated: true, completion: nil)
     }
 }

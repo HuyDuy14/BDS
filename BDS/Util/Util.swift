@@ -13,6 +13,9 @@ class Util: NSObject {
     static var shared = Util()
     
     var currentUser:UserModel = UserModel()
+    var listCity:[ModelCity] = []
+    var listCategoryNews:[CategoryNewsModel] = []
+    var listNewsSave :[NewsModel]  = []
     
     func isValidEmail(email:String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"

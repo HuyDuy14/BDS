@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class HomeViewController: UIViewController {
 
@@ -17,10 +19,12 @@ class HomeViewController: UIViewController {
     var listImage: [String] = ["icon_home_off","icon_tax_off","icon_map_off","icon_cell_off","icon_off"]
     var listImageOff: [String] = ["icon_menu_home_on","icon_tax_on","icon_map_on","icon_cell_on","icon_on"]
 
+    let disposeBag = DisposeBag()
     var index: Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         SaveCurrentVC.shared.homeController = self
+        self.loadCategoryNews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,6 +34,8 @@ class HomeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.loadCategoryNews()
+        self.getDataNews()
     }
     
     var tutorialPageViewController: TutorialPageViewController? {
@@ -112,6 +118,37 @@ extension HomeViewController: TutorialPageViewControllerDelegate {
         default:()
             
         }
+    }
+}
+
+extension HomeViewController
+{
+    // MARK: - LoadData
+    func loadCategoryNews()
+    {
+        Util.shared.listCategoryNews = []
+        APIClient.shared.getCategoryNews().asObservable().bind(onNext: {result in
+            for data in result.dataArray {
+                if let dic = data as? [String:Any] {
+                    let categoryNewsModel = CategoryNewsModel(JSON: dic)
+                    Util.shared.listCategoryNews.append(categoryNewsModel!)
+                }
+            }
+        }).disposed(by: self.disposeBag)
+    }
+    
+    func getDataNews()
+    {
+        Util.shared.listNewsSave = []
+        APIClient.shared.getNewsSave().asObservable().bind(onNext: { result in
+            for data in result.dataArray {
+                if let dic = data as? [String:Any] {
+                    let newsModel = NewsModel(JSON: dic)
+                    Util.shared.listNewsSave.append(newsModel!)
+                }
+            }
+            self.hideHUD()
+        }).disposed(by: self.disposeBag)
     }
 }
 

@@ -33,6 +33,8 @@
 		1344BE2C1FD15EEB00498108 /* ExtensionUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344BE2B1FD15EEB00498108 /* ExtensionUILabel.swift */; };
 		1344BE2E1FD162F100498108 /* SearchLandForSaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344BE2D1FD162F100498108 /* SearchLandForSaleViewController.swift */; };
 		134E23DD1FD0F8CD005387B7 /* InforMapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134E23DC1FD0F8CD005387B7 /* InforMapsViewController.swift */; };
+		137CF4201FD4E09300E3EB91 /* LandSaleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137CF41F1FD4E09300E3EB91 /* LandSaleModel.swift */; };
+		137CF4221FD504B100E3EB91 /* CategoryNewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137CF4211FD504B100E3EB91 /* CategoryNewsModel.swift */; };
 		139E645E1FCF030300117E0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E645D1FCF030300117E0B /* AppDelegate.swift */; };
 		139E64601FCF030300117E0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E645F1FCF030300117E0B /* ViewController.swift */; };
 		139E64631FCF030300117E0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 139E64611FCF030300117E0B /* Main.storyboard */; };
@@ -130,6 +132,8 @@
 		1344BE2B1FD15EEB00498108 /* ExtensionUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUILabel.swift; sourceTree = "<group>"; };
 		1344BE2D1FD162F100498108 /* SearchLandForSaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLandForSaleViewController.swift; sourceTree = "<group>"; };
 		134E23DC1FD0F8CD005387B7 /* InforMapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InforMapsViewController.swift; sourceTree = "<group>"; };
+		137CF41F1FD4E09300E3EB91 /* LandSaleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandSaleModel.swift; sourceTree = "<group>"; };
+		137CF4211FD504B100E3EB91 /* CategoryNewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryNewsModel.swift; sourceTree = "<group>"; };
 		139E645A1FCF030300117E0B /* BDS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BDS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		139E645D1FCF030300117E0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		139E645F1FCF030300117E0B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -446,6 +450,8 @@
 				13B744521FD3BF5300A778A7 /* UserModel.swift */,
 				13B744541FD3C53F00A778A7 /* NewsModel.swift */,
 				13B744591FD3D1EC00A778A7 /* BrokerModel.swift */,
+				137CF41F1FD4E09300E3EB91 /* LandSaleModel.swift */,
+				137CF4211FD504B100E3EB91 /* CategoryNewsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -866,7 +872,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BDS/Pods-BDS-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ACProgressHUD/ACProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/ACProgressHUD-Swift/ACProgressHUD_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
@@ -879,7 +885,6 @@
 				"${BUILT_PRODUCTS_DIR}/KMPlaceholderTextView/KMPlaceholderTextView.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/Pulley/Pulley.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
@@ -888,7 +893,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ACProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ACProgressHUD_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
@@ -901,7 +906,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMPlaceholderTextView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulley.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
@@ -985,6 +989,7 @@
 				1344BE041FD12E3000498108 /* LandForSaleViewController.swift in Sources */,
 				13AB376D1FCFA056000BA67D /* BaseTableViewController.swift in Sources */,
 				13AB37661FCF9EAD000BA67D /* NaviHomeViewController.swift in Sources */,
+				137CF4201FD4E09300E3EB91 /* LandSaleModel.swift in Sources */,
 				1344BE231FD1559200498108 /* NewsViewCell.swift in Sources */,
 				13B7445C1FD3D37B00A778A7 /* DistrictModel.swift in Sources */,
 				13B744551FD3C53F00A778A7 /* NewsModel.swift in Sources */,
@@ -1014,6 +1019,7 @@
 				13B744531FD3BF5300A778A7 /* UserModel.swift in Sources */,
 				13372E9B1FD0118400041A57 /* SaveCurrentVC.swift in Sources */,
 				139E64991FCF04BA00117E0B /* UIColorExtensions.swift in Sources */,
+				137CF4221FD504B100E3EB91 /* CategoryNewsModel.swift in Sources */,
 				13AB37681FCF9FAC000BA67D /* NaviLoginViewController.swift in Sources */,
 				139E64AC1FCF07E500117E0B /* PickerView.swift in Sources */,
 				13AB376C1FCFA056000BA67D /* BaseViewController.swift in Sources */,
