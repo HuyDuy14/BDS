@@ -36,6 +36,7 @@ class NewsViewController: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.getDataNews()
+        self.tableView.reloadData()
     }
     
     func showPopSelectCategory()

@@ -28,6 +28,11 @@ class NewsLikeViewController: BaseViewController {
         self.getDataNews()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.getDataNews()
+    }
+    
     func refresh(_ sender: Any) {
         self.listData = []
         self.getDataNews()
@@ -40,6 +45,7 @@ class NewsLikeViewController: BaseViewController {
             for data in result.dataArray {
                 if let dic = data as? [String:Any] {
                     let newsModel = NewsModel(JSON: dic)
+                    newsModel?.isLike = true
                     Util.shared.listNewsSave.append(newsModel!)
                 }
             }
