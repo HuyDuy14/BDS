@@ -25,6 +25,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         SaveCurrentVC.shared.homeController = self
         self.loadCategoryNews()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +37,7 @@ class HomeViewController: UIViewController {
         super.viewDidAppear(animated)
         self.loadCategoryNews()
         self.getDataNews()
+        self.getTypeProject()
     }
     
     var tutorialPageViewController: TutorialPageViewController? {
@@ -145,6 +147,20 @@ extension HomeViewController
                 if let dic = data as? [String:Any] {
                     let newsModel = NewsModel(JSON: dic)
                     Util.shared.listNewsSave.append(newsModel!)
+                }
+            }
+            self.hideHUD()
+        }).disposed(by: self.disposeBag)
+    }
+    
+    func getTypeProject()
+    {
+        Util.shared.typesProject = []
+        APIClient.shared.getCategoryProject().asObservable().bind(onNext: { result in
+            for data in result.dataArray {
+                if let dic = data as? [String:Any] {
+                    let category = CategoryProjectModel(JSON: dic)
+                    Util.shared.typesProject.append(category!)
                 }
             }
             self.hideHUD()

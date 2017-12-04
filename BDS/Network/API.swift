@@ -27,4 +27,7 @@ class API: NSObject {
     static var categoryNews = "get_news_caterory.php"
     static var updateUser = "update_profile.php"
     static var listNewsSave = "list_news_save.php"
+    static var searchLandRent = "search_land_rent.php"
+    static var searchProject = "search_project.php"
+    static var getTypeProject = "get_project_category.php"
 }

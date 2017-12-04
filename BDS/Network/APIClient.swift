@@ -269,6 +269,27 @@ class APIClient: NSObject {
         return self.requestGet(path: API.categoryNews, method: .post, params: nil)
     }
     
+    func getCategoryProject() -> Observable<Result> {
+        return self.requestGet(path: API.getTypeProject, method: .post, params: nil)
+    }
+    
+    func searchProjects(idProject:Int,idCity:Int,idDistrict:Int) -> Observable<Result> {
+        var params: Parameters = [:]
+        if idProject != 0
+        {
+            params["type"] = idProject
+        }
+        if idCity != 0
+        {
+            params["city"] = idCity
+        }
+        if idDistrict != 0
+        {
+            params["district"] = idDistrict
+        }
+         
+        return self.requestGet(path: API.searchProject, method: .get, params: params)
+    }
     
     func showAlert(message: String) {
         _ = UIAlertView.show(withTitle: "", message: NSLocalizedString(message, comment: ""), cancelButtonTitle: "OK", otherButtonTitles: nil, tap: nil)

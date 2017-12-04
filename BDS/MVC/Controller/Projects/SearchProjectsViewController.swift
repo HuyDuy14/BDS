@@ -23,11 +23,14 @@ class SearchProjectsViewController: BaseViewController {
     var listPicker:[ModelPicker] = [ModelPicker(id: 0, name: "Hà Nội"),ModelPicker(id: 2, name: "Thanh Hoá"),ModelPicker(id: 3, name: "Nam Định")]
     var listPickerCity:[ModelPicker] = []
     var listPickerDistrict:[ModelPicker] = []
+    var listPickerTypeProject:[ModelPicker] = []
   
+    var idProject:Int = 0
     var idCity:Int = 0
     var indexSelectCity:Int = 0
     var idDictrict:Int = 0
     var indexSelectDistrict:Int = 0
+    var indextSelectProject:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,15 +42,26 @@ class SearchProjectsViewController: BaseViewController {
             let picker = ModelPicker(id: Int(city.id)!, name: city.name)
             picker.index = index
             index += 1
-            self.listPicker.append( picker)
+            self.listPickerCity.append( picker)
         }
-        
+        self.setDataPicker()
+    }
+    
+    func setDataPicker()
+    {
+        var index:Int = 0
+        for type in Util.shared.typesProject {
+            let picker = ModelPicker(id: Int(type.id)!, name: type.name)
+            picker.index = index
+            index += 1
+            self.listPickerTypeProject.append( picker)
+        }
     }
     
     func loadDataCity()
     {
         Util.shared.listCity = []
-        self.listPicker = []
+        self.listPickerCity = []
         APIClient.shared.getCity().asObservable().bind(onNext: { result in
             for data in result.dataArray
             {
@@ -62,7 +76,7 @@ class SearchProjectsViewController: BaseViewController {
                 let picker = ModelPicker(id: Int(city.id)!, name: city.name)
                 picker.index = index
                 index += 1
-                self.listPicker.append(picker)
+                self.listPickerCity.append(picker)
             }
             
             
@@ -95,41 +109,56 @@ class SearchProjectsViewController: BaseViewController {
     
     
     @IBAction func selectTypeButtonDidTap(_ sender: Any) {
-        self.pickerView.listData = self.listPicker
-        self.pickerView.index = 0
+        self.pickerView.listData = self.listPickerTypeProject
+        self.pickerView.config.startIndex = self.indextSelectProject
+        self.pickerView.status  = 3
         self.pickerView.show(inVC: self)
     }
     
     @IBAction func selectCityButtonDidTap(_ sender: Any) {
         self.pickerView.listData = self.listPickerCity
-        self.pickerView.index = self.indexSelectCity
+        self.pickerView.config.startIndex = self.indexSelectCity
         self.pickerView.status = 0
         self.pickerView.show(inVC: self)
         
     }
     
     @IBAction func selectDistrictButtonDidTap(_ sender: Any) {
-        self.pickerView.listData = self.listPickerDistrict
-        self.pickerView.index = self.indexSelectDistrict
-        self.pickerView.status = 1
-        self.pickerView.show(inVC: self)
+        if self.idCity != 0 {
+            self.pickerView.listData = self.listPickerDistrict
+            self.pickerView.config.startIndex = self.indexSelectDistrict
+            self.pickerView.status = 1
+            self.pickerView.show(inVC: self)
+        }
+        else
+        {
+            self.showAlert("Bạn chưa chọn tỉnh thành")
+        }
     }
     
     @IBAction func selectMonneyButtonDidTap(_ sender: Any) {
         self.pickerView.listData = self.listPicker
-        self.pickerView.index = 0
+        self.pickerView.config.startIndex = 2
         self.pickerView.show(inVC: self)
         
     }
     
     @IBAction func searchButtonDidTap(_ sender: Any) {
+        
+        if self.idCity == 0 && self.idProject == 0 && self.idDictrict == 0
+        {
+            self.showAlert("Bạn phải chọn ít nhất một yều cầu tìm kiếm")
+            return
+        }
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let detailSearch = storyboard.instantiateViewController(withIdentifier: "ProjectsViewController") as? ProjectsViewController
+        detailSearch?.idDictrict = self.idDictrict
+        detailSearch?.idCity = self.idCity
+        detailSearch?.idProject = self.idProject
         detailSearch?.isBackHome = false
         self.pushViewController(viewController: detailSearch!)
+      
     }
-    
-
 }
 
 extension SearchProjectsViewController:PickerViewDelegate
@@ -146,12 +175,19 @@ extension SearchProjectsViewController:PickerViewDelegate
             self.idCity = picker.id
             self.indexSelectCity = picker.index
             self.showHUD("")
+            self.district.text = "Chọn quận/Huyện"
+            self.idDictrict = 0
+            self.indexSelectDistrict = 0
             self.loadDistrict(idCity: String(picker.id))
             break
         case 1:
             self.district.text = picker.name
             self.idDictrict = picker.id
             self.indexSelectDistrict = picker.index
+        case 3:
+            self.typeLand.text = picker.name
+            self.idProject = picker.id
+            self.indextSelectProject = picker.index
         default:
             break
         }

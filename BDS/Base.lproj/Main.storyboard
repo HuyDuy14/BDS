@@ -620,15 +620,15 @@
                         <viewControllerLayoutGuide type="bottom" id="u7z-dk-GxK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DK6-ju-G2l">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="333.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ndr-zf-Itp" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="333.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m5k-AS-Dkh">
-                                <rect key="frame" x="2" y="0.0" width="50" height="50"/>
+                                <rect key="frame" x="2" y="20" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="lWf-Cs-f5E"/>
                                     <constraint firstAttribute="height" constant="50" id="sg2-j0-tcg"/>
@@ -639,27 +639,27 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_zoom_maps" translatesAutoresizingMaskIntoConstraints="NO" id="OSi-yt-pHG">
-                                <rect key="frame" x="309" y="227.5" width="46" height="46"/>
+                                <rect key="frame" x="309" y="561" width="46" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="VJS-o1-eMR"/>
                                     <constraint firstAttribute="width" constant="46" id="fDY-0T-UWd"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J57-Az-Big">
-                                <rect key="frame" x="309" y="227.5" width="46" height="46"/>
+                                <rect key="frame" x="309" y="561" width="46" height="46"/>
                                 <connections>
                                     <action selector="zoomButtonDidTap:" destination="JEy-7u-yaP" eventType="touchUpInside" id="wLY-Oq-CXv"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon3D" translatesAutoresizingMaskIntoConstraints="NO" id="k8F-aG-w0D">
-                                <rect key="frame" x="309" y="169.5" width="46" height="46"/>
+                                <rect key="frame" x="309" y="503" width="46" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="7vd-Gx-E2R"/>
                                     <constraint firstAttribute="width" constant="46" id="mNX-kh-Mwv"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tAs-oy-SlH">
-                                <rect key="frame" x="309" y="169.5" width="46" height="46"/>
+                                <rect key="frame" x="309" y="503" width="46" height="46"/>
                                 <connections>
                                     <action selector="DButtonDidTap:" destination="JEy-7u-yaP" eventType="touchUpInside" id="r1X-8R-UeW"/>
                                 </connections>

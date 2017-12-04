@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		13195E251FD05B4600C60533 /* HomeMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13195E241FD05B4600C60533 /* HomeMenuViewController.swift */; };
 		13195E281FD05DC500C60533 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13195E271FD05DC500C60533 /* MapsViewController.swift */; };
+		1319EC1F1FD58E7D003D1B0D /* CategoryProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1319EC1E1FD58E7D003D1B0D /* CategoryProjectModel.swift */; };
+		1319EC211FD594E5003D1B0D /* ProjectsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1319EC201FD594E5003D1B0D /* ProjectsModel.swift */; };
 		13372E8C1FD0093400041A57 /* InforUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13372E8A1FD0093400041A57 /* InforUserViewController.swift */; };
 		13372E8D1FD0093400041A57 /* InforUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13372E8B1FD0093400041A57 /* InforUserViewController.xib */; };
 		13372E8F1FD009A300041A57 /* GetViewXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13372E8E1FD009A300041A57 /* GetViewXib.swift */; };
@@ -108,6 +110,8 @@
 /* Begin PBXFileReference section */
 		13195E241FD05B4600C60533 /* HomeMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuViewController.swift; sourceTree = "<group>"; };
 		13195E271FD05DC500C60533 /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
+		1319EC1E1FD58E7D003D1B0D /* CategoryProjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryProjectModel.swift; sourceTree = "<group>"; };
+		1319EC201FD594E5003D1B0D /* ProjectsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsModel.swift; sourceTree = "<group>"; };
 		13372E8A1FD0093400041A57 /* InforUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InforUserViewController.swift; sourceTree = "<group>"; };
 		13372E8B1FD0093400041A57 /* InforUserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InforUserViewController.xib; sourceTree = "<group>"; };
 		13372E8E1FD009A300041A57 /* GetViewXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetViewXib.swift; sourceTree = "<group>"; };
@@ -452,6 +456,8 @@
 				13B744591FD3D1EC00A778A7 /* BrokerModel.swift */,
 				137CF41F1FD4E09300E3EB91 /* LandSaleModel.swift */,
 				137CF4211FD504B100E3EB91 /* CategoryNewsModel.swift */,
+				1319EC1E1FD58E7D003D1B0D /* CategoryProjectModel.swift */,
+				1319EC201FD594E5003D1B0D /* ProjectsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -991,6 +997,7 @@
 				13AB37661FCF9EAD000BA67D /* NaviHomeViewController.swift in Sources */,
 				137CF4201FD4E09300E3EB91 /* LandSaleModel.swift in Sources */,
 				1344BE231FD1559200498108 /* NewsViewCell.swift in Sources */,
+				1319EC1F1FD58E7D003D1B0D /* CategoryProjectModel.swift in Sources */,
 				13B7445C1FD3D37B00A778A7 /* DistrictModel.swift in Sources */,
 				13B744551FD3C53F00A778A7 /* NewsModel.swift in Sources */,
 				1344BE0E1FD1417400498108 /* ProjectViewCell.swift in Sources */,
@@ -1005,6 +1012,7 @@
 				139E64AB1FCF07E500117E0B /* ModelPicker.swift in Sources */,
 				139E64C81FCF08C000117E0B /* ContainerViewController.swift in Sources */,
 				1344BE2C1FD15EEB00498108 /* ExtensionUILabel.swift in Sources */,
+				1319EC211FD594E5003D1B0D /* ProjectsModel.swift in Sources */,
 				139E64B91FCF084900117E0B /* ItemMenuObject.swift in Sources */,
 				139E64A51FCF07C600117E0B /* MIDatePicker.swift in Sources */,
 				1344BE111FD143E900498108 /* ContactViewCell.swift in Sources */,

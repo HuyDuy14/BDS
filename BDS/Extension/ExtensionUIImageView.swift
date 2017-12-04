@@ -36,6 +36,14 @@ extension UIImageView {
             self.image = UIImage(named: "icon_plachoder_chat")
         }
     }
+    
+    func setImageProject(url:URL!){
+        if url != nil  {
+            self.kf.setImage(with: url, placeholder: UIImage(named: "icon_plachoder_chat"))
+        } else {
+            self.image = UIImage(named: "icon_plachoder_chat")
+        }
+    }
     func addBlurEffect()
     {
         var blurEffect: UIBlurEffect!

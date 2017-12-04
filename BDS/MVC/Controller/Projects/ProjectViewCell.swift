@@ -20,5 +20,20 @@ class ProjectViewCell: UITableViewCell {
         // Initialization code
     }
 
+    func loadData(project:ProjectsModel)
+    {
+        let url = URL(string: (API.linkImage + project.image).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
+        self.imageViewProfile.setImageProject(url: url)
+        self.name.text = project.title
+        self.information.text = project.address
+        if project.isLike == true
+        {
+            self.imageLike.tintColor = UIColor.red
+        }
+        else
+        {
+            self.imageLike.tintColor = UIColor.lightGray
+        }
+    }
  
 }

@@ -16,17 +16,60 @@ class ProjectsViewController: BaseViewController {
     @IBOutlet weak var btnBackHome: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
+    var refreshControl: UIRefreshControl!
+    var idProject:Int = 0
+    var idCity:Int = 0
+    var idDictrict:Int = 0
+    var listProject:[ProjectsModel] = []
+    
     var isBackHome:Bool = true
     let disposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.loadData()
+ 
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "")
+        refreshControl?.addTarget(self, action: #selector(ProjectsViewController.refresh(_:)), for: UIControlEvents.valueChanged)
+        self.tableView.addSubview(refreshControl!)
+        self.showHUD("")
+        self.loadDataproject()
+    }
     
+    func refresh(_ sender: Any) {
+        self.listProject = []
+        self.loadDataproject()
     }
     
     // MARK: - Get data
+    
+    func loadDataproject()
+    {
+        self.listProject = []
+        APIClient.shared.searchProjects(idProject: self.idProject, idCity: self.idCity, idDistrict: self.idDictrict).asObservable().bind(onNext: {result in
+
+            for data in result.dataArray
+            {
+                if let dic = data as? [String:Any]
+                {
+                    let project = ProjectsModel(JSON: dic)
+                    self.listProject.append(project!)
+                }
+            }
+            
+            DispatchQueue.main.async {
+                 self.tableView.reloadData()
+            }
+            
+            self.refreshControl.endRefreshing()
+            self.hideHUD()
+           
+            
+        }).disposed(by: self.disposeBag)
+        
+    }
+    
     func loadData()
     {
         self.showHUD("")
@@ -64,21 +107,17 @@ class ProjectsViewController: BaseViewController {
 extension ProjectsViewController:UITableViewDelegate,UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return self.listProject.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "ProjectViewCell") as! ProjectViewCell
-        
-        if indexPath.row % 2 == 0 {
-            cell.imageLike.tintColor = UIColor.lightGray
+       if self.listProject.count > indexPath.row
+       {
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: "ProjectViewCell") as! ProjectViewCell
+            cell.loadData(project: self.listProject[indexPath.row])
+            return cell
         }
-        else
-        {
-            cell.imageLike.tintColor = UIColor.red
-        }
-        
-        return cell
+        return UITableViewCell()
     }
 }
 
