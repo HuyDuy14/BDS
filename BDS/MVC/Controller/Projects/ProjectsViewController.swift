@@ -15,13 +15,19 @@ class ProjectsViewController: BaseViewController {
     @IBOutlet weak var btnBackMaps: UIButton!
     @IBOutlet weak var btnBackHome: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var titleHeader: UILabel!
+    @IBOutlet weak var inforHeader: UILabel!
     
     var refreshControl: UIRefreshControl!
     var idProject:Int = 0
     var idCity:Int = 0
     var idDictrict:Int = 0
     var listProject:[ProjectsModel] = []
+    var listLandSent:[LandSaleModel] = []
     
+    var page:Int = 0
+    var isLoad: Bool = true
+    var isLoading: Bool = false
     var isBackHome:Bool = true
     let disposeBag = DisposeBag()
     override func viewDidLoad() {
@@ -34,12 +40,39 @@ class ProjectsViewController: BaseViewController {
         refreshControl?.addTarget(self, action: #selector(ProjectsViewController.refresh(_:)), for: UIControlEvents.valueChanged)
         self.tableView.addSubview(refreshControl!)
         self.showHUD("")
-        self.loadDataproject()
+        if  isBackHome == false
+        {
+            self.titleHeader.text = "Danh sách dự án"
+            self.inforHeader.text = "Tìm kiếm dự án theo yêu lựa chọn"
+            self.listProject = []
+            self.btnBackMaps.isHidden = true
+            self.loadDataproject()
+        }
+        else
+        {
+            self.titleHeader.text = "Nhà đất thuê"
+            self.inforHeader.text = "Tìm kiếm nhà đất thuê"
+            self.page = 0
+            self.btnBackMaps.isHidden = false
+            self.listProject = []
+            self.loadData(refresh: false)
+        }
+        
     }
     
     func refresh(_ sender: Any) {
-        self.listProject = []
-        self.loadDataproject()
+        if  isBackHome == false
+        {
+            self.listProject = []
+            self.loadDataproject()
+        }
+        else
+        {
+            self.page = 0
+            self.listProject = []
+            self.loadData(refresh: false)
+        }
+  
     }
     
     // MARK: - Get data
@@ -70,15 +103,51 @@ class ProjectsViewController: BaseViewController {
         
     }
     
-    func loadData()
+
+    func loadData(refresh: Bool)
     {
-        self.showHUD("")
-        APIClient.shared.getLandForSale(type: "sale").asObservable().bind(onNext: {result in
-            
-            self.hideHUD()
-            
-        }).disposed(by: self.disposeBag)
+        
+        if self.isLoading == false {
+            self.isLoading = true
+            APIClient.shared.searchLandRent(project_id: "", title: "", type: "", city: "", ward: "", area_min: "", area_max: "", price_min: "", price_max: "", district: "", page: self.page).asObservable().bind(onNext: { result in
+                DispatchQueue.main.async {
+                    var projects: [LandSaleModel] = []
+                    for data in result.dataArray
+                    {
+                        if let dic = data as? [String:Any]
+                        {
+                            let project = LandSaleModel(JSON: dic)
+                           projects.append(project!)
+                        }
+                    }
+                    
+                    if projects.count == 0
+                    {
+                        self.isLoad = false
+                    }
+                    self.listLandSent.append(contentsOf: projects)
+                
+                    if self.listLandSent.count != 0 && refresh == true {
+                        var array: [NSIndexPath]! = []
+                        let index: Int = self.listLandSent.count - projects.count
+                        for i in index..<self.listLandSent.count {
+                            array.append( NSIndexPath(row: i, section: 0))
+                        }
+                        self.tableView.beginUpdates()
+                        self.tableView.insertRows(at: array! as [IndexPath], with: .automatic)
+                        self.tableView.endUpdates()
+                    } else {
+                        self.tableView.reloadData()
+                    }
+                    self.isLoading = false
+                    self.refreshControl?.endRefreshing()
+                    self.hideHUD()
+                }
+            }).disposed(by: self.disposeBag)
+        }
+        
     }
+    
     
     // MARK: - back to mapsviewcontroller
     @IBAction func backToMapsButtonDidTap(_ sender: Any) {
@@ -107,17 +176,67 @@ class ProjectsViewController: BaseViewController {
 extension ProjectsViewController:UITableViewDelegate,UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if self.isBackHome == true
+        {
+            return self.listLandSent.count
+        }
         return self.listProject.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       if self.listProject.count > indexPath.row
-       {
-            let cell = self.tableView.dequeueReusableCell(withIdentifier: "ProjectViewCell") as! ProjectViewCell
-            cell.loadData(project: self.listProject[indexPath.row])
-            return cell
+        if self.isBackHome == true
+        {
+            if self.listLandSent.count > indexPath.row
+            {
+                let cell = self.tableView.dequeueReusableCell(withIdentifier: "ProjectViewCell") as! ProjectViewCell
+                cell.loadDataHome(project: self.listLandSent[indexPath.row])
+                return cell
+            }
+        }
+        else
+        {
+            if self.listProject.count > indexPath.row
+            {
+                let cell = self.tableView.dequeueReusableCell(withIdentifier: "ProjectViewCell") as! ProjectViewCell
+                cell.loadData(project: self.listProject[indexPath.row])
+                return cell
+            }
+            
         }
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if  isBackHome == false
+        {
+            if self.listProject.count > indexPath.row
+            {
+                let storyboard = UIStoryboard(name: "Projects", bundle: nil)
+                let showDetail = storyboard.instantiateViewController(withIdentifier: "DetailProjectViewController") as? DetailProjectViewController
+                showDetail?.project = self.listProject[indexPath.row]
+                self.pushViewController(viewController: showDetail)
+            }
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if  isBackHome == false
+        {
+            return
+        }
+        let bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height
+        let end = scrollView.contentSize.height
+        if self.listLandSent.count >= 10  {
+            if (bottomEdge >= end)
+            {
+                self.page += 1
+                if self.isLoad == true
+                {
+                    self.showHUD("")
+                    self.loadData(refresh: true)
+                }
+            }
+        }
     }
 }
 

@@ -22,8 +22,8 @@ class ProjectViewCell: UITableViewCell {
 
     func loadData(project:ProjectsModel)
     {
-        let url = URL(string: (API.linkImage + project.image).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
-        self.imageViewProfile.setImageProject(url: url)
+
+        self.imageViewProfile.setImageProject(urlString: API.linkImage + project.image)
         self.name.text = project.title
         self.information.text = project.address
         if project.isLike == true
@@ -35,5 +35,21 @@ class ProjectViewCell: UITableViewCell {
             self.imageLike.tintColor = UIColor.lightGray
         }
     }
- 
+
+    func loadDataHome(project:LandSaleModel)
+    {
+       
+        self.imageViewProfile.setImageProject(urlString: API.linkImage + project.image)
+        self.name.text = project.title
+        self.information.text = project.content
+        if project.isLike == true
+        {
+            self.imageLike.tintColor = UIColor.red
+        }
+        else
+        {
+            self.imageLike.tintColor = UIColor.lightGray
+        }
+    }
+
 }

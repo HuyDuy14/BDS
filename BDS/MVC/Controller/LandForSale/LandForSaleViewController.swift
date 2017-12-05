@@ -35,6 +35,7 @@ class LandForSaleViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.setting()
@@ -151,10 +152,10 @@ extension LandForSaleViewController:UITableViewDelegate,UITableViewDataSource
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        
+
         let bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height
         let end = scrollView.contentSize.height
-        if self.listData.count >= 5  {
+        if self.listData.count >= 10 {
             if (bottomEdge >= end)
             {
                 self.page += 1

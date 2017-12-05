@@ -20,10 +20,11 @@ class SearchProjectsViewController: BaseViewController {
     
     let disposeBag = DisposeBag()
     var pickerView = PickerView.getFromNib()
-    var listPicker:[ModelPicker] = [ModelPicker(id: 0, name: "Hà Nội"),ModelPicker(id: 2, name: "Thanh Hoá"),ModelPicker(id: 3, name: "Nam Định")]
+    var listPicker:[ModelPicker] = [ModelPicker(id: 0, name: "Dưới 300 Triệu"),ModelPicker(id: 2, name: "300 Triệu - 500 Triệu"),ModelPicker(id: 3, name: "700 Triệu - 1 Tỷ"),ModelPicker(id: 4, name: "1 Tỷ - 2 Tỷ"),ModelPicker(id: 5, name: "2 Tỷ - 3 Tỷ"),ModelPicker(id: 6, name: "3 Tỷ - 5 Tỷ"),ModelPicker(id: 6, name: "5 Tỷ - 7 Tỷ"),ModelPicker(id: 7, name: "7 Tỷ - 10 Tỷ"),ModelPicker(id: 8, name: "10 Tỷ - 20 Tỷ"),ModelPicker(id: 9, name: "20 Tỷ - 30 Tỷ"),ModelPicker(id: 10, name: "Trên 30 Tỷ")]
     var listPickerCity:[ModelPicker] = []
     var listPickerDistrict:[ModelPicker] = []
     var listPickerTypeProject:[ModelPicker] = []
+    var listMonney:[ModelPicker] = [ModelPicker(id: 0, name: "Hà Nội"),ModelPicker(id: 2, name: "Thanh Hoá"),ModelPicker(id: 3, name: "Nam Định")]
   
     var idProject:Int = 0
     var idCity:Int = 0
@@ -138,18 +139,19 @@ class SearchProjectsViewController: BaseViewController {
     
     @IBAction func selectMonneyButtonDidTap(_ sender: Any) {
         self.pickerView.listData = self.listPicker
-        self.pickerView.config.startIndex = 2
+        self.pickerView.config.startIndex = 0
+        self.pickerView.status = 4
         self.pickerView.show(inVC: self)
         
     }
     
     @IBAction func searchButtonDidTap(_ sender: Any) {
         
-        if self.idCity == 0 && self.idProject == 0 && self.idDictrict == 0
-        {
-            self.showAlert("Bạn phải chọn ít nhất một yều cầu tìm kiếm")
-            return
-        }
+//        if self.idCity == 0 && self.idProject == 0 && self.idDictrict == 0
+//        {
+//            self.showAlert("Bạn phải chọn ít nhất một yều cầu tìm kiếm")
+//            return
+//        }
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let detailSearch = storyboard.instantiateViewController(withIdentifier: "ProjectsViewController") as? ProjectsViewController
         detailSearch?.idDictrict = self.idDictrict
@@ -188,6 +190,8 @@ extension SearchProjectsViewController:PickerViewDelegate
             self.typeLand.text = picker.name
             self.idProject = picker.id
             self.indextSelectProject = picker.index
+        case 4:
+            self.monney.text = picker.name
         default:
             break
         }

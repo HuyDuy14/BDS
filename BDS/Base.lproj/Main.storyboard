@@ -1108,10 +1108,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jol-dk-UHq">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pnY-DP-opw">
-                                        <rect key="frame" x="0.0" y="49" width="373" height="1"/>
+                                        <rect key="frame" x="0.0" y="39" width="373" height="1"/>
                                         <color key="backgroundColor" red="0.81960784310000001" green="0.81960784310000001" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="0.5" id="Mou-3C-PhZ"/>
@@ -1137,7 +1137,7 @@
                                     <constraint firstItem="pnY-DP-opw" firstAttribute="centerX" secondItem="54z-w7-wZe" secondAttribute="centerX" id="QyC-Bi-Dgy"/>
                                     <constraint firstItem="54z-w7-wZe" firstAttribute="centerX" secondItem="Mfg-Fj-6Gk" secondAttribute="centerX" id="XRK-tz-qEC"/>
                                     <constraint firstItem="54z-w7-wZe" firstAttribute="top" secondItem="Mfg-Fj-6Gk" secondAttribute="bottom" constant="4" id="aSk-Mx-DBA"/>
-                                    <constraint firstAttribute="height" constant="50" id="dHy-Mp-zFq"/>
+                                    <constraint firstAttribute="height" constant="40" id="dHy-Mp-zFq"/>
                                     <constraint firstItem="Mfg-Fj-6Gk" firstAttribute="top" secondItem="Jol-dk-UHq" secondAttribute="top" constant="6" id="m5m-oH-eon"/>
                                     <constraint firstAttribute="bottom" secondItem="pnY-DP-opw" secondAttribute="bottom" id="n4x-0a-R90"/>
                                     <constraint firstItem="pnY-DP-opw" firstAttribute="leading" secondItem="Jol-dk-UHq" secondAttribute="leading" id="y4q-qz-ifG"/>
@@ -1149,7 +1149,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ftG-iy-Xlv">
-                                <rect key="frame" x="0.0" y="50" width="375" height="617"/>
+                                <rect key="frame" x="0.0" y="40" width="375" height="627"/>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1508,7 +1508,9 @@
                     <connections>
                         <outlet property="btnBackHome" destination="M2D-ni-LJd" id="qxW-Ut-hgH"/>
                         <outlet property="btnBackMaps" destination="YKx-cH-Q5y" id="L9M-2A-WCk"/>
+                        <outlet property="inforHeader" destination="hZb-Nz-IcZ" id="MQE-qX-F2x"/>
                         <outlet property="tableView" destination="uj8-eC-Uca" id="bZJ-Lq-CaS"/>
+                        <outlet property="titleHeader" destination="xVE-FH-7Qu" id="vRV-VJ-QQn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AnK-ae-AP3" userLabel="First Responder" sceneMemberID="firstResponder"/>

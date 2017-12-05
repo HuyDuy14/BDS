@@ -279,17 +279,134 @@ class APIClient: NSObject {
         {
             params["type"] = idProject
         }
+        else
+        {
+            params["type"]  = "null"
+        }
         if idCity != 0
         {
             params["city"] = idCity
+        }
+        else
+        {
+             params["city"] = "null"
         }
         if idDistrict != 0
         {
             params["district"] = idDistrict
         }
+        else
+        {
+             params["district"] = "null"
+        }
          
         return self.requestGet(path: API.searchProject, method: .get, params: params)
     }
+    
+    
+    func searchLandRent(project_id:String,title:String,type:String,city:String,ward:String,area_min:String,area_max:String,price_min:String,price_max:String,district:String,page:Int) -> Observable<Result> {
+        var params: Parameters = ["page":page]
+        if project_id != ""
+        {
+            params["project_id"] = project_id
+        }
+        else
+        {
+            params["project_id"]  = "null"
+        }
+        if title != ""
+        {
+            params["title"] = title
+        }
+        else
+        {
+            params["title"]  = "null"
+        }
+        
+        if type != ""
+        {
+            params["type"] = type
+        }
+        else
+        {
+            params["type"]  = "null"
+        }
+        
+        if city != ""
+        {
+            params["city"] = city
+        }
+            
+        else
+        {
+            params["city"]  = "null"
+        }
+        
+        if ward != ""
+        {
+            params["ward"] = ward
+        }
+        else
+        {
+            params["ward"]  = "null"
+        }
+        
+        if area_min != ""
+        {
+            params["area_min"] = area_min
+        }
+        else
+        {
+            params["area_min"]  = "null"
+        }
+        
+        if area_max != ""
+        {
+            params["area_max"] = area_max
+        }
+        else
+        {
+            params["area_max"]  = "null"
+        }
+        
+        if price_min != ""
+        {
+            params["price_min"] = price_min
+        }
+            
+        else
+        {
+            params["price_min"]  = "null"
+        }
+        
+        if price_max != ""
+        {
+            params["price_max"] = price_max
+        }
+        else
+        {
+            params["price_max"]  = "null"
+        }
+        
+        if district != ""
+        {
+            params["district"] = district
+        }
+        else
+        {
+            params["district"]  = "null"
+        }
+        
+        return self.requestGet(path: API.searchLandRent, method: .get, params: params)
+    }
+    
+    func getProject(page:Int)-> Observable<Result> {
+        let params: Parameters = [
+            "page":page
+            ] as Parameters
+        return self.requestGet(path: API.getProject, method: .get, params: params)
+    }
+    
     
     func showAlert(message: String) {
         _ = UIAlertView.show(withTitle: "", message: NSLocalizedString(message, comment: ""), cancelButtonTitle: "OK", otherButtonTitles: nil, tap: nil)

@@ -37,7 +37,8 @@ extension UIImageView {
         }
     }
     
-    func setImageProject(url:URL!){
+    func setImageProject(urlString:String){
+        let url = URL(string: urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
         if url != nil  {
             self.kf.setImage(with: url, placeholder: UIImage(named: "icon_plachoder_chat"))
         } else {

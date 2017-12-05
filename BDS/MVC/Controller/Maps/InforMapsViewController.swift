@@ -18,9 +18,9 @@ class InforMapsViewController: BaseViewController {
     weak var currenviewController: UIViewController?
     
     var controller:LandForSaleViewController!
-    let fullView: CGFloat = 100
+    let fullView: CGFloat = 90
     var partialView: CGFloat {
-        return UIScreen.main.bounds.height - 100
+        return UIScreen.main.bounds.height - 90
     }
 
     
@@ -54,7 +54,7 @@ class InforMapsViewController: BaseViewController {
         UIView.animate(withDuration: 0.6, animations: { [weak self] in
             let frame = self?.view.frame
             let yComponent = self?.partialView
-            self?.view.frame = CGRect(x: 0, y: yComponent!, width: frame!.width, height: frame!.height - 100)
+            self?.view.frame = CGRect(x: 0, y: yComponent!, width: frame!.width, height: frame!.height - 90)
         })
     }
     

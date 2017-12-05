@@ -18,6 +18,14 @@ public extension String
         return dateFormat.string(from: date) 
     }
     
+    func FromStringToDateToStringProjects()->String{
+        let dateFormat = DateFormatter()
+        dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let date = dateFormat.date(from: self) ?? Date()
+        dateFormat.dateFormat = "yyyy-MM-dd HH:mm"
+        return dateFormat.string(from: date)
+    }
+    
     func FromStringToDateToDate()->Date{
         let dateFormat = DateFormatter()
         dateFormat.dateFormat = "yyyy-MM-dd"
