@@ -29,6 +29,8 @@ class ProjectsModel: Mappable {
     var company_name =  ""
     var company_phone =  ""
     var company_website =  ""
+    var area =  ""
+    var land_area =  ""
     var created_time =  ""
     var price =  ""
     var post_transfer_ground_price =  ""
@@ -66,6 +68,8 @@ class ProjectsModel: Mappable {
         self.company_name <- map["company_name"]
         self.company_phone <- map["company_phone"]
         self.company_website <- map["company_website"]
+        self.area <- map["area"]
+        self.land_area <- map["land_area"]
         self.created_time <- map["created_time"]
         self.price <- map["price"]
         self.post_transfer_ground_price <- map["post_transfer_ground_price"]

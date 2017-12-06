@@ -19,6 +19,7 @@ class DetailProjectViewController: BaseViewController {
     @IBOutlet weak var monney: UILabel!
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var titleproject: UILabel!
+    @IBOutlet weak var scaleProject: UILabel!
     
     var project:ProjectsModel!
     
@@ -38,9 +39,10 @@ class DetailProjectViewController: BaseViewController {
         self.imageProjects.setImageProject(urlString: API.linkImage + project.image)
         self.addressProject.text = project.address
         self.titleproject.text = project.title
-        self.allAcreage.text = project.investor
-        self.monney.text = project.price
+        self.allAcreage.text = project.land_area + "m2"
+        self.monney.text = project.price + "/m2"
         self.date.text = project.date_finish.FromStringToDateToStringProjects()
+        self.scaleProject.text = project.summary
         self.webView.loadHTMLString(Util.shared.htmlString(from: project.content), baseURL: nil)
     }
     
@@ -51,6 +53,10 @@ class DetailProjectViewController: BaseViewController {
     }
     
     @IBAction func showMapsButtonDidTap(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Projects", bundle: nil)
+        let showDetail = storyboard.instantiateViewController(withIdentifier: "DetailMapsViewController") as? DetailMapsViewController
+        showDetail?.project = self.project
+        self.pushViewController(viewController: showDetail)
     }
     
     @IBAction func saveButtonDidTap(_ sender: Any) {

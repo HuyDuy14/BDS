@@ -19,6 +19,20 @@ class ContactViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    func loadData(contact:BrokerModel)
+    {
+        self.imageViewProfile.setImageUrlNews(url: API.linkImage + contact.image)
+        self.name.text = contact.title
+        if contact.phone.count == 0 {
+            self.phone.text = ""
+        }
+        else
+        {
+            self.phone.text = "Di động: " + contact.phone
+        }
+        self.information.text = "Email: " + contact.email
+    }
 
     deinit {
         print("a")

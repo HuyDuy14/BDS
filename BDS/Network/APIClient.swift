@@ -304,6 +304,14 @@ class APIClient: NSObject {
     }
     
     
+    func searchLanForSent(type:String,idProject:String,idCity:String,idDistrict:String,page:Int) -> Observable<Result> {
+        var params: Parameters = ["type":type,"page":page]
+        params["type_bds"] = idProject
+        params["city"] = idCity
+        params["district"] = idDistrict
+        return self.requestGet(path: API.searchBroker, method: .get, params: params)
+    }
+    
     func searchLandRent(project_id:String,title:String,type:String,city:String,ward:String,area_min:String,area_max:String,price_min:String,price_max:String,district:String,page:Int) -> Observable<Result> {
         var params: Parameters = ["page":page]
         if project_id != ""

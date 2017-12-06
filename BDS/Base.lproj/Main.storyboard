@@ -306,7 +306,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tgu-Zp-d7a">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_home" translatesAutoresizingMaskIntoConstraints="NO" id="Tgu-Zp-d7a">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_app2" translatesAutoresizingMaskIntoConstraints="NO" id="0gR-MA-6HA">
@@ -340,7 +340,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="uA0-KG-T5X" firstAttribute="centerY" secondItem="bRg-4i-eKn" secondAttribute="centerY" id="2ec-kI-Wwa"/>
                                             <constraint firstItem="NBd-Ob-GLR" firstAttribute="top" secondItem="tlu-1e-Dmy" secondAttribute="bottom" constant="6" id="Nd5-0k-KRC"/>
@@ -373,7 +373,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="125" height="128"/>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="lXv-OZ-5U9" firstAttribute="top" secondItem="BwD-QF-fq7" secondAttribute="bottom" constant="6" id="32N-y5-xtZ"/>
                                             <constraint firstItem="fAd-rv-mx8" firstAttribute="height" secondItem="HiR-Ph-u0t" secondAttribute="height" id="IyI-2K-tLy"/>
@@ -410,7 +410,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="0jQ-aV-V0w" firstAttribute="height" secondItem="owe-mE-veQ" secondAttribute="height" id="1rI-UT-ovl"/>
                                             <constraint firstItem="cfY-yW-fJL" firstAttribute="top" secondItem="jHd-Sj-831" secondAttribute="bottom" constant="6" id="Gds-O5-wUa"/>
@@ -426,7 +426,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="owe-mE-veQ" firstAttribute="leading" secondItem="HiR-Ph-u0t" secondAttribute="trailing" id="0DK-W2-Hjh"/>
                                     <constraint firstItem="HiR-Ph-u0t" firstAttribute="width" secondItem="bRg-4i-eKn" secondAttribute="width" id="2Bc-jL-ZNq"/>
@@ -468,7 +468,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="0l4-47-jPP" firstAttribute="centerY" secondItem="iLR-K6-J6S" secondAttribute="centerY" id="1Mr-zR-iXY"/>
                                             <constraint firstItem="e7X-jq-Dbf" firstAttribute="width" secondItem="iLR-K6-J6S" secondAttribute="width" multiplier="2/3" id="3IY-cl-UtY"/>
@@ -504,7 +504,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="IRV-sB-oX6" firstAttribute="leading" secondItem="JqW-t7-RuM" secondAttribute="leading" id="51i-qI-hdb"/>
                                             <constraint firstItem="jGJ-aF-lmA" firstAttribute="top" secondItem="pum-c6-BO4" secondAttribute="bottom" constant="6" id="5qe-B5-rNt"/>
@@ -537,7 +537,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="125" height="128"/>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="1NS-e9-gj6" firstAttribute="leading" secondItem="mvj-Ni-Mdm" secondAttribute="leading" constant="2" id="9FG-gc-LNX"/>
                                             <constraint firstAttribute="bottom" secondItem="XWT-1W-96j" secondAttribute="bottom" id="FZn-E7-xwB"/>
@@ -552,7 +552,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="mvj-Ni-Mdm" firstAttribute="top" secondItem="pHY-Ff-5nm" secondAttribute="top" id="2gw-fN-Jlv"/>
                                     <constraint firstItem="iLR-K6-J6S" firstAttribute="width" secondItem="pHY-Ff-5nm" secondAttribute="width" multiplier="1/3" id="32W-2x-RdK"/>
@@ -609,7 +609,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lRI-Bu-6c1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1354" y="-16"/>
+            <point key="canvasLocation" x="1352.8" y="-16.641679160419791"/>
         </scene>
         <!--Maps View Controller-->
         <scene sceneID="MHl-j6-9ZS">
@@ -1175,7 +1175,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sfo-kb-NHd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2717.5999999999999" y="15.742128935532236"/>
+            <point key="canvasLocation" x="2969" y="-91"/>
         </scene>
         <!--News Like View Controller-->
         <scene sceneID="zhX-84-9yw">
@@ -1519,6 +1519,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bg_home" width="250" height="444"/>
         <image name="demo" width="118" height="119"/>
         <image name="icon1" width="39" height="40"/>
         <image name="icon2" width="42" height="42"/>

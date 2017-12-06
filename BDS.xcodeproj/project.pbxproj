@@ -37,6 +37,9 @@
 		1344BE2C1FD15EEB00498108 /* ExtensionUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344BE2B1FD15EEB00498108 /* ExtensionUILabel.swift */; };
 		1344BE2E1FD162F100498108 /* SearchLandForSaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344BE2D1FD162F100498108 /* SearchLandForSaleViewController.swift */; };
 		134E23DD1FD0F8CD005387B7 /* InforMapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134E23DC1FD0F8CD005387B7 /* InforMapsViewController.swift */; };
+		136C569A1FD7999800E38458 /* InforMapsProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136C56991FD7999800E38458 /* InforMapsProjectViewController.swift */; };
+		136C569C1FD7F76200E38458 /* DetailContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136C569B1FD7F76200E38458 /* DetailContactViewController.swift */; };
+		136E72731FD6F7240023F3B4 /* DetailMapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136E72721FD6F7240023F3B4 /* DetailMapsViewController.swift */; };
 		137CF4201FD4E09300E3EB91 /* LandSaleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137CF41F1FD4E09300E3EB91 /* LandSaleModel.swift */; };
 		137CF4221FD504B100E3EB91 /* CategoryNewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137CF4211FD504B100E3EB91 /* CategoryNewsModel.swift */; };
 		139E645E1FCF030300117E0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E645D1FCF030300117E0B /* AppDelegate.swift */; };
@@ -140,6 +143,9 @@
 		1344BE2B1FD15EEB00498108 /* ExtensionUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUILabel.swift; sourceTree = "<group>"; };
 		1344BE2D1FD162F100498108 /* SearchLandForSaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLandForSaleViewController.swift; sourceTree = "<group>"; };
 		134E23DC1FD0F8CD005387B7 /* InforMapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InforMapsViewController.swift; sourceTree = "<group>"; };
+		136C56991FD7999800E38458 /* InforMapsProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InforMapsProjectViewController.swift; sourceTree = "<group>"; };
+		136C569B1FD7F76200E38458 /* DetailContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContactViewController.swift; sourceTree = "<group>"; };
+		136E72721FD6F7240023F3B4 /* DetailMapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMapsViewController.swift; sourceTree = "<group>"; };
 		137CF41F1FD4E09300E3EB91 /* LandSaleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandSaleModel.swift; sourceTree = "<group>"; };
 		137CF4211FD504B100E3EB91 /* CategoryNewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryNewsModel.swift; sourceTree = "<group>"; };
 		139E645A1FCF030300117E0B /* BDS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BDS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -307,6 +313,8 @@
 				1344BE1E1FD14E2F00498108 /* SearchProjectsViewController.swift */,
 				132532A91FD6874C004BF9F5 /* Projects.storyboard */,
 				132532AB1FD6A7D8004BF9F5 /* DetailProjectViewController.swift */,
+				136E72721FD6F7240023F3B4 /* DetailMapsViewController.swift */,
+				136C56991FD7999800E38458 /* InforMapsProjectViewController.swift */,
 			);
 			path = Projects;
 			sourceTree = "<group>";
@@ -317,6 +325,7 @@
 				1344BE101FD143E900498108 /* ContactViewCell.swift */,
 				1344BE121FD143F700498108 /* ContactsViewController.swift */,
 				1344BE171FD149D800498108 /* SearchContactViewController.swift */,
+				136C569B1FD7F76200E38458 /* DetailContactViewController.swift */,
 			);
 			path = Contacts;
 			sourceTree = "<group>";
@@ -1006,6 +1015,7 @@
 				1344BE231FD1559200498108 /* NewsViewCell.swift in Sources */,
 				1319EC1F1FD58E7D003D1B0D /* CategoryProjectModel.swift in Sources */,
 				13B7445C1FD3D37B00A778A7 /* DistrictModel.swift in Sources */,
+				136E72731FD6F7240023F3B4 /* DetailMapsViewController.swift in Sources */,
 				13B744551FD3C53F00A778A7 /* NewsModel.swift in Sources */,
 				1344BE0E1FD1417400498108 /* ProjectViewCell.swift in Sources */,
 				139E64CD1FCF08DB00117E0B /* SingUpViewController.swift in Sources */,
@@ -1017,7 +1027,9 @@
 				139E64981FCF04BA00117E0B /* ExtensionString.swift in Sources */,
 				1344BE091FD13EEF00498108 /* NewsLikeViewController.swift in Sources */,
 				139E64AB1FCF07E500117E0B /* ModelPicker.swift in Sources */,
+				136C569C1FD7F76200E38458 /* DetailContactViewController.swift in Sources */,
 				139E64C81FCF08C000117E0B /* ContainerViewController.swift in Sources */,
+				136C569A1FD7999800E38458 /* InforMapsProjectViewController.swift in Sources */,
 				1344BE2C1FD15EEB00498108 /* ExtensionUILabel.swift in Sources */,
 				1319EC211FD594E5003D1B0D /* ProjectsModel.swift in Sources */,
 				139E64B91FCF084900117E0B /* ItemMenuObject.swift in Sources */,

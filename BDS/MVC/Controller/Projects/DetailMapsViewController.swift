@@ -1,8 +1,8 @@
 //
-//  MapsViewController.swift
+//  DetailMapsViewController.swift
 //  BDS
 //
-//  Created by Duy Huy on 11/30/17.
+//  Created by Duy Huy on 12/5/17.
 //  Copyright © 2017 Duy Huy. All rights reserved.
 //
 
@@ -12,7 +12,7 @@ import GooglePlaces
 import CoreLocation
 import UserNotifications
 
-class MapsViewController: BaseViewController {
+class DetailMapsViewController: BaseViewController {
 
     @IBOutlet weak var mapView: GMSMapView!
     var inforMaps:InforMapsViewController!
@@ -28,13 +28,14 @@ class MapsViewController: BaseViewController {
     var listLongitudes: [Double] = []
     
     var is3D:Bool = false
+    var project:ProjectsModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.settingMaps()
     }
-
+    
     func settingMaps()
     {
         locationManager.delegate = self
@@ -53,11 +54,13 @@ class MapsViewController: BaseViewController {
     }
     
     @IBAction func zoomButtonDidTap(_ sender: Any) {
-        let camera = GMSCameraPosition.camera(withLatitude: self.originLatitude,
-                                              longitude: self.originLongtitude,
-                                              zoom: zoomLevel)
-         mapView.animate(to: camera)
-
+        self.mapView.clear()
+        let coordinates = CLLocationCoordinate2D(latitude: Double(project.lat)!, longitude: Double(project.lng)!)
+        let marker = GMSMarker(position: coordinates)
+        marker.map = self.mapView
+        marker.icon = #imageLiteral(resourceName: "icon_macker ")
+        mapView.animate(toLocation: coordinates)
+        
     }
     
     @IBAction func DButtonDidTap(_ sender: Any) {
@@ -72,26 +75,27 @@ class MapsViewController: BaseViewController {
         }
     }
     
-    @IBAction func presendMenuButtonDidTap(_ sender: Any) {
-       self.showMenuView()
+    @IBAction func backButtonDidTap(_ sender: Any) {
+        self.popToView()
+    }
+    
+    @IBAction func saveButtonDidTap(_ sender: Any) {
     }
     
     func addBottomSheetView() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let bottomSheetViewController = storyboard.instantiateViewController(withIdentifier: "InforMapsViewController") as? InforMapsViewController
-        self.inforMaps = bottomSheetViewController
-        
+        let storyboard = UIStoryboard(name: "Projects", bundle: nil)
+        let bottomSheetViewController = storyboard.instantiateViewController(withIdentifier: "InforMapsProjectViewController") as? InforMapsProjectViewController
+        bottomSheetViewController?.project = self.project
         self.addChildViewController(bottomSheetViewController!)
         self.view.addSubview((bottomSheetViewController?.view)!)
         bottomSheetViewController?.didMove(toParentViewController: self)
-        bottomSheetViewController?.controller.delegate = self
         let height = view.frame.height
         let width  = view.frame.width
         bottomSheetViewController?.view.frame = CGRect(x: 0, y: self.view.frame.maxY, width: width, height: height)
     }
     
 }
-extension MapsViewController: CLLocationManagerDelegate {
+extension DetailMapsViewController: CLLocationManagerDelegate {
     //Handle incoming location events.
     func locationManager(_ manager: CLLocationManager,
                          didUpdateLocations locations: [CLLocation]) {
@@ -102,7 +106,7 @@ extension MapsViewController: CLLocationManagerDelegate {
             self.originLatitude = locationLatitude
             self.originLongtitude = locationLongtitude
             mapView.clear()
-           
+            
             let coordinates = CLLocationCoordinate2D(latitude: locationLatitude, longitude: locationLongtitude)
             let marker = GMSMarker(position: coordinates)
             marker.map = self.mapView
@@ -136,7 +140,7 @@ extension MapsViewController: CLLocationManagerDelegate {
 }
 
 
-extension MapsViewController: GMSMapViewDelegate {
+extension DetailMapsViewController: GMSMapViewDelegate {
     
     func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
         self.destinationLatitude = coordinate.latitude
@@ -149,31 +153,6 @@ extension MapsViewController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         
         return true
-    }
-}
-extension MapsViewController:LandForSaleViewControllerDelegate
-{
-    func disLoadDataMaps(_ controller: LandForSaleViewController, listData: [LandSaleModel]) {
-        self.inforMaps.numberNews.text = " \(listData.count) tin rao"
-        self.mapView.clear()
-        self.listLatitudes = []
-        self.listLongitudes = []
-        for data in listData
-        {
-            let lat = data.land_lat
-            let log = data.land_lng
-            self.listLatitudes.append(Double(lat)!)
-            self.listLongitudes.append(Double(log)!)
-          
-        }
-        for i in 0..<self.listLongitudes.count {
-            let coordinates = CLLocationCoordinate2D(latitude: self.listLatitudes[i], longitude: self.listLongitudes[i])
-            let marker = GMSMarker(position: coordinates)
-            marker.map = self.mapView
-            marker.icon = #imageLiteral(resourceName: "icon_macker ")
-            marker.userData = listData[i]
-        }
-        self.mapView.animate(toZoom: 6)
     }
 }
 

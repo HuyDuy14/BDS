@@ -10,27 +10,30 @@ import UIKit
 import ObjectMapper
 
 class BrokerModel: Mappable {
-    var title:String = ""
-    var id: String = ""
-    var image:String = ""
-    var email:String = ""
-    var phone = ""
-    var website = ""
-    var summary = ""
-    var content = ""
+    
+    var id =  ""
+    var title =  ""
+    var image =  ""
+    var address =  ""
+    var email =  ""
+    var phone =  ""
+    var website =  ""
+    var summary =  ""
+    var content =  ""
     
     required convenience init?(map: Map) {
         self.init()
     }
     
     func mapping(map: Map) {
-        id  <- map["id"]
-        image  <- map["image"]
-        title  <- map["title"]
-        email  <- map["email"]
-        phone  <- map["phone"]
-        website <- map["website"]
-        summary  <- map["summary"]
-        content  <- map["content"]
+        self.id <- map["id"]
+        self.title <- map["title"]
+        self.image <- map["image"]
+        self.address <- map["address"]
+        self.email <- map["email"]
+        self.phone <- map["phone"]
+        self.website <- map["website"]
+        self.summary <- map["summary"]
+        self.content <- map["content"]
     }
 }
