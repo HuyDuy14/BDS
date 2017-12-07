@@ -24,7 +24,7 @@ class SearchProjectsViewController: BaseViewController {
     var listPickerCity:[ModelPicker] = []
     var listPickerDistrict:[ModelPicker] = []
     var listPickerTypeProject:[ModelPicker] = []
-    var listMonney:[ModelPicker] = [ModelPicker(id: 0, name: "Hà Nội"),ModelPicker(id: 2, name: "Thanh Hoá"),ModelPicker(id: 3, name: "Nam Định")]
+   
   
     var idProject:Int = 0
     var idCity:Int = 0

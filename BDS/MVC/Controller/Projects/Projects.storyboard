@@ -660,9 +660,9 @@
         <image name="icon3D" width="33" height="33"/>
         <image name="icon_back" width="25" height="20"/>
         <image name="icon_back_maps" width="25" height="24"/>
-        <image name="icon_drop" width="138" height="71"/>
+        <image name="icon_drop" width="16" height="10"/>
         <image name="icon_in_news" width="14" height="14"/>
-        <image name="icon_like" width="11" height="10"/>
+        <image name="icon_like" width="24" height="22"/>
         <image name="icon_zoom_maps" width="33" height="33"/>
     </resources>
 </document>

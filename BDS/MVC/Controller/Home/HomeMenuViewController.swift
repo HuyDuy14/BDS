@@ -46,4 +46,17 @@ class HomeMenuViewController: BaseViewController {
     }
     
     
+    @IBAction func registerNewsButtonDidTap(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
+        let newsController = storyboard.instantiateViewController(withIdentifier: "RegisterNewsViewController") as? RegisterNewsViewController
+        self.pushViewController(viewController: newsController!)
+    }
+    
+    @IBAction func landForRentButtonDidTap(_ sender: Any) {
+        SaveCurrentVC.shared.homeController.tutorialPageViewController?.scrollToViewController(index: 1)
+
+    }
+    
+    
+    
 }

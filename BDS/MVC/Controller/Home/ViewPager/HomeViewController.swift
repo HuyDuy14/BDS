@@ -38,6 +38,9 @@ class HomeViewController: UIViewController {
         self.loadCategoryNews()
         self.getDataNews()
         self.getTypeProject()
+        self.getListCategoryLand()
+        self.getListCategoryRent()
+        self.getAllCategoryLand()
     }
     
     var tutorialPageViewController: TutorialPageViewController? {
@@ -161,6 +164,48 @@ extension HomeViewController
                 if let dic = data as? [String:Any] {
                     let category = CategoryProjectModel(JSON: dic)
                     Util.shared.typesProject.append(category!)
+                }
+            }
+            self.hideHUD()
+        }).disposed(by: self.disposeBag)
+    }
+    
+    func getListCategoryLand()
+    {
+        Util.shared.listCategorySale = []
+        APIClient.shared.getCategoryLand(type: "sale").asObservable().bind(onNext: { result in
+            for data in result.dataArray {
+                if let dic = data as? [String:Any] {
+                    let category = CategoryLand(JSON: dic)
+                    Util.shared.listCategorySale.append(category!)
+                }
+            }
+            self.hideHUD()
+        }).disposed(by: self.disposeBag)
+    }
+    
+    func getListCategoryRent()
+    {
+        Util.shared.listCategoryRent = []
+        APIClient.shared.getCategoryLand(type: "rent").asObservable().bind(onNext: { result in
+            for data in result.dataArray {
+                if let dic = data as? [String:Any] {
+                    let category = CategoryLand(JSON: dic)
+                    Util.shared.listCategoryRent.append(category!)
+                }
+            }
+            self.hideHUD()
+        }).disposed(by: self.disposeBag)
+    }
+    
+    func getAllCategoryLand()
+    {
+        Util.shared.listAllCategoryland = []
+        APIClient.shared.getCategoryLand(type: "null").asObservable().bind(onNext: { result in
+            for data in result.dataArray {
+                if let dic = data as? [String:Any] {
+                    let category = CategoryLand(JSON: dic)
+                    Util.shared.listAllCategoryland.append(category!)
                 }
             }
             self.hideHUD()

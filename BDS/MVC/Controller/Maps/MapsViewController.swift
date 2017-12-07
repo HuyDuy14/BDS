@@ -170,7 +170,7 @@ extension MapsViewController:LandForSaleViewControllerDelegate
             let coordinates = CLLocationCoordinate2D(latitude: self.listLatitudes[i], longitude: self.listLongitudes[i])
             let marker = GMSMarker(position: coordinates)
             marker.map = self.mapView
-            marker.icon = #imageLiteral(resourceName: "icon_macker ")
+            marker.icon = #imageLiteral(resourceName: "icon_macker")
             marker.userData = listData[i]
         }
         self.mapView.animate(toZoom: 6)

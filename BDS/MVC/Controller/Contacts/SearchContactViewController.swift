@@ -26,7 +26,7 @@ class SearchContactViewController: BaseViewController {
     var idProject:String = "null"
     var idCity:String = "null"
     var indexSelectCity:Int = 0
-    var idDictrict:String = ""
+    var idDictrict:String = "null"
     var indexSelectDistrict:Int = 0
     var indextSelectProject:Int = 0
     
@@ -49,7 +49,7 @@ class SearchContactViewController: BaseViewController {
     func setDataPicker()
     {
         var index:Int = 0
-        for type in Util.shared.typesProject {
+        for type in Util.shared.listAllCategoryland {
             let picker = ModelPicker(id: Int(type.id)!, name: type.name)
             picker.index = index
             index += 1

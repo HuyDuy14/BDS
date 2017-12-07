@@ -35,7 +35,10 @@ class APIClient: NSObject {
                         if result.status == 200 {
                             observer.onNext(result)
                         } else {
-                            self.showAlert(message: result.message)
+                            if result.message.count != 0 {
+                                self.showAlert(message: result.message)
+                            }
+                            
                            ACProgressHUD.shared.hideHUD()
                         }
                         
@@ -70,7 +73,9 @@ class APIClient: NSObject {
                         if result.status == 200 {
                             observer.onNext(result)
                         } else {
-                            self.showAlert(message: result.message)
+                            if result.message.count != 0 {
+                             self.showAlert(message: result.message)
+                            }
                            ACProgressHUD.shared.hideHUD()
                         }
                         
@@ -273,6 +278,11 @@ class APIClient: NSObject {
         return self.requestGet(path: API.getTypeProject, method: .post, params: nil)
     }
     
+    func getCategoryLand(type:String) -> Observable<Result> {
+         let params: Parameters = ["type":type]
+        return self.requestGet(path: API.getCategoryLand, method: .post, params: params)
+    }
+    
     func searchProjects(idProject:Int,idCity:Int,idDistrict:Int) -> Observable<Result> {
         var params: Parameters = [:]
         if idProject != 0
@@ -312,99 +322,20 @@ class APIClient: NSObject {
         return self.requestGet(path: API.searchBroker, method: .get, params: params)
     }
     
-    func searchLandRent(project_id:String,title:String,type:String,city:String,ward:String,area_min:String,area_max:String,price_min:String,price_max:String,district:String,page:Int) -> Observable<Result> {
+    func searchLandRent(project_id:String,title:String,type:String,city:String,ward:String,area_min:String,area_max:String,price_min:String,price_max:String,district:String,numberbedroom:String,direction:String,page:Int) -> Observable<Result> {
         var params: Parameters = ["page":page]
-        if project_id != ""
-        {
-            params["project_id"] = project_id
-        }
-        else
-        {
-            params["project_id"]  = "null"
-        }
-        if title != ""
-        {
-            params["title"] = title
-        }
-        else
-        {
-            params["title"]  = "null"
-        }
-        
-        if type != ""
-        {
-            params["type"] = type
-        }
-        else
-        {
-            params["type"]  = "null"
-        }
-        
-        if city != ""
-        {
-            params["city"] = city
-        }
-            
-        else
-        {
-            params["city"]  = "null"
-        }
-        
-        if ward != ""
-        {
-            params["ward"] = ward
-        }
-        else
-        {
-            params["ward"]  = "null"
-        }
-        
-        if area_min != ""
-        {
-            params["area_min"] = area_min
-        }
-        else
-        {
-            params["area_min"]  = "null"
-        }
-        
-        if area_max != ""
-        {
-            params["area_max"] = area_max
-        }
-        else
-        {
-            params["area_max"]  = "null"
-        }
-        
-        if price_min != ""
-        {
-            params["price_min"] = price_min
-        }
-            
-        else
-        {
-            params["price_min"]  = "null"
-        }
-        
-        if price_max != ""
-        {
-            params["price_max"] = price_max
-        }
-        else
-        {
-            params["price_max"]  = "null"
-        }
-        
-        if district != ""
-        {
-            params["district"] = district
-        }
-        else
-        {
-            params["district"]  = "null"
-        }
-        
+        params["project_id"] = project_id
+        params["title"] = title
+        params["type"] = type
+        params["city"] = city
+        params["ward"] = ward
+        params["area_min"] = area_min
+        params["area_max"] = area_max
+        params["price_min"] = price_min
+        params["price_max"] = price_max
+        params["district"] = district
+        params["numberbedroom"] = numberbedroom
+        params["direction"] = direction
         return self.requestGet(path: API.searchLandRent, method: .get, params: params)
     }
     
@@ -414,7 +345,6 @@ class APIClient: NSObject {
             ] as Parameters
         return self.requestGet(path: API.getProject, method: .get, params: params)
     }
-    
     
     func showAlert(message: String) {
         _ = UIAlertView.show(withTitle: "", message: NSLocalizedString(message, comment: ""), cancelButtonTitle: "OK", otherButtonTitles: nil, tap: nil)

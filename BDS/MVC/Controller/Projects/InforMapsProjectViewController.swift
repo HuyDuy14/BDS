@@ -25,6 +25,7 @@ class InforMapsProjectViewController: BaseViewController {
         return UIScreen.main.bounds.height - 50
     }
     var project:ProjectsModel!
+    var landForSale:LandSaleModel!
     
     fileprivate var drawerBottomSafeArea: CGFloat = 0.0 {
         didSet {
@@ -48,14 +49,30 @@ class InforMapsProjectViewController: BaseViewController {
     
     func fillData()
     {
-        self.titlelProject.text = project.title
-        self.addRess.text = project.address
-        self.dateCreate.text = project.date_start.FromStringToDateToString()
-        self.dateEnd.text = project.date_finish.FromStringToDateToString()
-        self.addAre.text = project.land_area
-        self.priceProject.text = project.price + "/m2"
-        self.idProject.text = "BDS" + project.id
-        self.typeProject.text = ""
+        if self.project != nil
+        {
+            self.titlelProject.text = project.title
+            self.addRess.text = project.address
+            self.dateCreate.text = project.date_start.FromStringToDateToString()
+            self.dateEnd.text = project.date_finish.FromStringToDateToString()
+            self.addAre.text = project.land_area
+            self.priceProject.text = project.price + "/m2"
+            self.idProject.text = "BDS" + project.id
+            self.typeProject.text = ""
+        }
+        else
+        {
+          
+            self.titlelProject.text = self.landForSale.title
+            self.addAre.text = self.landForSale.land_area + "m2"
+            self.priceProject.text = self.landForSale.land_price + " tỷ/m2"
+            self.addRess.text = self.landForSale.district_name + " , " + self.landForSale.city_name
+            self.dateCreate.text = self.landForSale.land_date_start.FromStringToDateToStringProjects()
+            self.dateEnd.text = self.landForSale.land_date_finish.FromStringToDateToStringProjects()
+            self.typeProject.text = self.landForSale.category_name
+            self.idProject.text = self.landForSale.code
+            
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

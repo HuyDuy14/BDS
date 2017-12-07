@@ -109,7 +109,7 @@ class ProjectsViewController: BaseViewController {
         
         if self.isLoading == false {
             self.isLoading = true
-            APIClient.shared.searchLandRent(project_id: "", title: "", type: "", city: "", ward: "", area_min: "", area_max: "", price_min: "", price_max: "", district: "", page: self.page).asObservable().bind(onNext: { result in
+            APIClient.shared.searchLandRent(project_id: "null", title: "null", type: "null", city: "null", ward: "null", area_min: "null", area_max: "null", price_min: "null", price_max: "null", district: "null", numberbedroom: "null", direction: "null", page: self.page).asObservable().bind(onNext: { result in
                 DispatchQueue.main.async {
                     var projects: [LandSaleModel] = []
                     for data in result.dataArray
@@ -207,16 +207,27 @@ extension ProjectsViewController:UITableViewDelegate,UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if  isBackHome == false
-        {
-            if self.listProject.count > indexPath.row
+       
+            if  isBackHome == false
             {
-                let storyboard = UIStoryboard(name: "Projects", bundle: nil)
-                let showDetail = storyboard.instantiateViewController(withIdentifier: "DetailProjectViewController") as? DetailProjectViewController
-                showDetail?.project = self.listProject[indexPath.row]
-                self.pushViewController(viewController: showDetail)
+                if self.listProject.count > indexPath.row
+                {
+                    let storyboard = UIStoryboard(name: "Projects", bundle: nil)
+                    let showDetail = storyboard.instantiateViewController(withIdentifier: "DetailProjectViewController") as? DetailProjectViewController
+                    showDetail?.project = self.listProject[indexPath.row]
+                    self.pushViewController(viewController: showDetail)
+                }
             }
-        }
+            else
+            {
+                if self.listLandSent.count > indexPath.row
+                {
+                    let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
+                    let showDetail = storyboard.instantiateViewController(withIdentifier: "DetailLanforSaleViewController") as? DetailLanforSaleViewController
+                    showDetail?.landForSale = self.listLandSent[indexPath.row]
+                    self.pushViewController(viewController: showDetail)
+                }
+            }
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {

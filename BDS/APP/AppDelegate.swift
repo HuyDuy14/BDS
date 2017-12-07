@@ -13,6 +13,7 @@ import GoogleSignIn
 import FBSDKCoreKit
 import RxCocoa
 import RxSwift
+import IQKeyboardManagerSwift
 
 let API_KEY_GOOGLE = "AIzaSyDeHiOsROpzfS0K2ys91RoZhym8tGSbtYE"
 
@@ -24,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let disposeBag = DisposeBag()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        IQKeyboardManager.sharedManager().enable = true
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done"
         GMSServices.provideAPIKey(API_KEY_GOOGLE)
         GMSPlacesClient.provideAPIKey(API_KEY_GOOGLE)
         self.loadDataCity()

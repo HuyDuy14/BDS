@@ -52,7 +52,7 @@ class ContactsViewController: BaseViewController {
         
         if self.isLoading == false {
             self.isLoading = true
-            APIClient.shared.searchLanForSent(type: self.idType, idProject: self.idProject, idCity: self.idProject, idDistrict: self.idProject,page:self.page).asObservable().bind(onNext: { result in
+            APIClient.shared.searchLanForSent(type: self.idType, idProject: self.idProject, idCity: self.idCity, idDistrict: self.idDistrict,page:self.page).asObservable().bind(onNext: { result in
                 DispatchQueue.main.async {
                     var contacts: [BrokerModel] = []
                     for data in result.dataArray

@@ -36,7 +36,7 @@ extension PopupCategoryNewsViewController:UITableViewDataSource,UITableViewDeleg
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "PopupCategoryNewsViewCell") as! PopupCategoryNewsViewCell
         cell.nameCell.text = self.listName[indexPath.row].name
-        cell.imageCell.setImageUrlNews(url: API.linkImage + self.listName[indexPath.row].icon)
+//        cell.imageCell.setImageUrlNews(url: API.linkImage + self.listName[indexPath.row].icon)
         return cell
     }
 

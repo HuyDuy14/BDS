@@ -22,6 +22,7 @@ class DetailProjectViewController: BaseViewController {
     @IBOutlet weak var scaleProject: UILabel!
     
     var project:ProjectsModel!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +32,7 @@ class DetailProjectViewController: BaseViewController {
     
     func fillData()
     {
-//        if project.isLike == true
-//        {
-//
-//        }
+
         self.nameUserProjects.text = project.investor
         self.imageProjects.setImageProject(urlString: API.linkImage + project.image)
         self.addressProject.text = project.address
@@ -44,6 +42,7 @@ class DetailProjectViewController: BaseViewController {
         self.date.text = project.date_finish.FromStringToDateToStringProjects()
         self.scaleProject.text = project.summary
         self.webView.loadHTMLString(Util.shared.htmlString(from: project.content), baseURL: nil)
+  
     }
     
 

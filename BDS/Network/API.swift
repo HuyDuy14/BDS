@@ -32,4 +32,5 @@ class API: NSObject {
     static var getTypeProject = "get_project_category.php"
     static var getProject = "get_project.php"
     static var searchBroker = "search_broker.php"
+    static var getCategoryLand = "type_land.php"
 }

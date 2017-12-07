@@ -33,6 +33,21 @@ class LandForSaleViewController: BaseViewController {
     let disposeBag = DisposeBag()
     weak var delegate:LandForSaleViewControllerDelegate?
     
+    var idProject:String = "null"
+    var idDistrict:String = "null"
+    var idCity = "null"
+    var idWards:String = "null"
+    var idDirection = "null"
+    var idAcreage = "null"
+    var idBedRoom = "null"
+    var titleSearch = "null"
+    var idBedroom = "null"
+    var price_max = "null"
+    var pricae_min = "null"
+    var are_min = "null"
+    var are_max = "null"
+    var type = "null"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,32 +61,77 @@ class LandForSaleViewController: BaseViewController {
     
     // MARK: - LoadData
     
+//    func loadData(refresh: Bool)
+//    {
+//
+//        if self.isLoading == false {
+//            self.isLoading = true
+//            APIClient.shared.getListLandSale(page: self.page).asObservable().bind(onNext: {result in
+//                DispatchQueue.main.async {
+//                    var listLandSaleModel: [LandSaleModel] = []
+//                    for data in result.dataArray
+//                    {
+//                        if let dic = data as? [String:Any]
+//                        {
+//                            let landSaleModel = LandSaleModel(JSON: dic)
+//                            listLandSaleModel.append(landSaleModel!)
+//                        }
+//                    }
+//
+//                    if listLandSaleModel.count == 0
+//                    {
+//                        self.isLoad = false
+//                    }
+//                    self.listData.append(contentsOf: listLandSaleModel)
+//                    self.delegate?.disLoadDataMaps(self, listData:  self.listData)
+//                    if self.listData.count != 0 && refresh == true {
+//                        var array: [NSIndexPath]! = []
+//                        let index: Int = self.listData.count - listLandSaleModel.count
+//                        for i in index..<self.listData.count {
+//                            array.append( NSIndexPath(row: i, section: 0))
+//                        }
+//                        self.tableView.beginUpdates()
+//                        self.tableView.insertRows(at: array! as [IndexPath], with: .automatic)
+//                        self.tableView.endUpdates()
+//                    } else {
+//                        self.tableView.reloadData()
+//                    }
+//                    self.isLoading = false
+//                    self.refreshControl?.endRefreshing()
+//                    self.hideHUD()
+//                }
+//            }).disposed(by: self.disposeBag)
+//        }
+//
+//    }
+//
+    
     func loadData(refresh: Bool)
     {
         
         if self.isLoading == false {
             self.isLoading = true
-            APIClient.shared.getListLandSale(page: self.page).asObservable().bind(onNext: {result in
+            APIClient.shared.searchLandRent(project_id: self.idProject, title: self.titleSearch, type: self.type, city: self.idCity, ward: self.idWards, area_min: self.are_min, area_max: self.are_max, price_min: self.pricae_min, price_max: self.price_max, district: self.idDistrict, numberbedroom: self.idBedRoom, direction: self.idDirection, page: self.page).asObservable().bind(onNext: { result in
                 DispatchQueue.main.async {
-                    var listLandSaleModel: [LandSaleModel] = []
+                    var projects: [LandSaleModel] = []
                     for data in result.dataArray
                     {
                         if let dic = data as? [String:Any]
                         {
-                            let landSaleModel = LandSaleModel(JSON: dic)
-                            listLandSaleModel.append(landSaleModel!)
+                            let project = LandSaleModel(JSON: dic)
+                            projects.append(project!)
                         }
                     }
                     
-                    if listLandSaleModel.count == 0
+                    if projects.count == 0
                     {
                         self.isLoad = false
                     }
-                    self.listData.append(contentsOf: listLandSaleModel)
-                    self.delegate?.disLoadDataMaps(self, listData:  self.listData)
+                    self.listData.append(contentsOf: projects)
+                    
                     if self.listData.count != 0 && refresh == true {
                         var array: [NSIndexPath]! = []
-                        let index: Int = self.listData.count - listLandSaleModel.count
+                        let index: Int = self.listData.count - projects.count
                         for i in index..<self.listData.count {
                             array.append( NSIndexPath(row: i, section: 0))
                         }
@@ -94,6 +154,19 @@ class LandForSaleViewController: BaseViewController {
         self.listData = []
         self.isLoad = true
         self.page = 0
+        self.idProject = "null"
+        self.idDistrict = "null"
+        self.idCity = "null"
+        self.idWards = "null"
+        self.idDirection = "null"
+        self.idBedRoom = "null"
+        self.titleSearch = "null"
+        self.idBedroom = "null"
+        self.price_max = "null"
+        self.pricae_min = "null"
+        self.are_min = "null"
+        self.are_max = "null"
+        self.type = "null"
         self.loadData(refresh: false)
     }
     
@@ -130,7 +203,7 @@ class LandForSaleViewController: BaseViewController {
     @IBAction func searchButtonDidTap(_ sender: Any) {
         let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
         let searchController = storyboard.instantiateViewController(withIdentifier: "SearchLandForSaleViewController") as? SearchLandForSaleViewController
-        
+        searchController?.delegate = self
         self.pushViewController(viewController: searchController!)
     }
 
@@ -151,6 +224,17 @@ extension LandForSaleViewController:UITableViewDelegate,UITableViewDataSource
         return UITableViewCell()
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row < self.listData.count {
+            let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
+            let showDetail = storyboard.instantiateViewController(withIdentifier: "DetailLanforSaleViewController") as? DetailLanforSaleViewController
+            showDetail?.landForSale = self.listData[indexPath.row]
+            
+            self.pushViewController(viewController: showDetail)
+        }
+       
+    }
+    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
 
         let bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height
@@ -167,4 +251,26 @@ extension LandForSaleViewController:UITableViewDelegate,UITableViewDataSource
             }
         }
     }
+}
+
+extension LandForSaleViewController:SearchLandForSaleViewControllerDelegate{
+  
+    func searchLand(_ controlelr: SearchLandForSaleViewController, _ project_id: String, _ title: String, _ type: String, _ city: String, _ ward: String, _ area_min: String, _ area_max: String, _ price_min: String, _ price_max: String, _ district: String, _ numberbedroom: String, _ direction: String) {
+        self.idProject = project_id
+        self.titleSearch = title
+        self.type = type
+        self.idCity = city
+        self.idWards = ward
+        self.are_min = area_min
+        self.are_max = area_max
+        self.pricae_min = price_min
+        self.price_max = price_max
+        self.idDistrict = district
+        self.idBedRoom = numberbedroom
+        self.idDirection = direction
+        self.showHUD("")
+        self.loadData(refresh: true)
+    }
+    
+    
 }

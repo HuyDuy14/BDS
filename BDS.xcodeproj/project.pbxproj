@@ -87,6 +87,10 @@
 		13B744581FD3CBE700A778A7 /* news.html in Resources */ = {isa = PBXBuildFile; fileRef = 13B744571FD3CBE600A778A7 /* news.html */; };
 		13B7445A1FD3D1EC00A778A7 /* BrokerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B744591FD3D1EC00A778A7 /* BrokerModel.swift */; };
 		13B7445C1FD3D37B00A778A7 /* DistrictModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7445B1FD3D37B00A778A7 /* DistrictModel.swift */; };
+		13CAB8821FD8CCDC0014F551 /* CategoryLand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CAB8811FD8CCDC0014F551 /* CategoryLand.swift */; };
+		13CAB8841FD915B80014F551 /* WaredModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CAB8831FD915B80014F551 /* WaredModel.swift */; };
+		13CAB8861FD92EA60014F551 /* RegisterNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CAB8851FD92EA60014F551 /* RegisterNewsViewController.swift */; };
+		13CAB8881FD946F30014F551 /* DetailLanforSaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CAB8871FD946F30014F551 /* DetailLanforSaleViewController.swift */; };
 		13FB33121FD2C33C00FC5B55 /* ModelCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FB33111FD2C33C00FC5B55 /* ModelCity.swift */; };
 		13FB33141FD2F0B800FC5B55 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FB33131FD2F0B800FC5B55 /* Util.swift */; };
 		13FB33161FD2FA2100FC5B55 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13FB33151FD2FA2100FC5B55 /* GoogleService-Info.plist */; };
@@ -200,6 +204,10 @@
 		13B744571FD3CBE600A778A7 /* news.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = news.html; sourceTree = "<group>"; };
 		13B744591FD3D1EC00A778A7 /* BrokerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrokerModel.swift; sourceTree = "<group>"; };
 		13B7445B1FD3D37B00A778A7 /* DistrictModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistrictModel.swift; sourceTree = "<group>"; };
+		13CAB8811FD8CCDC0014F551 /* CategoryLand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLand.swift; sourceTree = "<group>"; };
+		13CAB8831FD915B80014F551 /* WaredModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaredModel.swift; sourceTree = "<group>"; };
+		13CAB8851FD92EA60014F551 /* RegisterNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNewsViewController.swift; sourceTree = "<group>"; };
+		13CAB8871FD946F30014F551 /* DetailLanforSaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLanforSaleViewController.swift; sourceTree = "<group>"; };
 		13FB33111FD2C33C00FC5B55 /* ModelCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCity.swift; sourceTree = "<group>"; };
 		13FB33131FD2F0B800FC5B55 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		13FB33151FD2FA2100FC5B55 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -289,6 +297,7 @@
 				1344BE031FD12E3000498108 /* LandForSaleViewController.swift */,
 				1344BE051FD12E4100498108 /* LandForSaleViewCell.swift */,
 				1344BE2D1FD162F100498108 /* SearchLandForSaleViewController.swift */,
+				13CAB8871FD946F30014F551 /* DetailLanforSaleViewController.swift */,
 			);
 			path = LandForSale;
 			sourceTree = "<group>";
@@ -301,6 +310,7 @@
 				1344BE201FD1558200498108 /* NewsViewController.swift */,
 				1344BE221FD1559200498108 /* NewsViewCell.swift */,
 				1344BE291FD15E4B00498108 /* DetailNewsViewController.swift */,
+				13CAB8851FD92EA60014F551 /* RegisterNewsViewController.swift */,
 			);
 			path = ListNewsLike;
 			sourceTree = "<group>";
@@ -473,6 +483,7 @@
 				137CF4211FD504B100E3EB91 /* CategoryNewsModel.swift */,
 				1319EC1E1FD58E7D003D1B0D /* CategoryProjectModel.swift */,
 				1319EC201FD594E5003D1B0D /* ProjectsModel.swift */,
+				13CAB8811FD8CCDC0014F551 /* CategoryLand.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -627,6 +638,7 @@
 			children = (
 				13FB33111FD2C33C00FC5B55 /* ModelCity.swift */,
 				13B7445B1FD3D37B00A778A7 /* DistrictModel.swift */,
+				13CAB8831FD915B80014F551 /* WaredModel.swift */,
 			);
 			path = City;
 			sourceTree = "<group>";
@@ -904,6 +916,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/KMPlaceholderTextView/KMPlaceholderTextView.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
@@ -925,6 +938,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMPlaceholderTextView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
@@ -987,6 +1001,7 @@
 				1344BE281FD159E000498108 /* PopupCategoryNewsViewController.swift in Sources */,
 				1344BE061FD12E4100498108 /* LandForSaleViewCell.swift in Sources */,
 				13B7445A1FD3D1EC00A778A7 /* BrokerModel.swift in Sources */,
+				13CAB8881FD946F30014F551 /* DetailLanforSaleViewController.swift in Sources */,
 				1344BE261FD159CB00498108 /* PopupCategoryNewsViewCell.swift in Sources */,
 				1344BE131FD143F700498108 /* ContactsViewController.swift in Sources */,
 				13AB37631FCF9EA6000BA67D /* HomeViewController.swift in Sources */,
@@ -1018,6 +1033,7 @@
 				136E72731FD6F7240023F3B4 /* DetailMapsViewController.swift in Sources */,
 				13B744551FD3C53F00A778A7 /* NewsModel.swift in Sources */,
 				1344BE0E1FD1417400498108 /* ProjectViewCell.swift in Sources */,
+				13CAB8821FD8CCDC0014F551 /* CategoryLand.swift in Sources */,
 				139E64CD1FCF08DB00117E0B /* SingUpViewController.swift in Sources */,
 				1344BE0C1FD1415B00498108 /* ProjectsViewController.swift in Sources */,
 				13372E8C1FD0093400041A57 /* InforUserViewController.swift in Sources */,
@@ -1037,6 +1053,7 @@
 				132532AC1FD6A7D8004BF9F5 /* DetailProjectViewController.swift in Sources */,
 				1344BE111FD143E900498108 /* ContactViewCell.swift in Sources */,
 				139E645E1FCF030300117E0B /* AppDelegate.swift in Sources */,
+				13CAB8861FD92EA60014F551 /* RegisterNewsViewController.swift in Sources */,
 				13195E281FD05DC500C60533 /* MapsViewController.swift in Sources */,
 				1344BE2E1FD162F100498108 /* SearchLandForSaleViewController.swift in Sources */,
 				1344BE211FD1558200498108 /* NewsViewController.swift in Sources */,
@@ -1047,6 +1064,7 @@
 				13B744531FD3BF5300A778A7 /* UserModel.swift in Sources */,
 				13372E9B1FD0118400041A57 /* SaveCurrentVC.swift in Sources */,
 				139E64991FCF04BA00117E0B /* UIColorExtensions.swift in Sources */,
+				13CAB8841FD915B80014F551 /* WaredModel.swift in Sources */,
 				137CF4221FD504B100E3EB91 /* CategoryNewsModel.swift in Sources */,
 				13AB37681FCF9FAC000BA67D /* NaviLoginViewController.swift in Sources */,
 				139E64AC1FCF07E500117E0B /* PickerView.swift in Sources */,

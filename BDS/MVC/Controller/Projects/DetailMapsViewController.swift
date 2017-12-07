@@ -29,11 +29,14 @@ class DetailMapsViewController: BaseViewController {
     
     var is3D:Bool = false
     var project:ProjectsModel!
+    var landForSale:LandSaleModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.settingMaps()
+        self.mapView.clear()
+       
     }
     
     func settingMaps()
@@ -55,12 +58,22 @@ class DetailMapsViewController: BaseViewController {
     
     @IBAction func zoomButtonDidTap(_ sender: Any) {
         self.mapView.clear()
-        let coordinates = CLLocationCoordinate2D(latitude: Double(project.lat)!, longitude: Double(project.lng)!)
-        let marker = GMSMarker(position: coordinates)
-        marker.map = self.mapView
-        marker.icon = #imageLiteral(resourceName: "icon_macker ")
-        mapView.animate(toLocation: coordinates)
-        
+        if self.project != nil
+        {
+            let coordinates = CLLocationCoordinate2D(latitude: Double(project.lat)!, longitude: Double(project.lng)!)
+            let marker = GMSMarker(position: coordinates)
+            marker.map = self.mapView
+            marker.icon = #imageLiteral(resourceName: "icon_macker")
+            mapView.animate(toLocation: coordinates)
+        }
+        else
+        {
+            let coordinates = CLLocationCoordinate2D(latitude: Double(self.landForSale.land_lat)!, longitude: Double(self.landForSale.land_lng)!)
+            let marker = GMSMarker(position: coordinates)
+            marker.map = self.mapView
+            marker.icon = #imageLiteral(resourceName: "icon_macker ")
+            mapView.animate(toLocation: coordinates)
+        }
     }
     
     @IBAction func DButtonDidTap(_ sender: Any) {
@@ -85,7 +98,14 @@ class DetailMapsViewController: BaseViewController {
     func addBottomSheetView() {
         let storyboard = UIStoryboard(name: "Projects", bundle: nil)
         let bottomSheetViewController = storyboard.instantiateViewController(withIdentifier: "InforMapsProjectViewController") as? InforMapsProjectViewController
-        bottomSheetViewController?.project = self.project
+        if self.project != nil
+        {
+            bottomSheetViewController?.project = self.project
+        }
+        else
+        {
+            bottomSheetViewController?.landForSale = self.landForSale
+        }
         self.addChildViewController(bottomSheetViewController!)
         self.view.addSubview((bottomSheetViewController?.view)!)
         bottomSheetViewController?.didMove(toParentViewController: self)
@@ -119,6 +139,23 @@ extension DetailMapsViewController: CLLocationManagerDelegate {
                 mapView.camera = camera
             } else {
                 mapView.animate(to: camera)
+            }
+            self.mapView.clear()
+            if self.project != nil
+            {
+                let coordinates = CLLocationCoordinate2D(latitude: Double(project.lat)!, longitude: Double(project.lng)!)
+                let marker = GMSMarker(position: coordinates)
+                marker.map = self.mapView
+                marker.icon = #imageLiteral(resourceName: "icon_macker ")
+                mapView.animate(toLocation: coordinates)
+            }
+            else
+            {
+                let coordinates = CLLocationCoordinate2D(latitude: Double(self.landForSale.land_lat)!, longitude: Double(self.landForSale.land_lng)!)
+                let marker = GMSMarker(position: coordinates)
+                marker.map = self.mapView
+                marker.icon = #imageLiteral(resourceName: "icon_macker")
+                mapView.animate(toLocation: coordinates)
             }
         }
     }

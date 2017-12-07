@@ -17,6 +17,9 @@ class Util: NSObject {
     var listCategoryNews:[CategoryNewsModel] = []
     var listNewsSave :[NewsModel]  = []
     var typesProject:[CategoryProjectModel] = []
+    var listCategorySale:[CategoryLand] = []
+    var listCategoryRent:[CategoryLand] = []
+    var listAllCategoryland:[CategoryLand] = []
     
     func isValidEmail(email:String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"

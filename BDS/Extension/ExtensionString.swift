@@ -29,7 +29,7 @@ public extension String
     func FromStringToDateToDate()->Date{
         let dateFormat = DateFormatter()
         dateFormat.dateFormat = "yyyy-MM-dd"
-        return dateFormat.date(from: self)!
+        return dateFormat.date(from: self) ?? Date()
     }
     
     func FromStringToDateToStringNews()->String{
