@@ -14,7 +14,9 @@ import UserNotifications
 
 class MapsViewController: BaseViewController {
 
+    @IBOutlet weak var nameMaps: UILabel!
     @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var btnTypeSelect: UIButton!
     var inforMaps:InforMapsViewController!
     
     var isGrantedNotificationAccess: Bool = false
@@ -27,14 +29,14 @@ class MapsViewController: BaseViewController {
     var listLatitudes: [Double] = []
     var listLongitudes: [Double] = []
     
+    var indexType:Int = 3
     var is3D:Bool = false
-    
+    var isCheckShow:Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.settingMaps()
     }
-
+    
     func settingMaps()
     {
         locationManager.delegate = self
@@ -48,14 +50,58 @@ class MapsViewController: BaseViewController {
         } else {
             locationManager.startUpdatingLocation()
         }
-        self.addBottomSheetView()
         
     }
+    
+    
+    @IBAction func selectTypeButtonDidTap(_ sender: UIButton) {
+        self.showPopOverGroup(sender: sender)
+    }
+    
+    func showPopOverGroup(sender:UIButton)
+    {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let popoverCV = storyboard.instantiateViewController(withIdentifier: "PopOverTypeMapsViewController") as? PopOverTypeMapsViewController
+        popoverCV?.finish = { index in
+            self.indexType = index
+            switch index
+            {
+            case 2:
+                self.inforMaps.type = "rent"
+                self.inforMaps.lat = String(self.originLatitude)
+                self.inforMaps.lng = String(self.originLongtitude)
+                self.inforMaps.loadData()
+                self.btnTypeSelect.setTitle("Nhà đất thuê", for: .normal)
+            case 3:
+                self.inforMaps.type = "sale"
+                self.inforMaps.lat = String(self.originLatitude)
+                self.inforMaps.lng = String(self.originLongtitude)
+                self.btnTypeSelect.setTitle("Nhà đất bán", for: .normal)
+                self.inforMaps.loadData()
+            default:
+                self.inforMaps.type = "project"
+                self.inforMaps.lat = String(self.originLatitude)
+                self.inforMaps.lng = String(self.originLongtitude)
+                self.btnTypeSelect.setTitle("Dự án", for: .normal)
+                self.inforMaps.loadData()
+            }
+        }
+        popoverCV?.modalPresentationStyle = .popover
+      
+        let popController = popoverCV?.popoverPresentationController
+        popController?.permittedArrowDirections = UIPopoverArrowDirection.up
+        popController?.sourceView = sender;
+        popController?.delegate = self
+        popController?.sourceRect = sender.bounds
+        self.present(popoverCV!, animated: true, completion: nil)
+        
+    }
+
     
     @IBAction func zoomButtonDidTap(_ sender: Any) {
         let camera = GMSCameraPosition.camera(withLatitude: self.originLatitude,
                                               longitude: self.originLongtitude,
-                                              zoom: zoomLevel)
+                                              zoom: 9)
          mapView.animate(to: camera)
 
     }
@@ -80,11 +126,12 @@ class MapsViewController: BaseViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let bottomSheetViewController = storyboard.instantiateViewController(withIdentifier: "InforMapsViewController") as? InforMapsViewController
         self.inforMaps = bottomSheetViewController
-        
+        bottomSheetViewController?.delegate = self
+        bottomSheetViewController?.lat = String(self.originLatitude)
+        bottomSheetViewController?.lng =  String(self.originLongtitude)
         self.addChildViewController(bottomSheetViewController!)
         self.view.addSubview((bottomSheetViewController?.view)!)
         bottomSheetViewController?.didMove(toParentViewController: self)
-        bottomSheetViewController?.controller.delegate = self
         let height = view.frame.height
         let width  = view.frame.width
         bottomSheetViewController?.view.frame = CGRect(x: 0, y: self.view.frame.maxY, width: width, height: height)
@@ -102,7 +149,11 @@ extension MapsViewController: CLLocationManagerDelegate {
             self.originLatitude = locationLatitude
             self.originLongtitude = locationLongtitude
             mapView.clear()
-           
+             if self.isCheckShow == false
+             {
+                self.isCheckShow = true
+                self.addBottomSheetView()
+            }
             let coordinates = CLLocationCoordinate2D(latitude: locationLatitude, longitude: locationLongtitude)
             let marker = GMSMarker(position: coordinates)
             marker.map = self.mapView
@@ -151,10 +202,17 @@ extension MapsViewController: GMSMapViewDelegate {
         return true
     }
 }
-extension MapsViewController:LandForSaleViewControllerDelegate
+extension MapsViewController:InforMapsViewControllerDelegate
 {
-    func disLoadDataMaps(_ controller: LandForSaleViewController, listData: [LandSaleModel]) {
-        self.inforMaps.numberNews.text = " \(listData.count) tin rao"
+    func disLoadDataMaps(_ controller: InforMapsViewController, listData: [LandSaleModel]) {
+        if self.indexType == 2 || self.indexType == 3
+        {
+          self.inforMaps.numberNews.text = " \(listData.count) tin rao"
+        }
+        else
+        {
+          self.inforMaps.numberNews.text = " \(listData.count) dự án"
+        }
         self.mapView.clear()
         self.listLatitudes = []
         self.listLongitudes = []
@@ -173,7 +231,13 @@ extension MapsViewController:LandForSaleViewControllerDelegate
             marker.icon = #imageLiteral(resourceName: "icon_macker")
             marker.userData = listData[i]
         }
-        self.mapView.animate(toZoom: 6)
+        self.mapView.animate(toZoom: 14)
+    }
+}
+extension MapsViewController: UIPopoverPresentationControllerDelegate
+{
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.none
     }
 }
 

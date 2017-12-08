@@ -9,7 +9,7 @@
 import UIKit
 protocol LandForSaleViewCellDelegate:class
 {
-    func deleteSaveNews(_ cell:LandForSaleViewCell,news:NewsModel,index:Int)
+    func deleteSaveNews(_ cell:LandForSaleViewCell,news:NewsModel,index:Int,type:Int)
 }
 
 class LandForSaleViewCell: UITableViewCell {
@@ -21,6 +21,7 @@ class LandForSaleViewCell: UITableViewCell {
     
     var news:NewsModel!
     var indexNews:Int = 0
+    var type:Int = 1
     weak var delegate:LandForSaleViewCellDelegate?
     
     override func awakeFromNib() {
@@ -28,8 +29,28 @@ class LandForSaleViewCell: UITableViewCell {
         // Initialization code
     }
 
-    func loadDataCell(cell:LandSaleModel)
+    func loadDataProject(project:ProjectsModel,index:Int,type:Int)
     {
+        
+        self.imageViewProfile.setImageProject(urlString: API.linkImage + project.image)
+        self.name.text = project.title
+        self.information.text = project.address
+        self.indexNews = index
+        self.type = type
+        if project.isLike == true
+        {
+            self.imageLike.tintColor = UIColor.red
+        }
+        else
+        {
+            self.imageLike.tintColor = UIColor.lightGray
+        }
+    }
+    
+    func loadDataCell(cell:LandSaleModel,index:Int,type:Int)
+    {
+        self.indexNews = index
+        self.type = type
         self.imageViewProfile.setImageUrlNews(url: API.linkImage + cell.image)
         self.name.text = cell.title
         self.information.text = cell.content
@@ -44,10 +65,11 @@ class LandForSaleViewCell: UITableViewCell {
     }
     
     
-    func loadDataNewsCell(cell:NewsModel,index:Int)
+    func loadDataNewsCell(cell:NewsModel,index:Int,type:Int)
     {
         self.news = cell
         self.indexNews = index
+        self.type = type
         self.imageViewProfile.setImageUrlNews(url: API.linkImage + cell.image)
         self.name.text = cell.title
         self.information.text = cell.summary
@@ -56,7 +78,7 @@ class LandForSaleViewCell: UITableViewCell {
     @IBAction func deleteSaveNews(_ sender: Any) {
         if self.news != nil
         {
-            self.delegate?.deleteSaveNews(self, news: self.news, index: self.indexNews)
+            self.delegate?.deleteSaveNews(self, news: self.news, index: self.indexNews,type: self.type)
         }
     }
     

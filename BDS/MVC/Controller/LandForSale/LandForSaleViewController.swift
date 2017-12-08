@@ -10,11 +10,6 @@ import UIKit
 import  RxCocoa
 import  RxSwift
 
-protocol LandForSaleViewControllerDelegate:class
-{
-    func disLoadDataMaps(_ controller:LandForSaleViewController,listData:[LandSaleModel])
-}
-
 class LandForSaleViewController: BaseViewController {
 
     @IBOutlet weak var btnBackMaps: UIButton!
@@ -31,7 +26,7 @@ class LandForSaleViewController: BaseViewController {
     var isLoading: Bool = false
     var listData:[LandSaleModel] = []
     let disposeBag = DisposeBag()
-    weak var delegate:LandForSaleViewControllerDelegate?
+    
     
     var idProject:String = "null"
     var idDistrict:String = "null"
@@ -61,57 +56,12 @@ class LandForSaleViewController: BaseViewController {
     
     // MARK: - LoadData
     
-//    func loadData(refresh: Bool)
-//    {
-//
-//        if self.isLoading == false {
-//            self.isLoading = true
-//            APIClient.shared.getListLandSale(page: self.page).asObservable().bind(onNext: {result in
-//                DispatchQueue.main.async {
-//                    var listLandSaleModel: [LandSaleModel] = []
-//                    for data in result.dataArray
-//                    {
-//                        if let dic = data as? [String:Any]
-//                        {
-//                            let landSaleModel = LandSaleModel(JSON: dic)
-//                            listLandSaleModel.append(landSaleModel!)
-//                        }
-//                    }
-//
-//                    if listLandSaleModel.count == 0
-//                    {
-//                        self.isLoad = false
-//                    }
-//                    self.listData.append(contentsOf: listLandSaleModel)
-//                    self.delegate?.disLoadDataMaps(self, listData:  self.listData)
-//                    if self.listData.count != 0 && refresh == true {
-//                        var array: [NSIndexPath]! = []
-//                        let index: Int = self.listData.count - listLandSaleModel.count
-//                        for i in index..<self.listData.count {
-//                            array.append( NSIndexPath(row: i, section: 0))
-//                        }
-//                        self.tableView.beginUpdates()
-//                        self.tableView.insertRows(at: array! as [IndexPath], with: .automatic)
-//                        self.tableView.endUpdates()
-//                    } else {
-//                        self.tableView.reloadData()
-//                    }
-//                    self.isLoading = false
-//                    self.refreshControl?.endRefreshing()
-//                    self.hideHUD()
-//                }
-//            }).disposed(by: self.disposeBag)
-//        }
-//
-//    }
-//
-    
     func loadData(refresh: Bool)
     {
         
         if self.isLoading == false {
             self.isLoading = true
-            APIClient.shared.searchLandRent(project_id: self.idProject, title: self.titleSearch, type: self.type, city: self.idCity, ward: self.idWards, area_min: self.are_min, area_max: self.are_max, price_min: self.pricae_min, price_max: self.price_max, district: self.idDistrict, numberbedroom: self.idBedRoom, direction: self.idDirection, page: self.page).asObservable().bind(onNext: { result in
+            APIClient.shared.searchLandSale(project_id: self.idProject, title: self.titleSearch, type: self.type, city: self.idCity, ward: self.idWards, area_min: self.are_min, area_max: self.are_max, price_min: self.pricae_min, price_max: self.price_max, district: self.idDistrict, numberbedroom: self.idBedRoom, direction: self.idDirection, page: self.page).asObservable().bind(onNext: { result in
                 DispatchQueue.main.async {
                     var projects: [LandSaleModel] = []
                     for data in result.dataArray
@@ -128,7 +78,6 @@ class LandForSaleViewController: BaseViewController {
                         self.isLoad = false
                     }
                     self.listData.append(contentsOf: projects)
-                    
                     if self.listData.count != 0 && refresh == true {
                         var array: [NSIndexPath]! = []
                         let index: Int = self.listData.count - projects.count
@@ -218,7 +167,7 @@ extension LandForSaleViewController:UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row < self.listData.count {
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "LandForSaleViewCell") as! LandForSaleViewCell
-            cell.loadDataCell(cell: self.listData[indexPath.row])
+            cell.loadDataCell(cell: self.listData[indexPath.row], index: indexPath.row, type: 3)
             return cell
         }
         return UITableViewCell()

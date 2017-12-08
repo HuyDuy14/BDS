@@ -13,6 +13,7 @@ class CategoryProjectModel: Mappable {
 
     var id =  ""
     var type =  ""
+    var title = ""
     var name =  ""
     var alias =  ""
     var alias_wrapper =  ""
@@ -35,6 +36,7 @@ class CategoryProjectModel: Mappable {
     }
     
     func mapping(map: Map) {
+        self.title <- map["title"]
         self.id <- map["id"]
         self.type <- map["type"]
         self.name <- map["name"]

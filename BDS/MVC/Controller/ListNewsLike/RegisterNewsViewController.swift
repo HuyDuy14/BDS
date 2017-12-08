@@ -16,7 +16,9 @@ class RegisterNewsViewController: BaseViewController {
     @IBOutlet weak var imageMore: UIImageView!
     @IBOutlet weak var headerView: HeaderViewController!
     
-    
+    @IBOutlet weak var nameProject: UILabel!
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var typeLand: UILabel!
     @IBOutlet weak var areLabel: UILabel!
     @IBOutlet weak var priceBDS: UILabel!
     @IBOutlet weak var nameDistrict: UILabel!
@@ -36,10 +38,13 @@ class RegisterNewsViewController: BaseViewController {
     
     var pickerView = PickerView.getFromNib()
     
+    var listLand:[ModelPicker] = []
+    var listLandSale:[ModelPicker] = []
+    var listLandRent:[ModelPicker] = []
     var listPickerCity:[ModelPicker] = []
     var listPickerDistrict:[ModelPicker] = []
     var listPickerTypeProject:[ModelPicker] = []
-    
+    var listTypeLand:[ModelPicker] = [ModelPicker(id: 1, name: "Nhà đất cho thuê"),ModelPicker(id: 1, name: "Nhà đất bán")]
     var listPicker:[ModelPicker] = [ModelPicker(id: 1, name: "Dưới 300 Triệu"),ModelPicker(id: 2, name: "300 Triệu - 500 Triệu"),ModelPicker(id: 3, name: "700 Triệu - 1 Tỷ"),ModelPicker(id: 4, name: "1 Tỷ - 2 Tỷ"),ModelPicker(id: 5, name: "2 Tỷ - 3 Tỷ"),ModelPicker(id: 6, name: "3 Tỷ - 5 Tỷ"),ModelPicker(id: 7, name: "5 Tỷ - 7 Tỷ"),ModelPicker(id: 8, name: "7 Tỷ - 10 Tỷ"),ModelPicker(id: 9, name: "10 Tỷ - 20 Tỷ"),ModelPicker(id: 10, name: "20 Tỷ - 30 Tỷ"),ModelPicker(id: 11, name: "Trên 30 Tỷ")]
     
     var listDirection:[ModelPicker] =  [ModelPicker(id: 1, name: "Đông"),ModelPicker(id: 2, name: "Tây"),ModelPicker(id: 3, name: "Nam"),ModelPicker(id: 4, name: "Bắc"),ModelPicker(id: 5, name: "Đông-Bắc"),ModelPicker(id: 6, name: "Tây-Bắc"),ModelPicker(id: 7, name: "Đông-Nam"),ModelPicker(id: 8, name: "Tây-Nam")]
@@ -64,6 +69,7 @@ class RegisterNewsViewController: BaseViewController {
     var pricae_min = "null"
     var are_min = "null"
     var are_max = "null"
+    var type_bds = "null"
     
     // MARK: Index Select
     var indexTypeProject:Int = 0
@@ -74,6 +80,7 @@ class RegisterNewsViewController: BaseViewController {
     var indeDirection = 0
     var indexWard = 0
     var indexAcreage = 0
+    var indexBDS = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,7 +89,7 @@ class RegisterNewsViewController: BaseViewController {
         self.pickerView.delegate = self
         self.imageMore.image = #imageLiteral(resourceName: "advance")
         self.showMore(isShow: true, height: 0)
-        self.heightView.constant  = 600
+        self.heightView.constant  = 700
         var index:Int = 0
         for city in Util.shared.listCity {
             let picker = ModelPicker(id: Int(city.id)!, name: city.name)
@@ -90,17 +97,29 @@ class RegisterNewsViewController: BaseViewController {
             index += 1
             self.listPickerCity.append( picker)
         }
-        self.setDataPicker()
+        self.setDataPickerLand()
+        self.setDataPickerRent()
     }
     
-    func setDataPicker()
+    func setDataPickerLand()
     {
         var index:Int = 0
-        for type in Util.shared.typesProject {
+        for type in Util.shared.listCategorySale {
             let picker = ModelPicker(id: Int(type.id)!, name: type.name)
             picker.index = index
             index += 1
-            self.listPickerTypeProject.append( picker)
+            self.listLandSale.append( picker)
+        }
+    }
+    
+    func setDataPickerRent()
+    {
+        var index:Int = 0
+        for type in Util.shared.listCategoryRent {
+            let picker = ModelPicker(id: Int(type.id)!, name: type.name)
+            picker.index = index
+            index += 1
+            self.listLandRent.append( picker)
         }
     }
     
@@ -153,6 +172,31 @@ class RegisterNewsViewController: BaseViewController {
         }).disposed(by: self.disposeBag)
     }
     
+    func loadProjectOfCity(idCity:String)
+    {
+        self.showHUD("")
+        self.listPickerTypeProject = []
+        var listProject:[CategoryProjectModel] = []
+        APIClient.shared.getCategoryProjectOfCity(id: idCity).asObservable().bind(onNext: { result in
+            for data in result.dataArray
+            {
+                if let dic = data as? [String:Any]
+                {
+                    let project = CategoryProjectModel(JSON: dic)
+                    listProject.append(project!)
+                }
+            }
+            var index:Int = 0
+            for project in listProject {
+                let picker = ModelPicker(id: Int(project.id)!, name: project.title)
+                picker.index = index
+                index += 1
+                self.listPickerTypeProject.append(picker)
+            }
+            self.hideHUD()
+        }).disposed(by: self.disposeBag)
+    }
+    
     func loadWard(idCity:String,idDistrict:String)
     {
         self.showHUD("")
@@ -186,13 +230,43 @@ class RegisterNewsViewController: BaseViewController {
         self.heightViewHome.constant = height
         self.heightWards.constant = height
         self.heightBedroom.constant = height
+        self.email.isHidden = isShow
         
     }
     
-    @IBAction func selectTypeButtonDidTap(_ sender: Any) {
+    @IBAction func selectTypeLandButtonDidTap(_ sender: Any) {
+        self.pickerView.listData = self.listTypeLand
+        self.pickerView.config.startIndex = 0
+        self.pickerView.status = 9
+        self.pickerView.show(inVC: self)
+    }
+    
+    @IBAction func selectProjectButtonDidTap(_ sender: Any) {
+        if self.idCity == "null"
+        {
+            self.showAlert("Bạn chưa chọn tỉnh thành")
+            return
+        }
+        if self.listPickerTypeProject.count == 0
+        {
+            self.showAlert("Không có dự án nào trong tỉnh")
+            return
+        }
         self.pickerView.listData = self.listPickerTypeProject
         self.pickerView.config.startIndex = self.indexTypeProject
         self.pickerView.status = 1
+        self.pickerView.show(inVC: self)
+        
+    }
+    @IBAction func selectTypeButtonDidTap(_ sender: Any) {
+        if self.type == "null"
+        {
+            self.showAlert("Bạn chưa chọn loại giao dịch")
+            return
+        }
+        self.pickerView.listData = self.listLand
+        self.pickerView.config.startIndex = self.indexBDS
+        self.pickerView.status = 10
         self.pickerView.show(inVC: self)
     }
     
@@ -262,7 +336,29 @@ class RegisterNewsViewController: BaseViewController {
     }
     
     @IBAction func searchButtonDidTap(_ sender: Any) {
-        self.popToView()
+        if self.type == "null"
+        {
+            self.showAlert("Bạn chưa chọn loại giao dịch")
+            return
+        }
+        
+        if self.type_bds == "null"
+        {
+            self.showAlert("Bạn chưa chọn loại nhà đất")
+            return
+        }
+        var email = self.email.text!
+        if email.count == 0
+        {
+            email = "null"
+        }
+        
+        self.showHUD("")
+        APIClient.shared.registerNews(project_id: self.idProject, type_bds:self.type_bds , type: self.type, city: self.idCity, ward: self.idWards, area_min: self.are_min, area_max: self.are_max, price_min: self.pricae_min, price_max: self.price_max, district: self.idDistrict, numberbedroom: self.idBedRoom, direction: self.idDirection, email: email).asObservable().bind(onNext: { result in
+            self.showAlert("Đăng ký thành công")
+            self.popToView()
+            self.hideHUD()
+        }).disposed(by: self.disposeBag)
     }
     
     @IBAction func moreButtonDidTap(_ sender: Any) {
@@ -270,18 +366,17 @@ class RegisterNewsViewController: BaseViewController {
         {
             self.showMore(isShow: false, height: 70)
             self.isShow = true
-            self.heightView.constant = 800
+            self.heightView.constant = 1000
             self.imageMore.image = #imageLiteral(resourceName: "advance2")
         }
         else
         {
             self.showMore(isShow: true, height: 0)
             self.isShow = false
-            self.heightView.constant  = 600
+            self.heightView.constant  = 700
             self.imageMore.image = #imageLiteral(resourceName: "advance")
         }
     }
-
 }
 
 extension RegisterNewsViewController:PickerViewDelegate
@@ -294,8 +389,8 @@ extension RegisterNewsViewController:PickerViewDelegate
         switch amPicker.status
         {
         case 1:
-            self.idProject = String(picker.id)
-            self.typeBDS.text = picker.name
+            self.type = String(picker.id)
+            self.nameProject.text = picker.name
             self.indexTypeProject = picker.index
         case 2:
             self.idCity = String(picker.id)
@@ -303,7 +398,13 @@ extension RegisterNewsViewController:PickerViewDelegate
             self.idDistrict = "null"
             self.indexDistrict = 0
             self.indexWard = 0
+            self.indexTypeProject = 0
             self.idWards = "null"
+            self.idProject = "null"
+            self.wards.text = "Chọn phường/Xã"
+            self.nameDistrict.text = "Chọn quận/Huyện"
+            self.nameProject.text = "Chọn dự án"
+            self.loadProjectOfCity(idCity: self.idCity)
             self.loadDistrict(idCity: self.idCity)
             self.indexCity = picker.index
             break
@@ -312,6 +413,7 @@ extension RegisterNewsViewController:PickerViewDelegate
             self.nameDistrict.text = picker.name
             self.idWards = "null"
             self.indexWard = 0
+            self.wards.text = "Chọn phường/Xã"
             self.loadWard(idCity: self.idCity, idDistrict: self.idDistrict)
             self.indexDistrict = picker.index
         case 4:
@@ -336,7 +438,26 @@ extension RegisterNewsViewController:PickerViewDelegate
             self.nameHome.text =  picker.name
             self.idDirection = String(picker.id)
             self.indeDirection = picker.id - 1
-            
+        case 9:
+            self.typeLand.text = picker.name
+            self.indexBDS  = 0
+            self.listLand = []
+            self.typeBDS.text = "Chọn loại nhà đất"
+            self.type_bds = "null"
+            if picker.id == 1
+            {
+                self.type = "rent"
+                self.listLand = self.listLandRent
+            }
+            else
+            {
+                self.type = "sale"
+                self.listLand = self.listLandSale
+            }
+        case 10:
+            self.typeBDS.text =  picker.name
+            self.type_bds = String(picker.id)
+            self.indexBDS = picker.index
         default:
             break
         }

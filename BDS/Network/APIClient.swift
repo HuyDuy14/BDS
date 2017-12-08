@@ -213,9 +213,10 @@ class APIClient: NSObject {
         return self.requestGet(path: API.landForSale, method: .get, params: params)
     }
     
-    func getNews(id:String) -> Observable<Result> {
+    func getNews(id:String,page:Int) -> Observable<Result> {
         let params: Parameters = [
-            "id":id
+            "id":id,
+            "page":page
             ] as Parameters
         return self.requestGet(path: API.getNews, method: .get, params: params)
     }
@@ -234,18 +235,30 @@ class APIClient: NSObject {
         return self.requestGet(path: API.listLandSale, method: .get, params: params)
     }
     
-    func saveNews(id:String) -> Observable<Result> {
+    func getDataShowMaps(type:String,lat:String,lng:String,r:String) -> Observable<Result> {
+        let params: Parameters = [
+            "type":type,
+            "lat":lat,
+            "lng":lng,
+            "r":r
+            ] as Parameters
+        return self.requestGet(path: API.mapsHome, method: .get, params: params)
+    }
+    
+    func saveNews(id:String,type:Int) -> Observable<Result> {
         let params: Parameters =
             [
+                "type":type,
                 "id_news":id,
                 "id_user":Util.shared.currentUser.id
             ] as Parameters
         return self.request(path: API.saveNews, method: .post, params: params)
     }
     
-    func cancelNews(id:String) -> Observable<Result> {
+    func cancelNews(id:String,type:Int) -> Observable<Result> {
         let params: Parameters =
             [
+                "type":type,
                 "id_news":id,
                 "id_user":Util.shared.currentUser.id
                 ] as Parameters
@@ -271,11 +284,16 @@ class APIClient: NSObject {
     }
     
     func getCategoryNews() -> Observable<Result> {
-        return self.requestGet(path: API.categoryNews, method: .post, params: nil)
+        return self.requestGet(path: API.categoryNews, method: .get, params: nil)
     }
     
     func getCategoryProject() -> Observable<Result> {
-        return self.requestGet(path: API.getTypeProject, method: .post, params: nil)
+        return self.requestGet(path: API.getTypeProject, method: .get, params: nil)
+    }
+    
+    func getCategoryProjectOfCity(id:String) -> Observable<Result> {
+         let params: Parameters = ["id":id]
+        return self.requestGet(path: API.getprojectCity, method: .get, params: params)
     }
     
     func getCategoryLand(type:String) -> Observable<Result> {
@@ -338,6 +356,44 @@ class APIClient: NSObject {
         params["direction"] = direction
         return self.requestGet(path: API.searchLandRent, method: .get, params: params)
     }
+    
+    func searchLandSale(project_id:String,title:String,type:String,city:String,ward:String,area_min:String,area_max:String,price_min:String,price_max:String,district:String,numberbedroom:String,direction:String,page:Int) -> Observable<Result> {
+        var params: Parameters = ["page":page]
+        params["project_id"] = project_id
+        params["title"] = title
+        params["type"] = type
+        params["city"] = city
+        params["ward"] = ward
+        params["area_min"] = area_min
+        params["area_max"] = area_max
+        params["price_min"] = price_min
+        params["price_max"] = price_max
+        params["district"] = district
+        params["numberbedroom"] = numberbedroom
+        params["direction"] = direction
+        return self.requestGet(path: API.searchLandSale, method: .get, params: params)
+    }
+    
+    func registerNews(project_id:String,type_bds:String,type:String,city:String,ward:String,area_min:String,area_max:String,price_min:String,price_max:String,district:String,numberbedroom:String,direction:String,email:String) -> Observable<Result> {
+       
+            var params: Parameters = [:]
+            params["project_id"] = project_id
+            params["type_bds"] = type_bds
+            params["type"] = type
+            params["city"] = city
+            params["ward"] = ward
+            params["area_min"] = area_min
+            params["area_max"] = area_max
+            params["price_min"] = price_min
+            params["price_max"] = price_max
+            params["district"] = district
+            params["id_user"] = Util.shared.currentUser.id
+            params["numberbedroom"] = numberbedroom
+            params["direction"] = direction
+            params["email"] = email
+            return self.requestGet(path: API.registerNews, method: .post, params: params)
+    }
+    
     
     func getProject(page:Int)-> Observable<Result> {
         let params: Parameters = [

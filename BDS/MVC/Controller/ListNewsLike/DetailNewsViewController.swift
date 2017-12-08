@@ -54,7 +54,7 @@ class DetailNewsViewController: BaseViewController {
         self.showHUD("")
         if news.isLike == false
         {
-            APIClient.shared.saveNews(id: news.id).asObservable().bind(onNext: { result in
+            APIClient.shared.saveNews(id: news.id, type: 1).asObservable().bind(onNext: { result in
                 self.hideHUD()
                 for newsSave in Util.shared.listNewsSave
                 {
@@ -67,7 +67,7 @@ class DetailNewsViewController: BaseViewController {
         }
         else
         {
-            APIClient.shared.cancelNews(id: news.id).asObservable().bind(onNext: { result in
+            APIClient.shared.cancelNews(id: news.id, type: 1).asObservable().bind(onNext: { result in
                 self.hideHUD()
                for i in 0..<Util.shared.listNewsSave.count - 1
                {

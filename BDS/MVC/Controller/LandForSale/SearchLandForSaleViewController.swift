@@ -21,6 +21,7 @@ class SearchLandForSaleViewController: BaseViewController {
     @IBOutlet weak var headerView: HeaderViewController!
     
     
+    @IBOutlet weak var titleSearch: UITextField!
     @IBOutlet weak var areLabel: UILabel!
     @IBOutlet weak var priceBDS: UILabel!
     @IBOutlet weak var nameDistrict: UILabel!
@@ -62,7 +63,7 @@ class SearchLandForSaleViewController: BaseViewController {
     var idDirection = "null"
     var idAcreage = "null"
     var idBedRoom = "null"
-    var titleSearch = "null"
+    var titles = "null"
     var idBedroom = "null"
     var price_max = "null"
     var pricae_min = "null"
@@ -268,7 +269,13 @@ class SearchLandForSaleViewController: BaseViewController {
     
     @IBAction func searchButtonDidTap(_ sender: Any) {
         self.popToView()
-        self.delegate?.searchLand(self, self.idProject, self.titleSearch, self.type, self.idCity, self.idWards, self.are_min, self.are_max, self.pricae_min, self.price_max, self.idDistrict, self.idBedRoom, self.idDirection)
+        self.titles = self.titleSearch.text!
+        if self.titleSearch.text?.count == 0
+        {
+            self.titles = "null"
+        }
+        
+        self.delegate?.searchLand(self, self.idProject, self.titles, self.type, self.idCity, self.idWards, self.are_min, self.are_max, self.pricae_min, self.price_max, self.idDistrict, self.idBedRoom, self.idDirection)
     }
     
     @IBAction func moreButtonDidTap(_ sender: Any) {
@@ -312,6 +319,8 @@ extension SearchLandForSaleViewController:PickerViewDelegate
             self.indexDistrict = 0
             self.indexWard = 0
             self.idWards = "null"
+            self.wards.text = "Chọn phường/Xã"
+            self.nameDistrict.text = "Chọn quận/Huyện"
             self.loadDistrict(idCity: self.idCity)
             self.indexCity = picker.index
             break
@@ -319,6 +328,7 @@ extension SearchLandForSaleViewController:PickerViewDelegate
             self.idDistrict = String(picker.id)
             self.nameDistrict.text = picker.name
             self.idWards = "null"
+            self.wards.text = "Chọn phường/Xã"
             self.indexWard = 0
             self.loadWard(idCity: self.idCity, idDistrict: self.idDistrict)
             self.indexDistrict = picker.index

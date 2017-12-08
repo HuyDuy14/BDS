@@ -16,6 +16,8 @@ class Util: NSObject {
     var listCity:[ModelCity] = []
     var listCategoryNews:[CategoryNewsModel] = []
     var listNewsSave :[NewsModel]  = []
+    var listProjectSave:[ProjectsModel] = []
+    var listBDS:[LandSaleModel] = []
     var typesProject:[CategoryProjectModel] = []
     var listCategorySale:[CategoryLand] = []
     var listCategoryRent:[CategoryLand] = []
@@ -35,7 +37,9 @@ class Util: NSObject {
         
         do {
             let baseHTML = try String(contentsOfFile: filePath, encoding: String.Encoding.utf8)
-            let desString = baseHTML.replacingOccurrences(of: "Loading...", with: string)
+            var desString = baseHTML.replacingOccurrences(of: "Loading...", with: string)
+            let w = String(Int(UIScreen.main.bounds.size.width) - 40)
+            desString = baseHTML.replacingOccurrences(of: "96%", with: w)
             return desString
         } catch {
             return string

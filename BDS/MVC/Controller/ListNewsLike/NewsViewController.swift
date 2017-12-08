@@ -18,6 +18,9 @@ class NewsViewController: BaseViewController {
     let disposeBag = DisposeBag()
     var listData:[NewsModel] = []
     var idCategory:String = ""
+    var page:Int = 0
+    var isLoad: Bool = true
+    var isLoading: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +30,9 @@ class NewsViewController: BaseViewController {
         self.refreshControl.attributedTitle = NSAttributedString(string: "")
         refreshControl?.addTarget(self, action: #selector(NewsViewController.refresh(_:)), for: UIControlEvents.valueChanged)
         self.tableView.addSubview(refreshControl!)
-//        self.showHUD("")
-        self.getData(idCategory: self.idCategory)
-        self.showPopSelectCategory()
+        self.showHUD("")
+        self.page = 0
+        self.loadData(refresh: true)
         
     }
     
@@ -46,7 +49,8 @@ class NewsViewController: BaseViewController {
             self.showHUD("")
             self.idCategory = id
             self.listData = []
-           self.getData(idCategory: id)
+            self.page = 0
+            self.loadData(refresh: true)
         }
         vcCategory?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         vcCategory?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
@@ -55,7 +59,8 @@ class NewsViewController: BaseViewController {
     
     func refresh(_ sender: Any) {
         self.listData = []
-        self.getData(idCategory: self.idCategory)
+        self.page = 0
+        self.loadData(refresh: false)
     }
     
     // MARK : - Get Data
@@ -74,28 +79,51 @@ class NewsViewController: BaseViewController {
         }).disposed(by: self.disposeBag)
     }
     
-    func getData(idCategory:String)
+    
+    
+    func loadData(refresh: Bool)
     {
-        APIClient.shared.getNews(id:idCategory).asObservable().bind(onNext: { result in
-            for data in result.dataArray {
-                if let dic = data as? [String:Any] {
-                    let newsModel = NewsModel(JSON: dic)
-                    for dataNews in Util.shared.listNewsSave
+        
+        if self.isLoading == false {
+            self.isLoading = true
+            APIClient.shared.getNews(id:self.idCategory,page:self.page).asObservable().bind(onNext: {result in
+                DispatchQueue.main.async {
+                    var listNews: [NewsModel] = []
+                    for data in result.dataArray
                     {
-                        if dataNews.id == newsModel?.id {
-                            newsModel?.isLike = true
+                        if let dic = data as? [String:Any]
+                        {
+                            let landSaleModel = NewsModel(JSON: dic)
+                            listNews.append(landSaleModel!)
                         }
                     }
-                    self.listData.append(newsModel!)
+                    
+                    if listNews.count == 0
+                    {
+                        self.isLoad = false
+                    }
+                    self.listData.append(contentsOf: listNews)
+                    if self.listData.count != 0 && refresh == true {
+                        var array: [NSIndexPath]! = []
+                        let index: Int = self.listData.count - listNews.count
+                        for i in index..<self.listData.count {
+                            array.append( NSIndexPath(row: i, section: 0))
+                        }
+                        self.tableView.beginUpdates()
+                        self.tableView.insertRows(at: array! as [IndexPath], with: .automatic)
+                        self.tableView.endUpdates()
+                    } else {
+                        self.tableView.reloadData()
+                    }
+                    self.isLoading = false
+                    self.refreshControl?.endRefreshing()
+                    self.hideHUD()
                 }
-            }
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-            self.refreshControl.endRefreshing()
-            self.hideHUD()
-        }).disposed(by: self.disposeBag)
+            }).disposed(by: self.disposeBag)
+        }
+        
     }
+    
 
     @IBAction func backButtonDidTap(_ sender: Any) {
         self.popToView()
@@ -138,6 +166,23 @@ extension NewsViewController:UITableViewDelegate,UITableViewDataSource
             self.pushViewController(viewController: vcDetail)
         }
     }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+        let bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height
+        let end = scrollView.contentSize.height
+        if self.listData.count >= 10 {
+            if (bottomEdge >= end)
+            {
+                self.page += 1
+                if self.isLoad == true
+                {
+                    self.showHUD("")
+                    self.loadData(refresh: true)
+                }
+            }
+        }
+    }
 }
 extension NewsViewController:NewsViewCellDelegate
 {
@@ -160,14 +205,14 @@ extension NewsViewController:NewsViewCellDelegate
         self.showHUD("")
         if news.isLike == false
         {
-            APIClient.shared.saveNews(id: news.id).asObservable().bind(onNext: { result in
+            APIClient.shared.saveNews(id: news.id, type: 1).asObservable().bind(onNext: { result in
                 self.hideHUD()
                 self.updateRow(item: news, status: true, index: index)
             }).disposed(by: self.disposeBag)
         }
         else
         {
-            APIClient.shared.cancelNews(id: news.id).asObservable().bind(onNext: { result in
+            APIClient.shared.cancelNews(id: news.id, type: 1).asObservable().bind(onNext: { result in
                 self.hideHUD()
                 self.updateRow(item: news, status: false, index: index)
             }).disposed(by: self.disposeBag)

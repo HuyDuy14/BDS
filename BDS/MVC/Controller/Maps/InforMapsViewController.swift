@@ -7,22 +7,32 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
+
+protocol InforMapsViewControllerDelegate:class
+{
+    func disLoadDataMaps(_ controller:InforMapsViewController,listData:[LandSaleModel])
+}
 
 class InforMapsViewController: BaseViewController {
 
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var numberNews: UILabel!
     @IBOutlet var topSeparatorView: UIView!
-   
     @IBOutlet var headerSectionHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var containerView: UIView!
-    weak var currenviewController: UIViewController?
     
-    var controller:LandForSaleViewController!
+    weak var delegate:InforMapsViewControllerDelegate?
+    var listData:[LandSaleModel] = []
     let fullView: CGFloat = 90
     var partialView: CGFloat {
         return UIScreen.main.bounds.height - 90
     }
-
+    let disposeBag = DisposeBag()
+    var type:String = "sale"
+    var r = "2"
+    var lat = "null"
+    var lng = "null"
     
     fileprivate var drawerBottomSafeArea: CGFloat = 0.0 {
         didSet {
@@ -32,16 +42,15 @@ class InforMapsViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let showView = storyboard.instantiateViewController(withIdentifier: "LandForSaleViewController") as? LandForSaleViewController
-        self.controller = showView
-        showView?.isShowHeader = false
-        self.showController(controllerName: "LandForSaleViewController", controller: showView)
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         let gesture = UIPanGestureRecognizer.init(target: self, action: #selector(InforMapsViewController.panGesture))
         gesture.delegate = self
         view.addGestureRecognizer(gesture)
+        self.loadData()
         self.roundViews()
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -61,18 +70,6 @@ class InforMapsViewController: BaseViewController {
     func roundViews() {
         view.layer.cornerRadius = 10
         view.clipsToBounds = true
-    }
-    
-    func showController(controllerName: String, controller: UIViewController?)
-    {
-        self.currenviewController = controller
-        let frame = containerView.frame
-        controller!.view.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
-        let navigationController = UINavigationController(rootViewController: controller!)
-        navigationController.view.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
-        navigationController.isNavigationBarHidden = true
-        self.addChildViewController(navigationController)
-        self.containerView.addSubview(navigationController.view)
     }
     
     func panGesture(_ recognizer: UIPanGestureRecognizer) {
@@ -100,7 +97,7 @@ class InforMapsViewController: BaseViewController {
                 
             }, completion: { [weak self] _ in
                 if ( velocity.y < 0 ) {
-                    self?.controller.tableView.isScrollEnabled = true
+                    self?.tableView.isScrollEnabled = true
                 }
             })
         }
@@ -116,6 +113,30 @@ class InforMapsViewController: BaseViewController {
         bluredView.frame = UIScreen.main.bounds
         view.insertSubview(bluredView, at: 0)
     }
+    
+    //MARK : -LoadData
+    func loadData()
+    {
+        self.listData = []
+        self.showHUD("")
+        APIClient.shared.getDataShowMaps(type: self.type, lat: self.lat, lng: self.lng, r: self.r).asObservable().bind(onNext: { result in
+            DispatchQueue.main.async {
+                var projects: [LandSaleModel] = []
+                for data in result.dataArray
+                {
+                    if let dic = data as? [String:Any]
+                    {
+                        let project = LandSaleModel(JSON: dic)
+                        projects.append(project!)
+                    }
+                }
+                self.listData.append(contentsOf: projects)
+                self.delegate?.disLoadDataMaps(self, listData:  self.listData)
+                self.tableView.reloadData()
+                self.hideHUD()
+            }
+        }).disposed(by: self.disposeBag)
+    }
 }
 
 extension InforMapsViewController: UIGestureRecognizerDelegate {
@@ -126,14 +147,41 @@ extension InforMapsViewController: UIGestureRecognizerDelegate {
         let direction = gesture.velocity(in: view).y
         
         let y = view.frame.minY
-        if (y == fullView && self.controller.tableView.contentOffset.y == 0 && direction > 0) || (y == partialView) {
-            self.controller.tableView.isScrollEnabled = false
+        if (y == fullView && self.tableView.contentOffset.y == 0 && direction > 0) || (y == partialView) {
+            self.tableView.isScrollEnabled = false
         } else {
-            self.controller.tableView.isScrollEnabled = true
+            self.tableView.isScrollEnabled = true
         }
         
         return false
     }
     
+}
+
+extension InforMapsViewController: UITableViewDelegate,UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.listData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row < self.listData.count {
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: "MapsViewCell") as! MapsViewCell
+            cell.loadDataCell(cell: self.listData[indexPath.row])
+            return cell
+        }
+        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row < self.listData.count {
+            let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
+            let showDetail = storyboard.instantiateViewController(withIdentifier: "DetailLanforSaleViewController") as? DetailLanforSaleViewController
+            showDetail?.landForSale = self.listData[indexPath.row]
+            
+            self.pushViewController(viewController: showDetail)
+        }
+        
+    }
 }
 

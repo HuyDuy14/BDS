@@ -38,7 +38,6 @@ class ProjectViewCell: UITableViewCell {
 
     func loadDataHome(project:LandSaleModel)
     {
-       
         self.imageViewProfile.setImageProject(urlString: API.linkImage + project.image)
         self.name.text = project.title
         self.information.text = project.content

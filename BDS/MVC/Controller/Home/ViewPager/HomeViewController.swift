@@ -146,11 +146,13 @@ extension HomeViewController
     {
         Util.shared.listNewsSave = []
         APIClient.shared.getNewsSave().asObservable().bind(onNext: { result in
-            for data in result.dataArray {
-                if let dic = data as? [String:Any] {
-                    let newsModel = NewsModel(JSON: dic)
-                    Util.shared.listNewsSave.append(newsModel!)
-                }
+            if result.data != nil
+            {
+                let dataSave = NewsSaveModel(JSON:result.data!)!
+                Util.shared.listProjectSave = dataSave.listProjects
+                Util.shared.listNewsSave = dataSave.listNews
+                Util.shared.listBDS = dataSave.listBDS
+                
             }
             self.hideHUD()
         }).disposed(by: self.disposeBag)

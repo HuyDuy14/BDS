@@ -29,6 +29,22 @@ class ProjectsViewController: BaseViewController {
     var isLoad: Bool = true
     var isLoading: Bool = false
     var isBackHome:Bool = true
+    
+    var idProjects:String = "null"
+    var idDistricts:String = "null"
+    var idCitys = "null"
+    var idWards:String = "null"
+    var idDirection = "null"
+    var idAcreage = "null"
+    var idBedRoom = "null"
+    var titleSearch = "null"
+    var idBedroom = "null"
+    var price_max = "null"
+    var pricae_min = "null"
+    var are_min = "null"
+    var are_max = "null"
+    var type = "null"
+    
     let disposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +61,7 @@ class ProjectsViewController: BaseViewController {
             self.titleHeader.text = "Danh sách dự án"
             self.inforHeader.text = "Tìm kiếm dự án theo yêu lựa chọn"
             self.listProject = []
+            self.btnBackHome.setImage(#imageLiteral(resourceName: "icon_back"), for: .normal)
             self.btnBackMaps.isHidden = true
             self.loadDataproject()
         }
@@ -53,6 +70,7 @@ class ProjectsViewController: BaseViewController {
             self.titleHeader.text = "Nhà đất thuê"
             self.inforHeader.text = "Tìm kiếm nhà đất thuê"
             self.page = 0
+            self.btnBackHome.setImage(#imageLiteral(resourceName: "icon_search"), for: .normal)
             self.btnBackMaps.isHidden = false
             self.listProject = []
             self.loadData(refresh: false)
@@ -70,6 +88,19 @@ class ProjectsViewController: BaseViewController {
         {
             self.page = 0
             self.listProject = []
+            self.idProjects = "null"
+            self.idDistricts = "null"
+            self.idCitys = "null"
+            self.idWards = "null"
+            self.idDirection = "null"
+            self.idBedRoom = "null"
+            self.titleSearch = "null"
+            self.idBedroom = "null"
+            self.price_max = "null"
+            self.pricae_min = "null"
+            self.are_min = "null"
+            self.are_max = "null"
+            self.type = "null"
             self.loadData(refresh: false)
         }
   
@@ -109,7 +140,7 @@ class ProjectsViewController: BaseViewController {
         
         if self.isLoading == false {
             self.isLoading = true
-            APIClient.shared.searchLandRent(project_id: "null", title: "null", type: "null", city: "null", ward: "null", area_min: "null", area_max: "null", price_min: "null", price_max: "null", district: "null", numberbedroom: "null", direction: "null", page: self.page).asObservable().bind(onNext: { result in
+            APIClient.shared.searchLandRent(project_id: self.idProjects, title: self.titleSearch, type: self.type, city: self.idCitys, ward: self.idWards, area_min: self.are_min, area_max: self.are_max, price_min: self.pricae_min, price_max: self.price_max, district: self.idDistricts, numberbedroom: self.idBedRoom, direction: self.idDirection, page: self.page).asObservable().bind(onNext: { result in
                 DispatchQueue.main.async {
                     var projects: [LandSaleModel] = []
                     for data in result.dataArray
@@ -163,7 +194,10 @@ class ProjectsViewController: BaseViewController {
     
     @IBAction func backToHomeButtonDidTap(_ sender: Any) {
         if isBackHome == true {
-            SaveCurrentVC.shared.homeController.tutorialPageViewController?.scrollToViewController(index: 0)
+            let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
+            let searchController = storyboard.instantiateViewController(withIdentifier: "SearchLandForSaleViewController") as? SearchLandForSaleViewController
+            searchController?.delegate = self
+            self.pushViewController(viewController: searchController!)
         }
         else
         {
@@ -251,3 +285,24 @@ extension ProjectsViewController:UITableViewDelegate,UITableViewDataSource
     }
 }
 
+extension ProjectsViewController:SearchLandForSaleViewControllerDelegate{
+    
+    func searchLand(_ controlelr: SearchLandForSaleViewController, _ project_id: String, _ title: String, _ type: String, _ city: String, _ ward: String, _ area_min: String, _ area_max: String, _ price_min: String, _ price_max: String, _ district: String, _ numberbedroom: String, _ direction: String) {
+        self.idProjects = project_id
+        self.titleSearch = title
+        self.type = type
+        self.idCitys = city
+        self.idWards = ward
+        self.are_min = area_min
+        self.are_max = area_max
+        self.pricae_min = price_min
+        self.price_max = price_max
+        self.idDistricts = district
+        self.idBedRoom = numberbedroom
+        self.idDirection = direction
+        self.showHUD("")
+        self.loadData(refresh: true)
+    }
+    
+    
+}

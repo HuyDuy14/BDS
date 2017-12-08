@@ -76,6 +76,9 @@
 		139E64CD1FCF08DB00117E0B /* SingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E64CB1FCF08DB00117E0B /* SingUpViewController.swift */; };
 		139E64CF1FCF091800117E0B /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 139E64CE1FCF091800117E0B /* Login.storyboard */; };
 		139E64D11FCF099700117E0B /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 139E64D01FCF099700117E0B /* Register.storyboard */; };
+		13AA8D331FDA9AFC007057DF /* NewsSaveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AA8D321FDA9AFC007057DF /* NewsSaveModel.swift */; };
+		13AA8D361FDA9D23007057DF /* NewsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13AA8D351FDA9D23007057DF /* NewsHeaderView.xib */; };
+		13AA8D381FDA9D4A007057DF /* NewsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AA8D371FDA9D4A007057DF /* NewsHeaderView.swift */; };
 		13AB37631FCF9EA6000BA67D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AB37611FCF9EA6000BA67D /* HomeViewController.swift */; };
 		13AB37641FCF9EA6000BA67D /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AB37621FCF9EA6000BA67D /* TutorialPageViewController.swift */; };
 		13AB37661FCF9EAD000BA67D /* NaviHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AB37651FCF9EAD000BA67D /* NaviHomeViewController.swift */; };
@@ -87,6 +90,8 @@
 		13B744581FD3CBE700A778A7 /* news.html in Resources */ = {isa = PBXBuildFile; fileRef = 13B744571FD3CBE600A778A7 /* news.html */; };
 		13B7445A1FD3D1EC00A778A7 /* BrokerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B744591FD3D1EC00A778A7 /* BrokerModel.swift */; };
 		13B7445C1FD3D37B00A778A7 /* DistrictModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7445B1FD3D37B00A778A7 /* DistrictModel.swift */; };
+		13C6EFD51FDA494100D6F1EF /* PopOverTypeMapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C6EFD41FDA494100D6F1EF /* PopOverTypeMapsViewController.swift */; };
+		13C6EFD71FDA651F00D6F1EF /* MapsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C6EFD61FDA651F00D6F1EF /* MapsViewCell.swift */; };
 		13CAB8821FD8CCDC0014F551 /* CategoryLand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CAB8811FD8CCDC0014F551 /* CategoryLand.swift */; };
 		13CAB8841FD915B80014F551 /* WaredModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CAB8831FD915B80014F551 /* WaredModel.swift */; };
 		13CAB8861FD92EA60014F551 /* RegisterNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CAB8851FD92EA60014F551 /* RegisterNewsViewController.swift */; };
@@ -193,6 +198,9 @@
 		139E64CE1FCF091800117E0B /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		139E64D01FCF099700117E0B /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		13A027B7BA22F07E221AA08B /* Pods_BDSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BDSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		13AA8D321FDA9AFC007057DF /* NewsSaveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsSaveModel.swift; sourceTree = "<group>"; };
+		13AA8D351FDA9D23007057DF /* NewsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsHeaderView.xib; sourceTree = "<group>"; };
+		13AA8D371FDA9D4A007057DF /* NewsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsHeaderView.swift; sourceTree = "<group>"; };
 		13AB37611FCF9EA6000BA67D /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		13AB37621FCF9EA6000BA67D /* TutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
 		13AB37651FCF9EAD000BA67D /* NaviHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NaviHomeViewController.swift; sourceTree = "<group>"; };
@@ -204,6 +212,8 @@
 		13B744571FD3CBE600A778A7 /* news.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = news.html; sourceTree = "<group>"; };
 		13B744591FD3D1EC00A778A7 /* BrokerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrokerModel.swift; sourceTree = "<group>"; };
 		13B7445B1FD3D37B00A778A7 /* DistrictModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistrictModel.swift; sourceTree = "<group>"; };
+		13C6EFD41FDA494100D6F1EF /* PopOverTypeMapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverTypeMapsViewController.swift; sourceTree = "<group>"; };
+		13C6EFD61FDA651F00D6F1EF /* MapsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewCell.swift; sourceTree = "<group>"; };
 		13CAB8811FD8CCDC0014F551 /* CategoryLand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLand.swift; sourceTree = "<group>"; };
 		13CAB8831FD915B80014F551 /* WaredModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaredModel.swift; sourceTree = "<group>"; };
 		13CAB8851FD92EA60014F551 /* RegisterNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNewsViewController.swift; sourceTree = "<group>"; };
@@ -267,6 +277,8 @@
 			children = (
 				13195E271FD05DC500C60533 /* MapsViewController.swift */,
 				134E23DC1FD0F8CD005387B7 /* InforMapsViewController.swift */,
+				13C6EFD41FDA494100D6F1EF /* PopOverTypeMapsViewController.swift */,
+				13C6EFD61FDA651F00D6F1EF /* MapsViewCell.swift */,
 			);
 			path = Maps;
 			sourceTree = "<group>";
@@ -305,6 +317,7 @@
 		1344BE071FD13ECC00498108 /* ListNewsLike */ = {
 			isa = PBXGroup;
 			children = (
+				13AA8D341FDA9D02007057DF /* Header */,
 				1344BE241FD159B800498108 /* PopUp */,
 				1344BE081FD13EEF00498108 /* NewsLikeViewController.swift */,
 				1344BE201FD1558200498108 /* NewsViewController.swift */,
@@ -484,6 +497,7 @@
 				1319EC1E1FD58E7D003D1B0D /* CategoryProjectModel.swift */,
 				1319EC201FD594E5003D1B0D /* ProjectsModel.swift */,
 				13CAB8811FD8CCDC0014F551 /* CategoryLand.swift */,
+				13AA8D321FDA9AFC007057DF /* NewsSaveModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -594,6 +608,15 @@
 				139E64D01FCF099700117E0B /* Register.storyboard */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		13AA8D341FDA9D02007057DF /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				13AA8D351FDA9D23007057DF /* NewsHeaderView.xib */,
+				13AA8D371FDA9D4A007057DF /* NewsHeaderView.swift */,
+			);
+			path = Header;
 			sourceTree = "<group>";
 		};
 		13AB375F1FCF9E87000BA67D /* Home */ = {
@@ -775,6 +798,7 @@
 				139E64B21FCF07F800117E0B /* HeaderViewController.xib in Resources */,
 				139E64CF1FCF091800117E0B /* Login.storyboard in Resources */,
 				1344BE161FD1460C00498108 /* MenuHome.storyboard in Resources */,
+				13AA8D361FDA9D23007057DF /* NewsHeaderView.xib in Resources */,
 				13FB33161FD2FA2100FC5B55 /* GoogleService-Info.plist in Resources */,
 				139E64681FCF030300117E0B /* LaunchScreen.storyboard in Resources */,
 				132532AA1FD6874C004BF9F5 /* Projects.storyboard in Resources */,
@@ -1023,6 +1047,7 @@
 				1344BE2A1FD15E4B00498108 /* DetailNewsViewController.swift in Sources */,
 				139E64C21FCF088000117E0B /* SideMenuTransition.swift in Sources */,
 				13FB33141FD2F0B800FC5B55 /* Util.swift in Sources */,
+				13AA8D381FDA9D4A007057DF /* NewsHeaderView.swift in Sources */,
 				1344BE041FD12E3000498108 /* LandForSaleViewController.swift in Sources */,
 				13AB376D1FCFA056000BA67D /* BaseTableViewController.swift in Sources */,
 				13AB37661FCF9EAD000BA67D /* NaviHomeViewController.swift in Sources */,
@@ -1053,10 +1078,12 @@
 				132532AC1FD6A7D8004BF9F5 /* DetailProjectViewController.swift in Sources */,
 				1344BE111FD143E900498108 /* ContactViewCell.swift in Sources */,
 				139E645E1FCF030300117E0B /* AppDelegate.swift in Sources */,
+				13AA8D331FDA9AFC007057DF /* NewsSaveModel.swift in Sources */,
 				13CAB8861FD92EA60014F551 /* RegisterNewsViewController.swift in Sources */,
 				13195E281FD05DC500C60533 /* MapsViewController.swift in Sources */,
 				1344BE2E1FD162F100498108 /* SearchLandForSaleViewController.swift in Sources */,
 				1344BE211FD1558200498108 /* NewsViewController.swift in Sources */,
+				13C6EFD51FDA494100D6F1EF /* PopOverTypeMapsViewController.swift in Sources */,
 				134E23DD1FD0F8CD005387B7 /* InforMapsViewController.swift in Sources */,
 				139E64CC1FCF08DB00117E0B /* ContainerSingUpViewController.swift in Sources */,
 				139E64BC1FCF085500117E0B /* RightMenuViewController.swift in Sources */,
@@ -1068,6 +1095,7 @@
 				137CF4221FD504B100E3EB91 /* CategoryNewsModel.swift in Sources */,
 				13AB37681FCF9FAC000BA67D /* NaviLoginViewController.swift in Sources */,
 				139E64AC1FCF07E500117E0B /* PickerView.swift in Sources */,
+				13C6EFD71FDA651F00D6F1EF /* MapsViewCell.swift in Sources */,
 				13AB376C1FCFA056000BA67D /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1235,13 +1263,16 @@
 			baseConfigurationReference = 9EDAE37C4ABF18F1000C435A /* Pods-BDS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HGL8WW52HU;
+				DEVELOPMENT_TEAM = TXCECR9AZW;
 				INFOPLIST_FILE = BDS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.huy.BDS.vn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BDS.vn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1252,13 +1283,16 @@
 			baseConfigurationReference = 2606DAFFDB4CDFDC8A3E08E1 /* Pods-BDS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HGL8WW52HU;
+				DEVELOPMENT_TEAM = TXCECR9AZW;
 				INFOPLIST_FILE = BDS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.huy.BDS.vn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BDS.vn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
