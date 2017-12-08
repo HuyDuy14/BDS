@@ -8,6 +8,12 @@
 
 import UIKit
 
+protocol ProjectViewCellDelegate:class
+{
+    func saveProject(_ cell:ProjectViewCell,project:ProjectsModel,index:Int,type:Int)
+    func saveLand(_ cell:ProjectViewCell,project:LandSaleModel,index:Int,type:Int)
+}
+
 class ProjectViewCell: UITableViewCell {
 
     @IBOutlet weak var imageViewProfile: UIImageView!
@@ -15,14 +21,22 @@ class ProjectViewCell: UITableViewCell {
     @IBOutlet weak var information: UILabel!
     @IBOutlet weak var imageLike: UIImageView!
     
+    var project:ProjectsModel!
+    var land:LandSaleModel!
+    var index:Int = 0
+    var type:Int = 2
+    weak var delegate:ProjectViewCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    func loadData(project:ProjectsModel)
+    func loadData(project:ProjectsModel,index:Int,type:Int)
     {
-
+        self.project = project
+        self.index = index
+        self.type = type
         self.imageViewProfile.setImageProject(urlString: API.linkImage + project.image)
         self.name.text = project.title
         self.information.text = project.address
@@ -36,8 +50,11 @@ class ProjectViewCell: UITableViewCell {
         }
     }
 
-    func loadDataHome(project:LandSaleModel)
+    func loadDataHome(project:LandSaleModel,index:Int,type:Int)
     {
+        self.land = project
+        self.index = index
+        self.type = type
         self.imageViewProfile.setImageProject(urlString: API.linkImage + project.image)
         self.name.text = project.title
         self.information.text = project.content
@@ -51,4 +68,14 @@ class ProjectViewCell: UITableViewCell {
         }
     }
 
+    @IBAction func saveProjectButtonDidTap(_ sender: Any) {
+        if self.project != nil
+        {
+            self.delegate?.saveProject(self, project: self.project, index: self.index, type: self.type)
+        }
+        else
+        {
+            self.delegate?.saveLand(self, project: self.land, index: self.index, type: self.type)
+        }
+    }
 }

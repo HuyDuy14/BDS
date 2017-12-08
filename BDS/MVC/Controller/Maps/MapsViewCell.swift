@@ -48,5 +48,9 @@ class MapsViewCell: UITableViewCell {
         self.information.text = cell.summary
     }
 
+    @IBAction func saveButtonDidTap(_ sender: Any) {
+        
+    }
+    
    
 }

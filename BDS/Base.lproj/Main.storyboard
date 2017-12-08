@@ -824,6 +824,12 @@
                                                         <constraint firstAttribute="height" constant="24" id="iZQ-Td-AON"/>
                                                     </constraints>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dl6-m3-C5Y">
+                                                    <rect key="frame" x="343" y="29" width="24" height="24"/>
+                                                    <connections>
+                                                        <action selector="deleteSaveNews:" destination="vvu-Oa-rri" eventType="touchUpInside" id="MVR-X4-QPN"/>
+                                                    </connections>
+                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0972795635:- Cần bán căn biệt thự đẹp nhất vịnh bắc bộ ahihi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BSR-xX-MKm">
                                                     <rect key="frame" x="80" y="54" width="255" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -832,6 +838,7 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="dl6-m3-C5Y" firstAttribute="width" secondItem="aIX-nS-7zG" secondAttribute="width" id="13x-4S-80W"/>
                                                 <constraint firstAttribute="trailing" secondItem="gjH-57-gso" secondAttribute="trailing" id="2cL-ho-QTg"/>
                                                 <constraint firstItem="BSR-xX-MKm" firstAttribute="leading" secondItem="9Ki-Yc-Snr" secondAttribute="trailing" constant="8" id="6ro-Ll-oW9"/>
                                                 <constraint firstItem="aIX-nS-7zG" firstAttribute="centerY" secondItem="AJp-Xe-bMM" secondAttribute="centerY" id="84S-GM-HD1"/>
@@ -840,11 +847,14 @@
                                                 <constraint firstItem="gjH-57-gso" firstAttribute="leading" secondItem="AJp-Xe-bMM" secondAttribute="leading" id="QyK-o4-BV4"/>
                                                 <constraint firstItem="hCA-Rg-sgY" firstAttribute="leading" secondItem="9Ki-Yc-Snr" secondAttribute="trailing" constant="8" id="Tjr-d6-wne"/>
                                                 <constraint firstAttribute="trailing" secondItem="BSR-xX-MKm" secondAttribute="trailing" constant="40" id="XBj-bY-M5g"/>
+                                                <constraint firstItem="dl6-m3-C5Y" firstAttribute="height" secondItem="aIX-nS-7zG" secondAttribute="height" id="Ykm-yr-X6r"/>
                                                 <constraint firstItem="9Ki-Yc-Snr" firstAttribute="centerY" secondItem="AJp-Xe-bMM" secondAttribute="centerY" id="Zak-Oa-tTs"/>
                                                 <constraint firstItem="9Ki-Yc-Snr" firstAttribute="leading" secondItem="AJp-Xe-bMM" secondAttribute="leading" constant="12" id="dcn-hW-5uf"/>
                                                 <constraint firstAttribute="bottom" secondItem="gjH-57-gso" secondAttribute="bottom" id="hef-z3-F7I"/>
                                                 <constraint firstItem="aIX-nS-7zG" firstAttribute="leading" secondItem="hCA-Rg-sgY" secondAttribute="trailing" constant="8" id="lJZ-B4-veb"/>
                                                 <constraint firstItem="hCA-Rg-sgY" firstAttribute="top" secondItem="AJp-Xe-bMM" secondAttribute="top" constant="14" id="nhJ-df-8BE"/>
+                                                <constraint firstItem="dl6-m3-C5Y" firstAttribute="centerX" secondItem="aIX-nS-7zG" secondAttribute="centerX" id="sV4-FV-6Wr"/>
+                                                <constraint firstItem="dl6-m3-C5Y" firstAttribute="centerY" secondItem="aIX-nS-7zG" secondAttribute="centerY" id="zX7-Pp-ZmF"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1201,6 +1211,12 @@
                                                         <constraint firstAttribute="height" constant="24" id="u3a-iL-9gs"/>
                                                     </constraints>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DOU-MZ-CJN">
+                                                    <rect key="frame" x="343" y="29" width="24" height="24"/>
+                                                    <connections>
+                                                        <action selector="saveButtonDidTap:" destination="uBN-dn-DbW" eventType="touchUpInside" id="MiY-0M-MIq"/>
+                                                    </connections>
+                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0972795635:- Cần bán căn biệt thự đẹp nhất vịnh bắc bộ ahihi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgf-eC-xh5">
                                                     <rect key="frame" x="80" y="54" width="255" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1209,15 +1225,19 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="DOU-MZ-CJN" firstAttribute="width" secondItem="pT0-yZ-hTl" secondAttribute="width" id="0Av-Pc-VSt"/>
+                                                <constraint firstItem="DOU-MZ-CJN" firstAttribute="centerX" secondItem="pT0-yZ-hTl" secondAttribute="centerX" id="18R-Wl-vMa"/>
                                                 <constraint firstItem="xgf-eC-xh5" firstAttribute="leading" secondItem="g8z-iw-nJg" secondAttribute="trailing" constant="8" id="9eO-Ug-SKW"/>
                                                 <constraint firstItem="xgf-eC-xh5" firstAttribute="top" secondItem="dXD-mN-HyY" secondAttribute="bottom" constant="4" id="DeL-Rm-oNr"/>
                                                 <constraint firstAttribute="bottom" secondItem="Hbs-vL-HiD" secondAttribute="bottom" id="KeJ-mZ-DdY"/>
                                                 <constraint firstAttribute="trailing" secondItem="pT0-yZ-hTl" secondAttribute="trailing" constant="8" id="TAX-Im-iCQ"/>
+                                                <constraint firstItem="DOU-MZ-CJN" firstAttribute="height" secondItem="pT0-yZ-hTl" secondAttribute="height" id="TJv-k5-zUo"/>
                                                 <constraint firstItem="g8z-iw-nJg" firstAttribute="centerY" secondItem="qRi-qb-OzF" secondAttribute="centerY" id="bec-fU-sx3"/>
                                                 <constraint firstItem="g8z-iw-nJg" firstAttribute="leading" secondItem="qRi-qb-OzF" secondAttribute="leading" constant="12" id="fNm-HT-gUS"/>
                                                 <constraint firstItem="Hbs-vL-HiD" firstAttribute="leading" secondItem="qRi-qb-OzF" secondAttribute="leading" id="gbr-n5-Oe7"/>
                                                 <constraint firstItem="dXD-mN-HyY" firstAttribute="leading" secondItem="g8z-iw-nJg" secondAttribute="trailing" constant="8" id="i8h-8U-QRQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="Hbs-vL-HiD" secondAttribute="trailing" id="itr-xV-fTc"/>
+                                                <constraint firstItem="DOU-MZ-CJN" firstAttribute="centerY" secondItem="pT0-yZ-hTl" secondAttribute="centerY" id="mFb-WD-Ct9"/>
                                                 <constraint firstItem="pT0-yZ-hTl" firstAttribute="centerY" secondItem="qRi-qb-OzF" secondAttribute="centerY" id="n1v-Na-Iuj"/>
                                                 <constraint firstItem="dXD-mN-HyY" firstAttribute="top" secondItem="qRi-qb-OzF" secondAttribute="top" constant="14" id="n68-vj-gUX"/>
                                                 <constraint firstAttribute="trailing" secondItem="xgf-eC-xh5" secondAttribute="trailing" constant="40" id="urs-B7-h9k"/>
@@ -1446,12 +1466,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGT-oF-7fg">
-                                                    <rect key="frame" x="343" y="29" width="24" height="24"/>
-                                                    <connections>
-                                                        <action selector="deleteSaveNews:" destination="Fly-1S-5sZ" eventType="touchUpInside" id="h8N-dX-rXy"/>
-                                                    </connections>
-                                                </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_like" translatesAutoresizingMaskIntoConstraints="NO" id="qN3-SI-wc5">
                                                     <rect key="frame" x="343" y="29" width="24" height="24"/>
                                                     <constraints>
@@ -1459,6 +1473,12 @@
                                                         <constraint firstAttribute="width" constant="24" id="g82-lE-sOl"/>
                                                     </constraints>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGT-oF-7fg">
+                                                    <rect key="frame" x="343" y="29" width="24" height="24"/>
+                                                    <connections>
+                                                        <action selector="deleteSaveNews:" destination="Fly-1S-5sZ" eventType="touchUpInside" id="eeH-z2-fQL"/>
+                                                    </connections>
+                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0972795635:- Cần bán căn biệt thự đẹp nhất vịnh bắc bộ ahihi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAo-YP-Vy2">
                                                     <rect key="frame" x="80" y="50.5" width="255" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1633,6 +1653,12 @@
                                                         <constraint firstAttribute="height" constant="24" id="wdj-b7-RKe"/>
                                                     </constraints>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gOw-9i-N5H">
+                                                    <rect key="frame" x="343" y="29" width="24" height="24"/>
+                                                    <connections>
+                                                        <action selector="saveProjectButtonDidTap:" destination="TXn-Yc-KxZ" eventType="touchUpInside" id="vS7-Vm-wDP"/>
+                                                    </connections>
+                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0972795635:- Cần bán căn biệt thự đẹp nhất vịnh bắc bộ ahihi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTB-z5-dtF">
                                                     <rect key="frame" x="80" y="54" width="255" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1641,19 +1667,23 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="gOw-9i-N5H" firstAttribute="centerY" secondItem="CIp-KA-LSs" secondAttribute="centerY" id="1Ys-bW-uik"/>
                                                 <constraint firstAttribute="trailing" secondItem="CTB-z5-dtF" secondAttribute="trailing" constant="40" id="BVE-gV-q1K"/>
                                                 <constraint firstItem="ckh-b2-fOv" firstAttribute="leading" secondItem="z3x-bD-Wny" secondAttribute="trailing" constant="8" id="GVx-QJ-aca"/>
                                                 <constraint firstAttribute="bottom" secondItem="s6o-Pc-HZr" secondAttribute="bottom" id="GrK-ZU-AGd"/>
                                                 <constraint firstItem="z3x-bD-Wny" firstAttribute="leading" secondItem="sec-t6-wIK" secondAttribute="leading" constant="12" id="LDe-wk-6I9"/>
+                                                <constraint firstItem="gOw-9i-N5H" firstAttribute="height" secondItem="CIp-KA-LSs" secondAttribute="height" id="MOx-dR-UuV"/>
                                                 <constraint firstAttribute="trailing" secondItem="s6o-Pc-HZr" secondAttribute="trailing" id="PfN-K7-MOX"/>
                                                 <constraint firstItem="z3x-bD-Wny" firstAttribute="centerY" secondItem="sec-t6-wIK" secondAttribute="centerY" id="Prn-Sp-KID"/>
                                                 <constraint firstItem="CIp-KA-LSs" firstAttribute="centerY" secondItem="sec-t6-wIK" secondAttribute="centerY" id="Psu-Za-kqG"/>
                                                 <constraint firstAttribute="trailing" secondItem="CIp-KA-LSs" secondAttribute="trailing" constant="8" id="Q3Y-eZ-5sd"/>
                                                 <constraint firstItem="CTB-z5-dtF" firstAttribute="top" secondItem="ckh-b2-fOv" secondAttribute="bottom" constant="4" id="Swk-OF-0ez"/>
                                                 <constraint firstItem="CIp-KA-LSs" firstAttribute="leading" secondItem="ckh-b2-fOv" secondAttribute="trailing" constant="8" id="WXI-YG-eYU"/>
+                                                <constraint firstItem="gOw-9i-N5H" firstAttribute="centerX" secondItem="CIp-KA-LSs" secondAttribute="centerX" id="Y2X-el-28Q"/>
                                                 <constraint firstItem="ckh-b2-fOv" firstAttribute="top" secondItem="sec-t6-wIK" secondAttribute="top" constant="14" id="jHt-G0-CLG"/>
                                                 <constraint firstItem="CTB-z5-dtF" firstAttribute="leading" secondItem="z3x-bD-Wny" secondAttribute="trailing" constant="8" id="m7N-Yo-8Cc"/>
                                                 <constraint firstItem="s6o-Pc-HZr" firstAttribute="leading" secondItem="sec-t6-wIK" secondAttribute="leading" id="r8Q-IF-dty"/>
+                                                <constraint firstItem="gOw-9i-N5H" firstAttribute="width" secondItem="CIp-KA-LSs" secondAttribute="width" id="xNV-7e-TpD"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

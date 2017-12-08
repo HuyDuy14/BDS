@@ -118,6 +118,12 @@ class ProjectsViewController: BaseViewController {
                 if let dic = data as? [String:Any]
                 {
                     let project = ProjectsModel(JSON: dic)
+                    for p in Util.shared.listProjectSave
+                    {
+                        if p.id == project?.id{
+                            project?.isLike = true
+                        }
+                    }
                     self.listProject.append(project!)
                 }
             }
@@ -148,6 +154,12 @@ class ProjectsViewController: BaseViewController {
                         if let dic = data as? [String:Any]
                         {
                             let project = LandSaleModel(JSON: dic)
+                            for land in Util.shared.listBDS
+                            {
+                                if land.id == project?.id{
+                                    project?.isLike = true
+                                }
+                            }
                            projects.append(project!)
                         }
                     }
@@ -223,7 +235,8 @@ extension ProjectsViewController:UITableViewDelegate,UITableViewDataSource
             if self.listLandSent.count > indexPath.row
             {
                 let cell = self.tableView.dequeueReusableCell(withIdentifier: "ProjectViewCell") as! ProjectViewCell
-                cell.loadDataHome(project: self.listLandSent[indexPath.row])
+                cell.loadDataHome(project: self.listLandSent[indexPath.row],index: indexPath.row,type: 3)
+                cell.delegate = self
                 return cell
             }
         }
@@ -232,7 +245,8 @@ extension ProjectsViewController:UITableViewDelegate,UITableViewDataSource
             if self.listProject.count > indexPath.row
             {
                 let cell = self.tableView.dequeueReusableCell(withIdentifier: "ProjectViewCell") as! ProjectViewCell
-                cell.loadData(project: self.listProject[indexPath.row])
+                cell.loadData(project: self.listProject[indexPath.row], index: indexPath.row,type: 2)
+                cell.delegate = self
                 return cell
             }
             
@@ -303,6 +317,101 @@ extension ProjectsViewController:SearchLandForSaleViewControllerDelegate{
         self.showHUD("")
         self.loadData(refresh: true)
     }
+}
+
+extension ProjectsViewController:ProjectViewCellDelegate{
     
+    func updateRow(item: ProjectsModel!, status: Bool,index:Int)
+    {
+        if index >= 0 {
+            if status == true
+            {
+                Util.shared.listProjectSave.append(item)
+            }
+            else
+            {
+                for i in 0..<Util.shared.listProjectSave.count
+                {
+                    if Util.shared.listProjectSave[i].id == item.id
+                    {
+                        Util.shared.listProjectSave.remove(at: i)
+                    }
+                  
+                }
+            }
+            self.listProject[index].isLike = status
+            let indexPath = NSIndexPath(row: index, section: 0)
+            var arrayIndext: [NSIndexPath] = []
+            arrayIndext.append(indexPath)
+            self.tableView.beginUpdates()
+            self.tableView.reloadRows(at: arrayIndext as [IndexPath], with: UITableViewRowAnimation.fade)
+            self.tableView.endUpdates()
+        }
+        
+    }
     
+    func updateRowLand(item: LandSaleModel!, status: Bool,index:Int)
+    {
+        if index >= 0 {
+            if status == true
+            {
+                Util.shared.listBDS.append(item)
+            }
+            else
+            {
+                for i in 0..<Util.shared.listBDS.count
+                {
+                    if Util.shared.listBDS[i].id == item.id
+                    {
+                        Util.shared.listBDS.remove(at: i)
+                    }
+                    
+                }
+            }
+            self.listLandSent[index].isLike = status
+            let indexPath = NSIndexPath(row: index, section: 0)
+            var arrayIndext: [NSIndexPath] = []
+            arrayIndext.append(indexPath)
+            self.tableView.beginUpdates()
+            self.tableView.reloadRows(at: arrayIndext as [IndexPath], with: UITableViewRowAnimation.fade)
+            self.tableView.endUpdates()
+        }
+        
+    }
+
+    func saveLand(_ cell: ProjectViewCell, project: LandSaleModel, index: Int, type: Int) {
+        self.showHUD("")
+        if project.isLike == false
+        {
+            APIClient.shared.saveNews(id: project.id, type: type).asObservable().bind(onNext: { result in
+                self.hideHUD()
+                self.updateRowLand(item: project, status: true, index: index)
+            }).disposed(by: self.disposeBag)
+        }
+        else
+        {
+            APIClient.shared.cancelNews(id: project.id, type: type).asObservable().bind(onNext: { result in
+                self.hideHUD()
+                self.updateRowLand(item: project, status: false, index: index)
+            }).disposed(by: self.disposeBag)
+        }
+    }
+    
+    func saveProject(_ cell: ProjectViewCell, project: ProjectsModel, index: Int, type: Int) {
+        self.showHUD("")
+        if project.isLike == false
+        {
+            APIClient.shared.saveNews(id: project.id, type: type).asObservable().bind(onNext: { result in
+                self.hideHUD()
+                self.updateRow(item: project, status: true, index: index)
+            }).disposed(by: self.disposeBag)
+        }
+        else
+        {
+            APIClient.shared.cancelNews(id: project.id, type: type).asObservable().bind(onNext: { result in
+                self.hideHUD()
+                self.updateRow(item: project, status: false, index: index)
+            }).disposed(by: self.disposeBag)
+        }
+    }
 }

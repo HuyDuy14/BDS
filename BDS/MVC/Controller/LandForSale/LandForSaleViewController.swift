@@ -223,3 +223,46 @@ extension LandForSaleViewController:SearchLandForSaleViewControllerDelegate{
     
     
 }
+extension LandForSaleViewController:LandForSaleViewCellDelegate
+{
+    func deleteSaveNews(_ cell: LandForSaleViewCell, news: NewsModel, index: Int,type:Int) {
+       
+    }
+    func deleteSaveLand(_ cell: LandForSaleViewCell, land: LandSaleModel, index: Int, type: Int) {
+        self.showHUD("")
+        if land.isLike == true
+        {
+            APIClient.shared.cancelNews(id: land.id, type: type).asObservable().bind(onNext: { result in
+                self.hideHUD()
+                self.updateRowLand(item:land, index: index, type: type,status: false)
+            }).disposed(by: self.disposeBag)
+        }
+        else
+        {
+            APIClient.shared.saveNews(id: land.id, type: type).asObservable().bind(onNext: { result in
+                self.hideHUD()
+                self.updateRowLand(item: land, index: index,type: type,status: true)
+            }).disposed(by: self.disposeBag)
+        }
+    }
+    
+    func deleteSaveProject(_ cell: LandForSaleViewCell, project: ProjectsModel, index: Int, type: Int) {
+     
+        
+    }
+    
+    func updateRowLand(item: LandSaleModel!,index:Int,type:Int,status:Bool)
+    {
+        if index >= 0 {
+            self.listData[index].isLike = status
+            let indexPath = NSIndexPath(row: index, section: 0)
+            var arrayIndext: [NSIndexPath] = []
+            arrayIndext.append(indexPath)
+            self.tableView.beginUpdates()
+            self.tableView.reloadRows(at: arrayIndext as [IndexPath], with: UITableViewRowAnimation.fade)
+            self.tableView.endUpdates()
+        }
+        
+    }
+}
+

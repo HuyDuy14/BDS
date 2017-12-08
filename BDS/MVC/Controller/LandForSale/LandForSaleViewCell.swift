@@ -10,6 +10,8 @@ import UIKit
 protocol LandForSaleViewCellDelegate:class
 {
     func deleteSaveNews(_ cell:LandForSaleViewCell,news:NewsModel,index:Int,type:Int)
+    func deleteSaveProject(_ cell:LandForSaleViewCell,project:ProjectsModel,index:Int,type:Int)
+    func deleteSaveLand(_ cell:LandForSaleViewCell,land:LandSaleModel,index:Int,type:Int)
 }
 
 class LandForSaleViewCell: UITableViewCell {
@@ -23,6 +25,8 @@ class LandForSaleViewCell: UITableViewCell {
     var indexNews:Int = 0
     var type:Int = 1
     weak var delegate:LandForSaleViewCellDelegate?
+    var land:LandSaleModel!
+    var project:ProjectsModel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,6 +36,7 @@ class LandForSaleViewCell: UITableViewCell {
     func loadDataProject(project:ProjectsModel,index:Int,type:Int)
     {
         
+        self.project  = project
         self.imageViewProfile.setImageProject(urlString: API.linkImage + project.image)
         self.name.text = project.title
         self.information.text = project.address
@@ -51,6 +56,7 @@ class LandForSaleViewCell: UITableViewCell {
     {
         self.indexNews = index
         self.type = type
+        self.land = cell
         self.imageViewProfile.setImageUrlNews(url: API.linkImage + cell.image)
         self.name.text = cell.title
         self.information.text = cell.content
@@ -80,6 +86,14 @@ class LandForSaleViewCell: UITableViewCell {
         {
             self.delegate?.deleteSaveNews(self, news: self.news, index: self.indexNews,type: self.type)
         }
+        if self.project != nil
+        {
+            self.delegate?.deleteSaveProject(self, project: self.project, index: self.indexNews, type: self.type)
+        }
+        if self.land != nil
+        {
+            self.delegate?.deleteSaveLand(self, land: self.land, index: self.indexNews, type: self.type)
+        }
     }
-    
+  
 }

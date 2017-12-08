@@ -105,13 +105,13 @@ extension NewsLikeViewController:UITableViewDelegate,UITableViewDataSource
             return cell
         case 1:
             let cell = self.tbaleView.dequeueReusableCell(withIdentifier: "NewsLikeViewCell") as! LandForSaleViewCell
-            cell.loadDataCell(cell: self.listData.listBDS[indexPath.row], index: indexPath.row, type: 2)
+            cell.loadDataProject(project: self.listData.listProjects[indexPath.row], index: indexPath.row, type: 2)
             cell.delegate = self
             cell.imageLike.tintColor = UIColor.red
             return cell
         case 2:
             let cell = self.tbaleView.dequeueReusableCell(withIdentifier: "NewsLikeViewCell") as! LandForSaleViewCell
-            cell.loadDataProject(project: self.listData.listProjects[indexPath.row], index: indexPath.row, type: 3)
+            cell.loadDataCell(cell: self.listData.listBDS[indexPath.row], index: indexPath.row, type: 3)
             cell.delegate = self
             cell.imageLike.tintColor = UIColor.red
             return cell
@@ -174,19 +174,76 @@ extension NewsLikeViewController:LandForSaleViewCellDelegate
         self.showHUD("")
         APIClient.shared.cancelNews(id: news.id, type: type).asObservable().bind(onNext: { result in
             self.hideHUD()
-            self.updateRow(item: news, index: index)
+            self.updateRow(item: news, index: index,type: type)
+        }).disposed(by: self.disposeBag)
+    }
+    func deleteSaveLand(_ cell: LandForSaleViewCell, land: LandSaleModel, index: Int, type: Int) {
+         self.showHUD("")
+        APIClient.shared.cancelNews(id: land.id, type: type).asObservable().bind(onNext: { result in
+            self.hideHUD()
+            self.updateRowLand(item:land, index: index, type: type)
         }).disposed(by: self.disposeBag)
     }
     
-    func updateRow(item: NewsModel!,index:Int)
+    func deleteSaveProject(_ cell: LandForSaleViewCell, project: ProjectsModel, index: Int, type: Int) {
+        self.showHUD("")
+        APIClient.shared.cancelNews(id: project.id, type: type).asObservable().bind(onNext: { result in
+            self.hideHUD()
+            self.updateRowProject(item: project, index: index, type: type)
+        }).disposed(by: self.disposeBag)
+       
+    }
+    
+    func updateRow(item: NewsModel!,index:Int,type:Int)
     {
         if index >= 0 {
+            if type == 1
+            {
+                self.listData.listNews.remove(at: index)
+            }
             let indexPath = NSIndexPath(row: index, section: 0)
             var arrayIndext: [NSIndexPath] = []
             arrayIndext.append(indexPath)
             self.tbaleView.beginUpdates()
             self.tbaleView.deleteRows(at: arrayIndext as [IndexPath], with: UITableViewRowAnimation.fade)
             self.tbaleView.endUpdates()
+            
+        }
+        
+    }
+    func updateRowProject(item: ProjectsModel!,index:Int,type:Int)
+    {
+        if index >= 0 {
+           
+            if type == 2
+            {
+                self.listData.listProjects.remove(at: index)
+            }
+            let indexPath = NSIndexPath(row: index, section: 1)
+            var arrayIndext: [NSIndexPath] = []
+            arrayIndext.append(indexPath)
+            self.tbaleView.beginUpdates()
+            self.tbaleView.deleteRows(at: arrayIndext as [IndexPath], with: UITableViewRowAnimation.fade)
+            self.tbaleView.endUpdates()
+            
+        }
+        
+    }
+    func updateRowLand(item: LandSaleModel!,index:Int,type:Int)
+    {
+        if index >= 0 {
+
+            if type == 3
+            {
+                self.listData.listBDS.remove(at: index)
+            }
+            let indexPath = NSIndexPath(row: index, section: 2)
+            var arrayIndext: [NSIndexPath] = []
+            arrayIndext.append(indexPath)
+            self.tbaleView.beginUpdates()
+            self.tbaleView.deleteRows(at: arrayIndext as [IndexPath], with: UITableViewRowAnimation.fade)
+            self.tbaleView.endUpdates()
+          
         }
         
     }
