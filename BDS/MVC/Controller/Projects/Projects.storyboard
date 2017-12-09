@@ -66,8 +66,9 @@
                                             <constraint firstAttribute="width" constant="24" id="qOJ-xX-guf"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r46-oP-HPH">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r46-oP-HPH">
                                         <rect key="frame" x="243" y="23" width="24" height="24"/>
+                                        <state key="normal" image="icon_like"/>
                                         <connections>
                                             <action selector="saveButtonDidTap:" destination="lYt-1V-Pf5" eventType="touchUpInside" id="jWl-l5-xoP"/>
                                         </connections>
@@ -299,6 +300,7 @@
                         <outlet property="imageProjects" destination="ANs-pT-NRV" id="ev2-6Q-nWK"/>
                         <outlet property="monney" destination="aSk-M8-kUa" id="7f5-lk-d4q"/>
                         <outlet property="nameUserProjects" destination="UBc-S9-DaF" id="BRr-Vd-OyB"/>
+                        <outlet property="saveLandButton" destination="r46-oP-HPH" id="buj-tc-siB"/>
                         <outlet property="scaleProject" destination="wVb-0z-Sn7" id="kFF-Uo-m2A"/>
                         <outlet property="titleproject" destination="ffM-8t-6Wo" id="qdn-Ce-uRW"/>
                         <outlet property="type" destination="gi1-mU-9EX" id="RB9-5h-zYM"/>
@@ -382,8 +384,9 @@
                                             <constraint firstAttribute="height" constant="24" id="kXE-JY-Sa5"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sLX-Tn-Ppx">
-                                        <rect key="frame" x="287" y="23" width="24" height="24"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sLX-Tn-Ppx">
+                                        <rect key="frame" x="287" y="24" width="24" height="22"/>
+                                        <state key="normal" image="icon_like"/>
                                         <connections>
                                             <action selector="saveButtonDidTap:" destination="obd-sj-9Us" eventType="touchUpInside" id="4EZ-fn-NhK"/>
                                         </connections>
@@ -435,6 +438,7 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="49E-F2-05e" id="Ul0-p0-E4a"/>
+                        <outlet property="saveLandButton" destination="sLX-Tn-Ppx" id="Zwd-XS-22Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ogN-31-Rkt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -659,9 +663,9 @@
     <resources>
         <image name="icon3D" width="33" height="33"/>
         <image name="icon_back" width="25" height="20"/>
-        <image name="icon_back_maps" width="25" height="24"/>
+        <image name="icon_back_maps" width="40" height="40"/>
         <image name="icon_drop" width="16" height="10"/>
-        <image name="icon_in_news" width="14" height="14"/>
+        <image name="icon_in_news" width="42" height="42"/>
         <image name="icon_like" width="24" height="22"/>
         <image name="icon_zoom_maps" width="33" height="33"/>
     </resources>

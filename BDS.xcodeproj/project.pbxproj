@@ -42,6 +42,7 @@
 		136E72731FD6F7240023F3B4 /* DetailMapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136E72721FD6F7240023F3B4 /* DetailMapsViewController.swift */; };
 		137CF4201FD4E09300E3EB91 /* LandSaleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137CF41F1FD4E09300E3EB91 /* LandSaleModel.swift */; };
 		137CF4221FD504B100E3EB91 /* CategoryNewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137CF4211FD504B100E3EB91 /* CategoryNewsModel.swift */; };
+		13950DA51FDC0652008C50F7 /* InforAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13950DA41FDC0652008C50F7 /* InforAppViewController.swift */; };
 		139E645E1FCF030300117E0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E645D1FCF030300117E0B /* AppDelegate.swift */; };
 		139E64601FCF030300117E0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E645F1FCF030300117E0B /* ViewController.swift */; };
 		139E64631FCF030300117E0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 139E64611FCF030300117E0B /* Main.storyboard */; };
@@ -157,6 +158,7 @@
 		136E72721FD6F7240023F3B4 /* DetailMapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMapsViewController.swift; sourceTree = "<group>"; };
 		137CF41F1FD4E09300E3EB91 /* LandSaleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandSaleModel.swift; sourceTree = "<group>"; };
 		137CF4211FD504B100E3EB91 /* CategoryNewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryNewsModel.swift; sourceTree = "<group>"; };
+		13950DA41FDC0652008C50F7 /* InforAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InforAppViewController.swift; sourceTree = "<group>"; };
 		139E645A1FCF030300117E0B /* BDS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BDS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		139E645D1FCF030300117E0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		139E645F1FCF030300117E0B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -370,6 +372,14 @@
 			path = PopUp;
 			sourceTree = "<group>";
 		};
+		13950DA31FDC0639008C50F7 /* InforApp */ = {
+			isa = PBXGroup;
+			children = (
+				13950DA41FDC0652008C50F7 /* InforAppViewController.swift */,
+			);
+			path = InforApp;
+			sourceTree = "<group>";
+		};
 		139E64511FCF030300117E0B = {
 			isa = PBXGroup;
 			children = (
@@ -505,6 +515,7 @@
 		139E649D1FCF04EB00117E0B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				13950DA31FDC0639008C50F7 /* InforApp */,
 				1344BE0F1FD143D300498108 /* Contacts */,
 				1344BE0A1FD1414700498108 /* Projects */,
 				1344BE071FD13ECC00498108 /* ListNewsLike */,
@@ -753,7 +764,7 @@
 				TargetAttributes = {
 					139E64591FCF030300117E0B = {
 						CreatedOnToolsVersion = 9.1;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					139E646D1FCF030300117E0B = {
 						CreatedOnToolsVersion = 9.1;
@@ -1027,6 +1038,7 @@
 				13B7445A1FD3D1EC00A778A7 /* BrokerModel.swift in Sources */,
 				13CAB8881FD946F30014F551 /* DetailLanforSaleViewController.swift in Sources */,
 				1344BE261FD159CB00498108 /* PopupCategoryNewsViewCell.swift in Sources */,
+				13950DA51FDC0652008C50F7 /* InforAppViewController.swift in Sources */,
 				1344BE131FD143F700498108 /* ContactsViewController.swift in Sources */,
 				13AB37631FCF9EA6000BA67D /* HomeViewController.swift in Sources */,
 				139E64C71FCF08C000117E0B /* LoginViewController.swift in Sources */,
@@ -1263,16 +1275,16 @@
 			baseConfigurationReference = 9EDAE37C4ABF18F1000C435A /* Pods-BDS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = TXCECR9AZW;
 				INFOPLIST_FILE = BDS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BDS.vn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "9a5eed27-c291-4bd0-a892-dba0308c1057";
+				PROVISIONING_PROFILE_SPECIFIER = fuck;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1283,16 +1295,16 @@
 			baseConfigurationReference = 2606DAFFDB4CDFDC8A3E08E1 /* Pods-BDS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = TXCECR9AZW;
 				INFOPLIST_FILE = BDS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BDS.vn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "9a5eed27-c291-4bd0-a892-dba0308c1057";
+				PROVISIONING_PROFILE_SPECIFIER = fuck;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -63,19 +63,21 @@ class DetailNewsViewController: BaseViewController {
                     }
                 }
                 self.newsSave.tintColor = UIColor.red
+                self.news.isLike = true
             }).disposed(by: self.disposeBag)
         }
         else
         {
             APIClient.shared.cancelNews(id: news.id, type: 1).asObservable().bind(onNext: { result in
                 self.hideHUD()
-               for i in 0..<Util.shared.listNewsSave.count - 1
+               for i in 0..<(Util.shared.listNewsSave.count - 1)
                {
                     if Util.shared.listNewsSave[i].id == self.news.id {
                         Util.shared.listNewsSave.remove(at: i)
                     }
                }
-                  self.newsSave.tintColor = UIColor.lightGray
+                self.news.isLike = false
+                self.newsSave.tintColor = UIColor.lightGray
             }).disposed(by: self.disposeBag)
         }
     }

@@ -27,7 +27,6 @@ class LandForSaleViewController: BaseViewController {
     var listData:[LandSaleModel] = []
     let disposeBag = DisposeBag()
     
-    
     var idProject:String = "null"
     var idDistrict:String = "null"
     var idCity = "null"
@@ -52,6 +51,11 @@ class LandForSaleViewController: BaseViewController {
         self.showHUD("")
         self.loadData(refresh: true)
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.tableView.reloadData()
     }
     
     // MARK: - LoadData
@@ -168,6 +172,7 @@ extension LandForSaleViewController:UITableViewDelegate,UITableViewDataSource
         if indexPath.row < self.listData.count {
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "LandForSaleViewCell") as! LandForSaleViewCell
             cell.loadDataCell(cell: self.listData[indexPath.row], index: indexPath.row, type: 3)
+            cell.delegate = self
             return cell
         }
         return UITableViewCell()
@@ -254,6 +259,21 @@ extension LandForSaleViewController:LandForSaleViewCellDelegate
     func updateRowLand(item: LandSaleModel!,index:Int,type:Int,status:Bool)
     {
         if index >= 0 {
+            if status == true
+            {
+                Util.shared.listBDS.append(item)
+            }
+            else
+            {
+                for i in 0..<(Util.shared.listBDS.count - 1 )
+                {
+                    if Util.shared.listBDS[i].id == item.id
+                    {
+                        Util.shared.listBDS.remove(at: i)
+                    }
+                    
+                }
+            }
             self.listData[index].isLike = status
             let indexPath = NSIndexPath(row: index, section: 0)
             var arrayIndext: [NSIndexPath] = []

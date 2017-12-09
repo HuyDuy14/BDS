@@ -38,8 +38,8 @@ class Util: NSObject {
         do {
             let baseHTML = try String(contentsOfFile: filePath, encoding: String.Encoding.utf8)
             var desString = baseHTML.replacingOccurrences(of: "Loading...", with: string)
-            let w = String(Int(UIScreen.main.bounds.size.width) - 40)
-            desString = baseHTML.replacingOccurrences(of: "96%", with: w)
+            let w = String(Int(UIScreen.main.bounds.size.width) - 60)
+            desString = desString.replacingOccurrences(of: "96%", with: w)
             return desString
         } catch {
             return string

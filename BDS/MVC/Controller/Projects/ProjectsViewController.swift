@@ -78,6 +78,10 @@ class ProjectsViewController: BaseViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.tableView.reloadData()
+    }
     func refresh(_ sender: Any) {
         if  isBackHome == false
         {
@@ -330,7 +334,7 @@ extension ProjectsViewController:ProjectViewCellDelegate{
             }
             else
             {
-                for i in 0..<Util.shared.listProjectSave.count
+                for i in 0..<(Util.shared.listProjectSave.count-1)
                 {
                     if Util.shared.listProjectSave[i].id == item.id
                     {
@@ -359,7 +363,7 @@ extension ProjectsViewController:ProjectViewCellDelegate{
             }
             else
             {
-                for i in 0..<Util.shared.listBDS.count
+                for i in 0..<(Util.shared.listBDS.count - 1)
                 {
                     if Util.shared.listBDS[i].id == item.id
                     {

@@ -143,10 +143,6 @@ class APIClient: NSObject {
         
     }
     
-    
-    //======================================================
-    //MARK: - Request error
-    
     //MARK: - Authen API
     
     func registerUser(email:String,username:String,password:String) -> Observable<Result>

@@ -11,9 +11,12 @@ import GoogleMaps
 import GooglePlaces
 import CoreLocation
 import UserNotifications
+import RxSwift
+import RxCocoa
 
 class DetailMapsViewController: BaseViewController {
 
+    @IBOutlet weak var saveLandButton: UIButton!
     @IBOutlet weak var mapView: GMSMapView!
     var inforMaps:InforMapsViewController!
     
@@ -30,6 +33,7 @@ class DetailMapsViewController: BaseViewController {
     var is3D:Bool = false
     var project:ProjectsModel!
     var landForSale:LandSaleModel!
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +57,28 @@ class DetailMapsViewController: BaseViewController {
             locationManager.startUpdatingLocation()
         }
         self.addBottomSheetView()
-        
+        if self.project != nil {
+            if self.project.isLike == true
+            {
+                self.saveLandButton.tintColor = UIColor.red
+            }
+            else
+            {
+                self.saveLandButton.tintColor = UIColor.lightGray
+            }
+        }
+        else
+        {
+            if self.landForSale.isLike == true
+            {
+                self.saveLandButton.tintColor = UIColor.red
+            }
+            else
+            {
+                self.saveLandButton.tintColor = UIColor.lightGray
+            }
+        }
+
     }
     
     @IBAction func zoomButtonDidTap(_ sender: Any) {
@@ -93,6 +118,63 @@ class DetailMapsViewController: BaseViewController {
     }
     
     @IBAction func saveButtonDidTap(_ sender: Any) {
+        
+        if self.project != nil
+        {
+            self.showHUD("")
+            if self.project.isLike == true
+            {
+                APIClient.shared.cancelNews(id: self.project.id, type: 2).asObservable().bind(onNext: { result in
+                    self.hideHUD()
+                    for i in 0..<(Util.shared.listProjectSave.count - 1)
+                    {
+                        if Util.shared.listProjectSave[i].id == self.project.id
+                        {
+                            Util.shared.listProjectSave.remove(at: i)
+                        }
+                    }
+                     self.project.isLike = false
+                    self.saveLandButton.tintColor = UIColor.lightGray
+                }).disposed(by: self.disposeBag)
+            }
+            else
+            {
+                APIClient.shared.saveNews(id: self.project.id, type: 2).asObservable().bind(onNext: { result in
+                    self.hideHUD()
+                    Util.shared.listProjectSave.append(self.project)
+                     self.project.isLike = true
+                    self.saveLandButton.tintColor = UIColor.red
+                }).disposed(by: self.disposeBag)
+            }
+        }
+        else
+        {
+            self.showHUD("")
+            if self.landForSale.isLike == true
+            {
+                APIClient.shared.cancelNews(id: self.landForSale.id, type: 3).asObservable().bind(onNext: { result in
+                    self.hideHUD()
+                    for i in 0..<(Util.shared.listBDS.count - 1)
+                    {
+                        if Util.shared.listBDS[i].id == self.project.id
+                        {
+                            Util.shared.listBDS.remove(at: i)
+                        }
+                    }
+                     self.landForSale.isLike = false
+                    self.saveLandButton.tintColor = UIColor.lightGray
+                }).disposed(by: self.disposeBag)
+            }
+            else
+            {
+                APIClient.shared.saveNews(id: self.landForSale.id, type: 3).asObservable().bind(onNext: { result in
+                    self.hideHUD()
+                    Util.shared.listBDS.append(self.landForSale)
+                    self.saveLandButton.tintColor = UIColor.red
+                     self.landForSale.isLike = true
+                }).disposed(by: self.disposeBag)
+            }
+        }
     }
     
     func addBottomSheetView() {

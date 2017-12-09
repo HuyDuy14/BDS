@@ -558,7 +558,89 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3yd-hf-DfC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5032.8000000000002" y="653.52323838080963"/>
+            <point key="canvasLocation" x="5086" y="654"/>
+        </scene>
+        <!--Infor App View Controller-->
+        <scene sceneID="Le8-FQ-1QR">
+            <objects>
+                <viewController storyboardIdentifier="InforAppViewController" id="bod-E7-zQY" customClass="InforAppViewController" customModule="BDS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mbE-AL-yB5"/>
+                        <viewControllerLayoutGuide type="bottom" id="8Ga-E8-YfB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LAD-Pz-YOM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XLG-oF-G0G">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJG-73-hR5">
+                                        <rect key="frame" x="0.0" y="10" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="3uH-1p-w6H"/>
+                                            <constraint firstAttribute="width" constant="50" id="OSq-kY-jMt"/>
+                                        </constraints>
+                                        <state key="normal" image="icon_back"/>
+                                        <connections>
+                                            <action selector="backButtonDidTap:" destination="bod-E7-zQY" eventType="touchUpInside" id="Mh6-VC-Mui"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thông tin về chúng tôi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CAp-eE-fX8">
+                                        <rect key="frame" x="58" y="26" width="309" height="18"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G8t-uN-5f9">
+                                        <rect key="frame" x="0.0" y="69.5" width="375" height="0.5"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="0.5" id="Zfm-ca-bAA"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="37c-h8-oRf"/>
+                                    <constraint firstAttribute="trailing" secondItem="CAp-eE-fX8" secondAttribute="trailing" constant="8" id="EAQ-jm-v3J"/>
+                                    <constraint firstItem="G8t-uN-5f9" firstAttribute="leading" secondItem="XLG-oF-G0G" secondAttribute="leading" id="Eh5-e4-AcG"/>
+                                    <constraint firstAttribute="trailing" secondItem="G8t-uN-5f9" secondAttribute="trailing" id="Ghl-Nx-Dqa"/>
+                                    <constraint firstAttribute="bottom" secondItem="G8t-uN-5f9" secondAttribute="bottom" id="JPm-O5-oE6"/>
+                                    <constraint firstItem="CAp-eE-fX8" firstAttribute="leading" secondItem="MJG-73-hR5" secondAttribute="trailing" constant="8" id="MH3-lb-jCq"/>
+                                    <constraint firstItem="CAp-eE-fX8" firstAttribute="centerY" secondItem="XLG-oF-G0G" secondAttribute="centerY" id="WMo-0t-3i9"/>
+                                    <constraint firstItem="MJG-73-hR5" firstAttribute="leading" secondItem="XLG-oF-G0G" secondAttribute="leading" id="XGK-61-WI0"/>
+                                    <constraint firstItem="MJG-73-hR5" firstAttribute="centerY" secondItem="XLG-oF-G0G" secondAttribute="centerY" id="gdE-uQ-3fJ"/>
+                                </constraints>
+                            </view>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z8U-8F-l4j">
+                                <rect key="frame" x="0.0" y="70" width="375" height="597"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Ivd-Hm-02R">
+                                <rect key="frame" x="177" y="358.5" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Z8U-8F-l4j" firstAttribute="leading" secondItem="LAD-Pz-YOM" secondAttribute="leading" id="1qB-Rk-Lvu"/>
+                            <constraint firstItem="XLG-oF-G0G" firstAttribute="top" secondItem="LAD-Pz-YOM" secondAttribute="top" id="GFD-Wh-IOb"/>
+                            <constraint firstItem="Z8U-8F-l4j" firstAttribute="top" secondItem="XLG-oF-G0G" secondAttribute="bottom" id="GVs-YE-wfR"/>
+                            <constraint firstItem="8Ga-E8-YfB" firstAttribute="top" secondItem="Z8U-8F-l4j" secondAttribute="bottom" id="Mkl-EU-ueP"/>
+                            <constraint firstItem="Ivd-Hm-02R" firstAttribute="centerX" secondItem="Z8U-8F-l4j" secondAttribute="centerX" id="PCY-kz-eux"/>
+                            <constraint firstAttribute="trailing" secondItem="XLG-oF-G0G" secondAttribute="trailing" id="eUz-Sf-CbR"/>
+                            <constraint firstItem="XLG-oF-G0G" firstAttribute="leading" secondItem="LAD-Pz-YOM" secondAttribute="leading" id="on4-71-HpJ"/>
+                            <constraint firstItem="Ivd-Hm-02R" firstAttribute="centerY" secondItem="Z8U-8F-l4j" secondAttribute="centerY" id="soc-bX-0nR"/>
+                            <constraint firstAttribute="trailing" secondItem="Z8U-8F-l4j" secondAttribute="trailing" id="xRg-7c-v5r"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="Z8U-8F-l4j" id="o1h-UN-mxC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z11-RT-uF1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5894" y="649"/>
         </scene>
         <!--Search Projects View Controller-->
         <scene sceneID="SL8-J8-zTJ">
@@ -1396,8 +1478,12 @@
                                             <constraint firstAttribute="height" constant="24" id="zYJ-vG-4YO"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bOi-oU-cAq">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bOi-oU-cAq">
                                         <rect key="frame" x="243" y="23" width="24" height="24"/>
+                                        <state key="normal" image="icon_like"/>
+                                        <connections>
+                                            <action selector="saveLandButtonDidTap:" destination="CyI-Sc-NLc" eventType="touchUpInside" id="efk-SL-Fys"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1446,6 +1532,7 @@
                         <outlet property="nameContact" destination="eAH-RT-dtw" id="HVt-1J-oiW"/>
                         <outlet property="phone" destination="Zke-z8-CLz" id="vZw-U1-Psi"/>
                         <outlet property="price" destination="euc-XG-yes" id="Y8D-Hf-gEh"/>
+                        <outlet property="saveLandButton" destination="bOi-oU-cAq" id="ieq-D3-VEB"/>
                         <outlet property="type" destination="bn5-yO-wQ8" id="fen-6o-NFo"/>
                         <outlet property="webView" destination="fM4-L1-kFu" id="L8F-iF-KiO"/>
                     </connections>
@@ -1548,7 +1635,6 @@
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="saveNewsButtonDidTap:" destination="9Lx-rq-0GT" eventType="touchUpInside" id="BUX-YP-fW8"/>
-                                            <action selector="selectCategoryButtonDidTap:" destination="Y1H-Yn-zci" eventType="touchUpInside" id="u2b-8x-hK2"/>
                                         </connections>
                                     </button>
                                 </subviews>

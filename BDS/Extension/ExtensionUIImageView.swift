@@ -30,8 +30,9 @@ extension UIImageView {
     }
     
     func setImageUrlNews(url:String!){
-        if url != nil && url != "" {
-            self.kf.setImage(with: URL(string: url), placeholder: UIImage(named: "icon_plachoder_chat"))
+        let url = URL(string: url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
+        if url != nil  {
+            self.kf.setImage(with: url, placeholder: UIImage(named: "icon_plachoder_chat"))
         } else {
             self.image = UIImage(named: "icon_plachoder_chat")
         }

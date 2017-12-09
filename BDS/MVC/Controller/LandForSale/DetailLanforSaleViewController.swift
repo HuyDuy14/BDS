@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class DetailLanforSaleViewController: BaseViewController {
 
+    @IBOutlet weak var saveLandButton: UIButton!
     @IBOutlet weak var phone: UILabel!
     @IBOutlet weak var nameContact: UILabel!
     @IBOutlet weak var webView: UIWebView!
@@ -21,6 +24,7 @@ class DetailLanforSaleViewController: BaseViewController {
     @IBOutlet weak var idLand: UILabel!
     @IBOutlet weak var address: UILabel!
     
+    let disposeBag = DisposeBag()
     var landForSale:LandSaleModel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +44,14 @@ class DetailLanforSaleViewController: BaseViewController {
         self.type.text = self.landForSale.category_name
         self.idLand.text = self.landForSale.code
          self.webView.loadHTMLString(Util.shared.htmlString(from: self.landForSale.content), baseURL: nil)
+        if self.landForSale.isLike == true
+        {
+            self.saveLandButton.tintColor = UIColor.red
+        }
+        else
+        {
+            self.saveLandButton.tintColor = UIColor.lightGray
+        }
     }
     @IBAction func backButtonDidTap(_ sender: Any) {
         self.popToView()
@@ -51,4 +63,31 @@ class DetailLanforSaleViewController: BaseViewController {
         self.pushViewController(viewController: showDetail)
     }
     
+    @IBAction func saveLandButtonDidTap(_ sender: Any) {
+        self.showHUD("")
+        if self.landForSale.isLike == true
+        {
+            APIClient.shared.cancelNews(id: self.landForSale.id, type: 3).asObservable().bind(onNext: { result in
+                self.hideHUD()
+                for i in 0..<(Util.shared.listBDS.count - 1)
+                    {
+                    if Util.shared.listBDS[i].id == self.landForSale.id
+                    {
+                        Util.shared.listBDS.remove(at: i)
+                    }
+                }
+                self.landForSale.isLike = false
+                self.saveLandButton.tintColor = UIColor.lightGray
+            }).disposed(by: self.disposeBag)
+        }
+        else
+        {
+            APIClient.shared.saveNews(id: self.landForSale.id, type: 3).asObservable().bind(onNext: { result in
+                self.hideHUD()
+                Util.shared.listBDS.append(self.landForSale)
+                 self.landForSale.isLike = true
+                self.saveLandButton.tintColor = UIColor.red
+            }).disposed(by: self.disposeBag)
+        }
+    }
 }

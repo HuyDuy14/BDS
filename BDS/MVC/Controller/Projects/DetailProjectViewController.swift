@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class DetailProjectViewController: BaseViewController {
 
+    @IBOutlet weak var saveLandButton: UIButton!
     @IBOutlet weak var imageProjects: UIImageView!
     @IBOutlet weak var nameUserProjects: UILabel!
     @IBOutlet weak var addressProject: UILabel!
@@ -22,7 +25,7 @@ class DetailProjectViewController: BaseViewController {
     @IBOutlet weak var scaleProject: UILabel!
     
     var project:ProjectsModel!
-
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +45,14 @@ class DetailProjectViewController: BaseViewController {
         self.date.text = project.date_finish.FromStringToDateToStringProjects()
         self.scaleProject.text = project.summary
         self.webView.loadHTMLString(Util.shared.htmlString(from: project.content), baseURL: nil)
-  
+        if self.project.isLike == true
+        {
+            self.saveLandButton.tintColor = UIColor.red
+        }
+        else
+        {
+            self.saveLandButton.tintColor = UIColor.lightGray
+        }
     }
     
 
@@ -59,5 +69,31 @@ class DetailProjectViewController: BaseViewController {
     }
     
     @IBAction func saveButtonDidTap(_ sender: Any) {
+        
+        self.showHUD("")
+        if self.project.isLike == true
+        {
+            APIClient.shared.cancelNews(id: self.project.id, type: 2).asObservable().bind(onNext: { result in
+                self.hideHUD()
+                for i in 0..<(Util.shared.listProjectSave.count - 1)
+                {
+                    if Util.shared.listProjectSave[i].id == self.project.id
+                    {
+                        Util.shared.listProjectSave.remove(at: i)
+                    }
+                }
+                self.project.isLike = false
+                self.saveLandButton.tintColor = UIColor.lightGray
+            }).disposed(by: self.disposeBag)
+        }
+        else
+        {
+            APIClient.shared.saveNews(id: self.project.id, type: 2).asObservable().bind(onNext: { result in
+                self.hideHUD()
+                Util.shared.listProjectSave.append(self.project)
+                self.saveLandButton.tintColor = UIColor.red
+                 self.project.isLike = true
+            }).disposed(by: self.disposeBag)
+        }
     }
 }
