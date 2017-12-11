@@ -13,6 +13,7 @@ import GoogleSignIn
 import FBSDKCoreKit
 import RxCocoa
 import RxSwift
+import SwiftMessages
 import IQKeyboardManagerSwift
 
 let API_KEY_GOOGLE = "AIzaSyDeHiOsROpzfS0K2ys91RoZhym8tGSbtYE"
@@ -119,5 +120,37 @@ extension AppDelegate
             
         }).disposed(by: self.disposeBag)
     }
+    
+    func showMessagePopUp(title:String,message:String) {
+        let view = MessageView.viewFromNib(layout: .messageView)
+        view.configureTheme(.success)
+        view.configureDropShadow()
+        view.button?.setTitle(nil, for: .normal)
+        view.button?.backgroundColor = UIColor.clear
+        view.button?.tintColor = UIColor.green.withAlphaComponent(0.7)
+        view.configureContent(title: title, body: message, iconText: "")
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        view.addGestureRecognizer(tap)
+        view.backgroundView.backgroundColor = UIColor.red
+        SwiftMessages.show(view: view)
+    }
+    
+    func showMessageSuccessPopUp() {
+        let view = MessageView.viewFromNib(layout: .messageView)
+        view.configureTheme(.success)
+        view.configureDropShadow()
+        view.button?.setTitle(nil, for: .normal)
+        view.button?.backgroundColor = UIColor.clear
+        view.button?.tintColor = UIColor.green.withAlphaComponent(0.7)
+        view.configureContent(title: "Đăng nhập thành công", body: "Bây giờ bạn có thể tìm kiếm bất động sản bất kỳ", iconText: "")
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        view.addGestureRecognizer(tap)
+        view.backgroundView.backgroundColor = UIColor.init(netHex: 0x12B053)
+        SwiftMessages.show(view: view)
+    }
+    func handleTap() {
+        SwiftMessages.hide()
+    }
+
 }
 

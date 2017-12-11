@@ -18,7 +18,6 @@ class DetailMapsViewController: BaseViewController {
 
     @IBOutlet weak var saveLandButton: UIButton!
     @IBOutlet weak var mapView: GMSMapView!
-    var inforMaps:InforMapsViewController!
     
     var isGrantedNotificationAccess: Bool = false
     let locationManager = CLLocationManager()
@@ -34,6 +33,7 @@ class DetailMapsViewController: BaseViewController {
     var project:ProjectsModel!
     var landForSale:LandSaleModel!
     let disposeBag = DisposeBag()
+    var inforMaps:InforMapsProjectViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -193,6 +193,7 @@ class DetailMapsViewController: BaseViewController {
         bottomSheetViewController?.didMove(toParentViewController: self)
         let height = view.frame.height
         let width  = view.frame.width
+        self.inforMaps = bottomSheetViewController
         bottomSheetViewController?.view.frame = CGRect(x: 0, y: self.view.frame.maxY, width: width, height: height)
     }
     
@@ -228,7 +229,7 @@ extension DetailMapsViewController: CLLocationManagerDelegate {
                 let coordinates = CLLocationCoordinate2D(latitude: Double(project.lat)!, longitude: Double(project.lng)!)
                 let marker = GMSMarker(position: coordinates)
                 marker.map = self.mapView
-                marker.icon = #imageLiteral(resourceName: "icon_macker ")
+                marker.icon = #imageLiteral(resourceName: "icon_marker")
                 mapView.animate(toLocation: coordinates)
             }
             else
@@ -236,7 +237,7 @@ extension DetailMapsViewController: CLLocationManagerDelegate {
                 let coordinates = CLLocationCoordinate2D(latitude: Double(self.landForSale.land_lat)!, longitude: Double(self.landForSale.land_lng)!)
                 let marker = GMSMarker(position: coordinates)
                 marker.map = self.mapView
-                marker.icon = #imageLiteral(resourceName: "icon_macker")
+                marker.icon = #imageLiteral(resourceName: "icon_marker")
                 mapView.animate(toLocation: coordinates)
             }
         }
@@ -267,10 +268,12 @@ extension DetailMapsViewController: GMSMapViewDelegate {
         let marker = GMSMarker(position: coordinate)
         
         marker.map = self.mapView
+        self.inforMaps.animationShowView()
     }
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-        
+        self.inforMaps.animationShowView()
+
         return true
     }
 }

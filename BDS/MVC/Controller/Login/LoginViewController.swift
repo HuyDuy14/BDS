@@ -98,6 +98,7 @@ class LoginViewController: BaseTableViewController {
             UserDefaults.standard.set("", forKey: GGEMAIL)
             UserDefaults.standard.set("", forKey: GGNAME)
             Util.shared.currentUser = UserModel(JSON: result.data!)!
+            AppDelegate.shared?.showMessageSuccessPopUp()
             AppDelegate.shared?.setHomeRootViewControoler()
             self.hideHUD()
         }).disposed(by: self.disposeBag)
@@ -197,6 +198,7 @@ extension LoginViewController
              UserDefaults.standard.set("", forKey: GGID)
              Util.shared.currentUser = UserModel(JSON: result.data!)!
              AppDelegate.shared?.setHomeRootViewControoler()
+             AppDelegate.shared?.showMessageSuccessPopUp()
             self.hideHUD()
         }).disposed(by: self.disposeBag)
     }
@@ -226,6 +228,7 @@ extension LoginViewController:GIDSignInDelegate,GIDSignInUIDelegate
             UserDefaults.standard.set(name, forKey: GGNAME)
             Util.shared.currentUser = UserModel(JSON: result.data!)!
             AppDelegate.shared?.setHomeRootViewControoler()
+             AppDelegate.shared?.showMessageSuccessPopUp()
             self.hideHUD()
         }).disposed(by: self.disposeBag)
     }

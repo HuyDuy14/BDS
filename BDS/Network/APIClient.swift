@@ -74,7 +74,7 @@ class APIClient: NSObject {
                             observer.onNext(result)
                         } else {
                             if result.message.count != 0 {
-                             self.showAlert(message: result.message)
+                              self.showAlert(message: result.message)
                             }
                            ACProgressHUD.shared.hideHUD()
                         }
@@ -84,6 +84,43 @@ class APIClient: NSObject {
                     print(error)
                     self.showAlert(message: "Lỗi mạng mời bạn kiểm tra lại")
                    ACProgressHUD.shared.hideHUD()
+                }
+                observer.onCompleted()
+            }
+            return Disposables.create {
+                request.cancel()
+            }
+        }
+    }
+    
+    func requestLoginGet(path: String, method: HTTPMethod, params: Parameters!) -> Observable<Result> {
+        // Set timeout for 3'
+        let manager = Alamofire.SessionManager.default
+        manager.session.configuration.timeoutIntervalForRequest = 180
+        
+        let url = URL(string: "\(API.serverURL)\(path)")
+        return Observable.create {
+            observer in
+            let request = Alamofire.request(url!, method: method, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON {
+                response in
+                switch response.result {
+                case .success(let value):
+                    if let dict = value as? NSDictionary {
+                        let result = Result(result: dict)
+                        if result.status == 200 {
+                            observer.onNext(result)
+                        } else {
+                            if result.message.count != 0 {
+                                AppDelegate.shared?.showMessagePopUp(title: "Đăng nhập thất bại", message: result.message)
+                            }
+                            ACProgressHUD.shared.hideHUD()
+                        }
+                        
+                    }
+                case .failure(let error):
+                    print(error)
+                    self.showAlert(message: "Lỗi mạng mời bạn kiểm tra lại")
+                    ACProgressHUD.shared.hideHUD()
                 }
                 observer.onCompleted()
             }
@@ -160,7 +197,7 @@ class APIClient: NSObject {
             "username": username,
             "password": password
             ] as Parameters
-        return self.requestGet(path: API.loginUser, method: .get, params: params)
+        return self.requestLoginGet(path: API.loginUser, method: .get, params: params)
     }
     
     func loginFB(fbid:String,name:String)-> Observable<Result>
@@ -170,8 +207,9 @@ class APIClient: NSObject {
             "name":"",
             "email": ""
             ] as Parameters
-        return self.requestGet(path: API.loginFB, method: .get, params: params)
+        return self.requestLoginGet(path: API.loginFB, method: .get, params: params)
     }
+    
     func forgotPass(email:String)-> Observable<Result>
     {
         let params: Parameters = [
@@ -187,7 +225,7 @@ class APIClient: NSObject {
             "ggid": fbid,
             "name":name
             ] as Parameters
-        return self.requestGet(path: API.loginGG, method: .get, params: params)
+        return self.requestLoginGet(path: API.loginGG, method: .get, params: params)
     }
     
     func getCity() -> Observable<Result> {

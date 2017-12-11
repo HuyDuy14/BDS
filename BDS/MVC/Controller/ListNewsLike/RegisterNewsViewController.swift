@@ -85,11 +85,11 @@ class RegisterNewsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.headerView.delegate = self
-        self.headerView.setTitleView(title: "Tìm môi giới", infor: "Tìm môi giới hổ trợ tư vấn BĐS")
+        self.headerView.setTitleView(title: "Đăng ký nhận tin rao", infor: "Thông báo sẽ có tức thời mỗi khi có tin mới")
         self.pickerView.delegate = self
         self.imageMore.image = #imageLiteral(resourceName: "advance")
         self.showMore(isShow: true, height: 0)
-        self.heightView.constant  = 700
+        self.heightView.constant  = 600
         var index:Int = 0
         for city in Util.shared.listCity {
             let picker = ModelPicker(id: Int(city.id)!, name: city.name)
@@ -364,16 +364,16 @@ class RegisterNewsViewController: BaseViewController {
     @IBAction func moreButtonDidTap(_ sender: Any) {
         if isShow == false
         {
-            self.showMore(isShow: false, height: 70)
+            self.showMore(isShow: false, height: 50)
             self.isShow = true
-            self.heightView.constant = 1000
+            self.heightView.constant = 800
             self.imageMore.image = #imageLiteral(resourceName: "advance2")
         }
         else
         {
             self.showMore(isShow: true, height: 0)
             self.isShow = false
-            self.heightView.constant  = 700
+            self.heightView.constant  = 600
             self.imageMore.image = #imageLiteral(resourceName: "advance")
         }
     }

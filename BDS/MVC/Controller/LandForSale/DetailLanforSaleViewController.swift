@@ -12,6 +12,7 @@ import RxSwift
 
 class DetailLanforSaleViewController: BaseViewController {
 
+    @IBOutlet weak var imageDetail: UIImageView!
     @IBOutlet weak var saveLandButton: UIButton!
     @IBOutlet weak var phone: UILabel!
     @IBOutlet weak var nameContact: UILabel!
@@ -34,6 +35,7 @@ class DetailLanforSaleViewController: BaseViewController {
     
     func fillData()
     {
+        self.imageDetail.setImageUrlNews(url: API.linkImage + self.landForSale.image)
         self.nameContact.text = self.landForSale.poster_name
         self.phone.text = self.landForSale.poster_phone
         self.area.text = self.landForSale.land_area + "m2"

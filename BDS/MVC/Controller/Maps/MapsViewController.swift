@@ -146,6 +146,7 @@ class MapsViewController: BaseViewController {
         bottomSheetViewController?.delegate = self
         bottomSheetViewController?.lat = String(self.originLatitude)
         bottomSheetViewController?.lng =  String(self.originLongtitude)
+        bottomSheetViewController?.animationShow()
         self.addChildViewController(bottomSheetViewController!)
         self.view.addSubview((bottomSheetViewController?.view)!)
         bottomSheetViewController?.didMove(toParentViewController: self)
@@ -214,8 +215,19 @@ extension MapsViewController: GMSMapViewDelegate {
         marker.map = self.mapView
     }
     
+    func mapView(_ mapView: GMSMapView, didTap overlay: GMSOverlay) {
+       
+    }
+    
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-        
+        let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
+        let showDetail = storyboard.instantiateViewController(withIdentifier: "DetailLanforSaleViewController") as? DetailLanforSaleViewController
+        if let landForSale =  marker.userData as? LandSaleModel
+        {
+            showDetail?.landForSale = landForSale
+            self.pushViewController(viewController: showDetail)
+        }
+       
         return true
     }
 }
@@ -245,10 +257,10 @@ extension MapsViewController:InforMapsViewControllerDelegate
             let coordinates = CLLocationCoordinate2D(latitude: self.listLatitudes[i], longitude: self.listLongitudes[i])
             let marker = GMSMarker(position: coordinates)
             marker.map = self.mapView
-            marker.icon = #imageLiteral(resourceName: "icon_macker")
+            marker.icon = #imageLiteral(resourceName: "icon_marker")
             marker.userData = listData[i]
         }
-        self.mapView.animate(toZoom: 14)
+        self.mapView.animate(toZoom: 18)
     }
 }
 extension MapsViewController: UIPopoverPresentationControllerDelegate
@@ -263,6 +275,7 @@ extension MapsViewController:PickerViewDelegate
     func miPickerViewDidCancelSelection(_ amPicker: PickerView) {
         
     }
+    
     func miPickerView(_ amPicker: PickerView, didSelect picker: ModelPicker) {
         self.r = picker.name
         self.selectDistance = picker.id

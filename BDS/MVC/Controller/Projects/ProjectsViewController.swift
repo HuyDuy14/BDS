@@ -59,7 +59,7 @@ class ProjectsViewController: BaseViewController {
         if  isBackHome == false
         {
             self.titleHeader.text = "Danh sách dự án"
-            self.inforHeader.text = "Tìm kiếm dự án theo yêu lựa chọn"
+            self.inforHeader.text = "Tìm kiếm dự án theo lựa chọn"
             self.listProject = []
             self.btnBackHome.setImage(#imageLiteral(resourceName: "icon_back"), for: .normal)
             self.btnBackMaps.isHidden = true
@@ -70,7 +70,7 @@ class ProjectsViewController: BaseViewController {
             self.titleHeader.text = "Nhà đất thuê"
             self.inforHeader.text = "Tìm kiếm nhà đất thuê"
             self.page = 0
-            self.btnBackHome.setImage(#imageLiteral(resourceName: "icon_search"), for: .normal)
+            self.btnBackHome.setImage(#imageLiteral(resourceName: "icon_back_maps"), for: .normal)
             self.btnBackMaps.isHidden = false
             self.listProject = []
             self.loadData(refresh: false)
@@ -199,7 +199,11 @@ class ProjectsViewController: BaseViewController {
     // MARK: - back to mapsviewcontroller
     @IBAction func backToMapsButtonDidTap(_ sender: Any) {
         if isBackHome == true {
-            SaveCurrentVC.shared.homeController.tutorialPageViewController?.scrollToViewController(index: 2)
+            let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
+            let searchController = storyboard.instantiateViewController(withIdentifier: "SearchLandForSaleViewController") as? SearchLandForSaleViewController
+            searchController?.delegate = self
+            searchController?.isRale = false
+            self.pushViewController(viewController: searchController!)
         }
         else
         {
@@ -210,10 +214,7 @@ class ProjectsViewController: BaseViewController {
     
     @IBAction func backToHomeButtonDidTap(_ sender: Any) {
         if isBackHome == true {
-            let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
-            let searchController = storyboard.instantiateViewController(withIdentifier: "SearchLandForSaleViewController") as? SearchLandForSaleViewController
-            searchController?.delegate = self
-            self.pushViewController(viewController: searchController!)
+            SaveCurrentVC.shared.homeController.tutorialPageViewController?.scrollToViewController(index: 2)
         }
         else
         {

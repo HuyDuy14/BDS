@@ -59,17 +59,26 @@ class InforMapsViewController: BaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        UIView.animate(withDuration: 0.6, animations: { [weak self] in
-            let frame = self?.view.frame
-            let yComponent = self?.partialView
-            self?.view.frame = CGRect(x: 0, y: yComponent!, width: frame!.width, height: frame!.height - 90)
-        })
+//
+//        UIView.animate(withDuration: 0.6, animations: { [weak self] in
+//            let frame = self?.view.frame
+//            let yComponent = self?.partialView
+//            self?.view.frame = CGRect(x: 0, y: yComponent!, width: frame!.width, height: frame!.height - 90)
+//        })
+        self.animationShow()
     }
     
     func roundViews() {
         view.layer.cornerRadius = 10
         view.clipsToBounds = true
+    }
+    
+    func animationShow()
+    {
+        let frame = self.view.frame
+        UIView.animate(withDuration: 0.6, animations: { [weak self] in
+            self?.view.frame = CGRect(x: 0, y: (self?.view.frame.height)! - 250, width: frame.width, height: (self?.view.frame.height)!)
+        })
     }
     
     func panGesture(_ recognizer: UIPanGestureRecognizer) {
@@ -92,7 +101,7 @@ class InforMapsViewController: BaseViewController {
                 if  velocity.y >= 0 {
                     self.view.frame = CGRect(x: 0, y: self.partialView, width: self.view.frame.width, height: self.view.frame.height)
                 } else {
-                    self.view.frame = CGRect(x: 0, y: self.fullView, width: self.view.frame.width, height: self.partialView)
+                    self.view.frame = CGRect(x: 0, y: self.view.frame.height - 400, width: self.view.frame.width, height: self.view.frame.height)
                 }
                 
             }, completion: { [weak self] _ in

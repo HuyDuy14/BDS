@@ -80,11 +80,19 @@ class SearchLandForSaleViewController: BaseViewController {
     var indeDirection = 0
     var indexWard = 0
     var indexAcreage = 0
+    var isRale:Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.headerView.delegate = self
-        self.headerView.setTitleView(title: "Tìm môi giới", infor: "Tìm môi giới hổ trợ tư vấn BĐS")
+        if isRale == true
+        {
+            self.headerView.setTitleView(title: "Tìm kiếm nhà đất bán", infor: "Tìm kiếm nâng cao")
+        }
+        else
+        {
+             self.headerView.setTitleView(title: "Tìm kiếm nhà đất thuê", infor: "Tìm kiếm nâng cao")
+        }
         self.pickerView.delegate = self
         self.imageMore.image = #imageLiteral(resourceName: "advance")
         self.showMore(isShow: true, height: 0)
@@ -281,7 +289,7 @@ class SearchLandForSaleViewController: BaseViewController {
     @IBAction func moreButtonDidTap(_ sender: Any) {
         if isShow == false
         {
-            self.showMore(isShow: false, height: 70)
+            self.showMore(isShow: false, height: 50)
             self.isShow = true
             self.heightView.constant = 800
             self.imageMore.image = #imageLiteral(resourceName: "advance2")

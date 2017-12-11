@@ -77,11 +77,16 @@ class InforMapsProjectViewController: BaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.animationShowView()
         
+    }
+    
+    func animationShowView()
+    {
         UIView.animate(withDuration: 0.6, animations: { [weak self] in
             let frame = self?.view.frame
-//            let yComponent = self?.partialView
-            self?.view.frame = CGRect(x: 0, y: (frame?.height)! - 400 , width: frame!.width, height: (frame?.height)! - 50)
+            //            let yComponent = self?.partialView
+            self?.view.frame = CGRect(x: 0, y: (frame?.height)! - 320 , width: frame!.width, height: (frame?.height)! - 50)
         })
     }
     

@@ -122,7 +122,7 @@ extension NewsLikeViewController:UITableViewDelegate,UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        return 0
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -131,11 +131,11 @@ extension NewsLikeViewController:UITableViewDelegate,UITableViewDataSource
         switch section
         {
         case 0:
-             headerView?.nameHeader.text = "Tin tức"
+             headerView?.nameHeader.text =  "" //"Tin tức"
         case 1:
-            headerView?.nameHeader.text = "Dự án"
+            headerView?.nameHeader.text = "" //"Dự án"
         case 2:
-            headerView?.nameHeader.text = "Bất động sản"
+            headerView?.nameHeader.text = "" //"Bất động sản"
         default:
             return headerView
         }
