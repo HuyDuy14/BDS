@@ -172,6 +172,13 @@ class APIClient: NSObject {
             ] as Parameters
         return self.requestGet(path: API.loginFB, method: .get, params: params)
     }
+    func forgotPass(email:String)-> Observable<Result>
+    {
+        let params: Parameters = [
+            "email": email
+            ] as Parameters
+        return self.requestGet(path: API.forgotPass, method: .post, params: params)
+    }
     
     func loginGG(email:String,fbid:String,name:String)-> Observable<Result>
     {
@@ -222,6 +229,13 @@ class APIClient: NSObject {
             "id":Util.shared.currentUser.id
             ] as Parameters
         return self.requestGet(path: API.listNewsSave, method: .get, params: params)
+    }
+    
+    func getAsvise() -> Observable<Result> {
+        let params: Parameters = [
+            "id":Util.shared.currentUser.id
+            ] as Parameters
+        return self.requestGet(path: API.asviseDetail, method: .get, params: params)
     }
     
     func getListLandSale(page:Int) -> Observable<Result> {

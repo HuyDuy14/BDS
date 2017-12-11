@@ -15,7 +15,7 @@ class PopOverTypeMapsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let size = UIScreen.main.bounds
-        self.preferredContentSize = CGSize(width:(size.width ) / 2 , height: 120 )
+        self.preferredContentSize = CGSize(width:(size.width ) / 2 , height: 160 )
     }
 
     
@@ -29,6 +29,10 @@ class PopOverTypeMapsViewController: BaseViewController {
         self.finish!(3)
     }
     
+    @IBAction func distanceButtonDidTap(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+        self.finish!(1)
+    }
     @IBAction func projectButtonDidTap(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
         self.finish!(4)

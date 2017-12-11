@@ -32,9 +32,16 @@ class MapsViewController: BaseViewController {
     var indexType:Int = 3
     var is3D:Bool = false
     var isCheckShow:Bool = false
+    
+    var listPicker:[ModelPicker] = [ModelPicker(id: 0, name: "5"),ModelPicker(id: 1, name: "10"),ModelPicker(id: 2, name: "15"),ModelPicker(id: 3, name: "20"),ModelPicker(id: 4, name: "25"),ModelPicker(id: 5, name: "30"),ModelPicker(id:6, name: "35"),ModelPicker(id: 7, name: "40"),ModelPicker(id: 8, name: "45"),ModelPicker(id: 9, name: "45"),ModelPicker(id: 10, name: "50")]
+    let pickerView = PickerView.getFromNib()
+    var r = "2"
+    var selectDistance:Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.settingMaps()
+        self.pickerView.delegate = self
     }
     
     func settingMaps()
@@ -63,22 +70,32 @@ class MapsViewController: BaseViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let popoverCV = storyboard.instantiateViewController(withIdentifier: "PopOverTypeMapsViewController") as? PopOverTypeMapsViewController
         popoverCV?.finish = { index in
-            self.indexType = index
+            
             switch index
             {
+            case 1:
+                self.pickerView.listData = self.listPicker
+                self.pickerView.config.startIndex = self.selectDistance
+                self.pickerView.show(inVC: self)
             case 2:
+                self.indexType = index
                 self.inforMaps.type = "rent"
+                self.inforMaps.r = self.r
                 self.inforMaps.lat = String(self.originLatitude)
                 self.inforMaps.lng = String(self.originLongtitude)
                 self.inforMaps.loadData()
                 self.btnTypeSelect.setTitle("Nhà đất thuê", for: .normal)
             case 3:
+                self.indexType = index
+                self.inforMaps.r = self.r
                 self.inforMaps.type = "sale"
                 self.inforMaps.lat = String(self.originLatitude)
                 self.inforMaps.lng = String(self.originLongtitude)
                 self.btnTypeSelect.setTitle("Nhà đất bán", for: .normal)
                 self.inforMaps.loadData()
             default:
+                self.indexType = index
+                self.inforMaps.r = self.r
                 self.inforMaps.type = "project"
                 self.inforMaps.lat = String(self.originLatitude)
                 self.inforMaps.lng = String(self.originLongtitude)
@@ -241,3 +258,18 @@ extension MapsViewController: UIPopoverPresentationControllerDelegate
     }
 }
 
+extension MapsViewController:PickerViewDelegate
+{
+    func miPickerViewDidCancelSelection(_ amPicker: PickerView) {
+        
+    }
+    func miPickerView(_ amPicker: PickerView, didSelect picker: ModelPicker) {
+        self.r = picker.name
+        self.selectDistance = picker.id
+        self.inforMaps.lat = String(self.originLatitude)
+        self.inforMaps.lng = String(self.originLongtitude)
+        self.inforMaps.r = self.r
+        self.inforMaps.loadData()
+        
+    }
+}

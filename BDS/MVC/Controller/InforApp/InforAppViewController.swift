@@ -10,19 +10,41 @@ import UIKit
 
 class InforAppViewController: BaseViewController,UIWebViewDelegate {
 
+    @IBOutlet weak var titleView: UILabel!
     @IBOutlet weak var progress: UIActivityIndicatorView!
     @IBOutlet weak var webView: UIWebView!
+    
+    var isShowMenu:Bool = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let url = URL(string: "https://chobatdongsan.com.vn/gioi-thieu-st36") {
-            let request = URLRequest(url: url)
-            webView.loadRequest(request)
-            webView.translatesAutoresizingMaskIntoConstraints = false
-            webView.isUserInteractionEnabled = true
-            webView.delegate = self
-            self.webView.addSubview(self.progress)
-            self.progress.startAnimating()
-            self.progress.hidesWhenStopped = true
+        if isShowMenu == true
+        {
+            if let url = URL(string: "https://chobatdongsan.com.vn/gioi-thieu-st36") {
+                let request = URLRequest(url: url)
+                webView.loadRequest(request)
+                webView.translatesAutoresizingMaskIntoConstraints = false
+                webView.isUserInteractionEnabled = true
+                webView.delegate = self
+                self.webView.addSubview(self.progress)
+                self.progress.startAnimating()
+                self.progress.hidesWhenStopped = true
+            }
+            self.titleView.text = "Thông tin về chúng tôi"
+        }
+        else
+        {
+            if let url = URL(string: "https://chobatdongsan.com.vn/chinh-sach-bao-mat-thong-tin-st41") {
+                let request = URLRequest(url: url)
+                webView.loadRequest(request)
+                webView.translatesAutoresizingMaskIntoConstraints = false
+                webView.isUserInteractionEnabled = true
+                webView.delegate = self
+                self.webView.addSubview(self.progress)
+                self.progress.startAnimating()
+                self.progress.hidesWhenStopped = true
+            }
+            self.titleView.text = "Điều khoản"
         }
     }
 

@@ -57,6 +57,12 @@ class HomeMenuViewController: BaseViewController {
 
     }
     
+    @IBAction func asviceButtonDidTap(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
+        let vcDetail = storyboard.instantiateViewController(withIdentifier: "DetailNewsViewController") as? DetailNewsViewController
+        vcDetail?.isNews = false
+        self.pushViewController(viewController: vcDetail)
+    }
     
     
 }

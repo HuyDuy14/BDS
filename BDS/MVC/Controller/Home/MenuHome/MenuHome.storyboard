@@ -636,6 +636,7 @@
                     </view>
                     <connections>
                         <outlet property="progress" destination="Ivd-Hm-02R" id="hsK-3s-a5E"/>
+                        <outlet property="titleView" destination="CAp-eE-fX8" id="d6H-yi-UCm"/>
                         <outlet property="webView" destination="Z8U-8F-l4j" id="o1h-UN-mxC"/>
                     </connections>
                 </viewController>
@@ -2911,11 +2912,11 @@
         <image name="demo" width="118" height="119"/>
         <image name="demoNews" width="644" height="386"/>
         <image name="icon_back" width="25" height="20"/>
-        <image name="icon_back_maps" width="40" height="40"/>
+        <image name="icon_back_maps" width="30" height="30"/>
         <image name="icon_category_news" width="20" height="18"/>
         <image name="icon_drop" width="16" height="10"/>
         <image name="icon_in_news" width="42" height="42"/>
         <image name="icon_like" width="24" height="22"/>
-        <image name="icon_select_category" width="36" height="36"/>
+        <image name="icon_select_category" width="26" height="26"/>
     </resources>
 </document>

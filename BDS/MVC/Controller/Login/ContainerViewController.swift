@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContainerViewController: UIViewController {
+class ContainerViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +24,7 @@ class ContainerViewController: UIViewController {
     @IBAction func resgisterButtonDidTap(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Register", bundle: nil)
         let singUp = storyboard.instantiateViewController(withIdentifier: "ContainerSingUpViewController") as! ContainerSingUpViewController
-        self.present(singUp, animated: true, completion: nil)
+        singUp.loginController = self
+        self.pushViewController(viewController: singUp)
     }
 }

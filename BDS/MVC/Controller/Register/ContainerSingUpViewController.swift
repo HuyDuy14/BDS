@@ -13,6 +13,7 @@ class ContainerSingUpViewController: BaseViewController {
 
     @IBOutlet weak var cotainerView: UIView!
     @IBOutlet weak var headerView: HeaderViewController!
+    var loginController:ContainerViewController!
     weak var currenviewController: UIViewController?
   
     var isResetPass:Bool = false
@@ -39,7 +40,13 @@ class ContainerSingUpViewController: BaseViewController {
     }
 
     @IBAction func closeButtonDidTap(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.popToView()
     }
     
+    @IBAction func dkButtonDidTap(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
+        let inforApp = storyboard.instantiateViewController(withIdentifier: "InforAppViewController") as! InforAppViewController
+        inforApp.isShowMenu = false
+        self.pushViewController(viewController: inforApp)
+    }
 }

@@ -133,11 +133,11 @@ class LoginViewController: BaseTableViewController {
             self.btnLoginGoogle.isEnabled = true
         }
     }
+    
     @IBAction func resetPassButtonDidTap(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Register", bundle: nil)
-        let singUp = storyboard.instantiateViewController(withIdentifier: "ContainerSingUpViewController") as! ContainerSingUpViewController
-        singUp.isResetPass = true
-        self.navigationController?.pushViewController(singUp, animated: true)
+        let storyboard = UIStoryboard(name: "Login", bundle: nil)
+        let forgotVC = storyboard.instantiateViewController(withIdentifier: "ContainerForgotPassViewController") as! ContainerForgotPassViewController
+        self.present(forgotVC, animated: true, completion: nil)
         
     }
 }

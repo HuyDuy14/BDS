@@ -42,6 +42,8 @@
 		136E72731FD6F7240023F3B4 /* DetailMapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136E72721FD6F7240023F3B4 /* DetailMapsViewController.swift */; };
 		137CF4201FD4E09300E3EB91 /* LandSaleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137CF41F1FD4E09300E3EB91 /* LandSaleModel.swift */; };
 		137CF4221FD504B100E3EB91 /* CategoryNewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137CF4211FD504B100E3EB91 /* CategoryNewsModel.swift */; };
+		1384B8341FDE6FFA001AE51A /* ContainerForgotPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1384B8331FDE6FFA001AE51A /* ContainerForgotPassViewController.swift */; };
+		1384B8361FDE70A4001AE51A /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1384B8351FDE70A4001AE51A /* ForgotPasswordViewController.swift */; };
 		13950DA51FDC0652008C50F7 /* InforAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13950DA41FDC0652008C50F7 /* InforAppViewController.swift */; };
 		139E645E1FCF030300117E0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E645D1FCF030300117E0B /* AppDelegate.swift */; };
 		139E64601FCF030300117E0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E645F1FCF030300117E0B /* ViewController.swift */; };
@@ -158,6 +160,8 @@
 		136E72721FD6F7240023F3B4 /* DetailMapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMapsViewController.swift; sourceTree = "<group>"; };
 		137CF41F1FD4E09300E3EB91 /* LandSaleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandSaleModel.swift; sourceTree = "<group>"; };
 		137CF4211FD504B100E3EB91 /* CategoryNewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryNewsModel.swift; sourceTree = "<group>"; };
+		1384B8331FDE6FFA001AE51A /* ContainerForgotPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerForgotPassViewController.swift; sourceTree = "<group>"; };
+		1384B8351FDE70A4001AE51A /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		13950DA41FDC0652008C50F7 /* InforAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InforAppViewController.swift; sourceTree = "<group>"; };
 		139E645A1FCF030300117E0B /* BDS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BDS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		139E645D1FCF030300117E0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -372,6 +376,15 @@
 			path = PopUp;
 			sourceTree = "<group>";
 		};
+		1384B8321FDE6FCF001AE51A /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				1384B8331FDE6FFA001AE51A /* ContainerForgotPassViewController.swift */,
+				1384B8351FDE70A4001AE51A /* ForgotPasswordViewController.swift */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
 		13950DA31FDC0639008C50F7 /* InforApp */ = {
 			isa = PBXGroup;
 			children = (
@@ -515,6 +528,7 @@
 		139E649D1FCF04EB00117E0B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1384B8321FDE6FCF001AE51A /* ForgotPassword */,
 				13950DA31FDC0639008C50F7 /* InforApp */,
 				1344BE0F1FD143D300498108 /* Contacts */,
 				1344BE0A1FD1414700498108 /* Projects */,
@@ -1043,6 +1057,7 @@
 				13AB37631FCF9EA6000BA67D /* HomeViewController.swift in Sources */,
 				139E64C71FCF08C000117E0B /* LoginViewController.swift in Sources */,
 				139E64A11FCF076700117E0B /* ExtensionUIImageView.swift in Sources */,
+				1384B8341FDE6FFA001AE51A /* ContainerForgotPassViewController.swift in Sources */,
 				139E64B11FCF07F800117E0B /* HeaderViewController.swift in Sources */,
 				13195E251FD05B4600C60533 /* HomeMenuViewController.swift in Sources */,
 				139E64901FCF049400117E0B /* Result.swift in Sources */,
@@ -1094,6 +1109,7 @@
 				13CAB8861FD92EA60014F551 /* RegisterNewsViewController.swift in Sources */,
 				13195E281FD05DC500C60533 /* MapsViewController.swift in Sources */,
 				1344BE2E1FD162F100498108 /* SearchLandForSaleViewController.swift in Sources */,
+				1384B8361FDE70A4001AE51A /* ForgotPasswordViewController.swift in Sources */,
 				1344BE211FD1558200498108 /* NewsViewController.swift in Sources */,
 				13C6EFD51FDA494100D6F1EF /* PopOverTypeMapsViewController.swift in Sources */,
 				134E23DD1FD0F8CD005387B7 /* InforMapsViewController.swift in Sources */,

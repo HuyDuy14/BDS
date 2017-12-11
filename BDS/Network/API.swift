@@ -36,5 +36,7 @@ class API: NSObject {
     static var getCategoryLand = "type_land.php"
     static var registerNews  = "register_receive_news.php"
     static var mapsHome = "get_home_around.php"
+    static var forgotPass = "forget_password.php"
     static var getprojectCity = "get_project_city.php"
+    static var asviseDetail = "advise_detail.php"
 }

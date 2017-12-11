@@ -485,6 +485,9 @@
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XWT-1W-96j">
                                                 <rect key="frame" x="0.0" y="0.0" width="125" height="110"/>
+                                                <connections>
+                                                    <action selector="asviceButtonDidTap:" destination="NZR-W3-kcE" eventType="touchUpInside" id="sQj-cO-QYr"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1344,24 +1347,50 @@
                                     <action selector="projectButtonDidTap:" destination="cXp-D7-MJ9" eventType="touchUpInside" id="URP-xX-Rvt"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SEV-cH-xzW">
+                                <rect key="frame" x="0.0" y="123" width="375" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="xlJ-Gz-8ka"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Bán kính">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="distanceButtonDidTap:" destination="cXp-D7-MJ9" eventType="touchUpInside" id="hlI-y7-7uy"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LUk-I1-D7w">
+                                <rect key="frame" x="0.0" y="122" width="375" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="GKJ-oc-uaT"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="2ox-ln-GiY" firstAttribute="top" secondItem="6kM-lc-J2I" secondAttribute="bottom" id="23A-So-Wuc"/>
                             <constraint firstItem="6kM-lc-J2I" firstAttribute="top" secondItem="hju-TT-b1O" secondAttribute="bottom" id="26t-xz-eVo"/>
+                            <constraint firstAttribute="trailing" secondItem="LUk-I1-D7w" secondAttribute="trailing" id="3P7-zs-FDa"/>
                             <constraint firstItem="X9A-cL-C9u" firstAttribute="leading" secondItem="5vJ-BN-zFt" secondAttribute="leading" id="9PX-Ky-Hm6"/>
                             <constraint firstItem="X9A-cL-C9u" firstAttribute="top" secondItem="5vJ-BN-zFt" secondAttribute="top" id="9nF-rL-vpz"/>
                             <constraint firstItem="hju-TT-b1O" firstAttribute="leading" secondItem="5vJ-BN-zFt" secondAttribute="leading" id="EQi-H9-wZO"/>
                             <constraint firstItem="hju-TT-b1O" firstAttribute="top" secondItem="LaD-p6-hdE" secondAttribute="bottom" id="IsP-YJ-jbl"/>
                             <constraint firstItem="LaD-p6-hdE" firstAttribute="leading" secondItem="5vJ-BN-zFt" secondAttribute="leading" id="LbX-QN-QAh"/>
+                            <constraint firstAttribute="trailing" secondItem="SEV-cH-xzW" secondAttribute="trailing" id="Lkh-ri-4YQ"/>
                             <constraint firstAttribute="trailing" secondItem="hju-TT-b1O" secondAttribute="trailing" id="MAG-Hu-LAL"/>
                             <constraint firstItem="LaD-p6-hdE" firstAttribute="top" secondItem="X9A-cL-C9u" secondAttribute="bottom" id="MsW-Wv-B0z"/>
                             <constraint firstAttribute="trailing" secondItem="2ox-ln-GiY" secondAttribute="trailing" id="Qdt-XD-ylA"/>
                             <constraint firstItem="2ox-ln-GiY" firstAttribute="leading" secondItem="5vJ-BN-zFt" secondAttribute="leading" id="Rd2-2k-0jh"/>
+                            <constraint firstItem="SEV-cH-xzW" firstAttribute="leading" secondItem="5vJ-BN-zFt" secondAttribute="leading" id="VWy-CW-4XF"/>
+                            <constraint firstItem="SEV-cH-xzW" firstAttribute="top" secondItem="LUk-I1-D7w" secondAttribute="bottom" id="bIP-54-G4Y"/>
+                            <constraint firstItem="LUk-I1-D7w" firstAttribute="leading" secondItem="5vJ-BN-zFt" secondAttribute="leading" id="bld-Gn-dpz"/>
                             <constraint firstAttribute="trailing" secondItem="LaD-p6-hdE" secondAttribute="trailing" id="cOE-Tc-mGG"/>
                             <constraint firstAttribute="trailing" secondItem="6kM-lc-J2I" secondAttribute="trailing" id="omL-fi-eaX"/>
                             <constraint firstItem="6kM-lc-J2I" firstAttribute="leading" secondItem="5vJ-BN-zFt" secondAttribute="leading" id="piY-hO-bLb"/>
                             <constraint firstAttribute="trailing" secondItem="X9A-cL-C9u" secondAttribute="trailing" id="tbK-xq-yj2"/>
+                            <constraint firstItem="LUk-I1-D7w" firstAttribute="top" secondItem="2ox-ln-GiY" secondAttribute="bottom" id="xLb-sV-jOt"/>
                         </constraints>
                     </view>
                 </viewController>

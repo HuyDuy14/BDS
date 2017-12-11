@@ -21,13 +21,41 @@ class DetailNewsViewController: BaseViewController {
     @IBOutlet weak var newsSave: UIImageView!
     var news:NewsModel!
     let disposeBag = DisposeBag()
+    var isNews:Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.loadData()
+        if isNews == true
+        {
+            self.loadData()
+        }
+        else
+        {
+            self.getDataServer()
+        }
+    }
+    
+    func getDataServer()
+    {
+        self.showHUD("")
+        APIClient.shared.getAsvise().asObservable().bind(onNext: {result in
+           if  let dic = result.data![""] as? [String:Any]
+           {
+                self.news = NewsModel(JSON: dic)
+                for newsSave in Util.shared.listNewsSave
+                {
+                    if newsSave.id == self.news.id {
+                        self.news.isLike = true
+                    }
+                }
+                self.loadData()
+            }
+            self.hideHUD()
+        }).disposed(by: self.disposeBag)
     }
     
     func loadData() {
+        
         self.imageBanner.setImageUrlNews(url: API.linkImage + news.image)
         self.dateUp.text = "Ngày tạo:" + news.created_time.FromStringToDateToStringNews()
         self.titleNews.text = news.title
