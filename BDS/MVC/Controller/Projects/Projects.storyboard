@@ -45,6 +45,9 @@
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2rB-OJ-Bph">
                                         <rect key="frame" x="331" y="30.5" width="24" height="24"/>
+                                        <connections>
+                                            <action selector="sharedButtonDidTap:" destination="lYt-1V-Pf5" eventType="touchUpInside" id="AYn-gY-Mkf"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_back_maps" translatesAutoresizingMaskIntoConstraints="NO" id="GvC-Gn-Reg">
                                         <rect key="frame" x="287" y="30.5" width="24" height="24"/>
@@ -386,6 +389,9 @@
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cae-qh-f2S">
                                         <rect key="frame" x="331" y="31" width="24" height="24"/>
+                                        <connections>
+                                            <action selector="sharedButtonDidTap:" destination="obd-sj-9Us" eventType="touchUpInside" id="3WR-K5-5c4"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_like" translatesAutoresizingMaskIntoConstraints="NO" id="kTx-ts-U74">
                                         <rect key="frame" x="287" y="31" width="24" height="24"/>

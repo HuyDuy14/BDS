@@ -55,9 +55,14 @@ class DetailLanforSaleViewController: BaseViewController {
             self.saveLandButton.tintColor = UIColor.lightGray
         }
     }
+    
+    @IBAction func sharedButtonDidTap(_ sender: Any) {
+        AppDelegate.shared?.shareImage(controller: self, link: "", image: self.imageDetail.image!)
+    }
     @IBAction func backButtonDidTap(_ sender: Any) {
         self.popToView()
     }
+    
     @IBAction func mapButtonDidTap(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Projects", bundle: nil)
         let showDetail = storyboard.instantiateViewController(withIdentifier: "DetailMapsViewController") as? DetailMapsViewController

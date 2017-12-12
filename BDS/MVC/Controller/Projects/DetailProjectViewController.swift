@@ -96,4 +96,8 @@ class DetailProjectViewController: BaseViewController {
             }).disposed(by: self.disposeBag)
         }
     }
+    
+    @IBAction func sharedButtonDidTap(_ sender: Any) {
+        AppDelegate.shared?.shareImage(controller: self, link: "", image: #imageLiteral(resourceName: "demo"))
+    }
 }

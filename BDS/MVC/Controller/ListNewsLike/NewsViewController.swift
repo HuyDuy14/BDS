@@ -186,6 +186,10 @@ extension NewsViewController:UITableViewDelegate,UITableViewDataSource
 }
 extension NewsViewController:NewsViewCellDelegate
 {
+    func shared(_ cell: NewsViewCell, news: NewsModel, index: Int) {
+        AppDelegate.shared?.shareImage(controller: self, link: "", image: #imageLiteral(resourceName: "demo"))
+    }
+    
     func updateRow(item: NewsModel!, status: Bool,index:Int)
     {
         if index >= 0 {

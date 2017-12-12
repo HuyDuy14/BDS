@@ -17,6 +17,7 @@ class DetailNewsViewController: BaseViewController {
     @IBOutlet weak var dateUp: UILabel!
     @IBOutlet weak var imageBanner: UIImageView!
     @IBOutlet weak var detailWebView: UIWebView!
+    @IBOutlet weak var btnSave: UIButton!
     
     @IBOutlet weak var newsSave: UIImageView!
     var news:NewsModel!
@@ -37,6 +38,8 @@ class DetailNewsViewController: BaseViewController {
     
     func getDataServer()
     {
+        self.newsSave.isHidden = true
+        self.btnSave.isHidden = true
         self.showHUD("")
         APIClient.shared.getAsvise().asObservable().bind(onNext: {result in
            if  let dic = result.data![""] as? [String:Any]
@@ -109,4 +112,8 @@ class DetailNewsViewController: BaseViewController {
             }).disposed(by: self.disposeBag)
         }
     }
+    @IBAction func sharedButtonDidTap(_ sender: Any) {
+        AppDelegate.shared?.shareImage(controller: self, link: "", image: self.imageBanner.image!)
+    }
+    
 }

@@ -156,7 +156,7 @@ class DetailMapsViewController: BaseViewController {
                     self.hideHUD()
                     for i in 0..<(Util.shared.listBDS.count - 1)
                     {
-                        if Util.shared.listBDS[i].id == self.project.id
+                        if Util.shared.listBDS[i].id == self.landForSale.id
                         {
                             Util.shared.listBDS.remove(at: i)
                         }
@@ -196,6 +196,11 @@ class DetailMapsViewController: BaseViewController {
         self.inforMaps = bottomSheetViewController
         bottomSheetViewController?.view.frame = CGRect(x: 0, y: self.view.frame.maxY, width: width, height: height)
     }
+    
+    @IBAction func sharedButtonDidTap(_ sender: Any) {
+        AppDelegate.shared?.shareImage(controller: self, link: "", image: #imageLiteral(resourceName: "demo"))
+    }
+    
     
 }
 extension DetailMapsViewController: CLLocationManagerDelegate {

@@ -10,6 +10,7 @@ import UIKit
 protocol NewsViewCellDelegate:class
 {
     func saveNews(_ cell:NewsViewCell,news:NewsModel,index:Int)
+    func shared(_ cell:NewsViewCell,news:NewsModel,index:Int)
 }
 
 class NewsViewCell: UITableViewCell {
@@ -38,6 +39,10 @@ class NewsViewCell: UITableViewCell {
     
     @IBAction func saveNewsButtonDidTap(_ sender: Any) {
         self.delegate?.saveNews(self, news: self.news,index: self.index)
+    }
+    
+    @IBAction func sharedButtonDidTap(_ sender: Any) {
+        self.delegate?.shared(self, news: self.news, index: self.index)
     }
     
 }

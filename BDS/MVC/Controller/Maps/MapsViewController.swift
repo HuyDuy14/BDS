@@ -260,7 +260,7 @@ extension MapsViewController:InforMapsViewControllerDelegate
             marker.icon = #imageLiteral(resourceName: "icon_marker")
             marker.userData = listData[i]
         }
-        self.mapView.animate(toZoom: 18)
+        self.mapView.animate(toZoom: 15)
     }
 }
 extension MapsViewController: UIPopoverPresentationControllerDelegate
