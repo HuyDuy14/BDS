@@ -10,41 +10,41 @@ import UIKit
 
 class InforAppViewController: BaseViewController,UIWebViewDelegate {
 
+    @IBOutlet weak var textInforLabel: UILabel!
     @IBOutlet weak var titleView: UILabel!
     @IBOutlet weak var progress: UIActivityIndicatorView!
     @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var heightView: NSLayoutConstraint!
     
+    @IBOutlet weak var dkLabel: UILabel!
+    @IBOutlet weak var imageInfor: UIImageView!
     var isShowMenu:Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if isShowMenu == true
         {
-            if let url = URL(string: "https://chobatdongsan.com.vn/gioi-thieu-st36") {
-                let request = URLRequest(url: url)
-                webView.loadRequest(request)
-                webView.translatesAutoresizingMaskIntoConstraints = false
-                webView.isUserInteractionEnabled = true
-                webView.delegate = self
-                self.webView.addSubview(self.progress)
-                self.progress.startAnimating()
-                self.progress.hidesWhenStopped = true
-            }
+//            if let url = URL(string: "https://chobatdongsan.com.vn/gioi-thieu-st36") {
+//                let request = URLRequest(url: url)
+//                webView.loadRequest(request)
+//                webView.translatesAutoresizingMaskIntoConstraints = false
+//                webView.isUserInteractionEnabled = true
+//                webView.delegate = self
+//                self.webView.addSubview(self.progress)
+//                self.progress.startAnimating()
+//                self.progress.hidesWhenStopped = true
+//            }
             self.titleView.text = "Thông tin về chúng tôi"
+            self.dkLabel.isHidden = true
+            let height =  self.textInforLabel.getLabelHeight()
+            self.heightView.constant = height + 340
         }
         else
         {
-            if let url = URL(string: "https://chobatdongsan.com.vn/chinh-sach-bao-mat-thong-tin-st41") {
-                let request = URLRequest(url: url)
-                webView.loadRequest(request)
-                webView.translatesAutoresizingMaskIntoConstraints = false
-                webView.isUserInteractionEnabled = true
-                webView.delegate = self
-                self.webView.addSubview(self.progress)
-                self.progress.startAnimating()
-                self.progress.hidesWhenStopped = true
-            }
+            self.textInforLabel.isHidden = true
             self.titleView.text = "Điều khoản"
+            let height =  self.dkLabel.getLabelHeight()
+            self.heightView.constant = height + 240
         }
     }
 

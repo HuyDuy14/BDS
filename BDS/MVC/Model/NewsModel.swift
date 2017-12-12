@@ -12,6 +12,7 @@ import ObjectMapper
 class NewsModel: Mappable {
     var title:String = ""
     var id: String = ""
+    var alias = ""
     var image:String = ""
     var created_time:String = ""
     var category_name = ""
@@ -24,6 +25,7 @@ class NewsModel: Mappable {
     
     func mapping(map: Map) {
         id  <- map["id"]
+        self.alias <- map["alias"]
         image  <- map["image"]
         title  <- map["title"]
         created_time  <- map["created_time"]

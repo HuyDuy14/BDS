@@ -198,7 +198,14 @@ class DetailMapsViewController: BaseViewController {
     }
     
     @IBAction func sharedButtonDidTap(_ sender: Any) {
-        AppDelegate.shared?.shareImage(controller: self, link: "", image: #imageLiteral(resourceName: "demo"))
+        if self.landForSale != nil
+        {
+            AppDelegate.shared?.shareImage(controller: self, link: API.linkImage + "d" + self.landForSale.alias + "-" + self.landForSale.id + ".html", image: #imageLiteral(resourceName: "demo"))
+        }
+        else
+        {
+            AppDelegate.shared?.shareImage(controller: self, link: API.linkImage + "p" + self.project.alias + "-" + self.project.id + ".html", image: #imageLiteral(resourceName: "demo"))
+        }
     }
     
     

@@ -15,7 +15,6 @@ extension UILabel {
         let str: NSString = NSString.init(string: self.text!)
         let boundingBox: CGSize = str.boundingRect(with: constraint, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName: self.font], context: context).size
         let size = CGSize.init(width: ceil(boundingBox.width), height: ceil(boundingBox.height))
-        
         return size.height
     }
 }

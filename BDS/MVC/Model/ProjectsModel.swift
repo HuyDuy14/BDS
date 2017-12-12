@@ -12,6 +12,7 @@ class ProjectsModel: Mappable {
     
     var id =  ""
     var title =  ""
+    var alias = ""
     var image =  ""
     var address =  ""
     var investor =  ""
@@ -50,6 +51,7 @@ class ProjectsModel: Mappable {
     
     func mapping(map: Map) {
         self.id <- map["id"]
+        self.alias <- map["alias"]
         self.title <- map["title"]
         self.image <- map["image"]
         self.address <- map["address"]

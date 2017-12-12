@@ -113,7 +113,14 @@ class DetailNewsViewController: BaseViewController {
         }
     }
     @IBAction func sharedButtonDidTap(_ sender: Any) {
-        AppDelegate.shared?.shareImage(controller: self, link: "", image: self.imageBanner.image!)
+        if isNews == true
+        {
+            AppDelegate.shared?.shareImage(controller: self, link: API.linkImage + "ns" + self.news.category_name + "/" + news.alias + "-p" + self.news.id + ".html", image: #imageLiteral(resourceName: "demo"))
+        }
+        else
+        {
+            AppDelegate.shared?.shareImage(controller: self, link: API.linkImage + "tv" + self.news.category_name + "/" + news.alias + "-p" + self.news.id + ".html", image: #imageLiteral(resourceName: "demo"))
+        }
     }
     
 }

@@ -57,7 +57,7 @@ class DetailLanforSaleViewController: BaseViewController {
     }
     
     @IBAction func sharedButtonDidTap(_ sender: Any) {
-        AppDelegate.shared?.shareImage(controller: self, link: "", image: self.imageDetail.image!)
+        AppDelegate.shared?.shareImage(controller: self, link: API.linkImage + "d" + self.landForSale.alias + "-" + self.landForSale.id + ".html", image: self.imageDetail.image!)
     }
     @IBAction func backButtonDidTap(_ sender: Any) {
         self.popToView()

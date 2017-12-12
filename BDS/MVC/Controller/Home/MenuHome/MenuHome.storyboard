@@ -617,36 +617,154 @@
                                     <constraint firstItem="G8t-uN-5f9" firstAttribute="top" secondItem="MJG-73-hR5" secondAttribute="bottom" constant="2" id="tf4-cC-82A"/>
                                 </constraints>
                             </view>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z8U-8F-l4j">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="col-7b-2d1">
                                 <rect key="frame" x="0.0" y="70" width="375" height="597"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </webView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Ivd-Hm-02R">
-                                <rect key="frame" x="177" y="358.5" width="20" height="20"/>
-                            </activityIndicatorView>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BYy-DW-OS5">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="597"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LgZ-a4-yUL">
+                                                <rect key="frame" x="12" y="12" width="351" height="807"/>
+                                                <mutableString key="text">Cách đây 15 năm, Công ty TNHH An Quý Hưng được thành lập, đánh dấu sự ra đời và những bước phát triển đầu tiên gây dựng nền móng cho một đơn vị lớn mạnh. Đến nay, công ty TNHH An Quý Hưng đã trở thành một công ty chuyên nghiệp trong lĩnh vực xây dựng nhà xưởng công nghiệp tại khu vực miền bắc Việt Nam. Với kinh nghiệm và sự tận tụy trong 15 năm hoạt động, công ty luôn là nhà thầu đáng tin cậy của các nhà đầu tư nước ngoài đến từ Đoàn Loan, Hồng Kông, Hàn Quốc, Malaisia... Với phương châm phục vụ: Thành tín - Hợp tác - Lâu dài, An Quý Hưng luôn thấu hiểu mong muốn của chủ đầu tư và mang lại giá trị gia tăng cho mỗi công trình.
+
+Nhìn lại chặng đường 15 năm xây dựng và phát triển, Công ty đã gặt hái được nhiều thành tựu đáng kể. Những ngày đầu thành lập, với số vốn điều lệ 300 triệu đồng, công ty gặp vô vàn khó khăn , đội ngũ CBNV, cơ sở vật chất còn ít và thiếu kinh nghiệm. Đến nay, công ty đã sở hữu hệ thống cơ sở vật chất, máy móc, thiết bị và phương tiện vận tải hiện đại như máy ép cọc, xe trộn bê tông, máy hàn, máy đầm bê tông, hơn 30 đầu xe trên tổng số 50 xe được nhập khẩu 100% từ Hàn Quốc, giàn giáo trị giá hàng tỉ đồng, máy bơm cầu bê tông...
+
+Có được thành tựu này là nhờ lòng yêu nghề, tinh thần đoàn kết, nhất trí của cả tập thể cùng sự lãnh đạo tài tình, sáng suốt, tư duy dám nghĩ dám làm của tổng giám đốc Nguyễn Xuân Đông. Trải qua thời gian, những kinh nghiệm cọ xát thực tế và kiến thức học hỏi từ các chuyên gia, các đối tác nước ngoài, đội ngũ hơn 200 CBCNV đã dần hoàn thiện và bổ sung năng lực chuyên môn, nghiệp vụ. Doanh thu hàng năm của công ty không ngừng tăng lên, ước tính tổng số vốn năm 2012 lên tới 310 tỷ đồng, 2013 lên tới 320 tỷ đồng, 2014 lên tới 468 tỷ đồng, 2015 lên tới 260 tỷ đồng. Với sức mạnh về tài chính và nhân sự , công ty luôn đặt chữ tín lên hàng đầu, đảm bảo các yêu cầu của khách hàng về cả chất lượng và tiến độ của dự án. Nhờ thế công ty đã từng bước hòa nhập và nâng cao uy tín trên thị trường xây dựng, mặt khác cũng đào tạo được đội ngũ cán bộ, kỹ sư thông thạo nghiệp vụ và kinh nghiệm công tác theo các quy trình công nghệ tiên tiến. Công ty đã hoàn thành nhiều công trình quy mô lớn khẳng định được chất lượng và đẳng cấp của An Quý Hưng như: nhà máy đồ chơi Cheewah, nhà máy sản xuất linh kiện điện tử MicroShine - Vina, nhà máy công nghiệp Henry Việt Nam, nhà máy bia Tiger, nhà máy công nghiệp Toyotaky... Với đà tăng trưởng và phát triển mạnh mẽ, Công ty TNHH An Quý Hưng không chỉ là đối tác uy tín của khách mà còn tạo lập được môi trường làm việc chuyên nghiệp để người lao động của công ty có thể phát huy năng lực, kinh nghiệm nhằm xây dựng và phát triển bản thân.</mutableString>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_infor" translatesAutoresizingMaskIntoConstraints="NO" id="DsR-5d-zm9">
+                                                <rect key="frame" x="12" y="839" width="351" height="130"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="130" id="qdu-sE-Dzn"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NwH-TJ-7bG">
+                                                <rect key="frame" x="12" y="12" width="351" height="3368"/>
+                                                <mutableString key="text">1. Mục đích và phạm vi thu thập
+
+    Việc thu thập dữ liệu chủ yếu trên Sàn giao dịch TMĐT Chobatdongsan.com.vn bao gồm: email, điện thoại, tên đăng nhập, mật khẩu đăng nhập, địa chỉ khách hàng (thành viên). Đây là các thông tin mà Chobatdongsan.com.vn cần thành viên cung cấp bắt buộc khi đăng ký sử dụng dịch vụ và để Chobatdongsan.com.vn liên hệ xác nhận khi khách hàng đăng ký sử dụng dịch vụ trên website nhằm đảm bảo quyền lợi cho cho người tiêu dùng.
+
+    Các thành viên sẽ tự chịu trách nhiệm về bảo mật và lưu giữ mọi hoạt động sử dụng dịch vụ dưới tên đăng ký, mật khẩu và hộp thư điện tử của mình. Ngoài ra, thành viên có trách nhiệm thông báo kịp thời cho Sàn giao dịch TMĐT Chobatdongsan.com.vn về những hành vi sử dụng trái phép, lạm dụng, vi phạm bảo mật, lưu giữ tên đăng ký và mật khẩu của bên thứ ba để có biện pháp giải quyết phù hợp.
+
+ 
+
+2. Phạm vi sử dụng thông tin
+
+-   Sàn giao dịch TMĐT Chobatdongsan.com.vn sử dụng thông tin thành viên cung cấp để:
+
+-   Cung cấp các dịch vụ đến Thành viên;
+
+-   Gửi các thông báo về các hoạt động trao đổi thông tin giữa thành viên và Sàn giao dịch TMĐT Chobatdongsan.com.vn.
+
+-   Ngăn ngừa các hoạt động phá hủy tài khoản người dùng của thành viên hoặc các hoạt động giả mạo Thành viên.
+
+-   Liên lạc và giải quyết với thành viên trong những trường hợp đặc biệt.
+
+-   Không sử dụng thông tin cá nhân của thành viên ngoài mục đích xác nhận và liên hệ có liên quan đến giao dịch tại Chobatdongsan.com.vn.
+
+-   Trong trường hợp có yêu cầu của pháp luật: Sàn giao dịch TMĐT Chobatdongsan.com.vn có trách nhiệm hợp tác cung cấp thông tin cá nhân thành viên khi có yêu cầu từ cơ quan tư pháp bao gồm: Viện kiểm sát, tòa án, cơ quan công an điều tra liên quan đến hành vi vi phạm pháp luật nào đó của khách hàng. Ngoài ra, không ai có quyền xâm phạm vào thông tin cá nhân của thành viên.
+
+ 
+
+3. Thời gian lưu trữ thông tin
+
+Dữ liệu cá nhân của Thành viên sẽ được lưu trữ cho đến khi có yêu cầu hủy bỏ hoặc tự thành viên đăng nhập và thực hiện hủy bỏ. Còn lại trong mọi trường hợp thông tin cá nhân thành viên sẽ được bảo mật trên máy chủ của Chobatdongsan.com.vn.
+
+ 
+
+4. Địa chỉ của đơn vị thu thập và quản lý thông tin cá nhân
+
+-   Công ty Cổ Phần Truyền Thông ILAND Việt Nam
+
+-   Trụ sở hỗ trợ khách hàng: Tầng 1, Tòa nhà 25T2, Nguyễn Thị Thập, Trung Hoà, Cầu Giấy, Hà Nội
+
+-   Email: lienhe@chobatdongsan.com.vn
+
+ 
+
+5. Phương tiện và công cụ để người dùng tiếp cận và chỉnh sửa dữ liệu cá nhân của mình
+
+    Thành viên có quyền tự kiểm tra, cập nhật, điều chỉnh hoặc hủy bỏ thông tin cá nhân của mình bằng cách đăng nhập vào tài khoản và chỉnh sửa thông tin cá nhân hoặc yêu cầu Chobatdongsan.com.vn thực hiện việc này.
+
+    Thành viên có quyền gửi khiếu nại về việc lộ thông tin các nhân cho bên thứ 3 đến Ban quản trị của Sàn giao dịch thương mại điện tử Chobatdongsan.com.vn.  Khi tiếp nhận những phản hồi này, Chobatdongsan.com.vn sẽ xác nhận lại thông tin, phải có trách nhiệm trả lời lý do và hướng dẫn thành viên khôi phục và bảo mật lại thông tin.
+
+Email : lienhe@chobatdongsan.com.vn
+
+ 
+
+6. Cam kết bảo mật thông tin cá nhân khách hàng
+
+    Thông tin cá nhân của thành viên trên Chobatdongsan.com.vn được Chobatdongsan.com.vn cam kết bảo mật tuyệt đối theo chính sách bảo vệ thông tin cá nhân của Chobatdongsan.com.vn. Việc thu thập và sử dụng thông tin của mỗi thành viên chỉ được thực hiện khi có sự đồng ý của khách hàng đó trừ những trường hợp pháp luật có quy định khác.
+
+    Không sử dụng, không chuyển giao, cung cấp hay tiết lộ cho bên thứ 3 nào về thông tin cá nhân của thành viên khi không có sự cho phép đồng ý từ thành viên.
+
+    Trong trường hợp máy chủ lưu trữ thông tin bị hacker tấn công dẫn đến mất mát dữ liệu cá nhân thành viên, Chobatdongsan.com.vn sẽ có trách nhiệm thông báo vụ việc cho cơ quan chức năng điều tra xử lý kịp thời và thông báo cho thành viên được biết.
+
+    Bảo mật tuyệt đối mọi thông tin giao dịch trực tuyến của Thành viên bao gồm thông tin hóa đơn kế toán chứng từ số hóa tại khu vực dữ liệu trung tâm an toàn cấp 1 của Chobatdongsan.com.vn.
+
+    Ban quản lý Chobatdongsan.com.vn yêu cầu các cá nhân khi đăng ký/mua hàng là thành viên, phải cung cấp đầy đủ thông tin cá nhân có liên quan như: Họ và tên, địa chỉ liên lạc, email, số chứng minh nhân dân, điện thoại, số tài khoản, số thẻ thanh toán …., và chịu trách nhiệm về tính pháp lý của những thông tin trên. Ban quản lý Chobatdongsan.com.vn không chịu trách nhiệm cũng như không giải quyết mọi khiếu nại có liên quan đến quyền lợi của Thành viên đó nếu xét thấy tất cả thông tin cá nhân của thành viên đó cung cấp khi đăng ký ban đầu là không chính xác.
+
+ 
+
+
+​
+
+​
+
+
+</mutableString>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="NwH-TJ-7bG" firstAttribute="leading" secondItem="BYy-DW-OS5" secondAttribute="leading" constant="12" id="KYa-KX-HMY"/>
+                                            <constraint firstAttribute="height" constant="597" id="MIU-bw-6J1"/>
+                                            <constraint firstItem="LgZ-a4-yUL" firstAttribute="leading" secondItem="BYy-DW-OS5" secondAttribute="leading" constant="12" id="SS5-XX-jKV"/>
+                                            <constraint firstAttribute="trailing" secondItem="NwH-TJ-7bG" secondAttribute="trailing" constant="12" id="awO-fQ-nRo"/>
+                                            <constraint firstItem="DsR-5d-zm9" firstAttribute="leading" secondItem="BYy-DW-OS5" secondAttribute="leading" constant="12" id="cT1-gf-NGu"/>
+                                            <constraint firstItem="NwH-TJ-7bG" firstAttribute="top" secondItem="BYy-DW-OS5" secondAttribute="top" constant="12" id="gVg-dJ-sqS"/>
+                                            <constraint firstItem="LgZ-a4-yUL" firstAttribute="top" secondItem="BYy-DW-OS5" secondAttribute="top" constant="12" id="gkH-2B-wLs"/>
+                                            <constraint firstItem="DsR-5d-zm9" firstAttribute="top" secondItem="LgZ-a4-yUL" secondAttribute="bottom" constant="20" id="pct-xF-oBD"/>
+                                            <constraint firstAttribute="trailing" secondItem="LgZ-a4-yUL" secondAttribute="trailing" constant="12" id="qVD-pb-g2o"/>
+                                            <constraint firstAttribute="trailing" secondItem="DsR-5d-zm9" secondAttribute="trailing" constant="12" id="yc7-Kv-9UH"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="BYy-DW-OS5" firstAttribute="leading" secondItem="col-7b-2d1" secondAttribute="leading" id="84I-9r-Mah"/>
+                                    <constraint firstAttribute="bottom" secondItem="BYy-DW-OS5" secondAttribute="bottom" id="MmZ-Ou-Bh5"/>
+                                    <constraint firstAttribute="trailing" secondItem="BYy-DW-OS5" secondAttribute="trailing" id="OGR-HT-OSt"/>
+                                    <constraint firstItem="BYy-DW-OS5" firstAttribute="top" secondItem="col-7b-2d1" secondAttribute="top" id="hY3-f3-IqN"/>
+                                    <constraint firstItem="BYy-DW-OS5" firstAttribute="centerX" secondItem="col-7b-2d1" secondAttribute="centerX" id="rAg-8k-Ygg"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Z8U-8F-l4j" firstAttribute="leading" secondItem="LAD-Pz-YOM" secondAttribute="leading" id="1qB-Rk-Lvu"/>
+                            <constraint firstItem="col-7b-2d1" firstAttribute="top" secondItem="XLG-oF-G0G" secondAttribute="bottom" id="EQd-8e-kvQ"/>
                             <constraint firstItem="XLG-oF-G0G" firstAttribute="top" secondItem="LAD-Pz-YOM" secondAttribute="top" id="GFD-Wh-IOb"/>
-                            <constraint firstItem="Z8U-8F-l4j" firstAttribute="top" secondItem="XLG-oF-G0G" secondAttribute="bottom" id="GVs-YE-wfR"/>
-                            <constraint firstItem="8Ga-E8-YfB" firstAttribute="top" secondItem="Z8U-8F-l4j" secondAttribute="bottom" id="Mkl-EU-ueP"/>
-                            <constraint firstItem="Ivd-Hm-02R" firstAttribute="centerX" secondItem="Z8U-8F-l4j" secondAttribute="centerX" id="PCY-kz-eux"/>
                             <constraint firstAttribute="trailing" secondItem="XLG-oF-G0G" secondAttribute="trailing" id="eUz-Sf-CbR"/>
+                            <constraint firstItem="col-7b-2d1" firstAttribute="leading" secondItem="LAD-Pz-YOM" secondAttribute="leading" id="hjm-nt-bFn"/>
                             <constraint firstItem="XLG-oF-G0G" firstAttribute="leading" secondItem="LAD-Pz-YOM" secondAttribute="leading" id="on4-71-HpJ"/>
-                            <constraint firstItem="Ivd-Hm-02R" firstAttribute="centerY" secondItem="Z8U-8F-l4j" secondAttribute="centerY" id="soc-bX-0nR"/>
-                            <constraint firstAttribute="trailing" secondItem="Z8U-8F-l4j" secondAttribute="trailing" id="xRg-7c-v5r"/>
+                            <constraint firstItem="8Ga-E8-YfB" firstAttribute="top" secondItem="col-7b-2d1" secondAttribute="bottom" id="rw6-se-2rw"/>
+                            <constraint firstAttribute="trailing" secondItem="col-7b-2d1" secondAttribute="trailing" id="uHQ-hR-PdU"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="progress" destination="Ivd-Hm-02R" id="hsK-3s-a5E"/>
+                        <outlet property="dkLabel" destination="NwH-TJ-7bG" id="qnx-GT-Xot"/>
+                        <outlet property="heightView" destination="MIU-bw-6J1" id="dZa-CN-Jq7"/>
+                        <outlet property="imageInfor" destination="DsR-5d-zm9" id="IXp-Yx-SnC"/>
+                        <outlet property="textInforLabel" destination="LgZ-a4-yUL" id="A2S-49-Xsd"/>
                         <outlet property="titleView" destination="CAp-eE-fX8" id="d6H-yi-UCm"/>
-                        <outlet property="webView" destination="Z8U-8F-l4j" id="o1h-UN-mxC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z11-RT-uF1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5894" y="649"/>
+            <point key="canvasLocation" x="5893.6000000000004" y="648.12593703148434"/>
         </scene>
         <!--Search Projects View Controller-->
         <scene sceneID="SL8-J8-zTJ">
@@ -2976,6 +3094,7 @@
         <image name="icon_category_news" width="20" height="18"/>
         <image name="icon_drop" width="16" height="10"/>
         <image name="icon_in_news" width="42" height="42"/>
+        <image name="icon_infor" width="262" height="143"/>
         <image name="icon_like" width="24" height="22"/>
         <image name="icon_select_category" width="26" height="26"/>
     </resources>

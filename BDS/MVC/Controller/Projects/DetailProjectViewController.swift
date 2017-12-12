@@ -98,6 +98,6 @@ class DetailProjectViewController: BaseViewController {
     }
     
     @IBAction func sharedButtonDidTap(_ sender: Any) {
-        AppDelegate.shared?.shareImage(controller: self, link: "", image: #imageLiteral(resourceName: "demo"))
+        AppDelegate.shared?.shareImage(controller: self, link: API.linkImage + "p" + self.project.alias + "-" + self.project.id + ".html", image: #imageLiteral(resourceName: "demo"))
     }
 }

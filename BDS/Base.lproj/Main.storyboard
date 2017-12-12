@@ -703,7 +703,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gt6-x0-rNw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2042" y="-38"/>
+            <point key="canvasLocation" x="2044" y="-17"/>
         </scene>
         <!--Land For Sale View Controller-->
         <scene sceneID="vat-ce-JYk">

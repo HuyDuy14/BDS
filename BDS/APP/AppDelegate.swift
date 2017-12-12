@@ -153,8 +153,8 @@ extension AppDelegate
     }
     
     func shareImage(controller:UIViewController,link:String,image:UIImage){
-        let text = "http://banhtv.com/xem-phim/cach-mang-tinh-yeu-tap-3-revolutionary-love-2017-ep-3-5975-e50371.html"
-        let objectsToShare = [text, image] as [Any]
+        let text = link
+        let objectsToShare = [text] as [Any]
         let activityViewController = UIActivityViewController(activityItems:objectsToShare, applicationActivities: nil)
         let excludeActivities = [
             UIActivityType.message,
