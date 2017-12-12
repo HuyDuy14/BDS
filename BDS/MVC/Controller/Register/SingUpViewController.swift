@@ -11,10 +11,14 @@ import ACProgressHUD_Swift
 import UIAlertView_Blocks
 import RxSwift
 import RxCocoa
+import GoogleSignIn
+import FBSDKLoginKit
+import FBSDKCoreKit
 
 class SingUpViewController: BaseTableViewController {
 
-   
+    @IBOutlet weak var btnLoginGoogle: UIButton!
+    @IBOutlet weak var btnLoginFb: UIButton!
     @IBOutlet weak var btnSingUp: UIButton!
     @IBOutlet weak var pass: UITextField!
     @IBOutlet weak var email: UITextField!
@@ -64,5 +68,126 @@ class SingUpViewController: BaseTableViewController {
         }).disposed(by: self.disposeBag)
     }
     
+    @IBAction func loginFBButtonDidTap(_ sender: Any) {
+        self.btnLoginFb.isEnabled = false
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            self.btnLoginFb.isEnabled = true
+        }
+        
+        // still have token, let check
+        if ((FBSDKAccessToken.current()) != nil) {
+            
+            print(FBSDKAccessToken.current().tokenString)
+            
+            //            print(FBSDKAccessToken.current().)
+            
+        } else {
+            getFBToken()
+            
+        }
+    }
+    
+    @IBAction func loginGoogleButtonDidTap(_ sender: Any) {
+        GIDSignIn.sharedInstance().signIn()
+        
+        self.btnLoginGoogle.isEnabled = false
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            self.btnLoginGoogle.isEnabled = true
+        }
+    }
+  
 }
+
+extension SingUpViewController
+{
+    // MARK : - Login facebook
+    func getFBToken() {
+        
+        let loginManager = FBSDKLoginManager()
+        loginManager.logIn(withReadPermissions: ["public_profile", "user_location", "user_birthday"], from: self) { (result: FBSDKLoginManagerLoginResult?, error: Error?) in
+            
+            if (error != nil) {
+                
+                print(error ?? "unknown")
+                
+                FBSDKLoginManager().logOut()
+                FBSDKAccessToken.setCurrent(nil)
+                
+            } else if (result?.isCancelled)! {
+                
+                print("Cancel")
+            } else {
+                self.loginWidth_fb( fbid: FBSDKAccessToken.current().userID, name: "fix")
+            }
+        }
+        
+    }
+    
+    func getFBInfo(){
+        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, email, timezone, gender, location, interested_in, birthday"])
+        graphRequest.start(completionHandler: { (connection, result, error) -> Void in
+            
+            if ((error) != nil)
+            {
+                // Process error
+                print("Error: \(String(describing: error))")
+            }
+            else
+            {
+                print("fetched user: \(String(describing: result))")
+                if let resultDic = result as? Dictionary<String, AnyObject> {
+                    
+                    print(resultDic)
+                }
+            }
+        })
+    }
+    
+    func loginWidth_fb( fbid: String,name:String) {
+        self.showHUD("Login")
+        APIClient.shared.loginFB( fbid: fbid, name: name).asObservable().bind(onNext: { result in
+            UserDefaults.standard.set(fbid, forKey: FBID)
+            UserDefaults.standard.set(name, forKey: FBNAME)
+            UserDefaults.standard.set("", forKey: USERNAME)
+            UserDefaults.standard.set("", forKey: PASSWORD)
+            UserDefaults.standard.set("", forKey: GGID)
+            Util.shared.currentUser = UserModel(JSON: result.data!)!
+            AppDelegate.shared?.setHomeRootViewControoler()
+            AppDelegate.shared?.showMessageSuccessPopUp()
+            self.hideHUD()
+        }).disposed(by: self.disposeBag)
+    }
+    
+    
+}
+
+extension SingUpViewController:GIDSignInDelegate,GIDSignInUIDelegate
+{
+    // MARK : -Login goole
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        self.loginWidth_GG(email: user.profile.email, ggID:  user.userID, name:  user.profile.name)
+    }
+    
+    func loginWidth_GG(email:String,ggID:String,name:String)
+    {
+        self.showHUD("Login")
+        APIClient.shared.loginGG(email: email, fbid: ggID, name: name).asObservable().bind(onNext: { result in
+            UserDefaults.standard.set("", forKey: FBID)
+            UserDefaults.standard.set("", forKey: FBNAME)
+            UserDefaults.standard.set("", forKey: USERNAME)
+            UserDefaults.standard.set("", forKey: PASSWORD)
+            UserDefaults.standard.set(ggID, forKey: GGID)
+            UserDefaults.standard.set(email, forKey: GGEMAIL)
+            UserDefaults.standard.set(name, forKey: GGNAME)
+            Util.shared.currentUser = UserModel(JSON: result.data!)!
+            AppDelegate.shared?.setHomeRootViewControoler()
+            AppDelegate.shared?.showMessageSuccessPopUp()
+            self.hideHUD()
+        }).disposed(by: self.disposeBag)
+    }
+}
+
 

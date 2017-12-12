@@ -398,6 +398,9 @@
                                                             <real key="value" value="1"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="loginFBButtonDidTap:" destination="uXm-Ua-w6i" eventType="touchUpInside" id="2dg-Qa-ZaK"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="asC-P0-5Hb" customClass="CustomRoundButton" customModule="BDS" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="7.5" width="151.5" height="36"/>
@@ -416,6 +419,9 @@
                                                             <real key="value" value="1"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="loginGoogleButtonDidTap:" destination="uXm-Ua-w6i" eventType="touchUpInside" id="TdW-5a-2td"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -448,6 +454,8 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="5IW-Sv-ZcY"/>
                     <connections>
+                        <outlet property="btnLoginFb" destination="2md-5u-KPs" id="Jw6-uC-d6m"/>
+                        <outlet property="btnLoginGoogle" destination="asC-P0-5Hb" id="b7W-j2-sYE"/>
                         <outlet property="btnSingUp" destination="JHi-RJ-Xi6" id="p7d-mQ-ej8"/>
                         <outlet property="email" destination="x1y-Vu-yQD" id="4RM-nW-QWD"/>
                         <outlet property="pass" destination="Lpc-fX-U5Q" id="VK0-Bp-agZ"/>
