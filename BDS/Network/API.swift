@@ -39,4 +39,5 @@ class API: NSObject {
     static var forgotPass = "forget_password.php"
     static var getprojectCity = "get_project_city.php"
     static var asviseDetail = "advise_detail.php"
+    static var detailSale = "sale_detail.php"
 }

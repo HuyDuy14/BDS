@@ -27,10 +27,37 @@ class DetailLanforSaleViewController: BaseViewController {
     
     let disposeBag = DisposeBag()
     var landForSale:LandSaleModel!
+    //Page Image
+    weak var currenviewController: UIViewController?
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var pageController: UIPageControl!
+    var imagePageViewController: ImagePageViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-      self.fillData()
+        self.fillData()
+        self.loadDataServer()
+    }
+    
+    func loadDataServer()
+    {
+        self.showHUD("")
+        APIClient.shared.getDetailSale(id: self.landForSale.id).asObservable().bind(onNext: {result in
+            self.landForSale = LandSaleModel(JSON: result.data!)
+            let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
+            let showView = storyboard.instantiateViewController(withIdentifier: "ImagePageViewController") as? ImagePageViewController
+            showView?.imageDelegate = self
+            self.imagePageViewController = showView
+            if self.landForSale.list_image.count > 0
+            {
+                self.imageDetail.isHidden = true
+            }
+            self.pageController.numberOfPages = self.landForSale.list_image.count
+            showView?.listImageURL = self.landForSale.list_image
+            self.showController(controllerName: "ImagePageViewController", controller: showView)
+            self.hideHUD()
+        }).disposed(by: self.disposeBag)
     }
     
     func fillData()
@@ -56,9 +83,23 @@ class DetailLanforSaleViewController: BaseViewController {
         }
     }
     
+    func showController(controllerName: String, controller: UIViewController?)
+    {
+        self.currenviewController = controller
+        let frame = containerView.frame
+        controller!.view.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
+        let navigationController = UINavigationController(rootViewController: controller!)
+        navigationController.view.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
+        navigationController.isNavigationBarHidden = true
+        self.addChildViewController(navigationController)
+        self.containerView.addSubview(navigationController.view)
+    }
+
+    
     @IBAction func sharedButtonDidTap(_ sender: Any) {
         AppDelegate.shared?.shareImage(controller: self, link: API.linkImage + "d" + self.landForSale.alias + "-" + self.landForSale.id + ".html", image: self.imageDetail.image!)
     }
+    
     @IBAction func backButtonDidTap(_ sender: Any) {
         self.popToView()
     }
@@ -97,4 +138,17 @@ class DetailLanforSaleViewController: BaseViewController {
             }).disposed(by: self.disposeBag)
         }
     }
+}
+
+extension DetailLanforSaleViewController: ImagePageViewControllerDelegate {
+    func imagePageViewController(_ imagePageViewController: ImagePageViewController, didUpdatePageCount count: Int) {
+        
+    }
+    
+    func imagePageViewController(_ imagePageViewController: ImagePageViewController, didUpdatePageIndex index: Int) {
+        self.pageController.currentPage = index
+    }
+    
+    
+
 }

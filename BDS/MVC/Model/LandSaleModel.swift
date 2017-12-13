@@ -130,6 +130,7 @@ class LandSaleModel: Mappable {
     var note_advert =  ""
     var conhang =  ""
     var hangchoban =  ""
+    var list_image:[String] = []
     var isLike:Bool = false
     
     required convenience init?(map: Map) {
@@ -256,6 +257,7 @@ class LandSaleModel: Mappable {
         self.note_advert <- map["note_advert"]
         self.conhang <- map["conhang"]
         self.hangchoban <- map["hangchoban"]
+        self.list_image <- map["list_image"]
     }
     
 }

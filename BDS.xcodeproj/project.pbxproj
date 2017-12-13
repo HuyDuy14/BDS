@@ -11,6 +11,8 @@
 		13195E281FD05DC500C60533 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13195E271FD05DC500C60533 /* MapsViewController.swift */; };
 		1319EC1F1FD58E7D003D1B0D /* CategoryProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1319EC1E1FD58E7D003D1B0D /* CategoryProjectModel.swift */; };
 		1319EC211FD594E5003D1B0D /* ProjectsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1319EC201FD594E5003D1B0D /* ProjectsModel.swift */; };
+		132404371FE12DB700F9250F /* ImagePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132404361FE12DB700F9250F /* ImagePageViewController.swift */; };
+		132404391FE1303D00F9250F /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132404381FE1303D00F9250F /* ImageViewController.swift */; };
 		132532AA1FD6874C004BF9F5 /* Projects.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 132532A91FD6874C004BF9F5 /* Projects.storyboard */; };
 		132532AC1FD6A7D8004BF9F5 /* DetailProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132532AB1FD6A7D8004BF9F5 /* DetailProjectViewController.swift */; };
 		13372E8C1FD0093400041A57 /* InforUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13372E8A1FD0093400041A57 /* InforUserViewController.swift */; };
@@ -129,6 +131,8 @@
 		13195E271FD05DC500C60533 /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
 		1319EC1E1FD58E7D003D1B0D /* CategoryProjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryProjectModel.swift; sourceTree = "<group>"; };
 		1319EC201FD594E5003D1B0D /* ProjectsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsModel.swift; sourceTree = "<group>"; };
+		132404361FE12DB700F9250F /* ImagePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePageViewController.swift; sourceTree = "<group>"; };
+		132404381FE1303D00F9250F /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		132532A91FD6874C004BF9F5 /* Projects.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Projects.storyboard; sourceTree = "<group>"; };
 		132532AB1FD6A7D8004BF9F5 /* DetailProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailProjectViewController.swift; sourceTree = "<group>"; };
 		13372E8A1FD0093400041A57 /* InforUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InforUserViewController.swift; sourceTree = "<group>"; };
@@ -289,6 +293,15 @@
 			path = Maps;
 			sourceTree = "<group>";
 		};
+		132404351FE12D9200F9250F /* PageImage */ = {
+			isa = PBXGroup;
+			children = (
+				132404361FE12DB700F9250F /* ImagePageViewController.swift */,
+				132404381FE1303D00F9250F /* ImageViewController.swift */,
+			);
+			path = PageImage;
+			sourceTree = "<group>";
+		};
 		13372E891FD0091C00041A57 /* User */ = {
 			isa = PBXGroup;
 			children = (
@@ -312,6 +325,7 @@
 		1344BE021FD12E1000498108 /* LandForSale */ = {
 			isa = PBXGroup;
 			children = (
+				132404351FE12D9200F9250F /* PageImage */,
 				1344BE031FD12E3000498108 /* LandForSaleViewController.swift */,
 				1344BE051FD12E4100498108 /* LandForSaleViewCell.swift */,
 				1344BE2D1FD162F100498108 /* SearchLandForSaleViewController.swift */,
@@ -1069,6 +1083,7 @@
 				13AB37641FCF9EA6000BA67D /* TutorialPageViewController.swift in Sources */,
 				13372E8F1FD009A300041A57 /* GetViewXib.swift in Sources */,
 				1344BE1F1FD14E2F00498108 /* SearchProjectsViewController.swift in Sources */,
+				132404391FE1303D00F9250F /* ImageViewController.swift in Sources */,
 				139E64B61FCF083900117E0B /* ItemViewCellMenu.swift in Sources */,
 				139E64C31FCF088000117E0B /* UISideMenuNavigationController.swift in Sources */,
 				1344BE2A1FD15E4B00498108 /* DetailNewsViewController.swift in Sources */,
@@ -1083,6 +1098,7 @@
 				1319EC1F1FD58E7D003D1B0D /* CategoryProjectModel.swift in Sources */,
 				13B7445C1FD3D37B00A778A7 /* DistrictModel.swift in Sources */,
 				136E72731FD6F7240023F3B4 /* DetailMapsViewController.swift in Sources */,
+				132404371FE12DB700F9250F /* ImagePageViewController.swift in Sources */,
 				13B744551FD3C53F00A778A7 /* NewsModel.swift in Sources */,
 				1344BE0E1FD1417400498108 /* ProjectViewCell.swift in Sources */,
 				13CAB8821FD8CCDC0014F551 /* CategoryLand.swift in Sources */,

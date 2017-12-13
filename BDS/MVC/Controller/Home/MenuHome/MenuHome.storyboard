@@ -625,11 +625,11 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LgZ-a4-yUL">
                                                 <rect key="frame" x="12" y="12" width="351" height="807"/>
-                                                <mutableString key="text">Cách đây 15 năm, Công ty TNHH An Quý Hưng được thành lập, đánh dấu sự ra đời và những bước phát triển đầu tiên gây dựng nền móng cho một đơn vị lớn mạnh. Đến nay, công ty TNHH An Quý Hưng đã trở thành một công ty chuyên nghiệp trong lĩnh vực xây dựng nhà xưởng công nghiệp tại khu vực miền bắc Việt Nam. Với kinh nghiệm và sự tận tụy trong 15 năm hoạt động, công ty luôn là nhà thầu đáng tin cậy của các nhà đầu tư nước ngoài đến từ Đoàn Loan, Hồng Kông, Hàn Quốc, Malaisia... Với phương châm phục vụ: Thành tín - Hợp tác - Lâu dài, An Quý Hưng luôn thấu hiểu mong muốn của chủ đầu tư và mang lại giá trị gia tăng cho mỗi công trình.
+                                                <string key="text">Cách đây 15 năm, Công ty TNHH An Quý Hưng được thành lập, đánh dấu sự ra đời và những bước phát triển đầu tiên gây dựng nền móng cho một đơn vị lớn mạnh. Đến nay, công ty TNHH An Quý Hưng đã trở thành một công ty chuyên nghiệp trong lĩnh vực xây dựng nhà xưởng công nghiệp tại khu vực miền bắc Việt Nam. Với kinh nghiệm và sự tận tụy trong 15 năm hoạt động, công ty luôn là nhà thầu đáng tin cậy của các nhà đầu tư nước ngoài đến từ Đoàn Loan, Hồng Kông, Hàn Quốc, Malaisia... Với phương châm phục vụ: Thành tín - Hợp tác - Lâu dài, An Quý Hưng luôn thấu hiểu mong muốn của chủ đầu tư và mang lại giá trị gia tăng cho mỗi công trình.
 
 Nhìn lại chặng đường 15 năm xây dựng và phát triển, Công ty đã gặt hái được nhiều thành tựu đáng kể. Những ngày đầu thành lập, với số vốn điều lệ 300 triệu đồng, công ty gặp vô vàn khó khăn , đội ngũ CBNV, cơ sở vật chất còn ít và thiếu kinh nghiệm. Đến nay, công ty đã sở hữu hệ thống cơ sở vật chất, máy móc, thiết bị và phương tiện vận tải hiện đại như máy ép cọc, xe trộn bê tông, máy hàn, máy đầm bê tông, hơn 30 đầu xe trên tổng số 50 xe được nhập khẩu 100% từ Hàn Quốc, giàn giáo trị giá hàng tỉ đồng, máy bơm cầu bê tông...
 
-Có được thành tựu này là nhờ lòng yêu nghề, tinh thần đoàn kết, nhất trí của cả tập thể cùng sự lãnh đạo tài tình, sáng suốt, tư duy dám nghĩ dám làm của tổng giám đốc Nguyễn Xuân Đông. Trải qua thời gian, những kinh nghiệm cọ xát thực tế và kiến thức học hỏi từ các chuyên gia, các đối tác nước ngoài, đội ngũ hơn 200 CBCNV đã dần hoàn thiện và bổ sung năng lực chuyên môn, nghiệp vụ. Doanh thu hàng năm của công ty không ngừng tăng lên, ước tính tổng số vốn năm 2012 lên tới 310 tỷ đồng, 2013 lên tới 320 tỷ đồng, 2014 lên tới 468 tỷ đồng, 2015 lên tới 260 tỷ đồng. Với sức mạnh về tài chính và nhân sự , công ty luôn đặt chữ tín lên hàng đầu, đảm bảo các yêu cầu của khách hàng về cả chất lượng và tiến độ của dự án. Nhờ thế công ty đã từng bước hòa nhập và nâng cao uy tín trên thị trường xây dựng, mặt khác cũng đào tạo được đội ngũ cán bộ, kỹ sư thông thạo nghiệp vụ và kinh nghiệm công tác theo các quy trình công nghệ tiên tiến. Công ty đã hoàn thành nhiều công trình quy mô lớn khẳng định được chất lượng và đẳng cấp của An Quý Hưng như: nhà máy đồ chơi Cheewah, nhà máy sản xuất linh kiện điện tử MicroShine - Vina, nhà máy công nghiệp Henry Việt Nam, nhà máy bia Tiger, nhà máy công nghiệp Toyotaky... Với đà tăng trưởng và phát triển mạnh mẽ, Công ty TNHH An Quý Hưng không chỉ là đối tác uy tín của khách mà còn tạo lập được môi trường làm việc chuyên nghiệp để người lao động của công ty có thể phát huy năng lực, kinh nghiệm nhằm xây dựng và phát triển bản thân.</mutableString>
+Có được thành tựu này là nhờ lòng yêu nghề, tinh thần đoàn kết, nhất trí của cả tập thể cùng sự lãnh đạo tài tình, sáng suốt, tư duy dám nghĩ dám làm của tổng giám đốc Nguyễn Xuân Đông. Trải qua thời gian, những kinh nghiệm cọ xát thực tế và kiến thức học hỏi từ các chuyên gia, các đối tác nước ngoài, đội ngũ hơn 200 CBCNV đã dần hoàn thiện và bổ sung năng lực chuyên môn, nghiệp vụ. Doanh thu hàng năm của công ty không ngừng tăng lên, ước tính tổng số vốn năm 2012 lên tới 310 tỷ đồng, 2013 lên tới 320 tỷ đồng, 2014 lên tới 468 tỷ đồng, 2015 lên tới 260 tỷ đồng. Với sức mạnh về tài chính và nhân sự , công ty luôn đặt chữ tín lên hàng đầu, đảm bảo các yêu cầu của khách hàng về cả chất lượng và tiến độ của dự án. Nhờ thế công ty đã từng bước hòa nhập và nâng cao uy tín trên thị trường xây dựng, mặt khác cũng đào tạo được đội ngũ cán bộ, kỹ sư thông thạo nghiệp vụ và kinh nghiệm công tác theo các quy trình công nghệ tiên tiến. Công ty đã hoàn thành nhiều công trình quy mô lớn khẳng định được chất lượng và đẳng cấp của An Quý Hưng như: nhà máy đồ chơi Cheewah, nhà máy sản xuất linh kiện điện tử MicroShine - Vina, nhà máy công nghiệp Henry Việt Nam, nhà máy bia Tiger, nhà máy công nghiệp Toyotaky... Với đà tăng trưởng và phát triển mạnh mẽ, Công ty TNHH An Quý Hưng không chỉ là đối tác uy tín của khách mà còn tạo lập được môi trường làm việc chuyên nghiệp để người lao động của công ty có thể phát huy năng lực, kinh nghiệm nhằm xây dựng và phát triển bản thân.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -641,7 +641,7 @@ Có được thành tựu này là nhờ lòng yêu nghề, tinh thần đoàn k
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NwH-TJ-7bG">
                                                 <rect key="frame" x="12" y="12" width="351" height="3368"/>
-                                                <mutableString key="text">1. Mục đích và phạm vi thu thập
+                                                <string key="text">1. Mục đích và phạm vi thu thập
 
     Việc thu thập dữ liệu chủ yếu trên Sàn giao dịch TMĐT Chobatdongsan.com.vn bao gồm: email, điện thoại, tên đăng nhập, mật khẩu đăng nhập, địa chỉ khách hàng (thành viên). Đây là các thông tin mà Chobatdongsan.com.vn cần thành viên cung cấp bắt buộc khi đăng ký sử dụng dịch vụ và để Chobatdongsan.com.vn liên hệ xác nhận khi khách hàng đăng ký sử dụng dịch vụ trên website nhằm đảm bảo quyền lợi cho cho người tiêu dùng.
 
@@ -713,7 +713,7 @@ Email : lienhe@chobatdongsan.com.vn
 ​
 
 
-</mutableString>
+</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1510,9 +1510,19 @@ Email : lienhe@chobatdongsan.com.vn
                                                 <rect key="frame" x="20" y="8" width="335" height="200"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="NRc-8p-wOG"/>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="oAp-SX-2dl"/>
                                                 </constraints>
                                             </imageView>
+                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OQg-gE-0Co">
+                                                <rect key="frame" x="20" y="8" width="335" height="200"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="200" id="krb-rK-G2r"/>
+                                                </constraints>
+                                            </containerView>
+                                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="7by-M2-6RZ">
+                                                <rect key="frame" x="160" y="160" width="55" height="37"/>
+                                                <color key="pageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="currentPageIndicatorTintColor" red="0.13725490196078433" green="0.63529411764705879" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
+                                            </pageControl>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -1543,6 +1553,7 @@ Email : lienhe@chobatdongsan.com.vn
                                             <constraint firstItem="eAH-RT-dtw" firstAttribute="top" secondItem="2c4-Ni-zQc" secondAttribute="bottom" constant="5" id="Hk1-ba-bpP"/>
                                             <constraint firstItem="DjR-TV-Qk5" firstAttribute="width" secondItem="Zke-z8-CLz" secondAttribute="width" id="IRZ-Ks-k6M"/>
                                             <constraint firstItem="bn5-yO-wQ8" firstAttribute="width" secondItem="cmh-BU-dMR" secondAttribute="width" multiplier="1/2.3" id="KKR-Ft-Gr8"/>
+                                            <constraint firstItem="7by-M2-6RZ" firstAttribute="centerX" secondItem="OQg-gE-0Co" secondAttribute="centerX" id="KNd-JH-Abw"/>
                                             <constraint firstItem="fRm-7F-ERy" firstAttribute="leading" secondItem="cmh-BU-dMR" secondAttribute="leading" constant="20" id="KUM-OM-Bk2"/>
                                             <constraint firstItem="euc-XG-yes" firstAttribute="leading" secondItem="Gih-Su-ip7" secondAttribute="trailing" constant="4" id="MUt-Sp-NIX"/>
                                             <constraint firstItem="fM4-L1-kFu" firstAttribute="leading" secondItem="cmh-BU-dMR" secondAttribute="leading" constant="20" id="Nsu-hD-hQZ"/>
@@ -1555,14 +1566,18 @@ Email : lienhe@chobatdongsan.com.vn
                                             <constraint firstItem="aZ3-A4-LVH" firstAttribute="width" secondItem="cmh-BU-dMR" secondAttribute="width" multiplier="1/2.3" id="XRV-DW-YSM"/>
                                             <constraint firstItem="aZ3-A4-LVH" firstAttribute="leading" secondItem="cmh-BU-dMR" secondAttribute="leading" constant="20" id="YKa-Hd-llM"/>
                                             <constraint firstItem="tkN-0z-6k5" firstAttribute="width" secondItem="cmh-BU-dMR" secondAttribute="width" multiplier="1/2.3" id="aN4-79-Dgv"/>
+                                            <constraint firstAttribute="trailing" secondItem="OQg-gE-0Co" secondAttribute="trailing" constant="20" id="b7u-v9-1Rb"/>
                                             <constraint firstItem="Zke-z8-CLz" firstAttribute="width" secondItem="cmh-BU-dMR" secondAttribute="width" multiplier="1/2.3" id="cEP-zL-9tq"/>
+                                            <constraint firstItem="OQg-gE-0Co" firstAttribute="leading" secondItem="cmh-BU-dMR" secondAttribute="leading" constant="20" id="cHY-xQ-qJT"/>
                                             <constraint firstItem="oDA-dL-RRy" firstAttribute="leading" secondItem="cmh-BU-dMR" secondAttribute="leading" constant="20" id="cgG-ps-nQD"/>
                                             <constraint firstItem="2c4-Ni-zQc" firstAttribute="width" secondItem="eAH-RT-dtw" secondAttribute="width" id="dFF-B8-jKQ"/>
                                             <constraint firstItem="i6h-WL-vZ5" firstAttribute="top" secondItem="Gih-Su-ip7" secondAttribute="bottom" constant="8" id="dHh-Zq-L1G"/>
                                             <constraint firstItem="Im2-JS-8Wq" firstAttribute="centerY" secondItem="i6h-WL-vZ5" secondAttribute="centerY" id="dtR-Ks-ajK"/>
+                                            <constraint firstItem="7by-M2-6RZ" firstAttribute="top" secondItem="cmh-BU-dMR" secondAttribute="top" constant="160" id="eLT-tt-0Pg"/>
                                             <constraint firstItem="2c4-Ni-zQc" firstAttribute="leading" secondItem="cmh-BU-dMR" secondAttribute="leading" constant="20" id="f5S-Dr-bHc"/>
                                             <constraint firstAttribute="bottom" secondItem="eAH-RT-dtw" secondAttribute="bottom" constant="20" id="fhg-BQ-vmM"/>
                                             <constraint firstAttribute="trailing" secondItem="fM4-L1-kFu" secondAttribute="trailing" constant="20" id="hB2-tf-kMZ"/>
+                                            <constraint firstItem="OQg-gE-0Co" firstAttribute="top" secondItem="cmh-BU-dMR" secondAttribute="top" constant="8" id="j4m-hQ-Y9y"/>
                                             <constraint firstItem="S6S-Hi-Voy" firstAttribute="top" secondItem="fRm-7F-ERy" secondAttribute="bottom" constant="10" id="lLM-gC-MAo"/>
                                             <constraint firstItem="gBT-px-y9F" firstAttribute="leading" secondItem="Im2-JS-8Wq" secondAttribute="trailing" constant="9" id="o2O-G2-zaR"/>
                                             <constraint firstItem="Im2-JS-8Wq" firstAttribute="leading" secondItem="i6h-WL-vZ5" secondAttribute="trailing" constant="4" id="oMq-kW-Hao"/>
@@ -1693,11 +1708,13 @@ Email : lienhe@chobatdongsan.com.vn
                     <connections>
                         <outlet property="address" destination="FVu-QU-cAC" id="wTn-h9-CfN"/>
                         <outlet property="area" destination="Im2-JS-8Wq" id="eyn-rc-Sty"/>
+                        <outlet property="containerView" destination="OQg-gE-0Co" id="7On-rA-h62"/>
                         <outlet property="dateBegin" destination="CuK-ge-E2A" id="dye-ZP-z06"/>
                         <outlet property="dateEnd" destination="gBT-px-y9F" id="gAh-CD-4dw"/>
                         <outlet property="idLand" destination="aZ3-A4-LVH" id="sWn-P0-pGD"/>
                         <outlet property="imageDetail" destination="fRm-7F-ERy" id="i2G-pJ-nRB"/>
                         <outlet property="nameContact" destination="eAH-RT-dtw" id="HVt-1J-oiW"/>
+                        <outlet property="pageController" destination="7by-M2-6RZ" id="vaI-us-LCQ"/>
                         <outlet property="phone" destination="Zke-z8-CLz" id="vZw-U1-Psi"/>
                         <outlet property="price" destination="euc-XG-yes" id="Y8D-Hf-gEh"/>
                         <outlet property="saveLandButton" destination="bOi-oU-cAq" id="ieq-D3-VEB"/>
@@ -1708,6 +1725,46 @@ Email : lienhe@chobatdongsan.com.vn
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wqe-JI-Ls6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5844" y="1522"/>
+        </scene>
+        <!--Image Page View Controller-->
+        <scene sceneID="MHQ-QU-xCa">
+            <objects>
+                <pageViewController storyboardIdentifier="ImagePageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="5DR-ss-tIh" customClass="ImagePageViewController" customModule="BDS" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GwS-3H-BY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6481" y="1416"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="pH4-qv-jTu">
+            <objects>
+                <viewController storyboardIdentifier="ImageViewController" id="Khx-AE-5Vt" customClass="ImageViewController" customModule="BDS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Quf-Yk-DLx"/>
+                        <viewControllerLayoutGuide type="bottom" id="Qoz-ZG-HaX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tPg-9E-JXL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h5J-Sq-LN3">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Qoz-ZG-HaX" firstAttribute="top" secondItem="h5J-Sq-LN3" secondAttribute="bottom" id="4rF-Z1-E7U"/>
+                            <constraint firstItem="h5J-Sq-LN3" firstAttribute="leading" secondItem="tPg-9E-JXL" secondAttribute="leading" id="ChA-hG-re9"/>
+                            <constraint firstAttribute="trailing" secondItem="h5J-Sq-LN3" secondAttribute="trailing" id="akr-Vh-EeY"/>
+                            <constraint firstItem="h5J-Sq-LN3" firstAttribute="top" secondItem="tPg-9E-JXL" secondAttribute="top" id="svi-6d-V2x"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageHome" destination="h5J-Sq-LN3" id="jwX-gf-AEL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="11f-mH-E5M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7144.8000000000002" y="1415.4422788605698"/>
         </scene>
         <!--Detail News View Controller-->
         <scene sceneID="dum-LJ-sVa">

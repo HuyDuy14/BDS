@@ -20,7 +20,6 @@ class ContainerSingUpViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-            
         let storyboard = UIStoryboard(name: "Register", bundle: nil)
         let showView = storyboard.instantiateViewController(withIdentifier: "SingUpViewController") as? SingUpViewController
         self.showController(controllerName: "SingUpViewController", controller: showView)
