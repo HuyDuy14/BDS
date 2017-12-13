@@ -27,10 +27,61 @@ class DetailProjectViewController: BaseViewController {
     var project:ProjectsModel!
     let disposeBag = DisposeBag()
     
+    //Page Image
+    weak var currenviewController: UIViewController?
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var pageController: UIPageControl!
+    var imagePageViewController: ImagePageViewController?
+    var timer:Timer!
+    var indexPage = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.fillData()
-      
+        self.loadDataServer()
+       
+    }
+    
+    func updateStart() {
+        indexPage += 1
+        if indexPage >= self.project.list_image.count
+        {
+            indexPage = 0
+        }
+        self.imagePageViewController?.scrollToViewController(index: indexPage)
+    }
+    
+    func loadDataServer()
+    {
+        self.showHUD("")
+        APIClient.shared.getDetailProject(id: self.project.id).asObservable().bind(onNext: {result in
+            self.project = ProjectsModel(JSON: result.data!)
+            let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
+            let showView = storyboard.instantiateViewController(withIdentifier: "ImagePageViewController") as? ImagePageViewController
+            showView?.imageDelegate = self
+            self.imagePageViewController = showView
+            if self.project.list_image.count > 0
+            {
+                self.imageProjects.isHidden = true
+            }
+            self.timer =  Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.updateStart), userInfo: nil, repeats: true)
+            self.pageController.numberOfPages = self.project.list_image.count
+            showView?.listImageURL = self.project.list_image
+            self.showController(controllerName: "ImagePageViewController", controller: showView)
+            self.hideHUD()
+        }).disposed(by: self.disposeBag)
+    }
+    
+    func showController(controllerName: String, controller: UIViewController?)
+    {
+        self.currenviewController = controller
+        let frame = containerView.frame
+        controller!.view.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
+        let navigationController = UINavigationController(rootViewController: controller!)
+        navigationController.view.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
+        navigationController.isNavigationBarHidden = true
+        self.addChildViewController(navigationController)
+        self.containerView.addSubview(navigationController.view)
     }
     
     func fillData()
@@ -100,4 +151,16 @@ class DetailProjectViewController: BaseViewController {
     @IBAction func sharedButtonDidTap(_ sender: Any) {
         AppDelegate.shared?.shareImage(controller: self, link: API.linkImage + "p" + self.project.alias + "-" + self.project.id + ".html", image: #imageLiteral(resourceName: "demo"))
     }
+}
+
+extension DetailProjectViewController: ImagePageViewControllerDelegate {
+    func imagePageViewController(_ imagePageViewController: ImagePageViewController, didUpdatePageCount count: Int) {
+        
+    }
+    
+    func imagePageViewController(_ imagePageViewController: ImagePageViewController, didUpdatePageIndex index: Int) {
+        self.pageController.currentPage = index
+        indexPage = index
+    }
+    
 }

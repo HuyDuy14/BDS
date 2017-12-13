@@ -269,6 +269,13 @@ class APIClient: NSObject {
         return self.requestGet(path: API.detailSale, method: .get, params: params)
     }
     
+    func getDetailProject(id:String) -> Observable<Result> {
+        let params: Parameters = [
+                "id":id
+            ] as Parameters
+        return self.requestGet(path: API.detailProjrect, method: .get, params: params)
+    }
+    
     func getNewsSave() -> Observable<Result> {
         let params: Parameters = [
             "id":Util.shared.currentUser.id

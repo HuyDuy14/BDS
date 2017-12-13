@@ -40,4 +40,5 @@ class API: NSObject {
     static var getprojectCity = "get_project_city.php"
     static var asviseDetail = "advise_detail.php"
     static var detailSale = "sale_detail.php"
+    static var detailProjrect = "project_detail.php"
 }

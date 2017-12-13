@@ -43,6 +43,7 @@ class ProjectsModel: Mappable {
     var design =  ""
     var summary =  ""
     var content =  ""
+    var list_image:[String] = []
     var isLike:Bool = false
     
     required convenience init?(map: Map) {
@@ -83,5 +84,6 @@ class ProjectsModel: Mappable {
         self.design <- map["design"]
         self.summary <- map["summary"]
         self.content <- map["content"]
+        self.list_image <- map["list_image"]
     }
 }

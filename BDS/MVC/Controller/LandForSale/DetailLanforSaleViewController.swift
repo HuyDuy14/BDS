@@ -32,12 +32,23 @@ class DetailLanforSaleViewController: BaseViewController {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var pageController: UIPageControl!
     var imagePageViewController: ImagePageViewController?
+    var timer:Timer!
+    var indexPage = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.fillData()
         self.loadDataServer()
+    }
+    
+    func updateStart() {
+        indexPage += 1
+        if indexPage >= self.landForSale.list_image.count
+        {
+            indexPage = 0
+        }
+        self.imagePageViewController?.scrollToViewController(index: indexPage)
     }
     
     func loadDataServer()
@@ -53,6 +64,7 @@ class DetailLanforSaleViewController: BaseViewController {
             {
                 self.imageDetail.isHidden = true
             }
+            self.timer =  Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.updateStart), userInfo: nil, repeats: true)
             self.pageController.numberOfPages = self.landForSale.list_image.count
             showView?.listImageURL = self.landForSale.list_image
             self.showController(controllerName: "ImagePageViewController", controller: showView)
@@ -147,8 +159,7 @@ extension DetailLanforSaleViewController: ImagePageViewControllerDelegate {
     
     func imagePageViewController(_ imagePageViewController: ImagePageViewController, didUpdatePageIndex index: Int) {
         self.pageController.currentPage = index
+        indexPage = index
     }
-    
-    
 
 }

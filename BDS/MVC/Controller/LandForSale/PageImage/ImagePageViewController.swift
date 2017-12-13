@@ -116,17 +116,17 @@ extension ImagePageViewController: UIPageViewControllerDataSource {
             return nil
         }
         
-        let previousIndex = viewControllerIndex - 1
+        var previousIndex = viewControllerIndex - 1
         
         // User is on the first view controller and swiped left to loop to
         // the last view controller.
-        guard previousIndex >= 0 else {
-            return nil
+        if previousIndex < 0  {
+            previousIndex = orderedViewControllers.count - 1
         }
         
-        guard orderedViewControllers.count > previousIndex else {
-            return nil
-        }
+//        if orderedViewControllers.count > previousIndex  {
+//            return nil
+//        }
         return orderedViewControllers[previousIndex]
     }
     
@@ -136,17 +136,14 @@ extension ImagePageViewController: UIPageViewControllerDataSource {
             return nil
         }
         
-        let nextIndex = viewControllerIndex + 1
+        var nextIndex = viewControllerIndex + 1
         let orderedViewControllersCount = orderedViewControllers.count
         
         // User is on the last view controller and swiped right to loop to
         // the first view controller.
-        guard orderedViewControllersCount != nextIndex else {
-            return nil
-        }
         
-        guard orderedViewControllersCount > nextIndex else {
-            return nil
+        if orderedViewControllersCount <= nextIndex  {
+            nextIndex = 0
         }
         
         return orderedViewControllers[nextIndex]
