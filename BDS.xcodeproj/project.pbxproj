@@ -166,6 +166,7 @@
 		137CF4211FD504B100E3EB91 /* CategoryNewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryNewsModel.swift; sourceTree = "<group>"; };
 		1384B8331FDE6FFA001AE51A /* ContainerForgotPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerForgotPassViewController.swift; sourceTree = "<group>"; };
 		1384B8351FDE70A4001AE51A /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		138F607B1FE22A58004EDFC8 /* BDS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BDS.entitlements; sourceTree = "<group>"; };
 		13950DA41FDC0652008C50F7 /* InforAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InforAppViewController.swift; sourceTree = "<group>"; };
 		139E645A1FCF030300117E0B /* BDS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BDS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		139E645D1FCF030300117E0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -432,6 +433,7 @@
 		139E645C1FCF030300117E0B /* BDS */ = {
 			isa = PBXGroup;
 			children = (
+				138F607B1FE22A58004EDFC8 /* BDS.entitlements */,
 				13FB33151FD2FA2100FC5B55 /* GoogleService-Info.plist */,
 				13372E991FD0116D00041A57 /* Util */,
 				139E649A1FCF04D900117E0B /* MVC */,
@@ -793,6 +795,11 @@
 					139E64591FCF030300117E0B = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					139E646D1FCF030300117E0B = {
 						CreatedOnToolsVersion = 9.1;
@@ -1307,13 +1314,14 @@
 			baseConfigurationReference = 9EDAE37C4ABF18F1000C435A /* Pods-BDS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BDS/BDS.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = TXCECR9AZW;
 				INFOPLIST_FILE = BDS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.BDS.vn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ChoBDS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "9a5eed27-c291-4bd0-a892-dba0308c1057";
 				PROVISIONING_PROFILE_SPECIFIER = fuck;
@@ -1327,13 +1335,14 @@
 			baseConfigurationReference = 2606DAFFDB4CDFDC8A3E08E1 /* Pods-BDS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BDS/BDS.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = TXCECR9AZW;
 				INFOPLIST_FILE = BDS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.BDS.vn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ChoBDS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "9a5eed27-c291-4bd0-a892-dba0308c1057";
 				PROVISIONING_PROFILE_SPECIFIER = fuck;

@@ -12,14 +12,16 @@ import GooglePlaces
 import GoogleSignIn
 import FBSDKCoreKit
 import RxCocoa
+import OneSignal
 import RxSwift
 import SwiftMessages
 import IQKeyboardManagerSwift
 
 let API_KEY_GOOGLE = "AIzaSyDeHiOsROpzfS0K2ys91RoZhym8tGSbtYE"
+var appId: String = "95bd2b1a-6eec-494d-821c-40830e86740e"
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
     static var shared = (UIApplication.shared.delegate as? AppDelegate)
@@ -30,6 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done"
         GMSServices.provideAPIKey(API_KEY_GOOGLE)
         GMSPlacesClient.provideAPIKey(API_KEY_GOOGLE)
+        self.settingNotiOnsignal(launchOptions: launchOptions)
         self.loadDataCity()
         return true
     }
@@ -59,6 +62,50 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             annotation: annotation)
         
         return  googleDidHandle || facebookDidHandle
+    }
+    
+    
+    func settingNotiOnsignal(launchOptions:[UIApplicationLaunchOptionsKey: Any]?)
+    {
+        let notificationReceivedBlock: OSHandleNotificationReceivedBlock = { notification in
+            
+            print("Received Notification: \(notification!.payload.notificationID)")
+        }
+        
+        let notificationOpenedBlock: OSHandleNotificationActionBlock = { result in
+            
+//            let payload: OSNotificationPayload = result!.notification.payload
+            
+        }
+        
+        let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: true,
+                                     kOSSettingsKeyInAppLaunchURL: true]
+        
+        OneSignal.initWithLaunchOptions(launchOptions,
+                                        appId: appId,
+                                        handleNotificationReceived: notificationReceivedBlock,
+                                        handleNotificationAction: notificationOpenedBlock,
+                                        settings: onesignalInitSettings)
+        
+    }
+    
+    func registerForRemoteNotification() {
+        if #available(iOS 10.0, *) {
+            let center  = UNUserNotificationCenter.current()
+            center.delegate = self
+            center.requestAuthorization(options: [.sound, .alert, .badge]) { (granted, error) in
+                if error == nil{
+                    DispatchQueue.main.async {
+                        UIApplication.shared.registerForRemoteNotifications()
+                    }
+                    
+                }
+            }
+        }
+        else {
+            UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.sound, .alert, .badge], categories: nil))
+            UIApplication.shared.registerForRemoteNotifications()
+        }
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

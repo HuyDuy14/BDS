@@ -14,6 +14,7 @@ target 'BDS' do
   pod 'FTIndicator'
   pod 'Kingfisher'
   pod 'ObjectMapper'
+  pod 'OneSignal'
   pod 'Alamofire'
   pod 'SwiftMessages'
   pod 'GoogleMaps'

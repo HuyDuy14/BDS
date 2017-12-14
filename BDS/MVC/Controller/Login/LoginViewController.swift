@@ -13,6 +13,7 @@ import ACProgressHUD_Swift
 import GoogleSignIn
 import FBSDKLoginKit
 import FBSDKCoreKit
+import OneSignal
 
 let USERNAME = "username"
 let PASSWORD = "password"
@@ -100,6 +101,7 @@ class LoginViewController: BaseTableViewController {
             Util.shared.currentUser = UserModel(JSON: result.data!)!
             AppDelegate.shared?.showMessageSuccessPopUp()
             AppDelegate.shared?.setHomeRootViewControoler()
+            OneSignal.sendTag("iduser", value: Util.shared.currentUser.id)
             self.hideHUD()
         }).disposed(by: self.disposeBag)
     }
@@ -199,6 +201,7 @@ extension LoginViewController
              Util.shared.currentUser = UserModel(JSON: result.data!)!
              AppDelegate.shared?.setHomeRootViewControoler()
              AppDelegate.shared?.showMessageSuccessPopUp()
+            OneSignal.sendTag("iduser", value: Util.shared.currentUser.id)
             self.hideHUD()
         }).disposed(by: self.disposeBag)
     }
@@ -228,7 +231,8 @@ extension LoginViewController:GIDSignInDelegate,GIDSignInUIDelegate
             UserDefaults.standard.set(name, forKey: GGNAME)
             Util.shared.currentUser = UserModel(JSON: result.data!)!
             AppDelegate.shared?.setHomeRootViewControoler()
-             AppDelegate.shared?.showMessageSuccessPopUp()
+            AppDelegate.shared?.showMessageSuccessPopUp()
+            OneSignal.sendTag("iduser", value: Util.shared.currentUser.id)
             self.hideHUD()
         }).disposed(by: self.disposeBag)
     }
