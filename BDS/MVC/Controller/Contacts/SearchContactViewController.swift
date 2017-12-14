@@ -34,7 +34,7 @@ class SearchContactViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.headerView.delegate = self
-        self.headerView.setTitleView(title: "Tìm môi giới", infor: "Tìm môi giới hổ trợ tư vấn BĐS")
+        self.headerView.setTitleView(title: "Tìm môi giới", infor: "Tìm môi giới hỗ trợ tư vấn BĐS")
         self.pickerView.delegate = self
         var index:Int = 0
         for city in Util.shared.listCity {

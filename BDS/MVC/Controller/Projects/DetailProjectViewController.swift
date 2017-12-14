@@ -67,8 +67,10 @@ class DetailProjectViewController: BaseViewController {
             self.timer =  Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.updateStart), userInfo: nil, repeats: true)
             self.pageController.numberOfPages = self.project.list_image.count
             showView?.listImageURL = self.project.list_image
+            self.fillData()
             self.showController(controllerName: "ImagePageViewController", controller: showView)
             self.hideHUD()
+            
         }).disposed(by: self.disposeBag)
     }
     

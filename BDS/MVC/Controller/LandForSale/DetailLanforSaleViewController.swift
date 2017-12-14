@@ -84,6 +84,11 @@ class DetailLanforSaleViewController: BaseViewController {
         self.dateEnd.text = self.landForSale.land_date_finish.FromStringToDateToStringProjects()
         self.type.text = self.landForSale.category_name
         self.idLand.text = self.landForSale.code
+        self.landForSale.content = self.landForSale.content.replacingOccurrences(of: "width: 500px", with: "width: \(self.webView.frame.size.width - 20 )px")
+        self.landForSale.content = self.landForSale.content.replacingOccurrences(of:"width: 600px", with: "width: \(self.webView.frame.size.width - 20)px")
+        self.landForSale.content = self.landForSale.content.replacingOccurrences(of: "500px", with: "\(self.webView.frame.size.width - 20)px")
+        self.landForSale.content = self.landForSale.content.replacingOccurrences(of: "600px", with: "\(self.webView.frame.size.width - 20)px")
+        
          self.webView.loadHTMLString(Util.shared.htmlString(from: self.landForSale.content), baseURL: nil)
         if self.landForSale.isLike == true
         {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class DetailContactViewController: BaseViewController {
 
@@ -18,9 +19,20 @@ class DetailContactViewController: BaseViewController {
     @IBOutlet weak var titleView: UILabel!
     
     var contact:BrokerModel!
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.loadData()
+        self.getDataDetailContact()
+    }
+
+    @IBAction func backButtonDidTap(_ sender: Any) {
+        self.popToView()
+    }
+    
+    func loadData()
+    {
         self.titleView.text = self.contact.title
         self.email.text = self.contact.email
         self.address.text =  self.contact.address
@@ -28,8 +40,20 @@ class DetailContactViewController: BaseViewController {
         self.phone.text = self.contact.phone
         self.webView.loadHTMLString(Util.shared.htmlString(from: contact.content), baseURL: nil)
     }
-
-    @IBAction func backButtonDidTap(_ sender: Any) {
-        self.popToView()
+    
+    func getDataDetailContact()
+    {
+        
+        self.showHUD("")
+        APIClient.shared.getDetailBorker(id: self.contact.id).asObservable().bind(onNext: {result in
+            self.contact = BrokerModel(JSON: result.data!)
+            self.contact.content = self.contact.content.replacingOccurrences(of: "width: 500px", with: "width: \(self.webView.frame.size.width - 20 )px")
+            self.contact.content = self.contact.content.replacingOccurrences(of:"width: 600px", with: "width: \(self.webView.frame.size.width - 20)px")
+            self.contact.content = self.contact.content.replacingOccurrences(of: "500px", with: "\(self.webView.frame.size.width - 20)px")
+            self.contact.content = self.contact.content.replacingOccurrences(of: "600px", with: "\(self.webView.frame.size.width - 20)px")
+            self.loadData()
+            self.hideHUD()
+        }).disposed(by: self.disposeBag)
     }
+    
 }

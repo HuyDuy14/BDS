@@ -269,6 +269,19 @@ class APIClient: NSObject {
         return self.requestGet(path: API.detailSale, method: .get, params: params)
     }
     
+    func getDetailBorker(id:String) -> Observable<Result> {
+        let params: Parameters = [
+            "id":id
+            ] as Parameters
+        return self.requestGet(path: API.detailBroker, method: .get, params: params)
+    }
+    
+    func getDetailNews(id:String) -> Observable<Result> {
+        let params: Parameters = [
+            "id":id
+            ] as Parameters
+        return self.requestGet(path: API.detailNews, method: .get, params: params)
+    }
     func getDetailProject(id:String) -> Observable<Result> {
         let params: Parameters = [
                 "id":id

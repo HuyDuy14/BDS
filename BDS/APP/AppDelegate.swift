@@ -88,6 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
                                         settings: onesignalInitSettings)
         
     }
+   
     
     func registerForRemoteNotification() {
         if #available(iOS 10.0, *) {
