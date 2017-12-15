@@ -42,7 +42,7 @@ class DetailNewsViewController: BaseViewController {
         self.newsSave.isHidden = true
         self.btnSave.isHidden = true
         self.showHUD("")
-        APIClient.shared.getAsvise().asObservable().bind(onNext: { result in
+        APIClient.shared.getAsvise(id:self.news.id).asObservable().bind(onNext: { result in
 
             self.news = NewsModel(JSON: result.data!)
             for newsSave in Util.shared.listNewsSave
@@ -55,6 +55,7 @@ class DetailNewsViewController: BaseViewController {
             self.news.content = self.news.content.replacingOccurrences(of: "width: 600px", with: "width: \(self.detailWebView.frame.size.width - 20)px")
             self.news.content = self.news.content.replacingOccurrences(of: "500px", with: "\(self.detailWebView.frame.size.width - 20)px")
             self.news.content = self.news.content.replacingOccurrences(of: "600px", with: "\(self.detailWebView.frame.size.width - 20)px")
+              self.news.content = self.news.content.replacingOccurrences(of: "615px", with: "\(self.detailWebView.frame.size.width - 20)px")
             self.loadData()
 
             self.hideHUD()

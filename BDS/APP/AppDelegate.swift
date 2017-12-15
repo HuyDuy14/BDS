@@ -86,6 +86,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
                                         handleNotificationReceived: notificationReceivedBlock,
                                         handleNotificationAction: notificationOpenedBlock,
                                         settings: onesignalInitSettings)
+        OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification;
+ 
+        OneSignal.promptForPushNotifications(userResponse: { accepted in
+            print("User accepted notifications: \(accepted)")
+        })
+        
         
     }
    

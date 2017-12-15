@@ -254,12 +254,20 @@ class APIClient: NSObject {
         return self.requestGet(path: API.landForSale, method: .get, params: params)
     }
     
-    func getNews(id:String,page:Int) -> Observable<Result> {
+    func getNews(id:String,page:Int,isNews:Bool) -> Observable<Result> {
         let params: Parameters = [
             "id":id,
             "page":page
             ] as Parameters
-        return self.requestGet(path: API.getNews, method: .get, params: params)
+        if isNews == true
+        {
+            return self.requestGet(path: API.getNews, method: .get, params: params)
+        }
+        else
+        {
+            return self.requestGet(path: API.getAdvise, method: .get, params: params)
+        }
+        
     }
     
     func getDetailSale(id:String) -> Observable<Result> {
@@ -296,9 +304,9 @@ class APIClient: NSObject {
         return self.requestGet(path: API.listNewsSave, method: .get, params: params)
     }
     
-    func getAsvise() -> Observable<Result> {
+    func getAsvise(id:String) -> Observable<Result> {
         let params: Parameters = [
-            "id":Util.shared.currentUser.id
+            "id":id
             ] as Parameters
         return self.requestGet(path: API.asviseDetail, method: .get, params: params)
     }
@@ -362,6 +370,10 @@ class APIClient: NSObject {
         return self.requestGet(path: API.categoryNews, method: .get, params: nil)
     }
     
+    func getCategoryAdvise() -> Observable<Result> {
+        return self.requestGet(path: API.getCategoryAdvise, method: .get, params: nil)
+    }
+    
     func getCategoryProject() -> Observable<Result> {
         return self.requestGet(path: API.getTypeProject, method: .get, params: nil)
     }
@@ -376,8 +388,8 @@ class APIClient: NSObject {
         return self.requestGet(path: API.getCategoryLand, method: .post, params: params)
     }
     
-    func searchProjects(idProject:Int,idCity:Int,idDistrict:Int) -> Observable<Result> {
-        var params: Parameters = [:]
+    func searchProjects(idProject:Int,idCity:Int,idDistrict:Int,page:Int) -> Observable<Result> {
+        var params: Parameters = ["page":page]
         if idProject != 0
         {
             params["type"] = idProject

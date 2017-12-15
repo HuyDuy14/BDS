@@ -63,7 +63,7 @@ class ProjectsViewController: BaseViewController {
             self.listProject = []
             self.btnBackHome.setImage(#imageLiteral(resourceName: "icon_back"), for: .normal)
             self.btnBackMaps.isHidden = true
-            self.loadDataproject()
+            self.loadDataproject(refresh: true)
         }
         else
         {
@@ -73,7 +73,7 @@ class ProjectsViewController: BaseViewController {
             self.btnBackHome.setImage(#imageLiteral(resourceName: "icon_back_maps"), for: .normal)
             self.btnBackMaps.isHidden = false
             self.listProject = []
-            self.loadData(refresh: false)
+            self.loadData(refresh: true)
         }
         
     }
@@ -85,8 +85,9 @@ class ProjectsViewController: BaseViewController {
     func refresh(_ sender: Any) {
         if  isBackHome == false
         {
+            self.page = 0
             self.listProject = []
-            self.loadDataproject()
+            self.loadDataproject(refresh: false)
         }
         else
         {
@@ -112,35 +113,54 @@ class ProjectsViewController: BaseViewController {
     
     // MARK: - Get data
     
-    func loadDataproject()
+    func loadDataproject(refresh: Bool)
     {
-        self.listProject = []
-        APIClient.shared.searchProjects(idProject: self.idProject, idCity: self.idCity, idDistrict: self.idDictrict).asObservable().bind(onNext: {result in
-
-            for data in result.dataArray
-            {
-                if let dic = data as? [String:Any]
-                {
-                    let project = ProjectsModel(JSON: dic)
-                    for p in Util.shared.listProjectSave
+        if self.isLoading == false {
+            self.isLoading = true
+            APIClient.shared.searchProjects(idProject: self.idProject, idCity: self.idCity, idDistrict: self.idDictrict,page:self.page).asObservable().bind(onNext: {result in
+                
+                DispatchQueue.main.async {
+                    var projects: [ProjectsModel] = []
+                    for data in result.dataArray
                     {
-                        if p.id == project?.id{
-                            project?.isLike = true
+                        if let dic = data as? [String:Any]
+                        {
+                            let project = ProjectsModel(JSON: dic)
+                            for p in Util.shared.listProjectSave
+                            {
+                                if p.id == project?.id{
+                                    project?.isLike = true
+                                }
+                            }
+                            projects.append(project!)
                         }
                     }
-                    self.listProject.append(project!)
+
+                    if projects.count == 0
+                    {
+                        self.isLoad = false
+                    }
+                    self.listProject.append(contentsOf: projects)
+                    
+                    if self.listProject.count != 0 && refresh == true {
+                        var array: [IndexPath]! = []
+                        let index: Int = self.listProject.count - projects.count
+                        for i in index..<self.listProject.count {
+                            array.append( IndexPath(row: i, section: 0))
+                        }
+                        self.tableView.beginUpdates()
+                        self.tableView.insertRows(at: array, with: .automatic)
+                        self.tableView.endUpdates()
+                    } else {
+                        self.tableView.reloadData()
+                    }
+                    self.isLoading = false
+                    self.refreshControl?.endRefreshing()
+                    self.hideHUD()
                 }
-            }
-            
-            DispatchQueue.main.async {
-                 self.tableView.reloadData()
-            }
-            
-            self.refreshControl.endRefreshing()
-            self.hideHUD()
-           
-            
-        }).disposed(by: self.disposeBag)
+                
+            }).disposed(by: self.disposeBag)
+        }
         
     }
     
@@ -283,9 +303,26 @@ extension ProjectsViewController:UITableViewDelegate,UITableViewDataSource
             }
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 83
+    }
+    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if  isBackHome == false
         {
+            let bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height
+            let end = scrollView.contentSize.height
+            if self.listProject.count >= 10  {
+                if (bottomEdge >= end)
+                {
+                    self.page += 1
+                    if self.isLoad == true
+                    {
+                        self.showHUD("")
+                        self.loadDataproject(refresh: true)
+                    }
+                }
+            }
             return
         }
         let bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height
@@ -320,6 +357,9 @@ extension ProjectsViewController:SearchLandForSaleViewControllerDelegate{
         self.idBedRoom = numberbedroom
         self.idDirection = direction
         self.showHUD("")
+        self.listLandSent = []
+        self.page = 0
+        self.tableView.reloadData()
         self.loadData(refresh: true)
     }
 }

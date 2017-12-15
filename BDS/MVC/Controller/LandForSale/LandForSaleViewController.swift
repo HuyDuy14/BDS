@@ -223,6 +223,9 @@ extension LandForSaleViewController:SearchLandForSaleViewControllerDelegate{
         self.idBedRoom = numberbedroom
         self.idDirection = direction
         self.showHUD("")
+        self.listData = []
+        self.page = 0
+        self.tableView.reloadData()
         self.loadData(refresh: true)
     }
     

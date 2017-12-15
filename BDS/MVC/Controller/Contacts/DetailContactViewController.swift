@@ -46,7 +46,11 @@ class DetailContactViewController: BaseViewController {
         
         self.showHUD("")
         APIClient.shared.getDetailBorker(id: self.contact.id).asObservable().bind(onNext: {result in
-            self.contact = BrokerModel(JSON: result.data!)
+            let contact  = BrokerModel(JSON: result.data!)
+            if contact?.id.count != 0
+            {
+                self.contact = contact
+            }
             self.contact.content = self.contact.content.replacingOccurrences(of: "width: 500px", with: "width: \(self.webView.frame.size.width - 20 )px")
             self.contact.content = self.contact.content.replacingOccurrences(of:"width: 600px", with: "width: \(self.webView.frame.size.width - 20)px")
             self.contact.content = self.contact.content.replacingOccurrences(of: "500px", with: "\(self.webView.frame.size.width - 20)px")

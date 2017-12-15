@@ -14,6 +14,7 @@ class NewsViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var titleController: UILabel!
     var refreshControl: UIRefreshControl!
     let disposeBag = DisposeBag()
     var listData:[NewsModel] = []
@@ -21,6 +22,7 @@ class NewsViewController: BaseViewController {
     var page:Int = 0
     var isLoad: Bool = true
     var isLoading: Bool = false
+    var isNews:Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +35,14 @@ class NewsViewController: BaseViewController {
         self.showHUD("")
         self.page = 0
         self.loadData(refresh: true)
-        
+        if self.isNews == true
+        {
+            self.titleController.text = "Tin tức"
+        }
+        else
+        {
+              self.titleController.text = "Tư vấn"
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -45,10 +54,19 @@ class NewsViewController: BaseViewController {
     {
         let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
         let vcCategory = storyboard.instantiateViewController(withIdentifier: "PopupCategoryNewsViewController") as? PopupCategoryNewsViewController
+        if self.isNews == true
+        {
+            vcCategory?.listName = Util.shared.listCategoryNews
+        }
+        else
+        {
+             vcCategory?.listName = Util.shared.listCategoryAdvise
+        }
         vcCategory?.finish = { id in
             self.showHUD("")
             self.idCategory = id
             self.listData = []
+            self.tableView.reloadData()
             self.page = 0
             self.loadData(refresh: true)
         }
@@ -86,7 +104,7 @@ class NewsViewController: BaseViewController {
         
         if self.isLoading == false {
             self.isLoading = true
-            APIClient.shared.getNews(id:self.idCategory,page:self.page).asObservable().bind(onNext: {result in
+            APIClient.shared.getNews(id:self.idCategory,page:self.page,isNews: self.isNews).asObservable().bind(onNext: {result in
                 DispatchQueue.main.async {
                     var listNews: [NewsModel] = []
                     for data in result.dataArray
@@ -101,16 +119,17 @@ class NewsViewController: BaseViewController {
                     if listNews.count == 0
                     {
                         self.isLoad = false
+                        return
                     }
                     self.listData.append(contentsOf: listNews)
                     if self.listData.count != 0 && refresh == true {
-                        var array: [NSIndexPath]! = []
+                        var array: [IndexPath] = []
                         let index: Int = self.listData.count - listNews.count
                         for i in index..<self.listData.count {
-                            array.append( NSIndexPath(row: i, section: 0))
+                            array.append( IndexPath(row: i, section: 0) )
                         }
                         self.tableView.beginUpdates()
-                        self.tableView.insertRows(at: array! as [IndexPath], with: .automatic)
+                        self.tableView.insertRows(at: array , with: .automatic)
                         self.tableView.endUpdates()
                     } else {
                         self.tableView.reloadData()
@@ -157,12 +176,17 @@ extension NewsViewController:UITableViewDelegate,UITableViewDataSource
         return UITableViewCell()
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 252
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if self.listData.count > indexPath.row
         {
             let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
             let vcDetail = storyboard.instantiateViewController(withIdentifier: "DetailNewsViewController") as? DetailNewsViewController
             vcDetail?.news = self.listData[indexPath.row]
+            vcDetail?.isNews = self.isNews
             self.pushViewController(viewController: vcDetail)
         }
     }
@@ -187,7 +211,14 @@ extension NewsViewController:UITableViewDelegate,UITableViewDataSource
 extension NewsViewController:NewsViewCellDelegate
 {
     func shared(_ cell: NewsViewCell, news: NewsModel, index: Int) {
-        AppDelegate.shared?.shareImage(controller: self, link: API.linkImage + "ns" + news.category_name + "/" + news.alias + "-p" + news.id + ".html", image: #imageLiteral(resourceName: "demo"))
+        if self.isNews == true
+        {
+            AppDelegate.shared?.shareImage(controller: self, link: API.linkImage + "ns" + news.category_name + "/" + news.alias + "-p" + news.id + ".html", image: #imageLiteral(resourceName: "demo"))
+        }
+        else
+        {
+             AppDelegate.shared?.shareImage(controller: self, link: API.linkImage + "tv" + news.category_name + "/" + news.alias + "-p" + news.id + ".html", image: #imageLiteral(resourceName: "demo"))
+        }
     }
     
     func updateRow(item: NewsModel!, status: Bool,index:Int)

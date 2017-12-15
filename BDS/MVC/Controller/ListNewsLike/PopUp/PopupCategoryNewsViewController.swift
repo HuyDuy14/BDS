@@ -11,7 +11,7 @@ import UIKit
 class PopupCategoryNewsViewController: BaseViewController {
 
     var finish:((_ id:String)->Void)?
-    var listName:[CategoryNewsModel] = Util.shared.listCategoryNews
+    var listName:[CategoryNewsModel] = []
     
     @IBOutlet weak var tableView: UITableView!
     

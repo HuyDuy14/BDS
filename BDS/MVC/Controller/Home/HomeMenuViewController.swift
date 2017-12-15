@@ -37,6 +37,7 @@ class HomeMenuViewController: BaseViewController {
     @IBAction func newsButtonDidTap(_ sender: Any) {
         let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
         let newsController = storyboard.instantiateViewController(withIdentifier: "NewsViewController") as? NewsViewController
+        newsController?.isNews = true
         self.pushViewController(viewController: newsController!)
     }
     
@@ -58,10 +59,12 @@ class HomeMenuViewController: BaseViewController {
     }
     
     @IBAction func asviceButtonDidTap(_ sender: Any) {
+        
         let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
-        let vcDetail = storyboard.instantiateViewController(withIdentifier: "DetailNewsViewController") as? DetailNewsViewController
-        vcDetail?.isNews = false
-        self.pushViewController(viewController: vcDetail)
+        let newsController = storyboard.instantiateViewController(withIdentifier: "NewsViewController") as? NewsViewController
+        newsController?.isNews = false
+        self.pushViewController(viewController: newsController!)
+        
     }
     
     

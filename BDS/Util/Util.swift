@@ -15,6 +15,7 @@ class Util: NSObject {
     var currentUser:UserModel = UserModel()
     var listCity:[ModelCity] = []
     var listCategoryNews:[CategoryNewsModel] = []
+    var listCategoryAdvise:[CategoryNewsModel] = []
     var listNewsSave :[NewsModel]  = []
     var listProjectSave:[ProjectsModel] = []
     var listBDS:[LandSaleModel] = []

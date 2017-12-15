@@ -19,7 +19,7 @@ class ContactsViewController: BaseViewController {
     var refreshControl: UIRefreshControl!
     
     var idProject:String = "null"
-    var idType:String = "null"
+    var idType:String = "1"
     var idCity:String = "null"
     var idDistrict:String = "null"
     let disposeBag = DisposeBag()

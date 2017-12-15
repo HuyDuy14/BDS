@@ -15,9 +15,11 @@ class SearchContactViewController: BaseViewController {
     @IBOutlet weak var district: UILabel!
     @IBOutlet weak var city: UILabel!
     @IBOutlet weak var typeLand: UILabel!
+    @IBOutlet weak var typeBDS: UILabel!
     
     var pickerView = PickerView.getFromNib()
     var listPicker:[ModelPicker] = [ModelPicker(id: 0, name: "Hà Nội"),ModelPicker(id: 2, name: "Thanh Hoá"),ModelPicker(id: 3, name: "Nam Định")]
+     var listTypeLand:[ModelPicker] = [ModelPicker(id: 1, name: "Nhà đất cho thuê"),ModelPicker(id: 1, name: "Nhà đất bán")]
     var listPickerCity:[ModelPicker] = []
     var listPickerDistrict:[ModelPicker] = []
     var listPickerTypeProject:[ModelPicker] = []
@@ -29,6 +31,7 @@ class SearchContactViewController: BaseViewController {
     var idDictrict:String = "null"
     var indexSelectDistrict:Int = 0
     var indextSelectProject:Int = 0
+    var type = "null"
     
     
     override func viewDidLoad() {
@@ -146,8 +149,17 @@ class SearchContactViewController: BaseViewController {
         detailSearch?.idProject = self.idProject
         detailSearch?.idCity = self.idCity
         detailSearch?.idDistrict = self.idDictrict
+        detailSearch?.idType = self.type
         self.pushViewController(viewController: detailSearch!)
     }
+    
+    @IBAction func selectypeBDSButtonDidTap(_ sender: Any) {
+        self.pickerView.listData = self.listTypeLand
+        self.pickerView.config.startIndex = 0
+        self.pickerView.status = 2
+        self.pickerView.show(inVC: self)
+    }
+    
     
 }
 
@@ -170,6 +182,17 @@ extension SearchContactViewController:PickerViewDelegate
             self.indexSelectDistrict = 0
             self.loadDistrict(idCity: String(picker.id))
             break
+        case 2:
+            self.typeBDS.text = picker.name
+            if picker.id == 1
+            {
+                self.type = "2"
+                
+            }
+            else
+            {
+                self.type = "1"
+            }
         case 1:
             self.district.text = picker.name
             self.idDictrict = String(picker.id)

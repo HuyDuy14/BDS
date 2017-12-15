@@ -24,8 +24,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         SaveCurrentVC.shared.homeController = self
-        self.loadCategoryNews()
-        
+   
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +40,7 @@ class HomeViewController: UIViewController {
         self.getListCategoryLand()
         self.getListCategoryRent()
         self.getAllCategoryLand()
+        self.loadCategoryAdvise()
     }
     
     var tutorialPageViewController: TutorialPageViewController? {
@@ -133,6 +133,7 @@ extension HomeViewController
     {
         Util.shared.listCategoryNews = []
         APIClient.shared.getCategoryNews().asObservable().bind(onNext: {result in
+            Util.shared.listCategoryNews = []
             for data in result.dataArray {
                 if let dic = data as? [String:Any] {
                     let categoryNewsModel = CategoryNewsModel(JSON: dic)
@@ -141,6 +142,21 @@ extension HomeViewController
             }
         }).disposed(by: self.disposeBag)
     }
+    
+    func loadCategoryAdvise()
+    {
+        Util.shared.listCategoryNews = []
+        APIClient.shared.getCategoryNews().asObservable().bind(onNext: {result in
+            Util.shared.listCategoryNews = []
+            for data in result.dataArray {
+                if let dic = data as? [String:Any] {
+                    let categoryNewsModel = CategoryNewsModel(JSON: dic)
+                    Util.shared.listCategoryAdvise.append(categoryNewsModel!)
+                }
+            }
+        }).disposed(by: self.disposeBag)
+    }
+    
     
     func getDataNews()
     {

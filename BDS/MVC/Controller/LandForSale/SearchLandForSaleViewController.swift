@@ -20,7 +20,6 @@ class SearchLandForSaleViewController: BaseViewController {
     @IBOutlet weak var imageMore: UIImageView!
     @IBOutlet weak var headerView: HeaderViewController!
     
-    
     @IBOutlet weak var titleSearch: UITextField!
     @IBOutlet weak var areLabel: UILabel!
     @IBOutlet weak var priceBDS: UILabel!
@@ -37,6 +36,7 @@ class SearchLandForSaleViewController: BaseViewController {
     @IBOutlet weak var heightBedroom: NSLayoutConstraint!
     @IBOutlet weak var heightView: NSLayoutConstraint!
     
+    var isSearchRent:Bool = true
     var isShow:Bool = false
     let disposeBag = DisposeBag()
     var pickerView = PickerView.getFromNib()
@@ -110,11 +110,23 @@ class SearchLandForSaleViewController: BaseViewController {
     func setDataPicker()
     {
         var index:Int = 0
-        for type in Util.shared.typesProject {
-            let picker = ModelPicker(id: Int(type.id)!, name: type.name)
-            picker.index = index
-            index += 1
-            self.listPickerTypeProject.append( picker)
+        if self.isRale == false
+        {
+            for type in Util.shared.listCategoryRent {
+                let picker = ModelPicker(id: Int(type.id)!, name: type.name)
+                picker.index = index
+                index += 1
+                self.listPickerTypeProject.append( picker)
+            }
+        }
+        else
+        {
+            for type in Util.shared.listCategorySale {
+                let picker = ModelPicker(id: Int(type.id)!, name: type.name)
+                picker.index = index
+                index += 1
+                self.listPickerTypeProject.append( picker)
+            }
         }
     }
     
@@ -317,7 +329,7 @@ extension SearchLandForSaleViewController:PickerViewDelegate
         switch amPicker.status
         {
         case 1:
-            self.idProject = String(picker.id)
+            self.type = String(picker.id)
             self.typeBDS.text = picker.name
             self.indexTypeProject = picker.index
         case 2:
