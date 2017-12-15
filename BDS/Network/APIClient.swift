@@ -385,7 +385,7 @@ class APIClient: NSObject {
     
     func getCategoryLand(type:String) -> Observable<Result> {
          let params: Parameters = ["type":type]
-        return self.requestGet(path: API.getCategoryLand, method: .post, params: params)
+        return self.requestGet(path: API.getCategoryLand, method: .get, params: params)
     }
     
     func searchProjects(idProject:Int,idCity:Int,idDistrict:Int,page:Int) -> Observable<Result> {

@@ -131,7 +131,7 @@ extension HomeViewController
     // MARK: - LoadData
     func loadCategoryNews()
     {
-        Util.shared.listCategoryNews = []
+       
         APIClient.shared.getCategoryNews().asObservable().bind(onNext: {result in
             Util.shared.listCategoryNews = []
             for data in result.dataArray {
@@ -145,9 +145,9 @@ extension HomeViewController
     
     func loadCategoryAdvise()
     {
-        Util.shared.listCategoryNews = []
-        APIClient.shared.getCategoryNews().asObservable().bind(onNext: {result in
-            Util.shared.listCategoryNews = []
+      
+        APIClient.shared.getCategoryAdvise().asObservable().bind(onNext: {result in
+            Util.shared.listCategoryAdvise = []
             for data in result.dataArray {
                 if let dic = data as? [String:Any] {
                     let categoryNewsModel = CategoryNewsModel(JSON: dic)

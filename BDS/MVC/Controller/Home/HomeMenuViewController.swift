@@ -43,7 +43,6 @@ class HomeMenuViewController: BaseViewController {
     
     @IBAction func searchLandForSaleButtonDidTap(_ sender: Any) {
         SaveCurrentVC.shared.homeController.tutorialPageViewController?.scrollToViewController(index: 3)
-        
     }
     
     

@@ -31,7 +31,7 @@ class SearchContactViewController: BaseViewController {
     var idDictrict:String = "null"
     var indexSelectDistrict:Int = 0
     var indextSelectProject:Int = 0
-    var type = "null"
+    var type = "1"
     
     
     override func viewDidLoad() {
@@ -47,17 +47,33 @@ class SearchContactViewController: BaseViewController {
             self.listPickerCity.append( picker)
         }
         self.setDataPicker()
+        
     }
     
     func setDataPicker()
     {
         var index:Int = 0
-        for type in Util.shared.listAllCategoryland {
-            let picker = ModelPicker(id: Int(type.id)!, name: type.name)
-            picker.index = index
-            index += 1
-            self.listPickerTypeProject.append( picker)
+        if type == "1"
+        {
+            self.listPickerTypeProject = []
+            for type in Util.shared.listCategorySale {
+                let picker = ModelPicker(id: Int(type.id)!, name: type.name)
+                picker.index = index
+                index += 1
+                self.listPickerTypeProject.append( picker)
+            }
         }
+        else
+        {
+            self.listPickerTypeProject = []
+            for type in Util.shared.listCategoryRent {
+                let picker = ModelPicker(id: Int(type.id)!, name: type.name)
+                picker.index = index
+                index += 1
+                self.listPickerTypeProject.append( picker)
+            }
+        }
+       
     }
     
     func loadDataCity()
@@ -193,6 +209,10 @@ extension SearchContactViewController:PickerViewDelegate
             {
                 self.type = "1"
             }
+            self.typeLand.text = "Chọn loại nhà đất"
+            self.idProject = "null"
+            self.indextSelectProject = 0
+            self.setDataPicker()
         case 1:
             self.district.text = picker.name
             self.idDictrict = String(picker.id)
@@ -201,7 +221,6 @@ extension SearchContactViewController:PickerViewDelegate
             self.typeLand.text = picker.name
             self.idProject = String(picker.id)
             self.indextSelectProject = picker.index
-     
         default:
             break
         }

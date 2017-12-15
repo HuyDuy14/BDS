@@ -47,6 +47,7 @@ class SearchLandForSaleViewController: BaseViewController {
     var listPickerTypeProject:[ModelPicker] = []
     
     var listPicker:[ModelPicker] = [ModelPicker(id: 1, name: "Dưới 300 Triệu"),ModelPicker(id: 2, name: "300 Triệu - 500 Triệu"),ModelPicker(id: 3, name: "700 Triệu - 1 Tỷ"),ModelPicker(id: 4, name: "1 Tỷ - 2 Tỷ"),ModelPicker(id: 5, name: "2 Tỷ - 3 Tỷ"),ModelPicker(id: 6, name: "3 Tỷ - 5 Tỷ"),ModelPicker(id: 7, name: "5 Tỷ - 7 Tỷ"),ModelPicker(id: 8, name: "7 Tỷ - 10 Tỷ"),ModelPicker(id: 9, name: "10 Tỷ - 20 Tỷ"),ModelPicker(id: 10, name: "20 Tỷ - 30 Tỷ"),ModelPicker(id: 11, name: "Trên 30 Tỷ")]
+    var listPickerRent:[ModelPicker] = [ModelPicker(id: 1, name: "Dưới 3 Triệu"),ModelPicker(id: 2, name: "3 Triệu - 5 Triệu"),ModelPicker(id: 3, name: "5 Triệu - 7 Triệu"),ModelPicker(id: 4, name: "7 Triệu - 10 Triệu"),ModelPicker(id: 5, name: "10 Triệu - 20 Triệu"),ModelPicker(id: 6, name: "20 Triệu - 30 Triệu"),ModelPicker(id: 7, name: "Trên 30 Triệu")]
     
     var listDirection:[ModelPicker] =  [ModelPicker(id: 1, name: "Đông"),ModelPicker(id: 2, name: "Tây"),ModelPicker(id: 3, name: "Nam"),ModelPicker(id: 4, name: "Bắc"),ModelPicker(id: 5, name: "Đông-Bắc"),ModelPicker(id: 6, name: "Tây-Bắc"),ModelPicker(id: 7, name: "Đông-Nam"),ModelPicker(id: 8, name: "Tây-Nam")]
     var listAcreage:[ModelPicker] = [ModelPicker(id: 1, name: "Dưới 30m2"),ModelPicker(id: 2, name: "30m2 - 50m2"),ModelPicker(id: 3, name: "50m2 - 100m2"),ModelPicker(id: 4, name: "100m2 - 150m2"),ModelPicker(id: 5, name: "150m2 - 200m2"),ModelPicker(id: 6, name: "200m2 - 300m2"),ModelPicker(id: 7, name: "300m2 - 500m2"),ModelPicker(id: 8, name: "500m2 - 700m2"),ModelPicker(id: 9, name: "700m2 - 1000m2"),ModelPicker(id: 10, name: "Trên 1000m2")]
@@ -243,7 +244,14 @@ class SearchLandForSaleViewController: BaseViewController {
     }
     
     @IBAction func selectMonneyButtonDidTap(_ sender: Any) {
-        self.pickerView.listData = self.listPicker
+        if self.isRale == true
+        {
+            self.pickerView.listData = self.listPicker
+        }
+        else
+        {
+             self.pickerView.listData = self.listPickerRent
+        }
         self.pickerView.config.startIndex = self.indexPrice
         self.pickerView.status = 4
         self.pickerView.show(inVC: self)
@@ -356,7 +364,14 @@ extension SearchLandForSaleViewController:PickerViewDelegate
         
             self.priceBDS.text = picker.name
             self.indexPrice = picker.id - 1
-            self.getDataPrice(picker: picker)
+            if self.isRale == true
+            {
+                self.getDataPrice(picker: picker)
+            }
+            else
+            {
+                self.getDataPriceRent(picker: picker)
+            }
         case 5:
             self.areLabel.text =  picker.name
             self.indexAcreage = picker.id - 1
@@ -455,6 +470,36 @@ extension SearchLandForSaleViewController:PickerViewDelegate
             self.price_max = "30000"
         default:
             self.pricae_min = "30000"
+            self.price_max = "null"
+        }
+    }
+    
+    func getDataPriceRent(picker: ModelPicker)
+    {
+        
+        switch picker.id
+        {
+        case 1:
+            self.pricae_min = "null"
+            self.price_max = "3"
+        case 2:
+            self.pricae_min = "3"
+            self.price_max = "5"
+        case 3:
+            self.pricae_min = "5"
+            self.price_max = "5"
+        case 4:
+            self.pricae_min = "7"
+            self.price_max = "10"
+        case 5:
+            self.pricae_min = "10"
+            self.price_max = "20"
+        case 6:
+            self.pricae_min = "20"
+            self.price_max = "30"
+       
+        default:
+            self.pricae_min = "30"
             self.price_max = "null"
         }
     }
