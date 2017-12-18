@@ -268,13 +268,16 @@ extension LandForSaleViewController:LandForSaleViewCellDelegate
             }
             else
             {
-                for i in 0..<(Util.shared.listBDS.count - 1 )
+                if Util.shared.listBDS.count > 0
                 {
-                    if Util.shared.listBDS[i].id == item.id
+                    for i in 0..<(Util.shared.listBDS.count - 1 )
                     {
-                        Util.shared.listBDS.remove(at: i)
+                        if Util.shared.listBDS[i].id == item.id
+                        {
+                            Util.shared.listBDS.remove(at: i)
+                        }
+                        
                     }
-                    
                 }
             }
             self.listData[index].isLike = status

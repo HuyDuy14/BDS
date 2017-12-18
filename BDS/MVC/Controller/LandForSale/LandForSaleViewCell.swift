@@ -60,13 +60,22 @@ class LandForSaleViewCell: UITableViewCell {
         self.imageViewProfile.setImageUrlNews(url: API.linkImage + cell.image)
         self.name.text = cell.title
         self.information.text = cell.content
-        if cell.isLike == true
+        var count = 0
+        for land in Util.shared.listBDS
         {
-            self.imageLike.tintColor = UIColor.red
+            if land.id == cell.id{
+                self.imageLike.tintColor = UIColor.red
+                cell.isLike = true
+            }
+            else
+            {
+                count += 1
+            }
         }
-        else
+        if count == Util.shared.listBDS.count
         {
-             self.imageLike.tintColor = UIColor.lightGray
+            cell.isLike = false
+            self.imageLike.tintColor = UIColor.lightGray
         }
     }
     

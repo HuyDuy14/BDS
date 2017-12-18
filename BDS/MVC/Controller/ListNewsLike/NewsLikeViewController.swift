@@ -31,6 +31,7 @@ class NewsLikeViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tbaleView.reloadData()
+        self.getDataNews()
     }
     
     func refresh(_ sender: Any) {
@@ -39,31 +40,25 @@ class NewsLikeViewController: BaseViewController {
     
     func getDataNews()
     {
-        Util.shared.listNewsSave = []
+       
         APIClient.shared.getNewsSave().asObservable().bind(onNext: { result in
-            
-            if result.data != nil
+            self.listData.listBDS = []
+            for data in result.dataArray
             {
-                self.listData = NewsSaveModel(JSON:result.data!)!
-                Util.shared.listProjectSave = self.listData.listProjects
-                Util.shared.listNewsSave = self.listData.listNews
-                Util.shared.listBDS = self.listData.listBDS
-                DispatchQueue.main.async {
-                    self.tbaleView.reloadData()
+                if let dic = data as? [String:Any]
+                {
+                    let bds =  LandSaleModel(JSON:dic)
+                    self.listData.listBDS.append(bds!)
                 }
+               
             }
-            for news in self.listData.listNews
-            {
-                news.isLike = true
-            }
-            for projects in self.listData.listProjects
-            {
-                projects.isLike = true
-            }
-            for bds in self.listData.listBDS
+            Util.shared.listBDS = self.listData.listBDS
+           
+            for bds in Util.shared.listBDS
             {
                 bds.isLike = true
             }
+            self.tbaleView.reloadData()
             self.refreshControl.endRefreshing()
             self.hideHUD()
         }).disposed(by: self.disposeBag)
@@ -78,93 +73,91 @@ class NewsLikeViewController: BaseViewController {
 extension NewsLikeViewController:UITableViewDelegate,UITableViewDataSource
 {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section
-        {
-        case 0:
-           return self.listData.listNews.count
-        case 1:
-           return  self.listData.listProjects.count
-        case 2:
-           return self.listData.listBDS.count
-        default:
-            return 0
-        }
+        return Util.shared.listBDS.count
+      
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.section
+//        switch indexPath.section
+//        {
+//        case 0:
+//            let cell = self.tbaleView.dequeueReusableCell(withIdentifier: "NewsLikeViewCell") as! LandForSaleViewCell
+//            cell.loadDataNewsCell(cell: self.listData.listNews[indexPath.row], index: indexPath.row, type: 1)
+//            cell.delegate = self
+//            cell.imageLike.tintColor = UIColor.red
+//            return cell
+//        case 1:
+//            let cell = self.tbaleView.dequeueReusableCell(withIdentifier: "NewsLikeViewCell") as! LandForSaleViewCell
+//            cell.loadDataProject(project: self.listData.listProjects[indexPath.row], index: indexPath.row, type: 2)
+//            cell.delegate = self
+//            cell.imageLike.tintColor = UIColor.red
+//            return cell
+//        case 2:
+        if self.listData.listBDS.count > indexPath.row
         {
-        case 0:
             let cell = self.tbaleView.dequeueReusableCell(withIdentifier: "NewsLikeViewCell") as! LandForSaleViewCell
-            cell.loadDataNewsCell(cell: self.listData.listNews[indexPath.row], index: indexPath.row, type: 1)
+            cell.loadDataCell(cell: Util.shared.listBDS[indexPath.row], index: indexPath.row, type: 3)
             cell.delegate = self
             cell.imageLike.tintColor = UIColor.red
             return cell
-        case 1:
-            let cell = self.tbaleView.dequeueReusableCell(withIdentifier: "NewsLikeViewCell") as! LandForSaleViewCell
-            cell.loadDataProject(project: self.listData.listProjects[indexPath.row], index: indexPath.row, type: 2)
-            cell.delegate = self
-            cell.imageLike.tintColor = UIColor.red
-            return cell
-        case 2:
-            let cell = self.tbaleView.dequeueReusableCell(withIdentifier: "NewsLikeViewCell") as! LandForSaleViewCell
-            cell.loadDataCell(cell: self.listData.listBDS[indexPath.row], index: indexPath.row, type: 3)
-            cell.delegate = self
-            cell.imageLike.tintColor = UIColor.red
-            return cell
-        default:
-            return UITableViewCell()
         }
+        return UITableViewCell()
+//        default:
+//            return UITableViewCell()
+//        }
         
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-       
-        let headerView = self.tbaleView.dequeueReusableHeaderFooterView(withIdentifier: "NewsHeaderView") as? NewsHeaderView
-        switch section
-        {
-        case 0:
-             headerView?.nameHeader.text =  "" //"Tin tức"
-        case 1:
-            headerView?.nameHeader.text = "" //"Dự án"
-        case 2:
-            headerView?.nameHeader.text = "" //"Bất động sản"
-        default:
-            return headerView
-        }
-        return headerView
-    }
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 0
+//    }
+//
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//
+//        let headerView = self.tbaleView.dequeueReusableHeaderFooterView(withIdentifier: "NewsHeaderView") as? NewsHeaderView
+//        switch section
+//        {
+//        case 0:
+//             headerView?.nameHeader.text =  "" //"Tin tức"
+//        case 1:
+//            headerView?.nameHeader.text = "" //"Dự án"
+//        case 2:
+//            headerView?.nameHeader.text = "" //"Bất động sản"
+//        default:
+//            return headerView
+//        }
+//        return headerView
+//    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        switch indexPath.section
+//        switch indexPath.section
+//        {
+//        case 0:
+//            let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
+//            let vcDetail = storyboard.instantiateViewController(withIdentifier: "DetailNewsViewController") as? DetailNewsViewController
+//            vcDetail?.news = self.listData.listNews[indexPath.row]
+//            self.pushViewController(viewController: vcDetail)
+//        case 1:
+//            let storyboard = UIStoryboard(name: "Projects", bundle: nil)
+//            let showDetail = storyboard.instantiateViewController(withIdentifier: "DetailProjectViewController") as? DetailProjectViewController
+//            showDetail?.project = self.listData.listProjects[indexPath.row]
+//            self.pushViewController(viewController: showDetail)
+//        case 2:
+        if self.listData.listBDS.count > indexPath.row
         {
-        case 0:
-            let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
-            let vcDetail = storyboard.instantiateViewController(withIdentifier: "DetailNewsViewController") as? DetailNewsViewController
-            vcDetail?.news = self.listData.listNews[indexPath.row]
-            self.pushViewController(viewController: vcDetail)
-        case 1:
-            let storyboard = UIStoryboard(name: "Projects", bundle: nil)
-            let showDetail = storyboard.instantiateViewController(withIdentifier: "DetailProjectViewController") as? DetailProjectViewController
-            showDetail?.project = self.listData.listProjects[indexPath.row]
-            self.pushViewController(viewController: showDetail)
-        case 2:
-           
             let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
             let showDetail = storyboard.instantiateViewController(withIdentifier: "DetailLanforSaleViewController") as? DetailLanforSaleViewController
-            showDetail?.landForSale = self.listData.listBDS[indexPath.row]
+            showDetail?.landForSale = Util.shared.listBDS[indexPath.row]
+            showDetail?.landForSale.isLike = true
             self.pushViewController(viewController: showDetail)
-        default:
-           break
         }
+//        default:
+//           break
+//        }
     }
 }
 
@@ -232,12 +225,14 @@ extension NewsLikeViewController:LandForSaleViewCellDelegate
     func updateRowLand(item: LandSaleModel!,index:Int,type:Int)
     {
         if index >= 0 {
-
-            if type == 3
-            {
-                self.listData.listBDS.remove(at: index)
+            if index >  Util.shared.listBDS.count - 1 {
+                Util.shared.listBDS.removeAll()
+                self.tbaleView.reloadData()
+                return
             }
-            let indexPath = NSIndexPath(row: index, section: 2)
+            Util.shared.listBDS.remove(at: index)
+            
+            let indexPath = NSIndexPath(row: index, section: 0)
             var arrayIndext: [NSIndexPath] = []
             arrayIndext.append(indexPath)
             self.tbaleView.beginUpdates()

@@ -1712,6 +1712,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="btnLike" destination="gOw-9i-N5H" id="sNY-80-SzP"/>
                                             <outlet property="imageLike" destination="CIp-KA-LSs" id="zD8-m6-yBT"/>
                                             <outlet property="imageViewProfile" destination="z3x-bD-Wny" id="sbv-NB-6Ed"/>
                                             <outlet property="information" destination="CTB-z5-dtF" id="Huz-z3-OZl"/>

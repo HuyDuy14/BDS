@@ -254,14 +254,21 @@ class APIClient: NSObject {
         return self.requestGet(path: API.landForSale, method: .get, params: params)
     }
     
-    func getNews(id:String,page:Int,isNews:Bool) -> Observable<Result> {
+    func getNews(id:String,page:Int,isNews:Bool,isNewsBDS:Bool) -> Observable<Result> {
         let params: Parameters = [
             "id":id,
             "page":page
             ] as Parameters
         if isNews == true
         {
-            return self.requestGet(path: API.getNews, method: .get, params: params)
+            if isNewsBDS == true
+            {
+                return self.requestGet(path: API.apiNewsLand, method: .get, params: params)
+            }
+            else
+            {
+                return self.requestGet(path: API.getNews, method: .get, params: params)
+            }
         }
         else
         {
@@ -284,11 +291,18 @@ class APIClient: NSObject {
         return self.requestGet(path: API.detailBroker, method: .get, params: params)
     }
     
-    func getDetailNews(id:String) -> Observable<Result> {
+    func getDetailNews(id:String,isNewsBDS:Bool) -> Observable<Result> {
         let params: Parameters = [
             "id":id
             ] as Parameters
-        return self.requestGet(path: API.detailNews, method: .get, params: params)
+        if isNewsBDS == true
+        {
+            return self.requestGet(path: API.apiDetailNewsBDS, method: .get, params: params)
+        }
+        else
+        {
+            return self.requestGet(path: API.detailNews, method: .get, params: params)
+        }
     }
     func getDetailProject(id:String) -> Observable<Result> {
         let params: Parameters = [

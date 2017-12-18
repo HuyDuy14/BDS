@@ -34,10 +34,11 @@ class DetailLanforSaleViewController: BaseViewController {
     var imagePageViewController: ImagePageViewController?
     var timer:Timer!
     var indexPage = 0
+    var isLike:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.isLike = self.landForSale.isLike
         self.fillData()
         self.loadDataServer()
     }
@@ -68,6 +69,7 @@ class DetailLanforSaleViewController: BaseViewController {
             self.pageController.numberOfPages = self.landForSale.list_image.count
             showView?.listImageURL = self.landForSale.list_image
             self.showController(controllerName: "ImagePageViewController", controller: showView)
+            self.fillData()
             self.hideHUD()
         }).disposed(by: self.disposeBag)
     }
@@ -90,6 +92,7 @@ class DetailLanforSaleViewController: BaseViewController {
         self.landForSale.content = self.landForSale.content.replacingOccurrences(of: "600px", with: "\(self.webView.frame.size.width - 20)px")
         
          self.webView.loadHTMLString(Util.shared.htmlString(from: self.landForSale.content), baseURL: nil)
+        self.landForSale.isLike = self.isLike
         if self.landForSale.isLike == true
         {
             self.saveLandButton.tintColor = UIColor.red
@@ -150,7 +153,7 @@ class DetailLanforSaleViewController: BaseViewController {
             APIClient.shared.saveNews(id: self.landForSale.id, type: 3).asObservable().bind(onNext: { result in
                 self.hideHUD()
                 Util.shared.listBDS.append(self.landForSale)
-                 self.landForSale.isLike = true
+                self.landForSale.isLike = true
                 self.saveLandButton.tintColor = UIColor.red
             }).disposed(by: self.disposeBag)
         }

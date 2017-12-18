@@ -23,6 +23,7 @@ class NewsViewController: BaseViewController {
     var isLoad: Bool = true
     var isLoading: Bool = false
     var isNews:Bool = true
+    var isNewsBDS:Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +65,14 @@ class NewsViewController: BaseViewController {
         }
         vcCategory?.finish = { id in
             self.showHUD("")
+            if id.count == 0
+            {
+                self.isNewsBDS = true
+            }
+            else
+            {
+                 self.isNewsBDS = false
+            }
             self.idCategory = id
             self.listData = []
             self.tableView.reloadData()
@@ -85,12 +94,12 @@ class NewsViewController: BaseViewController {
     
     func getDataNews()
     {
-        Util.shared.listNewsSave = []
         APIClient.shared.getNewsSave().asObservable().bind(onNext: { result in
+             Util.shared.listBDS = []
             for data in result.dataArray {
                 if let dic = data as? [String:Any] {
-                    let newsModel = NewsModel(JSON: dic)
-                    Util.shared.listNewsSave.append(newsModel!)
+                    let land = LandSaleModel(JSON: dic)
+                    Util.shared.listBDS.append(land!)
                 }
             }
           
@@ -104,7 +113,7 @@ class NewsViewController: BaseViewController {
         
         if self.isLoading == false {
             self.isLoading = true
-            APIClient.shared.getNews(id:self.idCategory,page:self.page,isNews: self.isNews).asObservable().bind(onNext: {result in
+            APIClient.shared.getNews(id:self.idCategory,page:self.page,isNews: self.isNews,isNewsBDS: self.isNewsBDS).asObservable().bind(onNext: {result in
                 DispatchQueue.main.async {
                     var listNews: [NewsModel] = []
                     for data in result.dataArray
@@ -187,6 +196,7 @@ extension NewsViewController:UITableViewDelegate,UITableViewDataSource
             let vcDetail = storyboard.instantiateViewController(withIdentifier: "DetailNewsViewController") as? DetailNewsViewController
             vcDetail?.news = self.listData[indexPath.row]
             vcDetail?.isNews = self.isNews
+            vcDetail?.isNewsBDS = self.isNewsBDS
             self.pushViewController(viewController: vcDetail)
         }
     }

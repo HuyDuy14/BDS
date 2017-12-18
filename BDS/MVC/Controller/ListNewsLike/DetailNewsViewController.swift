@@ -23,6 +23,7 @@ class DetailNewsViewController: BaseViewController {
     var news: NewsModel!
     let disposeBag = DisposeBag()
     var isNews: Bool = true
+    var isNewsBDS:Bool = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,7 +68,7 @@ class DetailNewsViewController: BaseViewController {
         self.newsSave.isHidden = true
         self.btnSave.isHidden = true
         self.showHUD("")
-        APIClient.shared.getDetailNews(id: self.news.id).asObservable().bind(onNext: { result in
+        APIClient.shared.getDetailNews(id: self.news.id,isNewsBDS: self.isNewsBDS).asObservable().bind(onNext: { result in
 
             self.news = NewsModel(JSON: result.data!)
 

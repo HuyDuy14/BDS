@@ -178,12 +178,6 @@ class ProjectsViewController: BaseViewController {
                         if let dic = data as? [String:Any]
                         {
                             let project = LandSaleModel(JSON: dic)
-                            for land in Util.shared.listBDS
-                            {
-                                if land.id == project?.id{
-                                    project?.isLike = true
-                                }
-                            }
                            projects.append(project!)
                         }
                     }
@@ -272,6 +266,8 @@ extension ProjectsViewController:UITableViewDelegate,UITableViewDataSource
                 let cell = self.tableView.dequeueReusableCell(withIdentifier: "ProjectViewCell") as! ProjectViewCell
                 cell.loadData(project: self.listProject[indexPath.row], index: indexPath.row,type: 2)
                 cell.delegate = self
+                cell.imageLike.isHidden = true
+                cell.btnLike.isHidden = true
                 return cell
             }
             
@@ -404,13 +400,16 @@ extension ProjectsViewController:ProjectViewCellDelegate{
             }
             else
             {
-                for i in 0..<(Util.shared.listBDS.count - 1)
+                if (Util.shared.listBDS.count > 0 )
                 {
-                    if Util.shared.listBDS[i].id == item.id
+                    for i in 0..<(Util.shared.listBDS.count - 1)
                     {
-                        Util.shared.listBDS.remove(at: i)
+                        if Util.shared.listBDS[i].id == item.id
+                        {
+                            Util.shared.listBDS.remove(at: i)
+                        }
+                        
                     }
-                    
                 }
             }
             self.listLandSent[index].isLike = status

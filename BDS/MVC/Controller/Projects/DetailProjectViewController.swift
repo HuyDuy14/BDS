@@ -39,6 +39,7 @@ class DetailProjectViewController: BaseViewController {
         super.viewDidLoad()
         self.fillData()
         self.loadDataServer()
+        self.saveLandButton.isHidden = true
        
     }
     

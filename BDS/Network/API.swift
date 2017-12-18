@@ -45,4 +45,6 @@ class API: NSObject {
     static var detailProjrect = "project_detail.php"
     static var detailBroker = "broker_detail.php"
     static var detailNews = "news_detail.php"
+    static var apiNewsLand = "news_by_category_bds.php"
+    static var apiDetailNewsBDS = "news_bds_detail.php"
 }

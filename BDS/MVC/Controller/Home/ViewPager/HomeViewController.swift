@@ -160,14 +160,17 @@ extension HomeViewController
     
     func getDataNews()
     {
-        Util.shared.listNewsSave = []
+     
         APIClient.shared.getNewsSave().asObservable().bind(onNext: { result in
-            if result.data != nil
+            
+            Util.shared.listBDS = []
+            for data in result.dataArray
             {
-                let dataSave = NewsSaveModel(JSON:result.data!)!
-                Util.shared.listProjectSave = dataSave.listProjects
-                Util.shared.listNewsSave = dataSave.listNews
-                Util.shared.listBDS = dataSave.listBDS
+                if let dic = data as? [String:Any]
+                {
+                    let bds =  LandSaleModel(JSON:dic)
+                    Util.shared.listBDS.append(bds!)
+                }
                 
             }
             self.hideHUD()

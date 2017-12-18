@@ -17,7 +17,9 @@ class PopupCategoryNewsViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let categoryNews = CategoryNewsModel()
+        categoryNews.name = "Tin bất động sản"
+        listName.insert(categoryNews, at: 0)
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }

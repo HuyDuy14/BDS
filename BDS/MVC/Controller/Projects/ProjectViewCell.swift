@@ -20,7 +20,7 @@ class ProjectViewCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var information: UILabel!
     @IBOutlet weak var imageLike: UIImageView!
-    
+    @IBOutlet weak var btnLike: UIButton!
     var project:ProjectsModel!
     var land:LandSaleModel!
     var index:Int = 0
@@ -58,13 +58,22 @@ class ProjectViewCell: UITableViewCell {
         self.imageViewProfile.setImageProject(urlString: API.linkImage + project.image)
         self.name.text = project.title
         self.information.text = project.content
-        if project.isLike == true
+        var count = 0
+        for land in Util.shared.listBDS
         {
-            self.imageLike.tintColor = UIColor.red
+            if land.id == project.id{
+                project.isLike = true
+                 self.imageLike.tintColor = UIColor.red
+            }
+            else
+            {
+                count += 1
+            }
         }
-        else
+        if count == Util.shared.listBDS.count
         {
-            self.imageLike.tintColor = UIColor.lightGray
+             self.imageLike.tintColor = UIColor.lightGray
+            project.isLike = false
         }
     }
 
