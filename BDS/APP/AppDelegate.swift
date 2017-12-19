@@ -17,7 +17,7 @@ import RxSwift
 import SwiftMessages
 import IQKeyboardManagerSwift
 
-let API_KEY_GOOGLE = "AIzaSyDeHiOsROpzfS0K2ys91RoZhym8tGSbtYE"
+let API_KEY_GOOGLE = "AIzaSyBD1kiOal8TizmhXeYSvG1sa9FH9okzI44"
 var appId: String = "95bd2b1a-6eec-494d-821c-40830e86740e"
 
 @UIApplicationMain

@@ -104,6 +104,10 @@
 		13FB33121FD2C33C00FC5B55 /* ModelCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FB33111FD2C33C00FC5B55 /* ModelCity.swift */; };
 		13FB33141FD2F0B800FC5B55 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FB33131FD2F0B800FC5B55 /* Util.swift */; };
 		13FB33161FD2FA2100FC5B55 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13FB33151FD2FA2100FC5B55 /* GoogleService-Info.plist */; };
+		13FC19D81FE906E800538420 /* newsDetail.html in Resources */ = {isa = PBXBuildFile; fileRef = 13FC19D71FE906E800538420 /* newsDetail.html */; };
+		13FC19DB1FE914EB00538420 /* InforProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC19DA1FE914EB00538420 /* InforProjectViewController.swift */; };
+		13FC19DD1FE915F400538420 /* ProjectInforViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC19DC1FE915F400538420 /* ProjectInforViewController.swift */; };
+		13FC19DF1FE91F4C00538420 /* InforCompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC19DE1FE91F4C00538420 /* InforCompanyViewController.swift */; };
 		2A6A97D6285928BA06896700 /* Pods_BDS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A82C875BBC16DE7D48AEA19F /* Pods_BDS.framework */; };
 		7D1611BDE519527BFB3733E3 /* Pods_BDSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13A027B7BA22F07E221AA08B /* Pods_BDSUITests.framework */; };
 		FDF5F9EFC7884E57D38CD649 /* Pods_BDSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B22BDC33268E63372188012D /* Pods_BDSTests.framework */; };
@@ -232,6 +236,10 @@
 		13FB33111FD2C33C00FC5B55 /* ModelCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCity.swift; sourceTree = "<group>"; };
 		13FB33131FD2F0B800FC5B55 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		13FB33151FD2FA2100FC5B55 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		13FC19D71FE906E800538420 /* newsDetail.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = newsDetail.html; sourceTree = "<group>"; };
+		13FC19DA1FE914EB00538420 /* InforProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InforProjectViewController.swift; sourceTree = "<group>"; };
+		13FC19DC1FE915F400538420 /* ProjectInforViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectInforViewController.swift; sourceTree = "<group>"; };
+		13FC19DE1FE91F4C00538420 /* InforCompanyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InforCompanyViewController.swift; sourceTree = "<group>"; };
 		2606DAFFDB4CDFDC8A3E08E1 /* Pods-BDS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BDS.release.xcconfig"; path = "Pods/Target Support Files/Pods-BDS/Pods-BDS.release.xcconfig"; sourceTree = "<group>"; };
 		7FAE74201135EFE1B63FFA08 /* Pods-BDSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BDSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BDSUITests/Pods-BDSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9BAE4B0B6757005A3C69BD2D /* Pods-BDSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BDSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BDSTests/Pods-BDSTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -352,6 +360,7 @@
 		1344BE0A1FD1414700498108 /* Projects */ = {
 			isa = PBXGroup;
 			children = (
+				13FC19D91FE914BB00538420 /* Page */,
 				1344BE0B1FD1415B00498108 /* ProjectsViewController.swift */,
 				1344BE0D1FD1417400498108 /* ProjectViewCell.swift */,
 				1344BE1E1FD14E2F00498108 /* SearchProjectsViewController.swift */,
@@ -359,6 +368,7 @@
 				132532AB1FD6A7D8004BF9F5 /* DetailProjectViewController.swift */,
 				136E72721FD6F7240023F3B4 /* DetailMapsViewController.swift */,
 				136C56991FD7999800E38458 /* InforMapsProjectViewController.swift */,
+				13FC19DE1FE91F4C00538420 /* InforCompanyViewController.swift */,
 			);
 			path = Projects;
 			sourceTree = "<group>";
@@ -692,6 +702,7 @@
 		13B744561FD3CBDC00A778A7 /* WebView */ = {
 			isa = PBXGroup;
 			children = (
+				13FC19D71FE906E800538420 /* newsDetail.html */,
 				13B744571FD3CBE600A778A7 /* news.html */,
 			);
 			path = WebView;
@@ -705,6 +716,15 @@
 				13CAB8831FD915B80014F551 /* WaredModel.swift */,
 			);
 			path = City;
+			sourceTree = "<group>";
+		};
+		13FC19D91FE914BB00538420 /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				13FC19DA1FE914EB00538420 /* InforProjectViewController.swift */,
+				13FC19DC1FE915F400538420 /* ProjectInforViewController.swift */,
+			);
+			path = Page;
 			sourceTree = "<group>";
 		};
 		CFDE574777E5158DA4BE5493 /* Frameworks */ = {
@@ -794,7 +814,7 @@
 				TargetAttributes = {
 					139E64591FCF030300117E0B = {
 						CreatedOnToolsVersion = 9.1;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -843,6 +863,7 @@
 			files = (
 				139E64AD1FCF07E500117E0B /* PickerView.xib in Resources */,
 				13B744581FD3CBE700A778A7 /* news.html in Resources */,
+				13FC19D81FE906E800538420 /* newsDetail.html in Resources */,
 				13372E951FD00C1200041A57 /* User.storyboard in Resources */,
 				139E64B21FCF07F800117E0B /* HeaderViewController.xib in Resources */,
 				139E64CF1FCF091800117E0B /* Login.storyboard in Resources */,
@@ -1084,12 +1105,15 @@
 				1384B8341FDE6FFA001AE51A /* ContainerForgotPassViewController.swift in Sources */,
 				139E64B11FCF07F800117E0B /* HeaderViewController.swift in Sources */,
 				13195E251FD05B4600C60533 /* HomeMenuViewController.swift in Sources */,
+				13FC19DF1FE91F4C00538420 /* InforCompanyViewController.swift in Sources */,
 				139E64901FCF049400117E0B /* Result.swift in Sources */,
 				13FB33121FD2C33C00FC5B55 /* ModelCity.swift in Sources */,
+				13FC19DB1FE914EB00538420 /* InforProjectViewController.swift in Sources */,
 				139E64971FCF04BA00117E0B /* ExtensionDate.swift in Sources */,
 				139E64601FCF030300117E0B /* ViewController.swift in Sources */,
 				1344BE181FD149D800498108 /* SearchContactViewController.swift in Sources */,
 				139E64911FCF049400117E0B /* API.swift in Sources */,
+				13FC19DD1FE915F400538420 /* ProjectInforViewController.swift in Sources */,
 				13AB37641FCF9EA6000BA67D /* TutorialPageViewController.swift in Sources */,
 				13372E8F1FD009A300041A57 /* GetViewXib.swift in Sources */,
 				1344BE1F1FD14E2F00498108 /* SearchProjectsViewController.swift in Sources */,
@@ -1318,16 +1342,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BDS/BDS.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TXCECR9AZW;
 				INFOPLIST_FILE = BDS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ChoBDS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9a5eed27-c291-4bd0-a892-dba0308c1057";
-				PROVISIONING_PROFILE_SPECIFIER = fuck;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1339,16 +1363,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BDS/BDS.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TXCECR9AZW;
 				INFOPLIST_FILE = BDS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ChoBDS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9a5eed27-c291-4bd0-a892-dba0308c1057";
-				PROVISIONING_PROFILE_SPECIFIER = fuck;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

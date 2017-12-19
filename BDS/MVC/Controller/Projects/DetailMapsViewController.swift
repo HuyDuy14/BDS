@@ -16,6 +16,11 @@ import RxCocoa
 
 class DetailMapsViewController: BaseViewController {
 
+    @IBOutlet weak var btnBack: UIButton!
+    @IBOutlet weak var imageShared: UIImageView!
+    @IBOutlet weak var sharedButton: UIButton!
+    @IBOutlet weak var imageSave: UIImageView!
+    @IBOutlet weak var viewHeader: UIView!
     @IBOutlet weak var saveLandButton: UIButton!
     @IBOutlet weak var mapView: GMSMapView!
     
@@ -34,12 +39,22 @@ class DetailMapsViewController: BaseViewController {
     var landForSale:LandSaleModel!
     let disposeBag = DisposeBag()
     var inforMaps:InforMapsProjectViewController!
+    var isShow:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if Util.shared.projectsDetail != nil
+        {
+            self.sharedButton.isHidden = true
+            self.btnBack.isHidden = true
+            self.imageSave.isHidden = true
+            self.imageShared.isHidden = true
+            self.saveLandButton.isHidden = true
+            self.project = Util.shared.projectsDetail
+        }
         self.settingMaps()
         self.mapView.clear()
+        
        
     }
     
@@ -56,8 +71,13 @@ class DetailMapsViewController: BaseViewController {
         } else {
             locationManager.startUpdatingLocation()
         }
-        self.addBottomSheetView()
+        if Util.shared.projectsDetail == nil
+        {
+            self.addBottomSheetView()
+        }
         if self.project != nil {
+            self.imageSave.isHidden = true
+            self.saveLandButton.isHidden = true
             if self.project.isLike == true
             {
                 self.saveLandButton.tintColor = UIColor.red
@@ -194,6 +214,7 @@ class DetailMapsViewController: BaseViewController {
         let height = view.frame.height
         let width  = view.frame.width
         self.inforMaps = bottomSheetViewController
+//        self.inforMaps.animationShowView()
         bottomSheetViewController?.view.frame = CGRect(x: 0, y: self.view.frame.maxY, width: width, height: height)
     }
     
@@ -270,20 +291,41 @@ extension DetailMapsViewController: CLLocationManagerDelegate {
         print("Error: \(error)")
     }
 }
-
+extension DetailMapsViewController:InforMapsProjectViewControllerDelegate
+{
+    func showFullInfor(_ controller: InforMapsProjectViewController) {
+        
+    }
+    
+    func showHidePopOver(_ controller: InforMapsProjectViewController) {
+        self.isShow = false
+    }
+}
 
 extension DetailMapsViewController: GMSMapViewDelegate {
     
     func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
-        self.destinationLatitude = coordinate.latitude
-        self.destinationLongtitude = coordinate.longitude
-        let marker = GMSMarker(position: coordinate)
-        
-        marker.map = self.mapView
-        self.inforMaps.animationShowView()
+        if self.inforMaps == nil
+        {
+            return
+        }
+        if self.isShow == false
+        {
+            self.isShow = true
+            self.destinationLatitude = coordinate.latitude
+            self.destinationLongtitude = coordinate.longitude
+            let marker = GMSMarker(position: coordinate)
+            marker.map = self.mapView
+            self.inforMaps.animationShowView()
+        }
+       
     }
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        if self.inforMaps == nil
+        {
+            return false
+        }
         self.inforMaps.animationShowView()
 
         return true

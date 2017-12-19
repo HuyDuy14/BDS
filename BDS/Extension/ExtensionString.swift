@@ -36,7 +36,7 @@ public extension String
         let dateFormat = DateFormatter()
         dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let date = dateFormat.date(from: self) ?? Date()
-        dateFormat.dateFormat = "HH:mm dd-MM-yyyy"
+        dateFormat.dateFormat = "HH:mm dd/MM/yyyy"
         return dateFormat.string(from: date)
     }
     

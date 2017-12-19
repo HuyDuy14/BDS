@@ -282,8 +282,8 @@ extension ProjectsViewController:UITableViewDelegate,UITableViewDataSource
                 if self.listProject.count > indexPath.row
                 {
                     let storyboard = UIStoryboard(name: "Projects", bundle: nil)
-                    let showDetail = storyboard.instantiateViewController(withIdentifier: "DetailProjectViewController") as? DetailProjectViewController
-                    showDetail?.project = self.listProject[indexPath.row]
+                    let showDetail = storyboard.instantiateViewController(withIdentifier: "ProjectInforViewController") as? ProjectInforViewController
+                    Util.shared.projectsDetail = self.listProject[indexPath.row]
                     self.pushViewController(viewController: showDetail)
                 }
             }

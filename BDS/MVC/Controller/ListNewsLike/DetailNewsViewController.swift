@@ -9,16 +9,17 @@
 import UIKit
 import RxSwift
 
-class DetailNewsViewController: BaseViewController {
+class DetailNewsViewController: BaseViewController,UIWebViewDelegate {
 
-    @IBOutlet weak var heightImage: NSLayoutConstraint!
-    @IBOutlet weak var titleNews: UILabel!
-    @IBOutlet weak var heightView: NSLayoutConstraint!
-    @IBOutlet weak var dateUp: UILabel!
-    @IBOutlet weak var imageBanner: UIImageView!
+//    @IBOutlet weak var heightImage: NSLayoutConstraint!
+//    @IBOutlet weak var titleNews: UILabel!
+//    @IBOutlet weak var heightView: NSLayoutConstraint!
+//    @IBOutlet weak var dateUp: UILabel!
+//    @IBOutlet weak var imageBanner: UIImageView!
     @IBOutlet weak var detailWebView: UIWebView!
     @IBOutlet weak var btnSave: UIButton!
-
+    @IBOutlet weak var progress: UIActivityIndicatorView!
+    
     @IBOutlet weak var newsSave: UIImageView!
     var news: NewsModel!
     let disposeBag = DisposeBag()
@@ -57,6 +58,7 @@ class DetailNewsViewController: BaseViewController {
             self.news.content = self.news.content.replacingOccurrences(of: "500px", with: "\(self.detailWebView.frame.size.width - 20)px")
             self.news.content = self.news.content.replacingOccurrences(of: "600px", with: "\(self.detailWebView.frame.size.width - 20)px")
               self.news.content = self.news.content.replacingOccurrences(of: "615px", with: "\(self.detailWebView.frame.size.width - 20)px")
+    
             self.loadData()
 
             self.hideHUD()
@@ -90,14 +92,22 @@ class DetailNewsViewController: BaseViewController {
 
     func loadData() {
 
-        self.imageBanner.setImageUrlNews(url: API.linkImage + news.image)
-        self.dateUp.text = "Ngày tạo:" + news.created_time.FromStringToDateToStringNews()
-        self.titleNews.text = news.title
-        let height = round(self.titleNews.getLabelHeight())
-        let count = round(height / 18)
-        let heightLabel = count * 18
-        self.heightView.constant = self.imageBanner.frame.size.height + 48 + heightLabel
-        self.detailWebView.loadHTMLString(Util.shared.webViewChangeFont(htmlString: news.content), baseURL: nil)
+//        self.imageBanner.setImageUrlNews(url: API.linkImage + news.image)
+//        self.dateUp.text = "Ngày tạo:" + news.created_time.FromStringToDateToStringNews()
+//        self.titleNews.text = news.title
+//        let height = round(self.titleNews.getLabelHeight())
+//        let count = round(height / 18)
+//        let heightLabel = count * 18
+//        self.heightView.constant = self.imageBanner.frame.size.height + 48 + heightLabel
+        self.news.content = Util.shared.webViewChangeFont(htmlString: news.content)
+        self.news.content = self.news.content.replacingOccurrences(of: "linkImageView", with: API.linkImage + news.image)
+        self.news.content = self.news.content.replacingOccurrences(of: "00001px", with: "\(self.view.frame.width - 20)px")
+        self.news.content = self.news.content.replacingOccurrences(of: "datecreate...", with: "Ngày tạo: " + news.created_time.FromStringToDateToStringNews())
+        self.news.content = self.news.content.replacingOccurrences(of: "title...", with:  news.title)
+        self.detailWebView.delegate = self
+        self.detailWebView.loadHTMLString(self.news.content, baseURL: nil)
+        self.progress.startAnimating()
+        self.progress.hidesWhenStopped = true
         if self.news.isLike == true {
             self.newsSave.tintColor = UIColor.red
         }
@@ -149,6 +159,14 @@ class DetailNewsViewController: BaseViewController {
         {
             AppDelegate.shared?.shareImage(controller: self, link: API.linkImage + "tv" + self.news.category_name + "/" + news.alias + "-p" + self.news.id + ".html", image: #imageLiteral(resourceName: "demo"))
         }
+    }
+    
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        progress.stopAnimating()
+    }
+    
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        progress.stopAnimating()
     }
 
 }

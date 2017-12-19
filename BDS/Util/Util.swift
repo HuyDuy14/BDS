@@ -23,6 +23,7 @@ class Util: NSObject {
     var listCategorySale:[CategoryLand] = []
     var listCategoryRent:[CategoryLand] = []
     var listAllCategoryland:[CategoryLand] = []
+    var projectsDetail:ProjectsModel!
     
     func isValidEmail(email:String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
@@ -48,8 +49,19 @@ class Util: NSObject {
         
     }
     func webViewChangeFont(htmlString: String) -> String {
-        let newString = "<span style=\"font-family: helvetica; font-size: 16\">\(htmlString)</span>"
-        return newString
+        guard let filePath = Bundle.main.path(forResource: "newsDetail", ofType: "html") else {
+            return htmlString
+        }
+        
+        do {
+            let baseHTML = try String(contentsOfFile: filePath, encoding: String.Encoding.utf8)
+            var desString = baseHTML.replacingOccurrences(of: "Loading...", with: htmlString)
+            let w = String(Int(UIScreen.main.bounds.size.width) - 60)
+            desString = desString.replacingOccurrences(of: "96%", with: w)
+            return desString
+        } catch {
+            return htmlString
+        }
     }
 
 }

@@ -11,13 +11,18 @@ import GoogleMaps
 import GooglePlaces
 import CoreLocation
 import UserNotifications
+import RxCocoa
+import RxSwift
 
 class MapsViewController: BaseViewController {
 
     @IBOutlet weak var nameMaps: UILabel!
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var btnTypeSelect: UIButton!
+    
+    let disposeBag = DisposeBag()
     var inforMaps:InforMapsViewController!
+    var inforMapsDetail:InforMapsProjectViewController!
     
     var isGrantedNotificationAccess: Bool = false
     let locationManager = CLLocationManager()
@@ -29,11 +34,12 @@ class MapsViewController: BaseViewController {
     var listLatitudes: [Double] = []
     var listLongitudes: [Double] = []
     
+    var landForSale:LandSaleModel!
     var indexType:Int = 3
     var is3D:Bool = false
     var isCheckShow:Bool = false
     
-    var listPicker:[ModelPicker] = [ModelPicker(id: 0, name: "5"),ModelPicker(id: 1, name: "10"),ModelPicker(id: 2, name: "15"),ModelPicker(id: 3, name: "20"),ModelPicker(id: 4, name: "25"),ModelPicker(id: 5, name: "30"),ModelPicker(id:6, name: "35"),ModelPicker(id: 7, name: "40"),ModelPicker(id: 8, name: "45"),ModelPicker(id: 9, name: "45"),ModelPicker(id: 10, name: "50")]
+    var listPicker:[ModelPicker] = []
     let pickerView = PickerView.getFromNib()
     var r = "2"
     var selectDistance:Int = 0
@@ -41,6 +47,11 @@ class MapsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.settingMaps()
+        for i in 1...20
+        {
+            let model = ModelPicker(id: i-1, name: "\(i)")
+            self.listPicker.append(model)
+        }
         self.pickerView.delegate = self
     }
     
@@ -146,7 +157,7 @@ class MapsViewController: BaseViewController {
         bottomSheetViewController?.delegate = self
         bottomSheetViewController?.lat = String(self.originLatitude)
         bottomSheetViewController?.lng =  String(self.originLongtitude)
-        bottomSheetViewController?.animationShow()
+//        bottomSheetViewController?.animationShow()
         self.addChildViewController(bottomSheetViewController!)
         self.view.addSubview((bottomSheetViewController?.view)!)
         bottomSheetViewController?.didMove(toParentViewController: self)
@@ -154,6 +165,22 @@ class MapsViewController: BaseViewController {
         let width  = view.frame.width
         bottomSheetViewController?.view.frame = CGRect(x: 0, y: self.view.frame.maxY, width: width, height: height)
     }
+    
+    func addBottomSheetViewDetail() {
+        let storyboard = UIStoryboard(name: "Projects", bundle: nil)
+        let bottomSheetViewController = storyboard.instantiateViewController(withIdentifier: "InforMapsProjectViewController") as? InforMapsProjectViewController
+        bottomSheetViewController?.landForSale = self.landForSale
+        bottomSheetViewController?.delegate = self
+        self.addChildViewController(bottomSheetViewController!)
+        self.view.addSubview((bottomSheetViewController?.view)!)
+        bottomSheetViewController?.didMove(toParentViewController: self)
+        let height = view.frame.height
+        let width  = view.frame.width
+        self.inforMapsDetail = bottomSheetViewController
+        self.inforMapsDetail.view.isHidden = true
+        bottomSheetViewController?.view.frame = CGRect(x: 0, y: self.view.frame.maxY, width: width, height: height)
+    }
+    
     
 }
 extension MapsViewController: CLLocationManagerDelegate {
@@ -170,6 +197,7 @@ extension MapsViewController: CLLocationManagerDelegate {
              if self.isCheckShow == false
              {
                 self.isCheckShow = true
+                self.addBottomSheetViewDetail()
                 self.addBottomSheetView()
             }
             let coordinates = CLLocationCoordinate2D(latitude: locationLatitude, longitude: locationLongtitude)
@@ -220,20 +248,55 @@ extension MapsViewController: GMSMapViewDelegate {
     }
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-        let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
-        let showDetail = storyboard.instantiateViewController(withIdentifier: "DetailLanforSaleViewController") as? DetailLanforSaleViewController
+
         if let landForSale =  marker.userData as? LandSaleModel
         {
-            showDetail?.landForSale = landForSale
-            self.pushViewController(viewController: showDetail)
+            if self.landForSale == nil || self.landForSale.id != landForSale.id
+            {
+                self.landForSale = landForSale
+                self.loadDataLand()
+            }
+//
         }
        
         return true
+    }
+    
+    func loadDataLand()
+    {
+        self.showHUD("")
+        APIClient.shared.getDetailSale(id: self.landForSale.id).asObservable().bind(onNext: {result in
+            self.landForSale = LandSaleModel(JSON: result.data!)
+            self.inforMapsDetail.animationHideView()
+            self.inforMapsDetail.view.isHidden = false
+            self.inforMaps.view.isHidden = true
+            
+            self.inforMapsDetail.landForSale = self.landForSale
+            self.inforMapsDetail.fillData()
+            self.inforMapsDetail.animationShowView()
+            self.hideHUD()
+        }).disposed(by: self.disposeBag)
+    }
+}
+extension MapsViewController:InforMapsProjectViewControllerDelegate
+{
+    func showHidePopOver(_ controller: InforMapsProjectViewController) {
+        self.landForSale = nil
+    }
+    
+    func showFullInfor(_ controller: InforMapsProjectViewController) {
+        let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
+        let showDetail = storyboard.instantiateViewController(withIdentifier: "DetailLanforSaleViewController") as? DetailLanforSaleViewController
+        showDetail?.landForSale = self.landForSale
+        self.pushViewController(viewController: showDetail)
     }
 }
 extension MapsViewController:InforMapsViewControllerDelegate
 {
     func disLoadDataMaps(_ controller: InforMapsViewController, listData: [LandSaleModel]) {
+//        self.inforMaps.view.isHidden = false
+        self.inforMapsDetail.view.isHidden = true
+        self.inforMapsDetail.animationHideView()
         if self.indexType == 2 || self.indexType == 3
         {
           self.inforMaps.numberNews.text = " \(listData.count) tin rao"

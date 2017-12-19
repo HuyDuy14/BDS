@@ -12,7 +12,6 @@ import RxCocoa
 
 class DetailProjectViewController: BaseViewController {
 
-    @IBOutlet weak var saveLandButton: UIButton!
     @IBOutlet weak var imageProjects: UIImageView!
     @IBOutlet weak var nameUserProjects: UILabel!
     @IBOutlet weak var addressProject: UILabel!
@@ -37,9 +36,9 @@ class DetailProjectViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.project = Util.shared.projectsDetail
         self.fillData()
         self.loadDataServer()
-        self.saveLandButton.isHidden = true
        
     }
     
@@ -57,6 +56,7 @@ class DetailProjectViewController: BaseViewController {
         self.showHUD("")
         APIClient.shared.getDetailProject(id: self.project.id).asObservable().bind(onNext: {result in
             self.project = ProjectsModel(JSON: result.data!)
+            Util.shared.projectsDetail = self.project
             let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
             let showView = storyboard.instantiateViewController(withIdentifier: "ImagePageViewController") as? ImagePageViewController
             showView?.imageDelegate = self
@@ -99,14 +99,7 @@ class DetailProjectViewController: BaseViewController {
         self.date.text = project.date_finish.FromStringToDateToStringProjects()
         self.scaleProject.text = project.summary
         self.webView.loadHTMLString(Util.shared.htmlString(from: project.content), baseURL: nil)
-        if self.project.isLike == true
-        {
-            self.saveLandButton.tintColor = UIColor.red
-        }
-        else
-        {
-            self.saveLandButton.tintColor = UIColor.lightGray
-        }
+        
     }
     
 
@@ -137,7 +130,7 @@ class DetailProjectViewController: BaseViewController {
                     }
                 }
                 self.project.isLike = false
-                self.saveLandButton.tintColor = UIColor.lightGray
+              
             }).disposed(by: self.disposeBag)
         }
         else
@@ -145,7 +138,6 @@ class DetailProjectViewController: BaseViewController {
             APIClient.shared.saveNews(id: self.project.id, type: 2).asObservable().bind(onNext: { result in
                 self.hideHUD()
                 Util.shared.listProjectSave.append(self.project)
-                self.saveLandButton.tintColor = UIColor.red
                  self.project.isLike = true
             }).disposed(by: self.disposeBag)
         }

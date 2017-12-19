@@ -60,12 +60,12 @@ class InforMapsViewController: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 //
-//        UIView.animate(withDuration: 0.6, animations: { [weak self] in
-//            let frame = self?.view.frame
-//            let yComponent = self?.partialView
-//            self?.view.frame = CGRect(x: 0, y: yComponent!, width: frame!.width, height: frame!.height - 90)
-//        })
-        self.animationShow()
+        UIView.animate(withDuration: 0.6, animations: { [weak self] in
+            let frame = self?.view.frame
+            let yComponent = self?.partialView
+            self?.view.frame = CGRect(x: 0, y: yComponent!, width: frame!.width, height: frame!.height)
+        })
+//        self.animationShow()
     }
     
     func roundViews() {

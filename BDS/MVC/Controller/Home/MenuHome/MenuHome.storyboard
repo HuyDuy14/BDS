@@ -1802,49 +1802,9 @@ Email : lienhe@chobatdongsan.com.vn
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TPB-2L-Eyd">
-                                <rect key="frame" x="0.0" y="310" width="375" height="357"/>
+                                <rect key="frame" x="0.0" y="70" width="375" height="597"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bnb-vK-JT2">
-                                <rect key="frame" x="0.0" y="70" width="375" height="240"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="demoNews" translatesAutoresizingMaskIntoConstraints="NO" id="NmP-80-0gk">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="A70-rB-3sL"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuN-XL-qLr">
-                                        <rect key="frame" x="8" y="201" width="359" height="16"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOr-rM-A67">
-                                        <rect key="frame" x="8" y="220" width="359" height="16"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="16" id="LeX-Ky-ayX"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="kOr-rM-A67" secondAttribute="trailing" constant="8" id="1Hg-HV-w9S"/>
-                                    <constraint firstAttribute="bottom" secondItem="kOr-rM-A67" secondAttribute="bottom" constant="4" id="1Mg-T0-0mO"/>
-                                    <constraint firstAttribute="trailing" secondItem="nuN-XL-qLr" secondAttribute="trailing" constant="8" id="1PW-qX-x2R"/>
-                                    <constraint firstItem="kOr-rM-A67" firstAttribute="top" secondItem="nuN-XL-qLr" secondAttribute="bottom" constant="3" id="2Iw-b0-ssH"/>
-                                    <constraint firstAttribute="height" constant="240" id="BPm-W2-tkG"/>
-                                    <constraint firstItem="nuN-XL-qLr" firstAttribute="top" secondItem="NmP-80-0gk" secondAttribute="bottom" constant="1" id="Fbo-yR-qRw"/>
-                                    <constraint firstItem="NmP-80-0gk" firstAttribute="top" secondItem="bnb-vK-JT2" secondAttribute="top" id="KJv-jf-E4f"/>
-                                    <constraint firstAttribute="trailing" secondItem="NmP-80-0gk" secondAttribute="trailing" id="KiF-xP-NRZ"/>
-                                    <constraint firstItem="nuN-XL-qLr" firstAttribute="leading" secondItem="bnb-vK-JT2" secondAttribute="leading" constant="8" id="QKG-d5-lZI"/>
-                                    <constraint firstItem="NmP-80-0gk" firstAttribute="leading" secondItem="bnb-vK-JT2" secondAttribute="leading" id="dOd-EY-nlj"/>
-                                    <constraint firstItem="kOr-rM-A67" firstAttribute="leading" secondItem="bnb-vK-JT2" secondAttribute="leading" constant="8" id="vlg-54-pE6"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bu6-ou-JOg">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                 <subviews>
@@ -1910,30 +1870,28 @@ Email : lienhe@chobatdongsan.com.vn
                                     <constraint firstItem="OT6-Aw-a7a" firstAttribute="centerY" secondItem="wKt-ih-nmS" secondAttribute="centerY" id="cV7-BL-eSt"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="JOp-xY-XSL">
+                                <rect key="frame" x="177" y="358.5" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="bnb-vK-JT2" secondAttribute="trailing" id="3mw-R0-CaP"/>
-                            <constraint firstItem="TPB-2L-Eyd" firstAttribute="top" secondItem="bnb-vK-JT2" secondAttribute="bottom" id="61e-Hf-Hd8"/>
                             <constraint firstItem="Bu6-ou-JOg" firstAttribute="top" secondItem="cR7-O9-J2S" secondAttribute="top" id="9dk-F0-wcK"/>
                             <constraint firstItem="ZFv-6j-DH7" firstAttribute="top" secondItem="TPB-2L-Eyd" secondAttribute="bottom" id="Cih-8l-dZR"/>
+                            <constraint firstItem="JOp-xY-XSL" firstAttribute="centerY" secondItem="TPB-2L-Eyd" secondAttribute="centerY" id="HGd-ca-D8k"/>
                             <constraint firstItem="TPB-2L-Eyd" firstAttribute="leading" secondItem="cR7-O9-J2S" secondAttribute="leading" id="Rrr-qF-E7Z"/>
                             <constraint firstItem="Bu6-ou-JOg" firstAttribute="leading" secondItem="cR7-O9-J2S" secondAttribute="leading" id="V32-il-OmD"/>
                             <constraint firstAttribute="trailing" secondItem="TPB-2L-Eyd" secondAttribute="trailing" id="WZg-dt-99c"/>
-                            <constraint firstItem="bnb-vK-JT2" firstAttribute="top" secondItem="Bu6-ou-JOg" secondAttribute="bottom" id="dD4-aj-f9Z"/>
+                            <constraint firstItem="JOp-xY-XSL" firstAttribute="centerX" secondItem="TPB-2L-Eyd" secondAttribute="centerX" id="aVF-Jl-Vjx"/>
                             <constraint firstAttribute="trailing" secondItem="Bu6-ou-JOg" secondAttribute="trailing" id="f40-x7-kFk"/>
-                            <constraint firstItem="bnb-vK-JT2" firstAttribute="leading" secondItem="cR7-O9-J2S" secondAttribute="leading" id="rBP-tU-RUs"/>
+                            <constraint firstItem="TPB-2L-Eyd" firstAttribute="top" secondItem="Bu6-ou-JOg" secondAttribute="bottom" id="u8r-YI-U3b"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="btnSave" destination="OT6-Aw-a7a" id="eYI-gj-blZ"/>
-                        <outlet property="dateUp" destination="kOr-rM-A67" id="Shh-8G-wL9"/>
                         <outlet property="detailWebView" destination="TPB-2L-Eyd" id="sKJ-xF-hub"/>
-                        <outlet property="heightImage" destination="A70-rB-3sL" id="gt0-bY-JhO"/>
-                        <outlet property="heightView" destination="BPm-W2-tkG" id="i2Q-Rw-Eao"/>
-                        <outlet property="imageBanner" destination="NmP-80-0gk" id="ivd-SY-W10"/>
                         <outlet property="newsSave" destination="SN7-lt-dPr" id="RbV-DP-irI"/>
-                        <outlet property="titleNews" destination="nuN-XL-qLr" id="Qim-VG-lEh"/>
+                        <outlet property="progress" destination="JOp-xY-XSL" id="HqE-o6-BbW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0pf-jM-ish" userLabel="First Responder" sceneMemberID="firstResponder"/>

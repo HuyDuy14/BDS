@@ -20,6 +20,7 @@ class InforAppViewController: BaseViewController,UIWebViewDelegate {
     @IBOutlet weak var imageInfor: UIImageView!
     var isShowMenu:Bool = true
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         if isShowMenu == true

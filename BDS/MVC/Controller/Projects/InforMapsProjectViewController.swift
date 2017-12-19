@@ -7,6 +7,11 @@
 //
 
 import UIKit
+protocol  InforMapsProjectViewControllerDelegate:class
+{
+    func showHidePopOver(_ controller:InforMapsProjectViewController)
+     func showFullInfor(_ controller:InforMapsProjectViewController)
+}
 
 class InforMapsProjectViewController: BaseViewController {
 
@@ -26,6 +31,7 @@ class InforMapsProjectViewController: BaseViewController {
     }
     var project:ProjectsModel!
     var landForSale:LandSaleModel!
+    weak var delegate:InforMapsProjectViewControllerDelegate?
     
     fileprivate var drawerBottomSafeArea: CGFloat = 0.0 {
         didSet {
@@ -62,7 +68,10 @@ class InforMapsProjectViewController: BaseViewController {
         }
         else
         {
-          
+            if self.landForSale == nil
+            {
+                return
+            }
             self.titlelProject.text = self.landForSale.title
             self.addAre.text = self.landForSale.land_area + "m2"
             self.priceProject.text = self.landForSale.land_price + " tỷ/m2"
@@ -77,7 +86,11 @@ class InforMapsProjectViewController: BaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.animationShowView()
+        UIView.animate(withDuration: 0.6, animations: { [weak self] in
+            let frame = self?.view.frame
+            let yComponent = self?.partialView
+            self?.view.frame = CGRect(x: 0, y:  yComponent!, width: frame!.width, height:UIScreen.main.bounds.height)
+        })
         
     }
     
@@ -86,7 +99,14 @@ class InforMapsProjectViewController: BaseViewController {
         UIView.animate(withDuration: 0.6, animations: { [weak self] in
             let frame = self?.view.frame
             //            let yComponent = self?.partialView
-            self?.view.frame = CGRect(x: 0, y: (frame?.height)! - 320 , width: frame!.width, height: (frame?.height)! - 50)
+            self?.view.frame = CGRect(x: 0, y: UIScreen.main.bounds.height / 2 , width: frame!.width, height: (frame?.height)! - 50)
+        })
+    }
+    
+    func animationHideView()
+    {
+        UIView.animate(withDuration: 0.6, animations: { [weak self] in
+            self?.view.frame = CGRect(x: 0, y: (self?.partialView)!, width: (self?.view.frame.width)!, height: (self?.view.frame.height)!)
         })
     }
     
@@ -107,13 +127,13 @@ class InforMapsProjectViewController: BaseViewController {
                 self.view.frame = CGRect(x: 0, y: y + translation.y, width: view.frame.width, height: view.frame.height)
                 recognizer.setTranslation(CGPoint.zero, in: self.view)
             }
-            else
-            {
-                if (view.frame.height - 300 ) <= y + translation.y{
-                    self.view.frame = CGRect(x: 0, y: y + translation.y, width: view.frame.width, height: view.frame.height)
-                    recognizer.setTranslation(CGPoint.zero, in: self.view)
-                }
-            }
+//            else
+//            {
+//                if (view.frame.height - 300 ) <= y + translation.y{
+//                    self.view.frame = CGRect(x: 0, y: y + translation.y, width: view.frame.width, height: view.frame.height)
+//                    recognizer.setTranslation(CGPoint.zero, in: self.view)
+//                }
+//            }
         }
         
         if recognizer.state == .ended {
@@ -124,6 +144,7 @@ class InforMapsProjectViewController: BaseViewController {
             UIView.animate(withDuration: duration, delay: 0.0, options: [.allowUserInteraction], animations: {
                 if  velocity.y >= 0 {
                     self.view.frame = CGRect(x: 0, y: self.partialView, width: self.view.frame.width, height: self.view.frame.height)
+                    self.delegate?.showHidePopOver(self)
                 }
                 
             }, completion: {  _ in
@@ -144,6 +165,11 @@ class InforMapsProjectViewController: BaseViewController {
         bluredView.frame = UIScreen.main.bounds
         view.insertSubview(bluredView, at: 0)
     }
+    
+    @IBAction func showFullInforDidTap(_ sender: Any) {
+        self.delegate?.showFullInfor(self)
+    }
+    
 }
 
 extension InforMapsProjectViewController: UIGestureRecognizerDelegate {
