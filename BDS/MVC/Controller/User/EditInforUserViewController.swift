@@ -115,6 +115,10 @@ extension EditInforUserViewController:MIDatePickerDelegate
 
 extension EditInforUserViewController:PickerViewDelegate
 {
+    func selectPickerView(_ Ppicker: PickerView, didSelect picker: ModelPicker, index: Int) {
+        
+    }
+    
     func miPickerViewDidCancelSelection(_ amPicker: PickerView) {
         
     }

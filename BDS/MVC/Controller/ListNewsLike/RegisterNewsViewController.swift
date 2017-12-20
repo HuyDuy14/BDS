@@ -381,6 +381,10 @@ class RegisterNewsViewController: BaseViewController {
 
 extension RegisterNewsViewController:PickerViewDelegate
 {
+    func selectPickerView(_ Ppicker: PickerView, didSelect picker: ModelPicker, index: Int) {
+        
+    }
+    
     func miPickerViewDidCancelSelection(_ amPicker: PickerView) {
         
     }

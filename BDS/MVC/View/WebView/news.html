@@ -1,3 +1,16 @@
+<script type='text/javascript'>
+    function loadMediaFrame()
+    {
+        var lImg = document.getElementsByTagName('img');
+        for(var i=0;i<lImg.length;i++)
+        {
+            if(window.innerWidth<lImg[i].clientWidth)
+            {
+                lImg[i].style.width='96%';lImg[i].style.height='auto';
+            }
+        }
+    }
+</script>";
 <html><head>
     <meta charset="utf-8"/>
         <style type="text/css">
@@ -20,7 +33,7 @@
         </style>
         </head>
 
-        <body>
+        <body onload='loadMediaFrame()'>
             <div class="article">Loading...  </div>
         </body>
 

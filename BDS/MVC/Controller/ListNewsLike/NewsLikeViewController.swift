@@ -11,11 +11,14 @@ import RxSwift
 
 class NewsLikeViewController: BaseViewController {
 
+    @IBOutlet weak var titleView: UILabel!
+    @IBOutlet weak var desView: UILabel!
+    
     @IBOutlet weak var tbaleView: UITableView!
     var refreshControl: UIRefreshControl!
     let disposeBag = DisposeBag()
     var listData:NewsSaveModel = NewsSaveModel()
-    
+    var isMenu:Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tbaleView.delegate = self
@@ -26,6 +29,10 @@ class NewsLikeViewController: BaseViewController {
         self.tbaleView.addSubview(refreshControl!)
        self.tbaleView.register(UINib.init(nibName: "NewsHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier:  "NewsHeaderView")
         self.getDataNews()
+        if isMenu == true {
+            self.titleView.text = "Tin đã đăng"
+            self.desView.text = "Thông tin những tin bạn đã đăng"
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,7 +48,7 @@ class NewsLikeViewController: BaseViewController {
     func getDataNews()
     {
        
-        APIClient.shared.getNewsSave().asObservable().bind(onNext: { result in
+        APIClient.shared.getNewsSave(isMenu:self.isMenu).asObservable().bind(onNext: { result in
             self.listData.listBDS = []
             for data in result.dataArray
             {
@@ -65,7 +72,15 @@ class NewsLikeViewController: BaseViewController {
     }
     
     @IBAction func backButtonDidTap(_ sender: Any) {
-        SaveCurrentVC.shared.homeController.tutorialPageViewController?.scrollToViewController(index: 0)
+       
+        if isMenu == false
+        {
+            SaveCurrentVC.shared.homeController.tutorialPageViewController?.scrollToViewController(index: 0)
+        }
+        else
+        {
+            self.popToView()
+        }
     }
     
 

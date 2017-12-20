@@ -56,7 +56,7 @@ class MIDatePicker: UIView {
     var bottomConstraint: NSLayoutConstraint!
     var overlayButton: UIButton!
     var checkEdit: Bool = false
-
+    var isStart: Bool = false
     // MARK: - Init
     static func getFromNib() -> MIDatePicker {
         return UINib.init(nibName: String(describing: self), bundle: nil).instantiate(withOwner: self, options: nil).last as! MIDatePicker

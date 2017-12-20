@@ -165,6 +165,10 @@ class SearchProjectsViewController: BaseViewController {
 
 extension SearchProjectsViewController:PickerViewDelegate
 {
+    func selectPickerView(_ Ppicker: PickerView, didSelect picker: ModelPicker, index: Int) {
+        
+    }
+    
     func miPickerViewDidCancelSelection(_ amPicker: PickerView) {
         
     }

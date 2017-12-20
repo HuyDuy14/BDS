@@ -53,11 +53,11 @@ class DetailNewsViewController: BaseViewController,UIWebViewDelegate {
                     self.news.isLike = true
                 }
             }
-            self.news.content = self.news.content.replacingOccurrences(of: "width: 500px", with: "width: \(self.detailWebView.frame.size.width - 20)px")
-            self.news.content = self.news.content.replacingOccurrences(of: "width: 600px", with: "width: \(self.detailWebView.frame.size.width - 20)px")
-            self.news.content = self.news.content.replacingOccurrences(of: "500px", with: "\(self.detailWebView.frame.size.width - 20)px")
-            self.news.content = self.news.content.replacingOccurrences(of: "600px", with: "\(self.detailWebView.frame.size.width - 20)px")
-              self.news.content = self.news.content.replacingOccurrences(of: "615px", with: "\(self.detailWebView.frame.size.width - 20)px")
+//            self.news.content = self.news.content.replacingOccurrences(of: "width: 500px", with: "width: \(self.detailWebView.frame.size.width - 20)px")
+//            self.news.content = self.news.content.replacingOccurrences(of: "width: 600px", with: "width: \(self.detailWebView.frame.size.width - 20)px")
+//            self.news.content = self.news.content.replacingOccurrences(of: "500px", with: "\(self.detailWebView.frame.size.width - 20)px")
+//            self.news.content = self.news.content.replacingOccurrences(of: "600px", with: "\(self.detailWebView.frame.size.width - 20)px")
+//              self.news.content = self.news.content.replacingOccurrences(of: "615px", with: "\(self.detailWebView.frame.size.width - 20)px")
     
             self.loadData()
 
@@ -74,10 +74,10 @@ class DetailNewsViewController: BaseViewController,UIWebViewDelegate {
 
             self.news = NewsModel(JSON: result.data!)
 
-            self.news.content = self.news.content.replacingOccurrences(of: "width: 500px", with: "width: \(self.detailWebView.frame.size.width - 20)px")
-            self.news.content = self.news.content.replacingOccurrences(of: "width: 600px", with: "width: \(self.detailWebView.frame.size.width - 20)px")
-            self.news.content = self.news.content.replacingOccurrences(of: "500px", with: "\(self.detailWebView.frame.size.width - 20)px")
-            self.news.content = self.news.content.replacingOccurrences(of: "600px", with: "\(self.detailWebView.frame.size.width - 20)px")
+//            self.news.content = self.news.content.replacingOccurrences(of: "width: 500px", with: "width: \(self.detailWebView.frame.size.width - 20)px")
+//            self.news.content = self.news.content.replacingOccurrences(of: "width: 600px", with: "width: \(self.detailWebView.frame.size.width - 20)px")
+//            self.news.content = self.news.content.replacingOccurrences(of: "500px", with: "\(self.detailWebView.frame.size.width - 20)px")
+//            self.news.content = self.news.content.replacingOccurrences(of: "600px", with: "\(self.detailWebView.frame.size.width - 20)px")
             for newsSave in Util.shared.listNewsSave
             {
                 if newsSave.id == self.news.id {

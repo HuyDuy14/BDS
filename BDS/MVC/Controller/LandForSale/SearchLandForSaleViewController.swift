@@ -12,7 +12,7 @@ import RxSwift
 
 protocol SearchLandForSaleViewControllerDelegate:class
 {
-    func searchLand(_ controlelr:SearchLandForSaleViewController,_ project_id: String,_ title: String,_ type: String,_ city: String,_ ward: String,_ area_min: String,_ area_max: String,_ price_min: String,_ price_max: String,_ district: String,_ numberbedroom: String, _ direction: String)
+    func searchLand(_ controlelr:SearchLandForSaleViewController,_ project_id: String,_ title: String,_ type: String,_ city: String,_ ward: String,_ area_min: String,_ area_max: String,_ price_min: String,_ price_max: String,_ district: String,_ numberbedroom: String, _ direction: String, _ isNewsApproved:Int,_ isGoverment:Int,_ isWaitForSale:Int,_ isAvailability:Int)
 }
 
 class SearchLandForSaleViewController: BaseViewController {
@@ -29,7 +29,10 @@ class SearchLandForSaleViewController: BaseViewController {
     @IBOutlet weak var wards: UILabel!
     @IBOutlet weak var nameHome: UILabel!
     @IBOutlet weak var bedroom: UILabel!
-   
+    @IBOutlet weak var imageNewsApproved: UIImageView!
+    @IBOutlet weak var imageGoverment: UIImageView!
+    @IBOutlet weak var imageWaitForSale: UIImageView!
+    @IBOutlet weak var imageAvailability: UIImageView!
     // MARK :- heightView
     @IBOutlet weak var heightViewHome: NSLayoutConstraint!
     @IBOutlet weak var heightWards: NSLayoutConstraint!
@@ -71,6 +74,10 @@ class SearchLandForSaleViewController: BaseViewController {
     var are_min = "null"
     var are_max = "null"
     var type = "null"
+    var isNewsApproved:Int = 2
+    var isGoverment:Int = 2
+    var isWaitForSale:Int = 2
+    var isAvailability:Int = 2
     
     // MARK: Index Select
     var indexTypeProject:Int = 0
@@ -97,7 +104,11 @@ class SearchLandForSaleViewController: BaseViewController {
         self.pickerView.delegate = self
         self.imageMore.image = #imageLiteral(resourceName: "advance")
         self.showMore(isShow: true, height: 0)
-        self.heightView.constant  = 600
+        self.heightView.constant  = 750
+        self.imageGoverment.isHidden = true
+        self.imageWaitForSale.isHidden = true
+        self.imageAvailability.isHidden = true
+        self.imageNewsApproved.isHidden = true
         var index:Int = 0
         for city in Util.shared.listCity {
             let picker = ModelPicker(id: Int(city.id)!, name: city.name)
@@ -303,7 +314,59 @@ class SearchLandForSaleViewController: BaseViewController {
             self.titles = "null"
         }
         
-        self.delegate?.searchLand(self, self.idProject, self.titles, self.type, self.idCity, self.idWards, self.are_min, self.are_max, self.pricae_min, self.price_max, self.idDistrict, self.idBedRoom, self.idDirection)
+        self.delegate?.searchLand(self, self.idProject, self.titles, self.type, self.idCity, self.idWards, self.are_min, self.are_max, self.pricae_min, self.price_max, self.idDistrict, self.idBedRoom, self.idDirection, self.isNewsApproved,self.isGoverment,self.isWaitForSale,self.isAvailability)
+    }
+
+    @IBAction func govermentButtonDiDtap(_ sender: Any) {
+        if self.isGoverment == 2
+        {
+            self.isGoverment = 1
+            self.imageGoverment.isHidden = false
+        }
+        else
+        {
+            self.isGoverment = 2
+            self.imageGoverment.isHidden = true
+        }
+    }
+ 
+    @IBAction func availabilityButtonDidTap(_ sender: Any) {
+        if self.isAvailability == 2
+        {
+            self.isAvailability = 1
+            self.imageAvailability.isHidden = false
+        }
+        else
+        {
+            self.isAvailability = 2
+            self.imageAvailability.isHidden = true
+        }
+    }
+    
+    @IBAction func waitForSaleButtonDidTap(_ sender: Any) {
+        if self.isWaitForSale == 2
+        {
+            self.isWaitForSale = 1
+            self.imageWaitForSale.isHidden = false
+        }
+        else
+        {
+            self.isWaitForSale = 2
+            self.imageWaitForSale.isHidden = true
+        }
+    }
+    
+    @IBAction func newsApprovedButtonDidTp(_ sender: Any) {
+        if self.isNewsApproved == 2
+        {
+            self.isNewsApproved = 1
+            self.imageNewsApproved.isHidden = false
+        }
+        else
+        {
+            self.isNewsApproved = 2
+            self.imageNewsApproved.isHidden = true
+        }
     }
     
     @IBAction func moreButtonDidTap(_ sender: Any) {
@@ -311,24 +374,25 @@ class SearchLandForSaleViewController: BaseViewController {
         {
             self.showMore(isShow: false, height: 50)
             self.isShow = true
-            self.heightView.constant = 800
+            self.heightView.constant = 900
             self.imageMore.image = #imageLiteral(resourceName: "advance2")
         }
         else
         {
             self.showMore(isShow: true, height: 0)
             self.isShow = false
-            self.heightView.constant  = 600
+            self.heightView.constant  = 750
             self.imageMore.image = #imageLiteral(resourceName: "advance")
         }
     }
-    
-    
-    
 }
 
 extension SearchLandForSaleViewController:PickerViewDelegate
 {
+    func selectPickerView(_ Ppicker: PickerView, didSelect picker: ModelPicker, index: Int) {
+        
+    }
+    
     func miPickerViewDidCancelSelection(_ amPicker: PickerView) {
         
     }

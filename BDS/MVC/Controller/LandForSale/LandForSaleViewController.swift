@@ -41,6 +41,10 @@ class LandForSaleViewController: BaseViewController {
     var are_min = "null"
     var are_max = "null"
     var type = "null"
+    var isNewsApproved:Int = 2
+    var isGoverment:Int = 2
+    var isWaitForSale:Int = 2
+    var isAvailability:Int = 2
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +69,7 @@ class LandForSaleViewController: BaseViewController {
         
         if self.isLoading == false {
             self.isLoading = true
-            APIClient.shared.searchLandSale(project_id: self.idProject, title: self.titleSearch, type: self.type, city: self.idCity, ward: self.idWards, area_min: self.are_min, area_max: self.are_max, price_min: self.pricae_min, price_max: self.price_max, district: self.idDistrict, numberbedroom: self.idBedRoom, direction: self.idDirection, page: self.page).asObservable().bind(onNext: { result in
+            APIClient.shared.searchLandSale(project_id: self.idProject, title: self.titleSearch, type: self.type, city: self.idCity, ward: self.idWards, area_min: self.are_min, area_max: self.are_max, price_min: self.pricae_min, price_max: self.price_max, district: self.idDistrict, numberbedroom: self.idBedRoom, direction: self.idDirection, page: self.page,isNewsApproved: self.isNewsApproved,isGoverment: self.isGoverment,isWaitForSale: self.isWaitForSale,isAvailability: self.isAvailability).asObservable().bind(onNext: { result in
                 DispatchQueue.main.async {
                     var projects: [LandSaleModel] = []
                     for data in result.dataArray
@@ -208,8 +212,7 @@ extension LandForSaleViewController:UITableViewDelegate,UITableViewDataSource
 }
 
 extension LandForSaleViewController:SearchLandForSaleViewControllerDelegate{
-  
-    func searchLand(_ controlelr: SearchLandForSaleViewController, _ project_id: String, _ title: String, _ type: String, _ city: String, _ ward: String, _ area_min: String, _ area_max: String, _ price_min: String, _ price_max: String, _ district: String, _ numberbedroom: String, _ direction: String) {
+    func searchLand(_ controlelr: SearchLandForSaleViewController, _ project_id: String, _ title: String, _ type: String, _ city: String, _ ward: String, _ area_min: String, _ area_max: String, _ price_min: String, _ price_max: String, _ district: String, _ numberbedroom: String, _ direction: String, _ isNewsApproved: Int, _ isGoverment: Int, _ isWaitForSale: Int, _ isAvailability: Int) {
         self.idProject = project_id
         self.titleSearch = title
         self.type = type
@@ -222,14 +225,17 @@ extension LandForSaleViewController:SearchLandForSaleViewControllerDelegate{
         self.idDistrict = district
         self.idBedRoom = numberbedroom
         self.idDirection = direction
+        self.isNewsApproved = isNewsApproved
+        self.isWaitForSale = isWaitForSale
+        self.isAvailability = isAvailability
+        self.isGoverment = isGoverment
         self.showHUD("")
         self.listData = []
         self.page = 0
         self.tableView.reloadData()
         self.loadData(refresh: true)
     }
-    
-    
+
 }
 extension LandForSaleViewController:LandForSaleViewCellDelegate
 {

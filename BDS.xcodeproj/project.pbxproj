@@ -101,6 +101,7 @@
 		13CAB8841FD915B80014F551 /* WaredModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CAB8831FD915B80014F551 /* WaredModel.swift */; };
 		13CAB8861FD92EA60014F551 /* RegisterNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CAB8851FD92EA60014F551 /* RegisterNewsViewController.swift */; };
 		13CAB8881FD946F30014F551 /* DetailLanforSaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CAB8871FD946F30014F551 /* DetailLanforSaleViewController.swift */; };
+		13E1BE571FE95B730055C4BF /* PostNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E1BE561FE95B730055C4BF /* PostNewsViewController.swift */; };
 		13FB33121FD2C33C00FC5B55 /* ModelCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FB33111FD2C33C00FC5B55 /* ModelCity.swift */; };
 		13FB33141FD2F0B800FC5B55 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FB33131FD2F0B800FC5B55 /* Util.swift */; };
 		13FB33161FD2FA2100FC5B55 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13FB33151FD2FA2100FC5B55 /* GoogleService-Info.plist */; };
@@ -233,6 +234,7 @@
 		13CAB8831FD915B80014F551 /* WaredModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaredModel.swift; sourceTree = "<group>"; };
 		13CAB8851FD92EA60014F551 /* RegisterNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNewsViewController.swift; sourceTree = "<group>"; };
 		13CAB8871FD946F30014F551 /* DetailLanforSaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLanforSaleViewController.swift; sourceTree = "<group>"; };
+		13E1BE561FE95B730055C4BF /* PostNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNewsViewController.swift; sourceTree = "<group>"; };
 		13FB33111FD2C33C00FC5B55 /* ModelCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCity.swift; sourceTree = "<group>"; };
 		13FB33131FD2F0B800FC5B55 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		13FB33151FD2FA2100FC5B55 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -554,6 +556,7 @@
 		139E649D1FCF04EB00117E0B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				13E1BE551FE95B570055C4BF /* PostNews */,
 				1384B8321FDE6FCF001AE51A /* ForgotPassword */,
 				13950DA31FDC0639008C50F7 /* InforApp */,
 				1344BE0F1FD143D300498108 /* Contacts */,
@@ -708,6 +711,14 @@
 			path = WebView;
 			sourceTree = "<group>";
 		};
+		13E1BE551FE95B570055C4BF /* PostNews */ = {
+			isa = PBXGroup;
+			children = (
+				13E1BE561FE95B730055C4BF /* PostNewsViewController.swift */,
+			);
+			path = PostNews;
+			sourceTree = "<group>";
+		};
 		13FB33101FD2C32700FC5B55 /* City */ = {
 			isa = PBXGroup;
 			children = (
@@ -814,7 +825,7 @@
 				TargetAttributes = {
 					139E64591FCF030300117E0B = {
 						CreatedOnToolsVersion = 9.1;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1161,6 +1172,7 @@
 				1344BE2E1FD162F100498108 /* SearchLandForSaleViewController.swift in Sources */,
 				1384B8361FDE70A4001AE51A /* ForgotPasswordViewController.swift in Sources */,
 				1344BE211FD1558200498108 /* NewsViewController.swift in Sources */,
+				13E1BE571FE95B730055C4BF /* PostNewsViewController.swift in Sources */,
 				13C6EFD51FDA494100D6F1EF /* PopOverTypeMapsViewController.swift in Sources */,
 				134E23DD1FD0F8CD005387B7 /* InforMapsViewController.swift in Sources */,
 				139E64CC1FCF08DB00117E0B /* ContainerSingUpViewController.swift in Sources */,
@@ -1342,16 +1354,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BDS/BDS.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = TXCECR9AZW;
 				INFOPLIST_FILE = BDS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ChoBDS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "f8722af7-0464-46a9-8036-5a4a4140236a";
+				PROVISIONING_PROFILE_SPECIFIER = fuck;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1363,16 +1375,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BDS/BDS.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = TXCECR9AZW;
 				INFOPLIST_FILE = BDS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ChoBDS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "f8722af7-0464-46a9-8036-5a4a4140236a";
+				PROVISIONING_PROFILE_SPECIFIER = fuck;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

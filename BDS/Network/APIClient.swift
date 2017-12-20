@@ -311,11 +311,18 @@ class APIClient: NSObject {
         return self.requestGet(path: API.detailProjrect, method: .get, params: params)
     }
     
-    func getNewsSave() -> Observable<Result> {
+    func getNewsSave(isMenu:Bool) -> Observable<Result> {
         let params: Parameters = [
             "id":Util.shared.currentUser.id
             ] as Parameters
-        return self.requestGet(path: API.listNewsSave, method: .get, params: params)
+        if isMenu == false
+        {
+            return self.requestGet(path: API.listNewsSave, method: .get, params: params)
+        }
+        else
+        {
+             return self.requestGet(path: API.listNewsPost, method: .get, params: params)
+        }
     }
     
     func getAsvise(id:String) -> Observable<Result> {
@@ -441,7 +448,7 @@ class APIClient: NSObject {
         return self.requestGet(path: API.searchBroker, method: .get, params: params)
     }
     
-    func searchLandRent(project_id:String,title:String,type:String,city:String,ward:String,area_min:String,area_max:String,price_min:String,price_max:String,district:String,numberbedroom:String,direction:String,page:Int) -> Observable<Result> {
+    func searchLandRent(project_id:String,title:String,type:String,city:String,ward:String,area_min:String,area_max:String,price_min:String,price_max:String,district:String,numberbedroom:String,direction:String,page:Int, isNewsApproved:Int,isGoverment:Int ,isWaitForSale:Int , isAvailability:Int) -> Observable<Result> {
         var params: Parameters = ["page":page]
         params["project_id"] = project_id
         params["title"] = title
@@ -455,10 +462,14 @@ class APIClient: NSObject {
         params["district"] = district
         params["numberbedroom"] = numberbedroom
         params["direction"] = direction
+        params["conhang"] = isWaitForSale
+        params["hangchoban"] = isAvailability
+        params["chinhchu"] = isGoverment
+        params["tindaduyet"] = isNewsApproved
         return self.requestGet(path: API.searchLandRent, method: .get, params: params)
     }
     
-    func searchLandSale(project_id:String,title:String,type:String,city:String,ward:String,area_min:String,area_max:String,price_min:String,price_max:String,district:String,numberbedroom:String,direction:String,page:Int) -> Observable<Result> {
+    func searchLandSale(project_id:String,title:String,type:String,city:String,ward:String,area_min:String,area_max:String,price_min:String,price_max:String,district:String,numberbedroom:String,direction:String,page:Int,isNewsApproved:Int,isGoverment:Int ,isWaitForSale:Int , isAvailability:Int) -> Observable<Result> {
         var params: Parameters = ["page":page]
         params["project_id"] = project_id
         params["title"] = title
@@ -472,6 +483,10 @@ class APIClient: NSObject {
         params["district"] = district
         params["numberbedroom"] = numberbedroom
         params["direction"] = direction
+        params["conhang"] = isWaitForSale
+        params["hangchoban"] = isAvailability
+        params["chinhchu"] = isGoverment
+        params["tindaduyet"] = isNewsApproved
         return self.requestGet(path: API.searchLandSale, method: .get, params: params)
     }
     
@@ -492,7 +507,37 @@ class APIClient: NSObject {
             params["numberbedroom"] = numberbedroom
             params["direction"] = direction
             params["email"] = email
+        
             return self.requestGet(path: API.registerNews, method: .post, params: params)
+    }
+    
+    func postNews(post_type:Int,startDate:String,endDate:String,user_type:String,title:String,project_id:String,type_bds:String,type:String,city:String,ward:String,area:String,price:String,price_type:String,district:String,address:String,des:String,numberbedroom:String,direction:String) -> Observable<Result> {
+        
+        var params: Parameters = ["user_type":user_type,"title":title,"address":address,"des":des]
+        params["project_id"] = project_id
+        params["type_bds"] = type_bds
+        params["type"] = type
+        params["city_id"] = city
+        params["ward_id"] = ward
+        params["area"] = area
+        params["price"] = price
+        params["price_type"] = price_type
+        params["district_id"] = district
+        params["id"] = Util.shared.currentUser.id
+        params["numberbedroom"] = numberbedroom
+        params["direction"] = direction
+        params["post_type"] = post_type
+        params["start"] = startDate
+        params["finish"] = endDate
+        
+        return self.requestGet(path: API.postNews, method: .post, params: params)
+    }
+    
+    func getNewsPost(page:Int)-> Observable<Result> {
+        let params: Parameters = [
+            "id":Util.shared.currentUser.id
+            ] as Parameters
+        return self.requestGet(path: API.listNewsPost, method: .get, params: params)
     }
     
     

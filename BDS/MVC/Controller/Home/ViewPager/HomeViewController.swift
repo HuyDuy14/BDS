@@ -161,7 +161,7 @@ extension HomeViewController
     func getDataNews()
     {
      
-        APIClient.shared.getNewsSave().asObservable().bind(onNext: { result in
+        APIClient.shared.getNewsSave(isMenu: false).asObservable().bind(onNext: { result in
             
             Util.shared.listBDS = []
             for data in result.dataArray
