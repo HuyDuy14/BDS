@@ -14,6 +14,7 @@ import RxSwift
 
 class PostNewsViewController: BaseViewController {
 
+    @IBOutlet weak var btnDone: UIButton!
     @IBOutlet weak var headerView: HeaderViewController!
     let disposeBag = DisposeBag()
     //Date
@@ -99,12 +100,16 @@ class PostNewsViewController: BaseViewController {
     //Nôi Thất
     @IBOutlet weak var heightFurnitureTextView: NSLayoutConstraint!
     @IBOutlet weak var furnitureTextView: KMPlaceholderTextView!
+    // Image
+    let imagePicker = UIImagePickerController()
+    var image:UIImage?
+    @IBOutlet weak var imageNews: UIImageView!
     
     //HeightView
     @IBOutlet weak var heightView: NSLayoutConstraint!
-   var heightViewContraint:CGFloat = 1500
+   var heightViewContraint:CGFloat = 1700
     
-    
+    var isCheck:Bool = false
     //Property
     var isShowInfor:Bool = true
     var isShowInforBasic:Bool = true
@@ -116,7 +121,7 @@ class PostNewsViewController: BaseViewController {
     var datePicker = MIDatePicker.getFromNib()
     // PickerView
     var listTypeLand:[ModelPicker] = [ModelPicker(id: 1, name: "Nhà đất bán"),ModelPicker(id: 2, name: "Nhà đất cho thuê")]
-    var listTypeNews:[ModelPicker] = [ModelPicker(id: 2, name: "Tin miễn phí"),ModelPicker(id: 5, name: "Tin vip 1"),ModelPicker(id: 4, name: "Tin vip 2"),ModelPicker(id: 3, name: "Tin vip"),ModelPicker(id: 6, name: "Tin siêu vip")]
+    var listTypeNews:[ModelPicker] = [ModelPicker(id: 2, name: "Tin miễn phí"),ModelPicker(id: 5, name: "Tin vip 1"),ModelPicker(id: 4, name: "Tin vip 2"),ModelPicker(id: 3, name: "Tin vip 3"),ModelPicker(id: 6, name: "Tin siêu vip")]
     var listDirection:[ModelPicker] =  [ModelPicker(id: 1, name: "Đông"),ModelPicker(id: 2, name: "Tây"),ModelPicker(id: 3, name: "Nam"),ModelPicker(id: 4, name: "Bắc"),ModelPicker(id: 5, name: "Đông-Bắc"),ModelPicker(id: 6, name: "Tây-Bắc"),ModelPicker(id: 7, name: "Đông-Nam"),ModelPicker(id: 8, name: "Tây-Nam")]
     var listTypePrice:[ModelPicker] = [ModelPicker(id: 1, name: "Triệu"),ModelPicker(id: 2, name: "Tỷ"),ModelPicker(id: 6, name: "Trăm nghìn/m2"),ModelPicker(id: 7, name: "Triệu/m2")]
     var listTypeUser:[ModelPicker] = [ModelPicker(id: 1, name: "Chính chủ"),ModelPicker(id: 2, name: "Môi giới"),ModelPicker(id: 3, name: "Chủ dự án"),ModelPicker(id: 4, name: "Khác")]
@@ -165,14 +170,86 @@ class PostNewsViewController: BaseViewController {
         self.isShowInforOther(isShow: self.isInforOther)
         self.settingColorIcon()
         self.loadDataCity()
+        self.loadData()
+    
     }
     
     func setDelegate()
     {
+        self.imagePicker.delegate = self
         self.headerView.delegate = self
         self.headerView.setTitleView(title: "Đăng tin ", infor: "Đăng tin nhanh")
         self.datePicker.delegate = self
         self.pickerView.delegate = self
+    }
+    
+    func loadData()
+    {
+        
+        self.startDate = Date()
+        self.endDate = self.startDate.addingTimeInterval(7 * 86400)
+        self.startDateLabel.text = self.startDate.dateFormatString(formater: "dd/MM/yyyy")
+        self.endDateLabel.text = self.endDate.dateFormatString(formater: "dd/MM/yyyy")
+        self.typeNews.text = listTypeNews[0].name
+        self.idTypeNews = listTypeNews[0].id
+        self.nameCompany.text = listTypeCompany[0].name
+        self.idCompany = String(listTypeCompany[0].id)
+        self.nameUser.text = listTypeUser[1].name
+        self.idTypeUser = String(listTypeUser[1].id)
+        self.indexTypeUser = 1
+        self.formLabel.text = listTypeLand[0].name
+        self.indexTypeLand = 0
+        self.typeLand.text = "Chọn loại BĐS"
+        self.idLandSale = "null"
+        self.idTypeLand = "sale"
+        self.setDataPickerLand()
+    }
+    
+    func resetData()
+    {
+        self.idBedroom = "null"
+        self.idCompany = "null"
+        self.idTypeUser = "null"
+        self.idTypeNews = 2
+        self.idTypeLand = "null"
+        self.idLandSale = "null"
+        self.idCity = "null"
+        self.idProject = "0"
+        self.idDistrict = "null"
+        self.idDirection = "null"
+        self.idWards = "null"
+        self.idTypePrice = "null"
+        self.indexTypePrice = 0
+        self.indextypeNews = 0
+        self.indexTypeLand = 0
+        self.indexlandSale = 0
+        self.indexCity = 0
+        self.indexDistrict = 0
+        self.indexWard = 0
+        self.indexTypeUser = 0
+        self.indeDirection = 0
+        self.indexTypeCompany = 0
+        self.indexTypeProject = 0
+        self.indexBedroom = 0
+        self.loadData()
+        self.inforViewTextView.text = ""
+        self.titleTextField.text = ""
+        self.typeLand.text = "Loại BĐS"
+        self.cityName.text = "Tỉnh/Thành phố"
+        self.districtLabel.text = "Chọn Quận/Huyện"
+        self.wardLabel.text = "Chọn Phường/Xã"
+        self.nameProjects.text = "Chọn dự án"
+        self.address.text = ""
+        self.acreageLabel.text = ""
+        self.priceLabel.text = ""
+        self.typePrice.text = "Đơn vị"
+        self.facadeTextField.text = ""
+        self.distanceTextField.text = ""
+        self.directionOfHouse.text = "Hướng nhà"
+        self.directionBalcony.text = "Số phòng ngủ"
+        self.furnitureTextView.text = ""
+        self.image = nil
+        self.imageNews.image = #imageLiteral(resourceName: "icon_plachoder_chat")
     }
     
     func settingColorIcon()
@@ -189,13 +266,13 @@ class PostNewsViewController: BaseViewController {
         {
             self.imagedropDownInfor.image = #imageLiteral(resourceName: "icondown")
             self.heightInforView.constant = 0
-            self.heightViewContraint = self.heightViewContraint - 100
+            self.heightViewContraint = self.heightViewContraint - 50
         }
         else
         {
             self.imagedropDownInfor.image = #imageLiteral(resourceName: "icon_up")
-            self.heightInforView.constant = 100
-            self.heightViewContraint = self.heightViewContraint + 100
+            self.heightInforView.constant = 50
+            self.heightViewContraint = self.heightViewContraint + 50
             
         }
         self.heightView.constant = self.heightViewContraint
@@ -230,7 +307,7 @@ class PostNewsViewController: BaseViewController {
             self.heightDistance.constant = 50
             self.heightDirectionOfHouse.constant = 50
             self.heightDirectionBalcony.constant = 50
-            self.heightFurnitureTextView.constant = 100
+            self.heightFurnitureTextView.constant = 50
             self.heightViewContraint = self.heightViewContraint + 300
         }
         self.heightView.constant = self.heightViewContraint
@@ -581,6 +658,45 @@ class PostNewsViewController: BaseViewController {
         self.pickerView.show(inVC: self)
     }
     
+    @IBAction func showImageButtonDidTap(_ sender: Any) {
+        let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .actionSheet)
+        
+        // 2
+        let deleteAction = UIAlertAction(title: "Photo", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            
+            self.selectImageFrom(resource: true)
+            
+        })
+        let saveAction = UIAlertAction(title: "Camera", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            
+            self.selectImageFrom(resource: false)
+            
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+            
+        })
+        optionMenu.addAction(deleteAction)
+        optionMenu.addAction(saveAction)
+        optionMenu.addAction(cancelAction)
+        
+        self.present(optionMenu, animated: true, completion: nil)
+    }
+    
+    @IBAction func isCheckButtonDidTap(_ sender: Any) {
+        if self.isCheck == false
+        {
+            self.btnDone.setImage(#imageLiteral(resourceName: "icon_checked"), for: .normal)
+            self.isCheck = true
+        }
+        else
+        {
+            self.btnDone.setImage(nil, for: .normal)
+            self.isCheck = false
+        }
+    }
     
     @IBAction func postNewsButtonDidTap(_ sender: Any) {
         if self.inforViewTextView.text.count == 0
@@ -620,7 +736,23 @@ class PostNewsViewController: BaseViewController {
             self.showAlert("Bạn chưa chọn Quận/Huyện")
             return
         }
+        if self.image == nil
+        {
+            self.showAlert("Bạn chưa chọn ảnh")
+            return
+        }
+        if self.startDate.timeIntervalSince1970 >  self.endDate.timeIntervalSince1970 - (7 * 86400)
+        {
+            self.showAlert("Ngày kết thúc phải lớn hơn ngày bắt đầu ít nhất 7 ngày")
+            return
+        }
         
+        if self.isCheck == false
+        {
+            self.showAlert("Bạn chưa đồng ý với điều khoản sử dụng của ứng dụng")
+            return
+        }
+
         self.showHUD("")
         var start = "null"
         var end =  "null"
@@ -633,10 +765,11 @@ class PostNewsViewController: BaseViewController {
             end = self.endDate.dateFormatString(formater: "yyyy-MM-dd HH:mm:ss")
         }
         
-        APIClient.shared.postNews(post_type: self.idTypeNews, startDate:start , endDate:end, user_type: self.idTypeUser, title: self.titleTextField.text!, project_id: self.idProject, type_bds: self.idLandSale, type: self.idTypeLand, city: self.idCity, ward: self.idWards, area: self.acreageLabel.text!, price: self.priceLabel.text!, price_type: self.idTypePrice, district: self.idDistrict, address: self.address.text!, des: self.inforViewTextView.text, numberbedroom: self.idBedroom, direction: self.idDirection).asObservable().bind(onNext: {result in
-                self.showAlert("Đăng thành công")
-                self.hideHUD()
-        }).disposed(by: self.disposeBag)
+        APIClient.shared.postNews(post_type: self.idTypeNews, startDate:start , endDate:end, user_type: self.idTypeUser, title: self.titleTextField.text!, project_id: self.idProject, type_bds: self.idLandSale, type: self.idTypeLand, city: self.idCity, ward: self.idWards, area: self.acreageLabel.text!, price: self.priceLabel.text!, price_type: self.idTypePrice, district: self.idDistrict, address: self.address.text!, des: self.inforViewTextView.text, numberbedroom: self.idBedroom, direction: self.idDirection, image: self.image!,completion: {result in
+            self.showAlert("Bạn đã đăng tin thành công! Tin của bạn sẽ được xét duyệt trong vòng vài giờ, hay kiểm tra trong phần quản lý tin đăng của tôi")
+            self.resetData()
+            self.hideHUD()
+        })
 
     }
     
@@ -652,13 +785,13 @@ extension PostNewsViewController:MIDatePickerDelegate
         if amDatePicker.isStart == true
         {
             self.startDate = date
-            self.startDateLabel.text = date.dateFormatString(formater: "HH:mm dd/MM/yyyy")
+            self.startDateLabel.text = date.dateFormatString(formater: "dd/MM/yyyy")
             
         }
         else
         {
             self.endDate = date
-            self.endDateLabel.text = date.dateFormatString(formater: "HH:mm dd/MM/yyyy")
+            self.endDateLabel.text = date.dateFormatString(formater: "dd/MM/yyyy")
         }
         
     }
@@ -753,6 +886,40 @@ extension PostNewsViewController:PickerViewDelegate
     }
     
     func miPickerView(_ amPicker: PickerView, didSelect picker: ModelPicker) {
+        
+    }
+}
+
+extension PostNewsViewController:UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            self.imageNews.contentMode = .scaleToFill
+            let newImage:UIImage = pickedImage.resizeImage(newWidth: 250)
+            self.imageNews.image = newImage
+            self.image = newImage
+        }
+        
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    func selectImageFrom(resource: Bool) {
+        
+        
+        imagePicker.allowsEditing = true
+        
+        if resource {
+            imagePicker.sourceType = .photoLibrary
+        } else {
+            imagePicker.sourceType = .camera
+        }
+        
+        
+        present(imagePicker, animated: true, completion: nil)
+        
         
     }
 }

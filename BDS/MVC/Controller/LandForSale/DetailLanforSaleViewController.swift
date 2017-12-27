@@ -34,13 +34,21 @@ class DetailLanforSaleViewController: BaseViewController {
     var imagePageViewController: ImagePageViewController?
     var timer:Timer!
     var indexPage = 0
+    var isQL:Bool = false
     var isLike:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.isLike = self.landForSale.isLike
         self.fillData()
-        self.loadDataServer()
+        if self.isQL ==  false
+        {
+            self.loadDataServer()
+        }
+        else
+        {
+            self.pageController.isHidden = true
+        }
     }
     
     func updateStart() {
@@ -86,12 +94,14 @@ class DetailLanforSaleViewController: BaseViewController {
         self.dateEnd.text = self.landForSale.land_date_finish.FromStringToDateToStringProjects()
         self.type.text = self.landForSale.category_name
         self.idLand.text = self.landForSale.code
-        self.landForSale.content = self.landForSale.content.replacingOccurrences(of: "width: 500px", with: "width: \(self.webView.frame.size.width - 20 )px")
-        self.landForSale.content = self.landForSale.content.replacingOccurrences(of:"width: 600px", with: "width: \(self.webView.frame.size.width - 20)px")
-        self.landForSale.content = self.landForSale.content.replacingOccurrences(of: "500px", with: "\(self.webView.frame.size.width - 20)px")
-        self.landForSale.content = self.landForSale.content.replacingOccurrences(of: "600px", with: "\(self.webView.frame.size.width - 20)px")
-        
-         self.webView.loadHTMLString(Util.shared.htmlString(from: self.landForSale.content), baseURL: nil)
+        if self.landForSale.content.count > 0
+        {
+            self.webView.loadHTMLString(Util.shared.htmlString(from: self.landForSale.content), baseURL: nil)
+        }
+        else
+        {
+            self.webView.loadHTMLString(Util.shared.htmlString(from: self.landForSale.seo_description), baseURL: nil)
+        }
         self.landForSale.isLike = self.isLike
         if self.landForSale.isLike == true
         {

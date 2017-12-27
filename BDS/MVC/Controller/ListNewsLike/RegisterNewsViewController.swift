@@ -350,7 +350,8 @@ class RegisterNewsViewController: BaseViewController {
         var email = self.email.text!
         if email.count == 0
         {
-            email = "null"
+            self.showAlert("Bạn chưa nhập email")
+            return
         }
         
         self.showHUD("")

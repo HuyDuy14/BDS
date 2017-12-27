@@ -130,6 +130,7 @@ class APIClient: NSObject {
         }
     }
    
+   
     func requestUploadImage(path: String, image: UIImage, method: HTTPMethod, params: Parameters!, completion: ((_ result: Result) -> Void)?)
     {
         let manager = Alamofire.SessionManager.default
@@ -138,7 +139,7 @@ class APIClient: NSObject {
         let imgData = UIImageJPEGRepresentation(image, 0.2)!
         
         Alamofire.upload(multipartFormData: { multipartFormData in
-            multipartFormData.append(imgData, withName: "files[]", fileName: "file.jpg", mimeType: "image/jpg")
+            multipartFormData.append(imgData, withName: "img", fileName: "file.jpg", mimeType: "image/jpg")
             if params != nil {
                 for (key, value) in params {
                     multipartFormData.append((value as AnyObject).data(using: String.Encoding.utf8.rawValue)!, withName: key)
@@ -155,25 +156,25 @@ class APIClient: NSObject {
                 
                 upload.responseJSON { response in
                     if let dict = response.result.value as? NSDictionary {
-                        let result = Result(result: dict)
+                        let result: Result = Result(result: dict)
                         if result.status == 200 {
                             completion?(result)
                         } else {
-                            
-                           ACProgressHUD.shared.hideHUD()
+                            self.showAlert(message:result.message )
+                            ACProgressHUD.shared.hideHUD()
                         }
-                    }
-                    else
+                        
+                    } else
                     {
                         self.showAlert(message: "Gặp vấn đề khi tải ảnh mời bạn thử lại")
-                       ACProgressHUD.shared.hideHUD()
+                        ACProgressHUD.shared.hideHUD()
                     }
                 }
                 
             case .failure(let encodingError):
                 print(encodingError)
                 self.showAlert(message: "Lỗi mạng mời bạn kiểm tra lại")
-               ACProgressHUD.shared.hideHUD()
+                ACProgressHUD.shared.hideHUD()
                 
             }
         }
@@ -242,7 +243,7 @@ class APIClient: NSObject {
     func getWard(id_city:String,id_district:String) -> Observable<Result> {
         let params: Parameters = [
             "id_city":id_city,
-            id_district:id_district
+            "id_district":id_district
             ] as Parameters
         return self.requestGet(path: API.getWard, method: .get, params: params)
     }
@@ -511,7 +512,7 @@ class APIClient: NSObject {
             return self.requestGet(path: API.registerNews, method: .post, params: params)
     }
     
-    func postNews(post_type:Int,startDate:String,endDate:String,user_type:String,title:String,project_id:String,type_bds:String,type:String,city:String,ward:String,area:String,price:String,price_type:String,district:String,address:String,des:String,numberbedroom:String,direction:String) -> Observable<Result> {
+    func postNews(post_type:Int,startDate:String,endDate:String,user_type:String,title:String,project_id:String,type_bds:String,type:String,city:String,ward:String,area:String,price:String,price_type:String,district:String,address:String,des:String,numberbedroom:String,direction:String,image:UIImage , completion: ((_ result: Result) -> Void)?) {
         
         var params: Parameters = ["user_type":user_type,"title":title,"address":address,"des":des]
         params["project_id"] = project_id
@@ -526,11 +527,13 @@ class APIClient: NSObject {
         params["id"] = Util.shared.currentUser.id
         params["numberbedroom"] = numberbedroom
         params["direction"] = direction
-        params["post_type"] = post_type
+        params["post_type"] = String(post_type)
         params["start"] = startDate
         params["finish"] = endDate
         
-        return self.requestGet(path: API.postNews, method: .post, params: params)
+        self.requestUploadImage(path: API.postNews, image: image, method: .post, params: params, completion: { result in
+            completion?(result)
+        })
     }
     
     func getNewsPost(page:Int)-> Observable<Result> {

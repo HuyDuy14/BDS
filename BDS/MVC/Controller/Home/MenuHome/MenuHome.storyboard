@@ -3339,7 +3339,7 @@ Email : lienhe@chobatdongsan.com.vn
                         <viewControllerLayoutGuide type="bottom" id="fad-Xw-zBl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BeX-cq-xZB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1700"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="png-cu-TEv" customClass="HeaderViewController" customModule="BDS" customModuleProvider="target">
@@ -3350,10 +3350,10 @@ Email : lienhe@chobatdongsan.com.vn
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zjf-Gl-YQf">
-                                <rect key="frame" x="0.0" y="70" width="375" height="1430"/>
+                                <rect key="frame" x="0.0" y="70" width="375" height="1630"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lEl-Jd-qeZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1450"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1600"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BYQ-WW-Bfb">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -3548,17 +3548,17 @@ Email : lienhe@chobatdongsan.com.vn
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rCG-Yo-PYY">
-                                                <rect key="frame" x="0.0" y="200" width="375" height="100"/>
+                                                <rect key="frame" x="0.0" y="200" width="375" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vky-O0-H8E">
-                                                        <rect key="frame" x="20" y="99.5" width="335" height="0.5"/>
+                                                        <rect key="frame" x="20" y="49.5" width="335" height="0.5"/>
                                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="0.5" id="MGz-JS-4xc"/>
                                                         </constraints>
                                                     </view>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qTx-FF-FuV" customClass="KMPlaceholderTextView" customModule="KMPlaceholderTextView">
-                                                        <rect key="frame" x="60" y="6" width="295" height="87.5"/>
+                                                        <rect key="frame" x="60" y="2" width="295" height="45.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -3566,16 +3566,16 @@ Email : lienhe@chobatdongsan.com.vn
                                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
                                                                 <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Giới thiệu chung về bất động sản của bản như địa chỉ,diện tích ... (Lưu ý tin rao chỉ để mệnh giá  Việt Nam Đồng)"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Giới thiệu chung về bất động sản của bạn"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </textView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstItem="qTx-FF-FuV" firstAttribute="leading" secondItem="rCG-Yo-PYY" secondAttribute="leading" constant="60" id="76K-cB-AOK"/>
-                                                    <constraint firstItem="qTx-FF-FuV" firstAttribute="top" secondItem="rCG-Yo-PYY" secondAttribute="top" constant="6" id="H5I-e3-tbd"/>
-                                                    <constraint firstItem="vky-O0-H8E" firstAttribute="top" secondItem="qTx-FF-FuV" secondAttribute="bottom" constant="6" id="KSm-Cb-IN3"/>
-                                                    <constraint firstAttribute="height" constant="100" id="M8f-bc-0jY"/>
+                                                    <constraint firstItem="qTx-FF-FuV" firstAttribute="top" secondItem="rCG-Yo-PYY" secondAttribute="top" constant="2" id="H5I-e3-tbd"/>
+                                                    <constraint firstItem="vky-O0-H8E" firstAttribute="top" secondItem="qTx-FF-FuV" secondAttribute="bottom" constant="2" id="KSm-Cb-IN3"/>
+                                                    <constraint firstAttribute="height" constant="50" id="M8f-bc-0jY"/>
                                                     <constraint firstAttribute="trailing" secondItem="vky-O0-H8E" secondAttribute="trailing" constant="20" id="P3g-Lr-6Sd"/>
                                                     <constraint firstAttribute="trailing" secondItem="qTx-FF-FuV" secondAttribute="trailing" constant="20" id="iSh-c3-P1t"/>
                                                     <constraint firstAttribute="bottom" secondItem="vky-O0-H8E" secondAttribute="bottom" id="les-C7-9EV"/>
@@ -3583,7 +3583,7 @@ Email : lienhe@chobatdongsan.com.vn
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cX2-Gp-zea">
-                                                <rect key="frame" x="0.0" y="300" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="250" width="375" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thông tin cơ bản" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdh-t7-OGH">
                                                         <rect key="frame" x="60" y="13" width="113.5" height="17"/>
@@ -3632,7 +3632,7 @@ Email : lienhe@chobatdongsan.com.vn
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0va-4O-PrC">
-                                                <rect key="frame" x="0.0" y="350" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="300" width="375" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tôi là" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H02-Q3-jEH">
                                                         <rect key="frame" x="60" y="13" width="35.5" height="17"/>
@@ -3680,7 +3680,7 @@ Email : lienhe@chobatdongsan.com.vn
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bt3-9y-DLh">
-                                                <rect key="frame" x="0.0" y="400" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="350" width="375" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chủ dự án" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4n-V6-XEv">
                                                         <rect key="frame" x="60" y="13" width="69.5" height="17"/>
@@ -3728,7 +3728,7 @@ Email : lienhe@chobatdongsan.com.vn
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Om7-6r-ocE">
-                                                <rect key="frame" x="0.0" y="500" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="450" width="375" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hình thức" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bd5-OU-jMR">
                                                         <rect key="frame" x="60" y="13" width="66" height="17"/>
@@ -3776,7 +3776,7 @@ Email : lienhe@chobatdongsan.com.vn
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l8R-2D-Xnl">
-                                                <rect key="frame" x="0.0" y="550" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="500" width="375" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loại BĐS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wT3-N4-3ke">
                                                         <rect key="frame" x="60" y="13" width="60.5" height="17"/>
@@ -3824,7 +3824,7 @@ Email : lienhe@chobatdongsan.com.vn
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DeZ-G6-gVX">
-                                                <rect key="frame" x="0.0" y="600" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="550" width="375" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tỉnh/Thành phố" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oya-yK-QcO">
                                                         <rect key="frame" x="60" y="13" width="106.5" height="17"/>
@@ -3872,7 +3872,7 @@ Email : lienhe@chobatdongsan.com.vn
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W77-ZF-1Og">
-                                                <rect key="frame" x="0.0" y="650" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="600" width="375" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chọn Quận/Huyện" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqb-os-ADa">
                                                         <rect key="frame" x="60" y="13" width="123" height="17"/>
@@ -3920,7 +3920,7 @@ Email : lienhe@chobatdongsan.com.vn
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QbO-3x-JdR">
-                                                <rect key="frame" x="0.0" y="700" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="650" width="375" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chọn Phường/Xã" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qzw-zA-XG2">
                                                         <rect key="frame" x="60" y="13" width="114.5" height="17"/>
@@ -3968,7 +3968,7 @@ Email : lienhe@chobatdongsan.com.vn
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dvl-hQ-ZXb">
-                                                <rect key="frame" x="0.0" y="750" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="700" width="375" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chọn dự án" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBe-fe-2H3">
                                                         <rect key="frame" x="60" y="13" width="77.5" height="17"/>
@@ -4016,7 +4016,7 @@ Email : lienhe@chobatdongsan.com.vn
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9vh-xL-lyE">
-                                                <rect key="frame" x="0.0" y="450" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="400" width="375" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pYe-4g-me8">
                                                         <rect key="frame" x="20" y="49.5" width="335" height="0.5"/>
@@ -4044,27 +4044,8 @@ Email : lienhe@chobatdongsan.com.vn
                                                     <constraint firstAttribute="trailing" secondItem="pYe-4g-me8" secondAttribute="trailing" constant="20" id="xBO-ck-CfM"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xji-ID-9Sh">
-                                                <rect key="frame" x="94" y="1400" width="187.5" height="40"/>
-                                                <color key="backgroundColor" red="0.31764705879999999" green="0.67843137249999996" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="ubI-FR-FP3"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                <state key="normal" title="Đăng tin">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="6"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="postNewsButtonDidTap:" destination="uz2-Pf-EfI" eventType="touchUpInside" id="vUM-zG-YQ4"/>
-                                                </connections>
-                                            </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XpM-Y2-MOJ">
-                                                <rect key="frame" x="0.0" y="800" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="750" width="375" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Upa-TN-cbp">
                                                         <rect key="frame" x="20" y="49.5" width="335" height="0.5"/>
@@ -4101,7 +4082,7 @@ Email : lienhe@chobatdongsan.com.vn
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZEk-vh-lNH">
-                                                <rect key="frame" x="0.0" y="850" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="800" width="375" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RPN-Rh-38G">
                                                         <rect key="frame" x="20" y="49.5" width="335" height="0.5"/>
@@ -4114,7 +4095,7 @@ Email : lienhe@chobatdongsan.com.vn
                                                         <rect key="frame" x="60" y="8" width="295" height="33.5"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                        <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4130,7 +4111,7 @@ Email : lienhe@chobatdongsan.com.vn
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qDx-ah-oYy">
-                                                <rect key="frame" x="0.0" y="950" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="900" width="375" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f4T-RM-dH7">
                                                         <rect key="frame" x="20" y="49.5" width="335" height="0.5"/>
@@ -4159,7 +4140,7 @@ Email : lienhe@chobatdongsan.com.vn
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lSt-gj-5AW">
-                                                <rect key="frame" x="0.0" y="1000" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="950" width="375" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thông tin khác" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m2Q-84-8iz">
                                                         <rect key="frame" x="60" y="13" width="100.5" height="17"/>
@@ -4208,7 +4189,7 @@ Email : lienhe@chobatdongsan.com.vn
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="whb-iN-8MD">
-                                                <rect key="frame" x="0.0" y="1050" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="1000" width="375" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QQp-I1-FVj">
                                                         <rect key="frame" x="20" y="49.5" width="335" height="0.5"/>
@@ -4245,7 +4226,7 @@ Email : lienhe@chobatdongsan.com.vn
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d5w-I2-ux8">
-                                                <rect key="frame" x="0.0" y="1100" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="1050" width="375" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uzi-ao-4sC">
                                                         <rect key="frame" x="20" y="49.5" width="335" height="0.5"/>
@@ -4282,7 +4263,7 @@ Email : lienhe@chobatdongsan.com.vn
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k2p-jZ-bWj">
-                                                <rect key="frame" x="0.0" y="1150" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="1100" width="375" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hướng nhà" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DDM-aq-2nH">
                                                         <rect key="frame" x="60" y="13" width="74.5" height="17"/>
@@ -4330,7 +4311,7 @@ Email : lienhe@chobatdongsan.com.vn
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MK6-Tq-uGd">
-                                                <rect key="frame" x="0.0" y="1200" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="1150" width="375" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Số phòng ngủ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQW-sl-gZq">
                                                         <rect key="frame" x="60" y="13" width="93.5" height="17"/>
@@ -4378,17 +4359,17 @@ Email : lienhe@chobatdongsan.com.vn
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b2S-NZ-ILi">
-                                                <rect key="frame" x="0.0" y="1250" width="375" height="100"/>
+                                                <rect key="frame" x="0.0" y="1200" width="375" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T4W-Si-1Jf">
-                                                        <rect key="frame" x="20" y="99.5" width="335" height="0.5"/>
+                                                        <rect key="frame" x="20" y="49.5" width="335" height="0.5"/>
                                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="0.5" id="7g4-lF-1MX"/>
                                                         </constraints>
                                                     </view>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bak-ix-xSl" customClass="KMPlaceholderTextView" customModule="KMPlaceholderTextView">
-                                                        <rect key="frame" x="60" y="6" width="295" height="87.5"/>
+                                                        <rect key="frame" x="60" y="2" width="295" height="45.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -4402,21 +4383,59 @@ Email : lienhe@chobatdongsan.com.vn
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="7Lr-QX-SdO"/>
+                                                    <constraint firstAttribute="height" constant="50" id="7Lr-QX-SdO"/>
                                                     <constraint firstAttribute="trailing" secondItem="T4W-Si-1Jf" secondAttribute="trailing" constant="20" id="DEF-ci-R3d"/>
                                                     <constraint firstAttribute="bottom" secondItem="T4W-Si-1Jf" secondAttribute="bottom" id="DqP-GV-9UN"/>
                                                     <constraint firstItem="bak-ix-xSl" firstAttribute="leading" secondItem="b2S-NZ-ILi" secondAttribute="leading" constant="60" id="NuM-cw-ieB"/>
-                                                    <constraint firstItem="bak-ix-xSl" firstAttribute="top" secondItem="b2S-NZ-ILi" secondAttribute="top" constant="6" id="VRf-hS-53N"/>
+                                                    <constraint firstItem="bak-ix-xSl" firstAttribute="top" secondItem="b2S-NZ-ILi" secondAttribute="top" constant="2" id="VRf-hS-53N"/>
                                                     <constraint firstAttribute="trailing" secondItem="bak-ix-xSl" secondAttribute="trailing" constant="20" id="eIC-bv-dtJ"/>
-                                                    <constraint firstItem="T4W-Si-1Jf" firstAttribute="top" secondItem="bak-ix-xSl" secondAttribute="bottom" constant="6" id="hjX-X3-QVN"/>
+                                                    <constraint firstItem="T4W-Si-1Jf" firstAttribute="top" secondItem="bak-ix-xSl" secondAttribute="bottom" constant="2" id="hjX-X3-QVN"/>
                                                     <constraint firstItem="T4W-Si-1Jf" firstAttribute="leading" secondItem="b2S-NZ-ILi" secondAttribute="leading" constant="20" id="yaK-nO-Gkw"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sd9-9W-j5a">
-                                                <rect key="frame" x="0.0" y="900" width="375" height="50"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fUO-NI-GgE">
+                                                <rect key="frame" x="0.0" y="1300" width="375" height="140"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loại giá tiền" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ALg-gs-Two">
-                                                        <rect key="frame" x="60" y="13" width="81" height="17"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="na4-ii-AGv">
+                                                        <rect key="frame" x="20" y="139.5" width="335" height="0.5"/>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="0.5" id="qKE-j9-xe9"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_plachoder_chat" translatesAutoresizingMaskIntoConstraints="NO" id="RI8-fW-Mop">
+                                                        <rect key="frame" x="127.5" y="10" width="120" height="120"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="120" id="VUL-ph-2P5"/>
+                                                            <constraint firstAttribute="height" constant="120" id="rR8-0H-J82"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvP-SU-lL9">
+                                                        <rect key="frame" x="127.5" y="10" width="120" height="120"/>
+                                                        <connections>
+                                                            <action selector="showImageButtonDidTap:" destination="uz2-Pf-EfI" eventType="touchUpInside" id="2e5-HP-uN0"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="RI8-fW-Mop" firstAttribute="centerY" secondItem="fUO-NI-GgE" secondAttribute="centerY" id="3md-Km-h3z"/>
+                                                    <constraint firstAttribute="bottom" secondItem="na4-ii-AGv" secondAttribute="bottom" id="4Vu-yg-pX3"/>
+                                                    <constraint firstAttribute="height" constant="140" id="4qB-Pi-m7O"/>
+                                                    <constraint firstItem="jvP-SU-lL9" firstAttribute="height" secondItem="RI8-fW-Mop" secondAttribute="height" id="EGM-FR-BZI"/>
+                                                    <constraint firstItem="jvP-SU-lL9" firstAttribute="width" secondItem="RI8-fW-Mop" secondAttribute="width" id="Jxo-89-QOm"/>
+                                                    <constraint firstAttribute="trailing" secondItem="na4-ii-AGv" secondAttribute="trailing" constant="20" id="LDe-7h-DX6"/>
+                                                    <constraint firstItem="jvP-SU-lL9" firstAttribute="centerY" secondItem="RI8-fW-Mop" secondAttribute="centerY" id="LI4-VA-VdV"/>
+                                                    <constraint firstItem="jvP-SU-lL9" firstAttribute="centerX" secondItem="RI8-fW-Mop" secondAttribute="centerX" id="ZCN-i1-gpy"/>
+                                                    <constraint firstItem="RI8-fW-Mop" firstAttribute="centerX" secondItem="fUO-NI-GgE" secondAttribute="centerX" id="bPj-Mm-sRD"/>
+                                                    <constraint firstItem="na4-ii-AGv" firstAttribute="leading" secondItem="fUO-NI-GgE" secondAttribute="leading" constant="20" id="pPM-zO-ncp"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sd9-9W-j5a">
+                                                <rect key="frame" x="0.0" y="850" width="375" height="50"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Đơn vị" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ALg-gs-Two">
+                                                        <rect key="frame" x="60" y="13" width="43" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -4460,21 +4479,93 @@ Email : lienhe@chobatdongsan.com.vn
                                                     <constraint firstAttribute="bottom" secondItem="QDB-IN-ypE" secondAttribute="bottom" id="qnL-vH-arP"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E9c-sX-V5L">
+                                                <rect key="frame" x="0.0" y="1250" width="375" height="50"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hình ảnh" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fg1-NH-AqK">
+                                                        <rect key="frame" x="60" y="13" width="60" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                        <color key="textColor" red="0.098039215690000001" green="0.51764705879999995" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iSn-pv-acm">
+                                                        <rect key="frame" x="20" y="49.5" width="335" height="0.5"/>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="0.5" id="jq2-ed-4yh"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="fg1-NH-AqK" firstAttribute="leading" secondItem="E9c-sX-V5L" secondAttribute="leading" constant="60" id="6OE-7P-3yr"/>
+                                                    <constraint firstAttribute="bottom" secondItem="fg1-NH-AqK" secondAttribute="bottom" constant="20" id="FDU-GP-c7g"/>
+                                                    <constraint firstAttribute="trailing" secondItem="iSn-pv-acm" secondAttribute="trailing" constant="20" id="eGp-tE-n3s"/>
+                                                    <constraint firstItem="iSn-pv-acm" firstAttribute="leading" secondItem="E9c-sX-V5L" secondAttribute="leading" constant="20" id="g5b-Yq-stZ"/>
+                                                    <constraint firstAttribute="height" constant="50" id="ifQ-CV-lXQ"/>
+                                                    <constraint firstAttribute="bottom" secondItem="iSn-pv-acm" secondAttribute="bottom" id="phc-HV-myD"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xji-ID-9Sh">
+                                                <rect key="frame" x="94" y="1532.5" width="187.5" height="40"/>
+                                                <color key="backgroundColor" red="0.31764705879999999" green="0.67843137249999996" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="ubI-FR-FP3"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <state key="normal" title="Đăng tin">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="postNewsButtonDidTap:" destination="uz2-Pf-EfI" eventType="touchUpInside" id="vUM-zG-YQ4"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYV-y6-ibB">
+                                                <rect key="frame" x="20" y="1463" width="26" height="26"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="26" id="Ns7-ld-6wm"/>
+                                                    <constraint firstAttribute="width" constant="26" id="Tnl-ub-voM"/>
+                                                </constraints>
+                                                <state key="selected" image="icon_checked"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="isCheckButtonDidTap:" destination="uz2-Pf-EfI" eventType="touchUpInside" id="0Ur-Ub-o9l"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tôi đồng ý với Điều Khoản Thoả Thuận khi đăng tin trên website chobatdongsan.com.vn" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IS2-BE-dxS">
+                                                <rect key="frame" x="54" y="1461" width="301" height="31.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="9vh-xL-lyE" secondAttribute="trailing" id="1Lg-ax-OhF"/>
                                             <constraint firstItem="bt3-9y-DLh" firstAttribute="leading" secondItem="lEl-Jd-qeZ" secondAttribute="leading" id="1lK-vJ-xbj"/>
                                             <constraint firstItem="0va-4O-PrC" firstAttribute="leading" secondItem="lEl-Jd-qeZ" secondAttribute="leading" id="22f-ze-idf"/>
+                                            <constraint firstItem="IS2-BE-dxS" firstAttribute="centerY" secondItem="bYV-y6-ibB" secondAttribute="centerY" id="2gC-OI-DLt"/>
                                             <constraint firstItem="ZEk-vh-lNH" firstAttribute="top" secondItem="XpM-Y2-MOJ" secondAttribute="bottom" id="2lA-Cv-UAU"/>
                                             <constraint firstItem="9vh-xL-lyE" firstAttribute="leading" secondItem="lEl-Jd-qeZ" secondAttribute="leading" id="3X8-of-opq"/>
+                                            <constraint firstItem="fUO-NI-GgE" firstAttribute="top" secondItem="E9c-sX-V5L" secondAttribute="bottom" id="3cI-F6-xhA"/>
                                             <constraint firstAttribute="trailing" secondItem="lSt-gj-5AW" secondAttribute="trailing" id="4fN-I5-T7z"/>
                                             <constraint firstItem="9ls-Yh-7nN" firstAttribute="leading" secondItem="lEl-Jd-qeZ" secondAttribute="leading" id="4ud-ch-U6f"/>
                                             <constraint firstItem="l8R-2D-Xnl" firstAttribute="leading" secondItem="lEl-Jd-qeZ" secondAttribute="leading" id="5UI-DS-lQU"/>
                                             <constraint firstItem="rCG-Yo-PYY" firstAttribute="top" secondItem="CVo-0G-z1n" secondAttribute="bottom" id="5tE-5V-izu"/>
                                             <constraint firstItem="0va-4O-PrC" firstAttribute="top" secondItem="cX2-Gp-zea" secondAttribute="bottom" id="6sp-l1-9OA"/>
                                             <constraint firstAttribute="trailing" secondItem="Sd9-9W-j5a" secondAttribute="trailing" id="7Ch-Iw-T4r"/>
-                                            <constraint firstItem="Xji-ID-9Sh" firstAttribute="top" secondItem="b2S-NZ-ILi" secondAttribute="bottom" constant="50" id="9M0-QX-d6P"/>
                                             <constraint firstItem="CVo-0G-z1n" firstAttribute="leading" secondItem="lEl-Jd-qeZ" secondAttribute="leading" id="A2b-7Z-IyV"/>
                                             <constraint firstItem="cX2-Gp-zea" firstAttribute="top" secondItem="rCG-Yo-PYY" secondAttribute="bottom" id="AvC-9p-X8d"/>
                                             <constraint firstItem="rCG-Yo-PYY" firstAttribute="leading" secondItem="lEl-Jd-qeZ" secondAttribute="leading" id="CqS-o5-6bk"/>
@@ -4483,6 +4574,7 @@ Email : lienhe@chobatdongsan.com.vn
                                             <constraint firstItem="d5w-I2-ux8" firstAttribute="top" secondItem="whb-iN-8MD" secondAttribute="bottom" id="EAD-IH-rcP"/>
                                             <constraint firstAttribute="trailing" secondItem="qDx-ah-oYy" secondAttribute="trailing" id="FQw-L3-qcN"/>
                                             <constraint firstItem="whb-iN-8MD" firstAttribute="leading" secondItem="lEl-Jd-qeZ" secondAttribute="leading" id="Fdq-4N-fjH"/>
+                                            <constraint firstItem="E9c-sX-V5L" firstAttribute="leading" secondItem="lEl-Jd-qeZ" secondAttribute="leading" id="Fp9-4Y-9fJ"/>
                                             <constraint firstAttribute="trailing" secondItem="b2S-NZ-ILi" secondAttribute="trailing" id="GbY-xf-PXu"/>
                                             <constraint firstAttribute="trailing" secondItem="ZEk-vh-lNH" secondAttribute="trailing" id="Gqg-BL-QTy"/>
                                             <constraint firstAttribute="trailing" secondItem="d5w-I2-ux8" secondAttribute="trailing" id="H0J-Rb-aMx"/>
@@ -4497,12 +4589,15 @@ Email : lienhe@chobatdongsan.com.vn
                                             <constraint firstItem="3Aw-44-GNh" firstAttribute="top" secondItem="BYQ-WW-Bfb" secondAttribute="bottom" id="PHg-E5-M4N"/>
                                             <constraint firstItem="9vh-xL-lyE" firstAttribute="top" secondItem="bt3-9y-DLh" secondAttribute="bottom" id="PR5-hO-amJ"/>
                                             <constraint firstItem="QbO-3x-JdR" firstAttribute="leading" secondItem="lEl-Jd-qeZ" secondAttribute="leading" id="Q6B-Ln-v7J"/>
+                                            <constraint firstAttribute="trailing" secondItem="fUO-NI-GgE" secondAttribute="trailing" id="QFW-uu-0mj"/>
                                             <constraint firstItem="Xji-ID-9Sh" firstAttribute="width" secondItem="lEl-Jd-qeZ" secondAttribute="width" multiplier="1/2" id="QzU-8o-RI2"/>
                                             <constraint firstItem="k2p-jZ-bWj" firstAttribute="top" secondItem="d5w-I2-ux8" secondAttribute="bottom" id="R8x-Vw-b3c"/>
+                                            <constraint firstItem="bYV-y6-ibB" firstAttribute="leading" secondItem="lEl-Jd-qeZ" secondAttribute="leading" constant="20" id="RUP-QU-VvS"/>
                                             <constraint firstItem="W77-ZF-1Og" firstAttribute="leading" secondItem="lEl-Jd-qeZ" secondAttribute="leading" id="RXs-kl-jlU"/>
                                             <constraint firstItem="qDx-ah-oYy" firstAttribute="leading" secondItem="lEl-Jd-qeZ" secondAttribute="leading" id="Rkd-du-89S"/>
                                             <constraint firstItem="b2S-NZ-ILi" firstAttribute="top" secondItem="MK6-Tq-uGd" secondAttribute="bottom" id="Rtm-oj-4w0"/>
                                             <constraint firstItem="Xji-ID-9Sh" firstAttribute="centerX" secondItem="lEl-Jd-qeZ" secondAttribute="centerX" id="USZ-OM-qQJ"/>
+                                            <constraint firstItem="E9c-sX-V5L" firstAttribute="top" secondItem="b2S-NZ-ILi" secondAttribute="bottom" id="VL9-69-gTR"/>
                                             <constraint firstItem="lSt-gj-5AW" firstAttribute="leading" secondItem="lEl-Jd-qeZ" secondAttribute="leading" id="Vpd-ZS-GbA"/>
                                             <constraint firstItem="DeZ-G6-gVX" firstAttribute="top" secondItem="l8R-2D-Xnl" secondAttribute="bottom" id="WNb-JT-3WG"/>
                                             <constraint firstAttribute="trailing" secondItem="CVo-0G-z1n" secondAttribute="trailing" id="XGn-tP-ueu"/>
@@ -4521,11 +4616,16 @@ Email : lienhe@chobatdongsan.com.vn
                                             <constraint firstItem="cX2-Gp-zea" firstAttribute="leading" secondItem="lEl-Jd-qeZ" secondAttribute="leading" id="fwb-p9-Tcr"/>
                                             <constraint firstItem="XpM-Y2-MOJ" firstAttribute="leading" secondItem="lEl-Jd-qeZ" secondAttribute="leading" id="gec-Yr-kPW"/>
                                             <constraint firstAttribute="trailing" secondItem="XpM-Y2-MOJ" secondAttribute="trailing" id="giV-Px-gO2"/>
+                                            <constraint firstItem="IS2-BE-dxS" firstAttribute="leading" secondItem="bYV-y6-ibB" secondAttribute="trailing" constant="8" id="hL1-8o-MUi"/>
+                                            <constraint firstItem="bYV-y6-ibB" firstAttribute="top" secondItem="fUO-NI-GgE" secondAttribute="bottom" constant="23" id="hXJ-9A-8Fg"/>
                                             <constraint firstItem="qDx-ah-oYy" firstAttribute="top" secondItem="Sd9-9W-j5a" secondAttribute="bottom" id="i3b-a2-D38"/>
                                             <constraint firstAttribute="trailing" secondItem="0va-4O-PrC" secondAttribute="trailing" id="iLP-vS-3bd"/>
-                                            <constraint firstAttribute="height" constant="1450" id="idq-FZ-ZbT"/>
+                                            <constraint firstAttribute="height" constant="1600" id="idq-FZ-ZbT"/>
                                             <constraint firstAttribute="trailing" secondItem="Om7-6r-ocE" secondAttribute="trailing" id="iow-c0-BH7"/>
+                                            <constraint firstAttribute="trailing" secondItem="IS2-BE-dxS" secondAttribute="trailing" constant="20" id="jp9-cw-k0t"/>
                                             <constraint firstItem="ZEk-vh-lNH" firstAttribute="leading" secondItem="lEl-Jd-qeZ" secondAttribute="leading" id="k4B-Td-Bm9"/>
+                                            <constraint firstItem="fUO-NI-GgE" firstAttribute="leading" secondItem="lEl-Jd-qeZ" secondAttribute="leading" id="nBj-i7-UdC"/>
+                                            <constraint firstItem="Xji-ID-9Sh" firstAttribute="top" secondItem="IS2-BE-dxS" secondAttribute="bottom" constant="40" id="oBT-vr-ppW"/>
                                             <constraint firstItem="9ls-Yh-7nN" firstAttribute="height" secondItem="3Aw-44-GNh" secondAttribute="height" id="p5J-sP-axJ"/>
                                             <constraint firstItem="MK6-Tq-uGd" firstAttribute="top" secondItem="k2p-jZ-bWj" secondAttribute="bottom" id="pT1-7t-olB"/>
                                             <constraint firstAttribute="trailing" secondItem="l8R-2D-Xnl" secondAttribute="trailing" id="pfq-fZ-a86"/>
@@ -4535,6 +4635,7 @@ Email : lienhe@chobatdongsan.com.vn
                                             <constraint firstItem="d5w-I2-ux8" firstAttribute="leading" secondItem="lEl-Jd-qeZ" secondAttribute="leading" id="seY-s7-3sU"/>
                                             <constraint firstItem="bt3-9y-DLh" firstAttribute="top" secondItem="0va-4O-PrC" secondAttribute="bottom" id="t6j-Q5-Kix"/>
                                             <constraint firstItem="CVo-0G-z1n" firstAttribute="top" secondItem="9ls-Yh-7nN" secondAttribute="bottom" id="tjt-ZC-XFd"/>
+                                            <constraint firstAttribute="trailing" secondItem="E9c-sX-V5L" secondAttribute="trailing" id="u27-IW-adn"/>
                                             <constraint firstAttribute="trailing" secondItem="whb-iN-8MD" secondAttribute="trailing" id="uSH-VU-kpv"/>
                                             <constraint firstItem="XpM-Y2-MOJ" firstAttribute="top" secondItem="Dvl-hQ-ZXb" secondAttribute="bottom" id="wEW-XV-4lK"/>
                                             <constraint firstItem="Om7-6r-ocE" firstAttribute="leading" secondItem="lEl-Jd-qeZ" secondAttribute="leading" id="wgd-1V-S41"/>
@@ -4567,10 +4668,11 @@ Email : lienhe@chobatdongsan.com.vn
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="1500"/>
+                    <size key="freeformSize" width="375" height="1700"/>
                     <connections>
                         <outlet property="acreageLabel" destination="0qv-Fd-hb3" id="VgL-4L-FHQ"/>
                         <outlet property="address" destination="Jgu-XR-OcX" id="d9G-4e-PUI"/>
+                        <outlet property="btnDone" destination="bYV-y6-ibB" id="gAy-Fa-Lmr"/>
                         <outlet property="cityName" destination="Oya-yK-QcO" id="Ozf-gi-h5A"/>
                         <outlet property="directionBalcony" destination="rQW-sl-gZq" id="aQ8-Cu-8Tz"/>
                         <outlet property="directionOfHouse" destination="DDM-aq-2nH" id="Rs2-OE-DWN"/>
@@ -4610,6 +4712,7 @@ Email : lienhe@chobatdongsan.com.vn
                         <outlet property="imageInforOther" destination="L4y-Ct-d8j" id="w7X-Ii-qTO"/>
                         <outlet property="imageNameCompany" destination="rUR-Q7-Q2I" id="BVi-Q6-pcf"/>
                         <outlet property="imageNameUser" destination="y6s-Rp-Lbr" id="RGB-bN-oKE"/>
+                        <outlet property="imageNews" destination="RI8-fW-Mop" id="jiA-tv-1Wr"/>
                         <outlet property="imageProject" destination="ZRR-uy-28Z" id="hfN-7e-VdY"/>
                         <outlet property="imageTypeLand" destination="LcI-gA-RW2" id="OGv-cQ-tPx"/>
                         <outlet property="imageTypePrice" destination="dkh-AT-vX3" id="cGd-bk-ejG"/>
@@ -4648,6 +4751,7 @@ Email : lienhe@chobatdongsan.com.vn
         <image name="icon_in_news" width="42" height="42"/>
         <image name="icon_infor" width="262" height="143"/>
         <image name="icon_like" width="24" height="22"/>
+        <image name="icon_plachoder_chat" width="400" height="240"/>
         <image name="icon_select_category" width="26" height="26"/>
         <image name="icondown" width="170" height="170"/>
     </resources>

@@ -59,7 +59,13 @@ class LandForSaleViewCell: UITableViewCell {
         self.land = cell
         self.imageViewProfile.setImageUrlNews(url: API.linkImage + cell.image)
         self.name.text = cell.title
-        self.information.text = cell.content
+        if cell.content.count > 0 {
+            self.information.text = cell.content
+        }
+        else
+        {
+            self.information.text = cell.seo_description
+        }
         var count = 0
         for land in Util.shared.listBDS
         {

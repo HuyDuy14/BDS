@@ -28,7 +28,9 @@ class NewsLikeViewController: BaseViewController {
         refreshControl?.addTarget(self, action: #selector(NewsLikeViewController.refresh(_:)), for: UIControlEvents.valueChanged)
         self.tbaleView.addSubview(refreshControl!)
        self.tbaleView.register(UINib.init(nibName: "NewsHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier:  "NewsHeaderView")
+        self.showHUD("")
         self.getDataNews()
+        
         if isMenu == true {
             self.titleView.text = "Tin đã đăng"
             self.desView.text = "Thông tin những tin bạn đã đăng"
@@ -38,7 +40,11 @@ class NewsLikeViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tbaleView.reloadData()
-        self.getDataNews()
+        if self.isMenu == false
+        {
+            self.listData.listBDS = Util.shared.listBDS
+            self.getDataNews()
+        }
     }
     
     func refresh(_ sender: Any) {
@@ -49,25 +55,30 @@ class NewsLikeViewController: BaseViewController {
     {
        
         APIClient.shared.getNewsSave(isMenu:self.isMenu).asObservable().bind(onNext: { result in
-            self.listData.listBDS = []
-            for data in result.dataArray
-            {
-                if let dic = data as? [String:Any]
+            DispatchQueue.main.async {
+                self.listData.listBDS = []
+                for data in result.dataArray
                 {
-                    let bds =  LandSaleModel(JSON:dic)
-                    self.listData.listBDS.append(bds!)
+                    if let dic = data as? [String:Any]
+                    {
+                        let bds =  LandSaleModel(JSON:dic)
+                        self.listData.listBDS.append(bds!)
+                    }
+                    
                 }
-               
+                if self.isMenu == false {
+                    Util.shared.listBDS = self.listData.listBDS
+                }
+                for bds in self.listData.listBDS
+                {
+                    bds.isLike = true
+                }
+                
+                self.tbaleView.reloadData()
+                self.refreshControl.endRefreshing()
+                self.hideHUD()
             }
-            Util.shared.listBDS = self.listData.listBDS
            
-            for bds in Util.shared.listBDS
-            {
-                bds.isLike = true
-            }
-            self.tbaleView.reloadData()
-            self.refreshControl.endRefreshing()
-            self.hideHUD()
         }).disposed(by: self.disposeBag)
     }
     
@@ -91,7 +102,7 @@ extension NewsLikeViewController:UITableViewDelegate,UITableViewDataSource
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Util.shared.listBDS.count
+        return self.listData.listBDS.count
       
     }
     
@@ -114,7 +125,7 @@ extension NewsLikeViewController:UITableViewDelegate,UITableViewDataSource
         if self.listData.listBDS.count > indexPath.row
         {
             let cell = self.tbaleView.dequeueReusableCell(withIdentifier: "NewsLikeViewCell") as! LandForSaleViewCell
-            cell.loadDataCell(cell: Util.shared.listBDS[indexPath.row], index: indexPath.row, type: 3)
+            cell.loadDataCell(cell: self.listData.listBDS[indexPath.row], index: indexPath.row, type: 3)
             cell.delegate = self
             cell.imageLike.tintColor = UIColor.red
             return cell
@@ -166,8 +177,9 @@ extension NewsLikeViewController:UITableViewDelegate,UITableViewDataSource
         {
             let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
             let showDetail = storyboard.instantiateViewController(withIdentifier: "DetailLanforSaleViewController") as? DetailLanforSaleViewController
-            showDetail?.landForSale = Util.shared.listBDS[indexPath.row]
+            showDetail?.landForSale = self.listData.listBDS[indexPath.row]
             showDetail?.landForSale.isLike = true
+            showDetail?.isQL = self.isMenu
             self.pushViewController(viewController: showDetail)
         }
 //        default:
