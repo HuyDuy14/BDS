@@ -17,6 +17,7 @@ class Result:NSObject {
     var dataArray:NSArray =  NSArray()
     var error:NSError!
     var url:String!
+    var price:Int = 0
     
     internal init(error:NSError) {
         self.error = error
@@ -28,7 +29,14 @@ class Result:NSObject {
         if let data = result.object(forKey: "data")  as? [String : Any] {
             self.data = data
         } else {
-            self.dataArray = result.object(forKey: "data")  as? NSArray ?? []
+            if let array = result.object(forKey: "data")  as? NSArray
+            {
+                self.dataArray = array
+            }
+            else
+            {
+                self.price = (result.object(forKey: "data") as? Int) ?? 0
+            }
         }
     }
 }

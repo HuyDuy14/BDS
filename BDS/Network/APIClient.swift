@@ -512,6 +512,14 @@ class APIClient: NSObject {
             return self.requestGet(path: API.registerNews, method: .post, params: params)
     }
     
+    func getPrice(start:String,finish:String,type:Int)-> Observable<Result>
+    {
+        var params: Parameters = ["type":type]
+        params["start"] = start
+        params["finish"] = finish
+        return self.requestGet(path: API.getPrice, method: .get, params: params)
+    }
+    
     func postNews(post_type:Int,startDate:String,endDate:String,user_type:String,title:String,project_id:String,type_bds:String,type:String,city:String,ward:String,area:String,price:String,price_type:String,district:String,address:String,des:String,numberbedroom:String,direction:String,image:UIImage , completion: ((_ result: Result) -> Void)?) {
         
         var params: Parameters = ["user_type":user_type,"title":title,"address":address,"des":des]

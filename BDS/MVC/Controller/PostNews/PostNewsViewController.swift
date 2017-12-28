@@ -16,6 +16,7 @@ class PostNewsViewController: BaseViewController {
 
     @IBOutlet weak var btnDone: UIButton!
     @IBOutlet weak var headerView: HeaderViewController!
+    @IBOutlet weak var sumPrice: UILabel!
     let disposeBag = DisposeBag()
     //Date
     @IBOutlet weak var typeNews: UILabel!
@@ -107,7 +108,9 @@ class PostNewsViewController: BaseViewController {
     
     //HeightView
     @IBOutlet weak var heightView: NSLayoutConstraint!
-   var heightViewContraint:CGFloat = 1700
+   var heightViewContraint:CGFloat = 1800
+    @IBOutlet weak var codeLabel: UILabel!
+    @IBOutlet weak var codeTextFied: UITextField!
     
     var isCheck:Bool = false
     //Property
@@ -202,7 +205,9 @@ class PostNewsViewController: BaseViewController {
         self.typeLand.text = "Chọn loại BĐS"
         self.idLandSale = "null"
         self.idTypeLand = "sale"
+        self.loadPrice()
         self.setDataPickerLand()
+        self.codeLabel.text = self.randomString(length: 5)
     }
     
     func resetData()
@@ -276,6 +281,33 @@ class PostNewsViewController: BaseViewController {
             
         }
         self.heightView.constant = self.heightViewContraint
+    }
+    
+    func loadPrice()
+    {
+         self.sumPrice.text = "Thành tiền: \(0) VND"
+        self.showHUD("")
+        let start = self.startDate.dateFormatString(formater: "yyyy-MM-dd")
+        let end =  self.endDate.dateFormatString(formater: "yyyy-MM-dd")
+    
+        APIClient.shared.getPrice(start: start, finish: end, type: self.idTypeNews).asObservable().bind(onNext: {result in
+            self.sumPrice.text = "Thành tiền: \(result.price) VND"
+            self.hideHUD()
+        }).disposed(by: self.disposeBag)
+    }
+    
+    func randomString(length: Int) -> String {
+        let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let len = UInt32(letters.length)
+        
+        var randomString = ""
+        
+        for _ in 0..<length {
+            let rand = arc4random_uniform(len)
+            var nextChar = letters.character(at: Int(rand))
+            randomString += NSString(characters: &nextChar, length: 1) as String
+        }
+        return randomString
     }
     
     func isShowInforOther(isShow:Bool)
@@ -698,6 +730,10 @@ class PostNewsViewController: BaseViewController {
             self.isCheck = false
         }
     }
+    @IBAction func resetCodeButtonDidTap(_ sender: Any) {
+        self.codeLabel.text = self.randomString(length: 5)
+    }
+    
     
     @IBAction func postNewsButtonDidTap(_ sender: Any) {
         if self.inforViewTextView.text.count == 0
@@ -760,10 +796,18 @@ class PostNewsViewController: BaseViewController {
             self.showAlert("Bạn chưa đồng ý với điều khoản sử dụng của ứng dụng")
             return
         }
+        
+        if !(self.codeLabel.text?.elementsEqual(self.codeTextFied?.text ?? ""))!
+        {
+            self.showAlert("Mã bảo mật chưa đúng")
+            return
+        }
+
 
         self.showHUD("")
         var start = "null"
         var end =  "null"
+        
         if self.startDateLabel.text != "Ngày bắt đầu"
         {
             start = self.startDate.dateFormatString(formater: "yyyy-MM-dd HH:mm:ss")
