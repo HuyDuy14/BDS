@@ -22,6 +22,7 @@ class ProjectsViewController: BaseViewController {
     var idProject:Int = 0
     var idCity:Int = 0
     var idDictrict:Int = 0
+    var nameProjects = "null"
     var listProject:[ProjectsModel] = []
     var listLandSent:[LandSaleModel] = []
     
@@ -121,7 +122,7 @@ class ProjectsViewController: BaseViewController {
     {
         if self.isLoading == false {
             self.isLoading = true
-            APIClient.shared.searchProjects(idProject: self.idProject, idCity: self.idCity, idDistrict: self.idDictrict,page:self.page).asObservable().bind(onNext: {result in
+            APIClient.shared.searchProjects(idProject: self.idProject, idCity: self.idCity, idDistrict: self.idDictrict,page:self.page,nameProject:self.nameProjects).asObservable().bind(onNext: {result in
                 
                 DispatchQueue.main.async {
                     var projects: [ProjectsModel] = []

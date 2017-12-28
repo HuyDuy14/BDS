@@ -410,8 +410,8 @@ class APIClient: NSObject {
         return self.requestGet(path: API.getCategoryLand, method: .get, params: params)
     }
     
-    func searchProjects(idProject:Int,idCity:Int,idDistrict:Int,page:Int) -> Observable<Result> {
-        var params: Parameters = ["page":page]
+    func searchProjects(idProject:Int,idCity:Int,idDistrict:Int,page:Int,nameProject:String) -> Observable<Result> {
+        var params: Parameters = ["page":page,"title":nameProject]
         if idProject != 0
         {
             params["type"] = idProject

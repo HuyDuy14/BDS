@@ -78,4 +78,23 @@ class HomeMenuViewController: BaseViewController {
         postNews.isMenu = true
         self.pushViewController(viewController: postNews)
     }
+    
+    @IBAction func loguotButtonDidTap(_ sender: Any) {
+        let alert = UIAlertController(title: "", message: "Bạn muốn thoát khỏi app?", preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { _ in
+            UserDefaults.standard.set("", forKey: FBID)
+            UserDefaults.standard.set("", forKey: FBNAME)
+            UserDefaults.standard.set("", forKey: USERNAME)
+            UserDefaults.standard.set("", forKey: PASSWORD)
+            UserDefaults.standard.set("", forKey: GGID)
+            UserDefaults.standard.set("", forKey: GGEMAIL)
+            UserDefaults.standard.set("", forKey: GGNAME)
+            AppDelegate.shared?.setLoginRootViewControoler()
+            SideMenuTransition.hideMenu()
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
 }

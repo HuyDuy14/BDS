@@ -810,12 +810,6 @@ Email : lienhe@chobatdongsan.com.vn
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l2d-hh-S1v">
                                 <rect key="frame" x="0.0" y="70" width="375" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tên dự án" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWT-oW-k7g">
-                                        <rect key="frame" x="60" y="13" width="295" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zkA-P0-IUY">
                                         <rect key="frame" x="20" y="49.5" width="335" height="0.5"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -823,14 +817,21 @@ Email : lienhe@chobatdongsan.com.vn
                                             <constraint firstAttribute="height" constant="0.5" id="vw6-5h-Uam"/>
                                         </constraints>
                                     </view>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tên dự án" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SDf-qS-BNZ">
+                                        <rect key="frame" x="60" y="6" width="295" height="37.5"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="zkA-P0-IUY" secondAttribute="trailing" constant="20" id="4Iv-EI-v4K"/>
                                     <constraint firstAttribute="height" constant="50" id="5cJ-7P-ga3"/>
-                                    <constraint firstAttribute="bottom" secondItem="MWT-oW-k7g" secondAttribute="bottom" constant="20" id="IfZ-rD-2M7"/>
-                                    <constraint firstAttribute="trailing" secondItem="MWT-oW-k7g" secondAttribute="trailing" constant="20" id="TGQ-tH-FQu"/>
-                                    <constraint firstItem="MWT-oW-k7g" firstAttribute="leading" secondItem="l2d-hh-S1v" secondAttribute="leading" constant="60" id="aeE-Op-3t9"/>
+                                    <constraint firstItem="SDf-qS-BNZ" firstAttribute="top" secondItem="l2d-hh-S1v" secondAttribute="top" constant="6" id="8QD-7J-s9s"/>
+                                    <constraint firstItem="zkA-P0-IUY" firstAttribute="top" secondItem="SDf-qS-BNZ" secondAttribute="bottom" constant="6" id="EF9-9j-GHl"/>
+                                    <constraint firstItem="SDf-qS-BNZ" firstAttribute="leading" secondItem="l2d-hh-S1v" secondAttribute="leading" constant="60" id="Hs3-M2-B9m"/>
+                                    <constraint firstAttribute="trailing" secondItem="SDf-qS-BNZ" secondAttribute="trailing" constant="20" id="LkZ-Vw-Eze"/>
                                     <constraint firstItem="zkA-P0-IUY" firstAttribute="leading" secondItem="l2d-hh-S1v" secondAttribute="leading" constant="20" id="brD-sb-Kf8"/>
                                     <constraint firstAttribute="bottom" secondItem="zkA-P0-IUY" secondAttribute="bottom" id="try-TQ-wam"/>
                                 </constraints>
@@ -1077,6 +1078,7 @@ Email : lienhe@chobatdongsan.com.vn
                         <outlet property="district" destination="Fwm-4S-nsm" id="ojU-R7-vVy"/>
                         <outlet property="headerView" destination="ZZc-lB-7z3" id="kGP-tq-KSO"/>
                         <outlet property="monney" destination="w26-DO-Nbo" id="jT9-Bs-ifv"/>
+                        <outlet property="nameProjects" destination="SDf-qS-BNZ" id="lVD-tp-b3Y"/>
                         <outlet property="typeLand" destination="lBz-Iq-Brx" id="izL-bk-NUY"/>
                     </connections>
                 </viewController>

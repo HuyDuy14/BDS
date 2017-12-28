@@ -17,6 +17,7 @@ class SearchProjectsViewController: BaseViewController {
     @IBOutlet weak var typeLand: UILabel!
     @IBOutlet weak var monney: UILabel!
     @IBOutlet weak var headerView: HeaderViewController!
+    @IBOutlet weak var nameProjects: UITextField!
     
     let disposeBag = DisposeBag()
     var pickerView = PickerView.getFromNib()
@@ -158,6 +159,10 @@ class SearchProjectsViewController: BaseViewController {
         detailSearch?.idCity = self.idCity
         detailSearch?.idProject = self.idProject
         detailSearch?.isBackHome = false
+        if self.nameProjects.text?.count != 0
+        {
+            detailSearch?.nameProjects = self.nameProjects.text!
+        }
         self.pushViewController(viewController: detailSearch!)
       
     }

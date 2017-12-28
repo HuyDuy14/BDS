@@ -121,7 +121,7 @@ class PostNewsViewController: BaseViewController {
     var datePicker = MIDatePicker.getFromNib()
     // PickerView
     var listTypeLand:[ModelPicker] = [ModelPicker(id: 1, name: "Nhà đất bán"),ModelPicker(id: 2, name: "Nhà đất cho thuê")]
-    var listTypeNews:[ModelPicker] = [ModelPicker(id: 2, name: "Tin miễn phí"),ModelPicker(id: 5, name: "Tin vip 1"),ModelPicker(id: 4, name: "Tin vip 2"),ModelPicker(id: 3, name: "Tin vip 3"),ModelPicker(id: 6, name: "Tin siêu vip")]
+    var listTypeNews:[ModelPicker] = [ModelPicker(id: 2, name: "Tin miễn phí"),ModelPicker(id: 3, name: "Tin vip 3"),ModelPicker(id: 4, name: "Tin vip 2"),ModelPicker(id: 5, name: "Tin vip 1"),ModelPicker(id: 6, name: "Tin siêu vip")]
     var listDirection:[ModelPicker] =  [ModelPicker(id: 1, name: "Đông"),ModelPicker(id: 2, name: "Tây"),ModelPicker(id: 3, name: "Nam"),ModelPicker(id: 4, name: "Bắc"),ModelPicker(id: 5, name: "Đông-Bắc"),ModelPicker(id: 6, name: "Tây-Bắc"),ModelPicker(id: 7, name: "Đông-Nam"),ModelPicker(id: 8, name: "Tây-Nam")]
     var listTypePrice:[ModelPicker] = [ModelPicker(id: 1, name: "Triệu"),ModelPicker(id: 2, name: "Tỷ"),ModelPicker(id: 6, name: "Trăm nghìn/m2"),ModelPicker(id: 7, name: "Triệu/m2")]
     var listTypeUser:[ModelPicker] = [ModelPicker(id: 1, name: "Chính chủ"),ModelPicker(id: 2, name: "Môi giới"),ModelPicker(id: 3, name: "Chủ dự án"),ModelPicker(id: 4, name: "Khác")]
@@ -533,6 +533,7 @@ class PostNewsViewController: BaseViewController {
     
     @IBAction func startDateButtonDidTap(_ sender: Any) {
         self.datePicker.config.startDate = self.startDate
+        self.datePicker.datePicker.minimumDate = Date()
         self.datePicker.isStart = true
         self.datePicker.show(inVC: self)
     }
@@ -704,16 +705,19 @@ class PostNewsViewController: BaseViewController {
             self.showAlert("Bạn chưa nhập thôn tin mô tả")
             return
         }
+        
         if self.idTypeUser == "null"
         {
             self.showAlert("Bạn chưa cho biết bạn là ai")
             return
         }
+        
         if self.titleTextField.text?.count == 0
         {
             self.showAlert("Bạn chưa nhập tiêu đề")
             return
         }
+        
         if self.idLandSale == "null"
         {
             self.showAlert("Bạn chưa chọn hình thức giao dịch")
@@ -726,21 +730,25 @@ class PostNewsViewController: BaseViewController {
             return
             
         }
+        
         if self.idCity == "null"
         {
             self.showAlert("Bạn chưa chọn Tỉnh/Thành Phố")
             return
         }
+        
         if self.idDistrict == "null"
         {
             self.showAlert("Bạn chưa chọn Quận/Huyện")
             return
         }
+        
         if self.image == nil
         {
             self.showAlert("Bạn chưa chọn ảnh")
             return
         }
+        
         if self.startDate.timeIntervalSince1970 >  self.endDate.timeIntervalSince1970 - (7 * 86400)
         {
             self.showAlert("Ngày kết thúc phải lớn hơn ngày bắt đầu ít nhất 7 ngày")
@@ -768,6 +776,14 @@ class PostNewsViewController: BaseViewController {
         APIClient.shared.postNews(post_type: self.idTypeNews, startDate:start , endDate:end, user_type: self.idTypeUser, title: self.titleTextField.text!, project_id: self.idProject, type_bds: self.idLandSale, type: self.idTypeLand, city: self.idCity, ward: self.idWards, area: self.acreageLabel.text!, price: self.priceLabel.text!, price_type: self.idTypePrice, district: self.idDistrict, address: self.address.text!, des: self.inforViewTextView.text, numberbedroom: self.idBedroom, direction: self.idDirection, image: self.image!,completion: {result in
             self.showAlert("Bạn đã đăng tin thành công! Tin của bạn sẽ được xét duyệt trong vòng vài giờ, hay kiểm tra trong phần quản lý tin đăng của tôi")
             self.resetData()
+            self.isShowInfor = true
+            self.isShowInforBasic = true
+            self.isInforOther = true
+            self.isCheck = false
+            self.btnDone.setImage(nil, for: .normal)
+            self.isShowInforView(isShow: self.isShowInfor)
+            self.isShowInforBasic(isShow: self.isShowInforBasic)
+            self.isShowInforOther(isShow: self.isInforOther)
             self.hideHUD()
         })
 

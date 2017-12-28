@@ -49,4 +49,5 @@ class API: NSObject {
     static var apiDetailNewsBDS = "news_bds_detail.php"
     static var postNews  = "post_news.php"
     static var listNewsPost = "news_post.php"
+    static var getPrice = "get_price.php"
 }
