@@ -32,6 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done"
         GMSServices.provideAPIKey(API_KEY_GOOGLE)
         GMSPlacesClient.provideAPIKey(API_KEY_GOOGLE)
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         self.settingNotiOnsignal(launchOptions: launchOptions)
         self.loadDataCity()
         return true

@@ -853,7 +853,7 @@ extension PostNewsViewController:MIDatePickerDelegate
             self.endDate = date
             self.endDateLabel.text = date.dateFormatString(formater: "dd/MM/yyyy")
         }
-        
+        self.loadPrice()
     }
 }
 
@@ -866,6 +866,7 @@ extension PostNewsViewController:PickerViewDelegate
             self.typeNews.text = picker.name
             self.indextypeNews = index
             self.idTypeNews = picker.id
+            self.loadPrice()
         case 1:
             self.formLabel.text = picker.name
             self.indexTypeLand = index
