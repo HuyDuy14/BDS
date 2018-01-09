@@ -108,15 +108,30 @@ class PostNewsViewController: BaseViewController {
     
     //HeightView
     @IBOutlet weak var heightView: NSLayoutConstraint!
-   var heightViewContraint:CGFloat = 1800
+   var heightViewContraint:CGFloat = 2200
     @IBOutlet weak var codeLabel: UILabel!
     @IBOutlet weak var codeTextFied: UITextField!
+    
+    // Contact Information
+    @IBOutlet weak var imageContact: UIImageView!
+    @IBOutlet weak var nameContact: UITextField!
+    @IBOutlet weak var heightNameConact: NSLayoutConstraint!
+    @IBOutlet weak var addressContact: UITextField!
+    @IBOutlet weak var heightAddressContact: NSLayoutConstraint!
+    @IBOutlet weak var phoneContact: UITextField!
+    @IBOutlet weak var heightPhontContact: NSLayoutConstraint!
+    @IBOutlet weak var mobileContact: UITextField!
+    @IBOutlet weak var heightMobileContact: NSLayoutConstraint!
+    @IBOutlet weak var emailContact: UITextField!
+    @IBOutlet weak var heightEmailContact: NSLayoutConstraint!
+    
     
     var isCheck:Bool = false
     //Property
     var isShowInfor:Bool = true
     var isShowInforBasic:Bool = true
     var isInforOther:Bool = true
+    var isContactInfor:Bool = true
     
     // DatePicker
     var startDate:Date = Date()
@@ -171,6 +186,7 @@ class PostNewsViewController: BaseViewController {
         self.isShowInforView(isShow: self.isShowInfor)
         self.isShowInforBasic(isShow: self.isShowInforBasic)
         self.isShowInforOther(isShow: self.isInforOther)
+        self.isShowContactInformation(isShow: self.isContactInfor)
         self.settingColorIcon()
         self.loadDataCity()
         self.loadData()
@@ -247,6 +263,11 @@ class PostNewsViewController: BaseViewController {
         self.address.text = ""
         self.acreageLabel.text = ""
         self.priceLabel.text = ""
+        self.emailContact.text = ""
+        self.nameContact.text = ""
+        self.phoneContact.text = ""
+        self.addressContact.text = ""
+        self.mobileContact.text = ""
         self.typePrice.text = "Đơn vị"
         self.facadeTextField.text = ""
         self.distanceTextField.text = ""
@@ -262,6 +283,7 @@ class PostNewsViewController: BaseViewController {
         self.imagedropDownInfor.tintColor = UIColor(netHex: 0x19846B)
         self.imageInforBase.tintColor = UIColor(netHex: 0x19846B)
         self.imageInforOther.tintColor = UIColor(netHex: 0x19846B)
+        self.imageContact.tintColor = UIColor(netHex: 0x19846B)
     }
     
     func isShowInforView(isShow:Bool)
@@ -340,6 +362,36 @@ class PostNewsViewController: BaseViewController {
             self.heightDirectionOfHouse.constant = 50
             self.heightDirectionBalcony.constant = 50
             self.heightFurnitureTextView.constant = 50
+            self.heightViewContraint = self.heightViewContraint + 300
+        }
+        self.heightView.constant = self.heightViewContraint
+    }
+    
+    func isShowContactInformation(isShow:Bool)
+    {
+        self.mobileContact.isHidden = isShow
+        self.nameContact.isHidden = isShow
+        self.phoneContact.isHidden = isShow
+        self.addressContact.isHidden = isShow
+        self.emailContact.isHidden = isShow
+        if isShow == true
+        {
+            self.imageContact.image = #imageLiteral(resourceName: "icondown")
+            self.heightNameConact.constant = 0
+            self.heightAddressContact.constant = 0
+            self.heightPhontContact.constant = 0
+            self.heightMobileContact.constant = 0
+            self.heightEmailContact.constant = 0
+            self.heightViewContraint = self.heightViewContraint - 300
+        }
+        else
+        {
+            self.heightNameConact.constant = 50
+            self.heightAddressContact.constant = 50
+            self.heightPhontContact.constant = 50
+            self.heightMobileContact.constant = 50
+            self.heightEmailContact.constant = 50
+            self.imageContact.image = #imageLiteral(resourceName: "icon_up")
             self.heightViewContraint = self.heightViewContraint + 300
         }
         self.heightView.constant = self.heightViewContraint
@@ -561,6 +613,19 @@ class PostNewsViewController: BaseViewController {
         self.isShowInforOther(isShow: self.isInforOther)
     }
     
+    @IBAction func contactButtonDidTap(_ sender: Any) {
+        if self.isContactInfor == false
+        {
+            self.isContactInfor = true
+            
+        }
+        else
+        {
+            self.isContactInfor = false
+        }
+        self.isShowContactInformation(isShow: self.isContactInfor)
+    }
+    
     // DatePicker
     
     @IBAction func startDateButtonDidTap(_ sender: Any) {
@@ -756,7 +821,7 @@ class PostNewsViewController: BaseViewController {
         
         if self.idLandSale == "null"
         {
-            self.showAlert("Bạn chưa chọn hình thức giao dịch")
+            self.showAlert("Bạn chưa chọn loại BĐS")
             return
         }
         
@@ -803,6 +868,12 @@ class PostNewsViewController: BaseViewController {
             return
         }
 
+        if (self.mobileContact.text?.count == 0)
+        {
+            self.showAlert("Bạn chưa nhập số điện thoại của bạn vui lòng nhập cách thức liên hệ với bạn")
+            self.mobileContact.becomeFirstResponder()
+            return
+        }
 
         self.showHUD("")
         var start = "null"
@@ -817,7 +888,7 @@ class PostNewsViewController: BaseViewController {
             end = self.endDate.dateFormatString(formater: "yyyy-MM-dd HH:mm:ss")
         }
         
-        APIClient.shared.postNews(post_type: self.idTypeNews, startDate:start , endDate:end, user_type: self.idTypeUser, title: self.titleTextField.text!, project_id: self.idProject, type_bds: self.idLandSale, type: self.idTypeLand, city: self.idCity, ward: self.idWards, area: self.acreageLabel.text!, price: self.priceLabel.text!, price_type: self.idTypePrice, district: self.idDistrict, address: self.address.text!, des: self.inforViewTextView.text, numberbedroom: self.idBedroom, direction: self.idDirection, image: self.image!,completion: {result in
+        APIClient.shared.postNews(post_type: self.idTypeNews, startDate:start , endDate:end, user_type: self.idTypeUser, title: self.titleTextField.text!, project_id: self.idProject, type_bds: self.idLandSale, type: self.idTypeLand, city: self.idCity, ward: self.idWards, area: self.acreageLabel.text!, price: self.priceLabel.text!, price_type: self.idTypePrice, district: self.idDistrict, address: self.address.text!, des: self.inforViewTextView.text, numberbedroom: self.idBedroom, direction: self.idDirection, image: self.image!, poster_name: self.nameContact.text!,poster_address: self.addressContact.text!,poster_phone: self.phoneContact.text!,poster_mobile: self.mobileContact.text!,poster_email: self.emailContact.text!,completion: {result in
             self.showAlert("Bạn đã đăng tin thành công! Tin của bạn sẽ được xét duyệt trong vòng vài giờ, hay kiểm tra trong phần quản lý tin đăng của tôi")
             self.resetData()
             self.isShowInfor = true

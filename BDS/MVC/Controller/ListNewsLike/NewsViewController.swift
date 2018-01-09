@@ -55,6 +55,7 @@ class NewsViewController: BaseViewController {
     {
         let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
         let vcCategory = storyboard.instantiateViewController(withIdentifier: "PopupCategoryNewsViewController") as? PopupCategoryNewsViewController
+        vcCategory?.isNews = self.isNews
         if self.isNews == true
         {
             vcCategory?.listName = Util.shared.listCategoryNews

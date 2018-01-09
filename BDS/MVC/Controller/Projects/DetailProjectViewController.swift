@@ -98,7 +98,7 @@ class DetailProjectViewController: BaseViewController {
         self.monney.text = project.price + "/m2"
         self.date.text = project.date_finish.FromStringToDateToStringProjects()
         self.scaleProject.text = project.summary
-        self.webView.loadHTMLString(Util.shared.htmlString(from: project.content), baseURL: nil)
+        self.webView.loadHTMLString(Util.shared.htmlString(from: project.introduce), baseURL: nil)
         
     }
     

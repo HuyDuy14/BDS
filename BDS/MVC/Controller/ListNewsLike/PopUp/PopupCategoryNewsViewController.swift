@@ -12,14 +12,18 @@ class PopupCategoryNewsViewController: BaseViewController {
 
     var finish:((_ id:String)->Void)?
     var listName:[CategoryNewsModel] = []
+    var isNews:Bool = true
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let categoryNews = CategoryNewsModel()
-        categoryNews.name = "Tin bất động sản"
-        listName.insert(categoryNews, at: 0)
+        if isNews == true
+        {
+            let categoryNews = CategoryNewsModel()
+            categoryNews.name = "Tin bất động sản"
+            listName.insert(categoryNews, at: 0)
+        }
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }

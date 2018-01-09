@@ -520,7 +520,7 @@ class APIClient: NSObject {
         return self.requestGet(path: API.getPrice, method: .get, params: params)
     }
     
-    func postNews(post_type:Int,startDate:String,endDate:String,user_type:String,title:String,project_id:String,type_bds:String,type:String,city:String,ward:String,area:String,price:String,price_type:String,district:String,address:String,des:String,numberbedroom:String,direction:String,image:UIImage , completion: ((_ result: Result) -> Void)?) {
+    func postNews(post_type:Int,startDate:String,endDate:String,user_type:String,title:String,project_id:String,type_bds:String,type:String,city:String,ward:String,area:String,price:String,price_type:String,district:String,address:String,des:String,numberbedroom:String,direction:String,image:UIImage,poster_name:String,poster_address:String ,poster_phone:String,poster_mobile:String,poster_email:String, completion: ((_ result: Result) -> Void)?) {
         
         var params: Parameters = ["user_type":user_type,"title":title,"address":address,"des":des]
         params["project_id"] = project_id
@@ -538,7 +538,11 @@ class APIClient: NSObject {
         params["post_type"] = String(post_type)
         params["start"] = startDate
         params["finish"] = endDate
-        
+        params["poster_name"] = poster_name
+        params["poster_address"] = poster_address
+        params["poster_phone"] = poster_phone
+        params["poster_mobile"] = poster_mobile
+        params["poster_email"] = poster_email
         self.requestUploadImage(path: API.postNews, image: image, method: .post, params: params, completion: { result in
             completion?(result)
         })
