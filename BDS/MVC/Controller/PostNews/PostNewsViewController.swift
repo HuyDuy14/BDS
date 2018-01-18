@@ -90,6 +90,16 @@ class PostNewsViewController: BaseViewController {
     @IBOutlet weak var distanceTextField: UITextField!
     @IBOutlet weak var mDistance: UILabel!
     @IBOutlet weak var heightDistance: NSLayoutConstraint!
+    // Hướng ban công(directionOfBalcony)
+    @IBOutlet weak var directionOfBalcony: UILabel!
+    @IBOutlet weak var imagedirectionOfBalcony: UIImageView!
+    @IBOutlet weak var heightdirectionOfBalcony: NSLayoutConstraint!
+    // Số tầng(numberOfFloors)
+    @IBOutlet weak var numberOfFloors: KMPlaceholderTextView!
+    @IBOutlet weak var heightNumberOfFloors: NSLayoutConstraint!
+    // Số nhà để xe (garageNumber)
+    @IBOutlet weak var garageNumber: KMPlaceholderTextView!
+    @IBOutlet weak var heightGarageNumber: NSLayoutConstraint!
     // Hướng nhà (directionOfHouse)
     @IBOutlet weak var directionOfHouse: UILabel!
     @IBOutlet weak var imageDirectionOfHouse: UIImageView!
@@ -106,9 +116,13 @@ class PostNewsViewController: BaseViewController {
     var image:UIImage?
     @IBOutlet weak var imageNews: UIImageView!
     
+    // Number toilet
+    
+    @IBOutlet weak var numberToilet: KMPlaceholderTextView!
+    @IBOutlet weak var heightNumberToilet: NSLayoutConstraint!
     //HeightView
     @IBOutlet weak var heightView: NSLayoutConstraint!
-   var heightViewContraint:CGFloat = 2200
+    var heightViewContraint:CGFloat = 2450
     @IBOutlet weak var codeLabel: UILabel!
     @IBOutlet weak var codeTextFied: UITextField!
     
@@ -137,6 +151,7 @@ class PostNewsViewController: BaseViewController {
     var startDate:Date = Date()
     var endDate:Date = Date()
     var datePicker = MIDatePicker.getFromNib()
+    
     // PickerView
     var listTypeLand:[ModelPicker] = [ModelPicker(id: 1, name: "Nhà đất bán"),ModelPicker(id: 2, name: "Nhà đất cho thuê")]
     var listTypeNews:[ModelPicker] = [ModelPicker(id: 2, name: "Tin miễn phí"),ModelPicker(id: 3, name: "Tin vip 3"),ModelPicker(id: 4, name: "Tin vip 2"),ModelPicker(id: 5, name: "Tin vip 1"),ModelPicker(id: 6, name: "Tin siêu vip")]
@@ -145,7 +160,8 @@ class PostNewsViewController: BaseViewController {
     var listTypeUser:[ModelPicker] = [ModelPicker(id: 1, name: "Chính chủ"),ModelPicker(id: 2, name: "Môi giới"),ModelPicker(id: 3, name: "Chủ dự án"),ModelPicker(id: 4, name: "Khác")]
     var listTypeCompany:[ModelPicker] = [ModelPicker(id: 1, name: "Cá nhân"),ModelPicker(id: 2, name: "Doanh nghiệp")]
     var listNumberBedRoom:[ModelPicker] =  [ModelPicker(id: 1, name: "1"),ModelPicker(id: 2, name: "2"),ModelPicker(id: 3, name: "3"),ModelPicker(id: 4, name: "4"),ModelPicker(id: 5, name: "5"),ModelPicker(id: 6, name: "6"),ModelPicker(id: 7, name: "7"),ModelPicker(id: 8, name: "8"),ModelPicker(id: 9, name: "9"),ModelPicker(id: 10, name: "10")]
-     var listLandSale:[ModelPicker] = []
+    
+    var listLandSale:[ModelPicker] = []
     var listPickerCity:[ModelPicker] = []
     var listPickerDistrict:[ModelPicker] = []
     var listWard:[ModelPicker] = []
@@ -165,6 +181,7 @@ class PostNewsViewController: BaseViewController {
     var indexTypeCompany = 0
     var indexTypeProject = 0
     var indexBedroom = 0
+    var indexDirectionOfBalcony = 0
     // idSelect
     var idBedroom = "null"
     var idCompany = "null"
@@ -178,10 +195,10 @@ class PostNewsViewController: BaseViewController {
     var idDirection = "null"
     var idWards = "null"
     var idTypePrice = "null"
+    var idDirectionOfBalcony = "null"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
         self.setDelegate()
         self.isShowInforView(isShow: self.isShowInfor)
         self.isShowInforBasic(isShow: self.isShowInforBasic)
@@ -334,7 +351,6 @@ class PostNewsViewController: BaseViewController {
     
     func isShowInforOther(isShow:Bool)
     {
-        
         self.facadeTextField.isHidden = isShow
         self.mFacadeLabel.isHidden = isShow
         self.distanceTextField.isHidden = isShow
@@ -344,6 +360,12 @@ class PostNewsViewController: BaseViewController {
         self.directionBalcony.isHidden = isShow
         self.imageDirectionBalcony.isHidden = isShow
         self.furnitureTextView.isHidden = isShow
+        self.directionOfBalcony.isHidden = isShow
+        self.imagedirectionOfBalcony.isHidden = isShow
+        self.numberOfFloors.isHidden = isShow
+        self.garageNumber.isHidden = isShow
+        self.numberToilet.isHidden = isShow
+      
         if isShow == true
         {
             self.imageInforOther.image = #imageLiteral(resourceName: "icondown")
@@ -352,7 +374,11 @@ class PostNewsViewController: BaseViewController {
             self.heightDirectionOfHouse.constant = 0
             self.heightDirectionBalcony.constant = 0
             self.heightFurnitureTextView.constant = 0
-            self.heightViewContraint = self.heightViewContraint - 300
+            self.heightdirectionOfBalcony.constant = 0
+            self.heightNumberOfFloors.constant = 0
+            self.heightGarageNumber.constant = 0
+            self.heightNumberToilet.constant = 0
+            self.heightViewContraint = self.heightViewContraint - 500
         }
         else
         {
@@ -362,7 +388,112 @@ class PostNewsViewController: BaseViewController {
             self.heightDirectionOfHouse.constant = 50
             self.heightDirectionBalcony.constant = 50
             self.heightFurnitureTextView.constant = 50
-            self.heightViewContraint = self.heightViewContraint + 300
+            self.heightdirectionOfBalcony.constant = 50
+            self.heightNumberOfFloors.constant = 50
+            self.heightGarageNumber.constant = 50
+            self.heightNumberToilet.constant = 50
+            self.heightViewContraint = self.heightViewContraint + 500
+        }
+        self.heightView.constant = self.heightViewContraint
+    }
+    
+    func isShowInforOtherSaleRent(isShow:Bool,id:Int)
+    {
+        self.facadeTextField.isHidden = isShow
+        self.mFacadeLabel.isHidden = isShow
+        self.distanceTextField.isHidden = isShow
+        self.mDistance.isHidden = isShow
+        self.directionOfHouse.isHidden = isShow
+        self.imageDirectionOfHouse.isHidden = isShow
+        self.directionBalcony.isHidden = isShow
+        self.imageDirectionBalcony.isHidden = isShow
+        self.furnitureTextView.isHidden = isShow
+        self.directionOfBalcony.isHidden = isShow
+        self.imagedirectionOfBalcony.isHidden = isShow
+        self.numberOfFloors.isHidden = isShow
+        self.garageNumber.isHidden = isShow
+        self.numberToilet.isHidden = isShow
+        if isShow == true
+        {
+            self.imageInforOther.image = #imageLiteral(resourceName: "icondown")
+            self.heightFacade.constant = 0
+            self.heightDistance.constant = 0
+            self.heightDirectionOfHouse.constant = 0
+            self.heightDirectionBalcony.constant = 0
+            self.heightFurnitureTextView.constant = 0
+            self.heightdirectionOfBalcony.constant = 0
+            self.heightNumberOfFloors.constant = 0
+            self.heightGarageNumber.constant = 0
+            self.heightNumberToilet.constant = 0
+            self.heightViewContraint = self.heightViewContraint - 500
+        }
+        else
+        {
+            self.imageInforOther.image = #imageLiteral(resourceName: "icon_up")
+            self.heightFacade.constant = 50
+            self.heightDistance.constant = 50
+            self.heightDirectionOfHouse.constant = 50
+            self.heightDirectionBalcony.constant = 50
+            self.heightFurnitureTextView.constant = 50
+            self.heightdirectionOfBalcony.constant = 50
+            self.heightNumberOfFloors.constant = 50
+            self.heightGarageNumber.constant = 50
+            self.heightNumberToilet.constant = 0
+            self.heightViewContraint = self.heightViewContraint + 500
+        }
+        
+        if (id == 114 || id == 56) && isShow == false
+        {
+            self.directionBalcony.isHidden = true
+            self.imageDirectionBalcony.isHidden = true
+            self.directionOfBalcony.isHidden = true
+            self.imagedirectionOfBalcony.isHidden = true
+            self.numberOfFloors.isHidden = true
+            self.garageNumber.isHidden = true
+            
+            self.heightDirectionBalcony.constant = 0
+            self.heightdirectionOfBalcony.constant = 0
+            self.heightNumberOfFloors.constant = 0
+            self.heightGarageNumber.constant = 0
+            self.heightViewContraint = self.heightViewContraint - 300
+            
+        }
+      
+        if (id == 3 || id == 4) && isShow == false
+        {
+            self.directionBalcony.isHidden = true
+            self.imageDirectionBalcony.isHidden = true
+            self.furnitureTextView.isHidden = true
+            self.directionOfBalcony.isHidden = true
+            self.imagedirectionOfBalcony.isHidden = true
+            self.numberOfFloors.isHidden = true
+            self.garageNumber.isHidden = true
+            self.numberToilet.isHidden = true
+            
+            self.heightDirectionBalcony.constant = 0
+            self.heightFurnitureTextView.constant = 0
+            self.heightdirectionOfBalcony.constant = 0
+            self.heightNumberOfFloors.constant = 0
+            self.heightGarageNumber.constant = 0
+            self.heightNumberToilet.constant = 0
+            self.heightViewContraint = self.heightViewContraint - 350
+            
+        }
+        
+        if (id == 8 || id == 79) && isShow == false
+        {
+            self.facadeTextField.isHidden = true
+            self.mFacadeLabel.isHidden = true
+            self.distanceTextField.isHidden = true
+            self.mDistance.isHidden = true
+            self.numberOfFloors.isHidden = true
+            self.garageNumber.isHidden = true
+            self.heightFacade.constant = 0
+            self.heightDistance.constant = 0
+            self.heightNumberOfFloors.constant = 0
+            self.heightGarageNumber.constant = 0
+            self.heightViewContraint = self.heightViewContraint - 300
+            
         }
         self.heightView.constant = self.heightViewContraint
     }
@@ -471,6 +602,10 @@ class PostNewsViewController: BaseViewController {
             let picker = ModelPicker(id: Int(type.id)!, name: type.name)
             picker.index = index
             index += 1
+            if Int(type.id) == 3 || Int(type.id) == 4 || Int(type.id) == 114 || Int(type.id) == 79
+            {
+                print("a")
+            }
             self.listLandSale.append( picker)
         }
     }
@@ -512,6 +647,9 @@ class PostNewsViewController: BaseViewController {
                     listDictrict.append(city!)
                 }
             }
+            listDictrict.sort(by: { (dis1, dis2) -> Bool in
+                return dis1.name < dis2.name
+            })
             var index:Int = 0
             for city in listDictrict {
                 let picker = ModelPicker(id: Int(city.id)!, name: city.name)
@@ -562,6 +700,7 @@ class PostNewsViewController: BaseViewController {
                     listProject.append(project!)
                 }
             }
+            
             var index:Int = 0
             for project in listProject {
                 let picker = ModelPicker(id: Int(project.id)!, name: project.title)
@@ -569,6 +708,7 @@ class PostNewsViewController: BaseViewController {
                 index += 1
                 self.listPickerTypeProject.append(picker)
             }
+            self.listPickerTypeProject.insert(ModelPicker(id: 1000000, name: "Mặc định"), at: 0)
             self.hideHUD()
         }).disposed(by: self.disposeBag)
     }
@@ -610,7 +750,14 @@ class PostNewsViewController: BaseViewController {
         {
             self.isInforOther = false
         }
-        self.isShowInforOther(isShow: self.isInforOther)
+        if self.idLandSale != "null"
+        {
+            self.isShowInforOtherSaleRent(isShow: self.isInforOther, id: Int(self.idLandSale)!)
+        }
+        else
+        {
+             self.isShowInforOther(isShow: self.isInforOther)
+        }
     }
     
     @IBAction func contactButtonDidTap(_ sender: Any) {
@@ -741,6 +888,12 @@ class PostNewsViewController: BaseViewController {
         self.pickerView.status = 6
         self.pickerView.show(inVC: self)
     }
+    @IBAction func selectDirectionOfBalconyButtonDidTap(_ sender: Any) {
+        self.pickerView.listData = self.listDirection
+        self.pickerView.config.startIndex = self.indexDirectionOfBalcony
+        self.pickerView.status = 12
+        self.pickerView.show(inVC: self)
+    }
     
     @IBAction func selectDirectionOfHouseButtonDidTap(_ sender: Any) {
         self.pickerView.listData = self.listDirection
@@ -801,21 +954,22 @@ class PostNewsViewController: BaseViewController {
     
     
     @IBAction func postNewsButtonDidTap(_ sender: Any) {
+       
+        if self.titleTextField.text?.count == 0
+        {
+            self.showAlert("Bạn chưa nhập tiêu đề")
+            return
+        }
+        
         if self.inforViewTextView.text.count == 0
         {
-            self.showAlert("Bạn chưa nhập thôn tin mô tả")
+            self.showAlert("Bạn chưa nhập thông tin mô tả")
             return
         }
         
         if self.idTypeUser == "null"
         {
             self.showAlert("Bạn chưa cho biết bạn là ai")
-            return
-        }
-        
-        if self.titleTextField.text?.count == 0
-        {
-            self.showAlert("Bạn chưa nhập tiêu đề")
             return
         }
         
@@ -832,21 +986,20 @@ class PostNewsViewController: BaseViewController {
             
         }
         
+        if self.address.text?.count == 0 {
+            self.showAlert("Bạn chưa nhập địa chỉ BĐS")
+            return
+        }
+        
         if self.idCity == "null"
         {
-            self.showAlert("Bạn chưa chọn Tỉnh/Thành Phố")
+            self.showAlert("Bạn chưa chọn Tỉnh/Thành phố")
             return
         }
         
         if self.idDistrict == "null"
         {
             self.showAlert("Bạn chưa chọn Quận/Huyện")
-            return
-        }
-        
-        if self.image == nil
-        {
-            self.showAlert("Bạn chưa chọn ảnh")
             return
         }
         
@@ -868,6 +1021,19 @@ class PostNewsViewController: BaseViewController {
             return
         }
 
+        
+        if !(self.phoneContact.text?.isPhone())!
+        {
+            self.showAlert("Bạn nhập sai định dạng số điện thoại")
+            return
+        }
+        
+        if !(self.mobileContact.text?.isPhone())!
+        {
+            self.showAlert("Bạn nhập sai định dạng số điện thoại của bạn")
+            return
+        }
+        
         if (self.mobileContact.text?.count == 0)
         {
             self.showAlert("Bạn chưa nhập số điện thoại của bạn vui lòng nhập cách thức liên hệ với bạn")
@@ -875,6 +1041,7 @@ class PostNewsViewController: BaseViewController {
             return
         }
 
+        
         self.showHUD("")
         var start = "null"
         var end =  "null"
@@ -888,7 +1055,7 @@ class PostNewsViewController: BaseViewController {
             end = self.endDate.dateFormatString(formater: "yyyy-MM-dd HH:mm:ss")
         }
         
-        APIClient.shared.postNews(post_type: self.idTypeNews, startDate:start , endDate:end, user_type: self.idTypeUser, title: self.titleTextField.text!, project_id: self.idProject, type_bds: self.idLandSale, type: self.idTypeLand, city: self.idCity, ward: self.idWards, area: self.acreageLabel.text!, price: self.priceLabel.text!, price_type: self.idTypePrice, district: self.idDistrict, address: self.address.text!, des: self.inforViewTextView.text, numberbedroom: self.idBedroom, direction: self.idDirection, image: self.image!, poster_name: self.nameContact.text!,poster_address: self.addressContact.text!,poster_phone: self.phoneContact.text!,poster_mobile: self.mobileContact.text!,poster_email: self.emailContact.text!,completion: {result in
+        APIClient.shared.postNews(post_type: self.idTypeNews, startDate:start , endDate:end, user_type: self.idTypeUser, title: self.titleTextField.text!, project_id: self.idProject, type_bds: self.idLandSale, type: self.idTypeLand, city: self.idCity, ward: self.idWards, area: self.acreageLabel.text!, price: self.priceLabel.text!, price_type: self.idTypePrice, district: self.idDistrict, address: self.address.text!, des: self.inforViewTextView.text, numberbedroom: self.idBedroom, direction: self.idDirection, image: self.image, poster_name: self.nameContact.text!,poster_address: self.addressContact.text!,poster_phone: self.phoneContact.text!,poster_mobile: self.mobileContact.text!,poster_email: self.emailContact.text!,completion: {result in
             self.showAlert("Bạn đã đăng tin thành công! Tin của bạn sẽ được xét duyệt trong vòng vài giờ, hay kiểm tra trong phần quản lý tin đăng của tôi")
             self.resetData()
             self.isShowInfor = true
@@ -916,6 +1083,8 @@ extension PostNewsViewController:MIDatePickerDelegate
         if amDatePicker.isStart == true
         {
             self.startDate = date
+            self.endDate = date.addingTimeInterval(7*86400)
+            self.endDateLabel.text = self.endDate.dateFormatString(formater: "dd/MM/yyyy")
             self.startDateLabel.text = date.dateFormatString(formater: "dd/MM/yyyy")
             
         }
@@ -953,10 +1122,18 @@ extension PostNewsViewController:PickerViewDelegate
                 self.idTypeLand = "rent"
                 self.setDataPickerRent()
             }
+           
         case 2:
             self.typeLand.text = picker.name
             self.indexlandSale = index
             self.idLandSale = String(picker.id)
+            if self.isInforOther == false
+            {
+                if self.idLandSale != "null"
+                {
+                    self.isShowInforOtherSaleRent(isShow: self.isInforOther, id: Int(self.idLandSale)!)
+                }
+            }
         case 3:
             self.cityName.text = picker.name
             self.idCity = String(picker.id)
@@ -985,8 +1162,16 @@ extension PostNewsViewController:PickerViewDelegate
             self.idWards = String(picker.id)
             self.indexWard = picker.index
         case 6:
-            self.nameProjects.text = picker.name
-            self.idProject = String(picker.id)
+            if picker.id == 1000000
+            {
+                self.nameProjects.text = "Chọn dự án"
+                self.idProject = "0"
+            }
+            else
+            {
+                self.nameProjects.text = picker.name
+                self.idProject = String(picker.id)
+            }
             self.indexTypeProject = index
         case 7:
             self.typePrice.text = picker.name
@@ -1008,6 +1193,10 @@ extension PostNewsViewController:PickerViewDelegate
             self.directionBalcony.text = picker.name
             self.idBedroom = String(picker.id)
             self.indexBedroom = index
+        case 12:
+            self.directionOfBalcony.text = picker.name
+            self.idDirectionOfBalcony = String(picker.id)
+            self.indexDirectionOfBalcony = index
         default:
             break
         }

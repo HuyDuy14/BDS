@@ -22,7 +22,7 @@ public extension String
         let dateFormat = DateFormatter()
         dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let date = dateFormat.date(from: self) ?? Date()
-        dateFormat.dateFormat = "yyyy-MM-dd HH:mm"
+        dateFormat.dateFormat = "yyyy-MM-dd"
         return dateFormat.string(from: date)
     }
     
@@ -38,6 +38,30 @@ public extension String
         let date = dateFormat.date(from: self) ?? Date()
         dateFormat.dateFormat = "HH:mm dd/MM/yyyy"
         return dateFormat.string(from: date)
+    }
+    
+    public func isPhone()->Bool {
+        if self.isAllDigits() == true {
+            let phoneRegex = "^((\\+)|(0))[0-9]{6,14}$"
+            let predicate = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
+            return  predicate.evaluate(with: self)
+        }else {
+            return false
+        }
+    }
+    
+    func validate() -> Bool {
+        let PHONE_REGEX = ""
+        let phoneTest = NSPredicate(format: "SELF MATCHES %@", PHONE_REGEX)
+        let result =  phoneTest.evaluate(with: self)
+        return result
+    }
+    
+   func isAllDigits()->Bool {
+        let charcterSet  = NSCharacterSet(charactersIn: "+0123456789").inverted
+        let inputString = self.components(separatedBy: charcterSet)
+        let filtered = inputString.joined(separator: "")
+        return  self == filtered
     }
     
 }

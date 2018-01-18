@@ -25,6 +25,9 @@ class DetailLanforSaleViewController: BaseViewController {
     @IBOutlet weak var idLand: UILabel!
     @IBOutlet weak var address: UILabel!
     
+    @IBOutlet weak var addressPoster: UILabel!
+    @IBOutlet weak var email: UILabel!
+    @IBOutlet weak var mobile: UILabel!
     let disposeBag = DisposeBag()
     var landForSale:LandSaleModel!
     //Page Image
@@ -85,8 +88,11 @@ class DetailLanforSaleViewController: BaseViewController {
     func fillData()
     {
         self.imageDetail.setImageUrlNews(url: API.linkImage + self.landForSale.image)
-        self.nameContact.text = self.landForSale.poster_name
-        self.phone.text = self.landForSale.poster_phone
+        self.nameContact.text = "Tên liên lạc: " + self.landForSale.poster_name
+        self.phone.text = "Điện thoại : "  + self.landForSale.poster_phone
+        self.mobile.text = "Di động: " +  self.landForSale.poster_mobile
+        self.addressPoster.text = "Địa chỉ: " +  self.landForSale.poster_address
+        self.email.text = "Email: " +  self.landForSale.poster_email
         self.area.text = self.landForSale.land_area + "m2"
         self.price.text = self.landForSale.land_price + " tỷ/m2"
         self.address.text = self.landForSale.district_name + " , " + self.landForSale.city_name

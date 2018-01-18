@@ -131,12 +131,38 @@ class APIClient: NSObject {
     }
    
    
-    func requestUploadImage(path: String, image: UIImage, method: HTTPMethod, params: Parameters!, completion: ((_ result: Result) -> Void)?)
+    func requestUploadImage(path: String, image: UIImage?, method: HTTPMethod, params: Parameters!, completion: ((_ result: Result) -> Void)?)
     {
         let manager = Alamofire.SessionManager.default
         manager.session.configuration.timeoutIntervalForRequest = 180
-        
-        let imgData = UIImageJPEGRepresentation(image, 0.2)!
+        if image == nil
+        {
+             let url = URL(string: "\(API.serverURL)\(path)")
+            Alamofire.request(url!, method: method, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON {
+                response in
+                switch response.result {
+                case .success(let value):
+                    if let dict = value as? NSDictionary {
+                        let result = Result(result: dict)
+                        if result.status == 200 {
+                            completion?(result)
+                        } else {
+                            if result.message.count != 0 {
+                                AppDelegate.shared?.showMessagePopUp(title: "Đăng nhập thất bại", message: result.message)
+                            }
+                            ACProgressHUD.shared.hideHUD()
+                        }
+                        
+                    }
+                case .failure(let error):
+                    print(error)
+                    self.showAlert(message: "Lỗi mạng mời bạn kiểm tra lại")
+                    ACProgressHUD.shared.hideHUD()
+                }
+            }
+            return
+        }
+        let imgData = UIImageJPEGRepresentation(image!, 0.2)!
         
         Alamofire.upload(multipartFormData: { multipartFormData in
             multipartFormData.append(imgData, withName: "img", fileName: "file.jpg", mimeType: "image/jpg")
@@ -520,7 +546,7 @@ class APIClient: NSObject {
         return self.requestGet(path: API.getPrice, method: .get, params: params)
     }
     
-    func postNews(post_type:Int,startDate:String,endDate:String,user_type:String,title:String,project_id:String,type_bds:String,type:String,city:String,ward:String,area:String,price:String,price_type:String,district:String,address:String,des:String,numberbedroom:String,direction:String,image:UIImage,poster_name:String,poster_address:String ,poster_phone:String,poster_mobile:String,poster_email:String, completion: ((_ result: Result) -> Void)?) {
+    func postNews(post_type:Int,startDate:String,endDate:String,user_type:String,title:String,project_id:String,type_bds:String,type:String,city:String,ward:String,area:String,price:String,price_type:String,district:String,address:String,des:String,numberbedroom:String,direction:String,image:UIImage!,poster_name:String,poster_address:String ,poster_phone:String,poster_mobile:String,poster_email:String, completion: ((_ result: Result) -> Void)?) {
         
         var params: Parameters = ["user_type":user_type,"title":title,"address":address,"des":des]
         params["project_id"] = project_id
@@ -543,9 +569,11 @@ class APIClient: NSObject {
         params["poster_phone"] = poster_phone
         params["poster_mobile"] = poster_mobile
         params["poster_email"] = poster_email
+        
         self.requestUploadImage(path: API.postNews, image: image, method: .post, params: params, completion: { result in
             completion?(result)
         })
+    
     }
     
     func getNewsPost(page:Int)-> Observable<Result> {
