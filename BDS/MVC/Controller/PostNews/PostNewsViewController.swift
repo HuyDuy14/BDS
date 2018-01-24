@@ -1020,7 +1020,6 @@ class PostNewsViewController: BaseViewController {
             self.showAlert("Mã bảo mật chưa đúng")
             return
         }
-
         
         if !(self.phoneContact.text?.isPhone())!
         {
@@ -1054,8 +1053,28 @@ class PostNewsViewController: BaseViewController {
         {
             end = self.endDate.dateFormatString(formater: "yyyy-MM-dd HH:mm:ss")
         }
+        var numberToilet = "null"
+        if self.numberToilet.text.count > 0
+        {
+            numberToilet = self.numberToilet.text
+        }
+        var st = "null"
+        if self.numberOfFloors.text.count > 0
+        {
+            st = self.numberOfFloors.text
+        }
+        var sndx = "null"
+        if self.garageNumber.text.count > 0
+        {
+            sndx = self.garageNumber.text
+        }
+        var nt = "null"
+        if self.furnitureTextView.text.count > 0
+        {
+            nt = self.furnitureTextView.text
+        }
         
-        APIClient.shared.postNews(post_type: self.idTypeNews, startDate:start , endDate:end, user_type: self.idTypeUser, title: self.titleTextField.text!, project_id: self.idProject, type_bds: self.idLandSale, type: self.idTypeLand, city: self.idCity, ward: self.idWards, area: self.acreageLabel.text!, price: self.priceLabel.text!, price_type: self.idTypePrice, district: self.idDistrict, address: self.address.text!, des: self.inforViewTextView.text, numberbedroom: self.idBedroom, direction: self.idDirection, image: self.image, poster_name: self.nameContact.text!,poster_address: self.addressContact.text!,poster_phone: self.phoneContact.text!,poster_mobile: self.mobileContact.text!,poster_email: self.emailContact.text!,completion: {result in
+        APIClient.shared.postNews(post_type: self.idTypeNews, startDate:start , endDate:end, user_type: self.idTypeUser, title: self.titleTextField.text!, project_id: self.idProject, type_bds: self.idLandSale, type: self.idTypeLand, city: self.idCity, ward: self.idWards, area: self.acreageLabel.text!, price: self.priceLabel.text!, price_type: self.idTypePrice, district: self.idDistrict, address: self.address.text!, des: self.inforViewTextView.text, numberbedroom: self.idBedroom, direction: self.idDirection, image: self.image, poster_name: self.nameContact.text!,poster_address: self.addressContact.text!,poster_phone: self.phoneContact.text!,poster_mobile: self.mobileContact.text!,poster_email: self.emailContact.text!,toilet: numberToilet,hbc: self.idDirectionOfBalcony,st: st,sndx:sndx,nt:nt,dc:  self.address.text!,completion: {result in
             self.showAlert("Bạn đã đăng tin thành công! Tin của bạn sẽ được xét duyệt trong vòng vài giờ, hay kiểm tra trong phần quản lý tin đăng của tôi")
             self.resetData()
             self.isShowInfor = true

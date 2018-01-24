@@ -1802,13 +1802,24 @@ Email : lienhe@chobatdongsan.com.vn
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h5J-Sq-LN3">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <gestureRecognizers/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qO1-0M-3OU">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <connections>
+                                    <action selector="showImageTapClick:" destination="Khx-AE-5Vt" eventType="touchUpInside" id="b9C-dc-CeM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Qoz-ZG-HaX" firstAttribute="top" secondItem="h5J-Sq-LN3" secondAttribute="bottom" id="4rF-Z1-E7U"/>
                             <constraint firstItem="h5J-Sq-LN3" firstAttribute="leading" secondItem="tPg-9E-JXL" secondAttribute="leading" id="ChA-hG-re9"/>
+                            <constraint firstItem="qO1-0M-3OU" firstAttribute="leading" secondItem="tPg-9E-JXL" secondAttribute="leading" id="EiQ-Vb-yhI"/>
+                            <constraint firstItem="Qoz-ZG-HaX" firstAttribute="top" secondItem="qO1-0M-3OU" secondAttribute="bottom" id="O6p-nd-Civ"/>
+                            <constraint firstAttribute="trailing" secondItem="qO1-0M-3OU" secondAttribute="trailing" id="XjZ-BZ-1hi"/>
                             <constraint firstAttribute="trailing" secondItem="h5J-Sq-LN3" secondAttribute="trailing" id="akr-Vh-EeY"/>
+                            <constraint firstItem="qO1-0M-3OU" firstAttribute="height" secondItem="h5J-Sq-LN3" secondAttribute="height" id="j89-7K-X68"/>
                             <constraint firstItem="h5J-Sq-LN3" firstAttribute="top" secondItem="tPg-9E-JXL" secondAttribute="top" id="svi-6d-V2x"/>
                         </constraints>
                     </view>
@@ -5336,9 +5347,70 @@ Email : lienhe@chobatdongsan.com.vn
             </objects>
             <point key="canvasLocation" x="3117.5999999999999" y="2090.5547226386807"/>
         </scene>
+        <!--Detail Image View Controller-->
+        <scene sceneID="eRP-pk-fLL">
+            <objects>
+                <viewController storyboardIdentifier="DetailImageViewController" id="OHw-BE-JJF" customClass="DetailImageViewController" customModule="BDS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yW5-M9-f3P"/>
+                        <viewControllerLayoutGuide type="bottom" id="lYt-FS-bxc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TUw-mQ-mwy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fnD-px-GVZ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XMB-E9-zZe">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="667"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="XMB-E9-zZe" firstAttribute="top" secondItem="fnD-px-GVZ" secondAttribute="top" id="3Ts-8N-jcK"/>
+                                    <constraint firstItem="XMB-E9-zZe" firstAttribute="leading" secondItem="fnD-px-GVZ" secondAttribute="leading" id="43m-j1-Hh4"/>
+                                    <constraint firstAttribute="trailing" secondItem="XMB-E9-zZe" secondAttribute="trailing" id="8AO-w0-Qo4"/>
+                                    <constraint firstAttribute="bottom" secondItem="XMB-E9-zZe" secondAttribute="bottom" id="S34-Ws-7bX"/>
+                                    <constraint firstItem="XMB-E9-zZe" firstAttribute="height" secondItem="fnD-px-GVZ" secondAttribute="height" id="hcD-NX-W4F"/>
+                                    <constraint firstItem="XMB-E9-zZe" firstAttribute="centerX" secondItem="fnD-px-GVZ" secondAttribute="centerX" id="wjc-B0-iW0"/>
+                                </constraints>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gjm-0E-LnX">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="T2x-dd-hfE"/>
+                                    <constraint firstAttribute="width" constant="50" id="oju-1Q-DHN"/>
+                                </constraints>
+                                <state key="normal" image="btn_close"/>
+                                <connections>
+                                    <action selector="closeButtonDidTap:" destination="OHw-BE-JJF" eventType="touchUpInside" id="Apf-Rw-iqa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gjm-0E-LnX" firstAttribute="leading" secondItem="TUw-mQ-mwy" secondAttribute="leading" id="0Ra-6z-lhg"/>
+                            <constraint firstItem="fnD-px-GVZ" firstAttribute="leading" secondItem="TUw-mQ-mwy" secondAttribute="leading" id="Ttf-cC-fKB"/>
+                            <constraint firstItem="gjm-0E-LnX" firstAttribute="top" secondItem="TUw-mQ-mwy" secondAttribute="top" id="a3M-an-xJx"/>
+                            <constraint firstItem="fnD-px-GVZ" firstAttribute="top" secondItem="TUw-mQ-mwy" secondAttribute="top" id="hX6-yy-5Xj"/>
+                            <constraint firstItem="lYt-FS-bxc" firstAttribute="top" secondItem="fnD-px-GVZ" secondAttribute="bottom" id="lAB-Fe-oOf"/>
+                            <constraint firstAttribute="trailing" secondItem="fnD-px-GVZ" secondAttribute="trailing" id="w1q-73-tDO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scrollView" destination="fnD-px-GVZ" id="3ab-Cw-RE7"/>
+                        <outlet property="showImage" destination="XMB-E9-zZe" id="YhU-mY-vQL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s30-Je-zYc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7837.6000000000004" y="1414.5427286356824"/>
+        </scene>
     </scenes>
     <resources>
         <image name="advance2" width="44" height="40"/>
+        <image name="btn_close" width="18" height="18"/>
         <image name="demo" width="118" height="119"/>
         <image name="demoNews" width="644" height="386"/>
         <image name="icon_back" width="25" height="20"/>

@@ -18,5 +18,11 @@ class ImageViewController: UIViewController {
         self.imageHome.setImageUrlNews(url: API.linkImage + urlImage)
     }
 
-   
+    @IBAction func showImageTapClick(_ sender: Any) {
+        let srotyboard = UIStoryboard(name: "MenuHome", bundle: nil)
+        let showImage = srotyboard.instantiateViewController(withIdentifier: "DetailImageViewController") as? DetailImageViewController
+        showImage?.image = self.imageHome.image
+        self.present(showImage!, animated: true, completion: nil)
+    }
+    
 }
