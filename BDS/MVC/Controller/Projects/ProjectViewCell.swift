@@ -64,7 +64,10 @@ class ProjectViewCell: UITableViewCell {
         self.name.text = project.title
         self.information.numberOfLines = 1
         project.content = project.content.replacingOccurrences(of: "<p>", with: "")
+        project.content = project.content.replacingOccurrences(of: "</p>", with: "")
         project.content = project.content.replacingOccurrences(of: "&nbsp;", with: "")
+        project.content = project.content.replacingOccurrences(of: "<br />;", with: "")
+
         self.information.setText(project.content, withTruncation: true)
         var count = 0
         for land in Util.shared.listBDS

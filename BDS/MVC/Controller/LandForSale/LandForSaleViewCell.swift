@@ -66,6 +66,8 @@ class LandForSaleViewCell: UITableViewCell {
             self.information.numberOfLines = 1
             cell.content = cell.content.replacingOccurrences(of: "<p>", with: "")
             cell.content = cell.content.replacingOccurrences(of: "&nbsp;", with: "")
+            cell.content = cell.content.replacingOccurrences(of: "</p>", with: "")
+            cell.content = cell.content.replacingOccurrences(of: "<br />", with: "")
             self.information.setText(cell.content, withTruncation: true)
         }
         else
@@ -73,6 +75,8 @@ class LandForSaleViewCell: UITableViewCell {
             self.information.numberOfLines = 1
             cell.seo_description = cell.seo_description.replacingOccurrences(of: "<p>", with: "")
             cell.seo_description = cell.seo_description.replacingOccurrences(of: "&nbsp;", with: "")
+            cell.seo_description = cell.seo_description.replacingOccurrences(of: "</p>", with: "")
+            cell.seo_description = cell.seo_description.replacingOccurrences(of: "<br />", with: "")
             self.information.setText(cell.seo_description, withTruncation: true)
         }
         var count = 0
