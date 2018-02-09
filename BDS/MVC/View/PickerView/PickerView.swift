@@ -12,7 +12,7 @@ protocol PickerViewDelegate: class {
     
     func miPickerView(_ amPicker: PickerView, didSelect picker: ModelPicker)
     func miPickerViewDidCancelSelection(_ amPicker: PickerView)
-    
+    func selectPickerView(_ Ppicker: PickerView, didSelect picker: ModelPicker,index:Int)
 }
 
 class PickerView: UIView,UIPickerViewDelegate, UIPickerViewDataSource {
@@ -69,6 +69,7 @@ class PickerView: UIView,UIPickerViewDelegate, UIPickerViewDataSource {
         dismiss()
         if self.index < self.listData.count {
             delegate?.miPickerView(self, didSelect: self.listData[self.index])
+            delegate?.selectPickerView(self, didSelect: self.listData[self.index],index: self.index)
         }
         
     }
@@ -141,7 +142,7 @@ class PickerView: UIView,UIPickerViewDelegate, UIPickerViewDataSource {
         parentVC.view.endEditing(true)
         self.pickerView.delegate = self
         self.pickerView.dataSource = self
-//        self.pickerView.
+        self.pickerView.selectRow(config.startIndex, inComponent: 0, animated: true)
         setup(parentVC)
         move(goUp: true)
         
