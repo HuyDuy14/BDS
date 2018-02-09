@@ -39,14 +39,14 @@ class APIClient: NSObject {
                                 self.showAlert(message: result.message)
                             }
                             
-                           ACProgressHUD.shared.hideHUD()
+                            ACProgressHUD.shared.hideHUD()
                         }
                         
                     }
                 case .failure(let error):
                     print(error)
                     self.showAlert(message: "Lỗi mạng mời bạn kiểm tra lại")
-                   ACProgressHUD.shared.hideHUD()
+                    ACProgressHUD.shared.hideHUD()
                 }
                 observer.onCompleted()
             }
@@ -74,16 +74,16 @@ class APIClient: NSObject {
                             observer.onNext(result)
                         } else {
                             if result.message.count != 0 {
-                              self.showAlert(message: result.message)
+                                self.showAlert(message: result.message)
                             }
-                           ACProgressHUD.shared.hideHUD()
+                            ACProgressHUD.shared.hideHUD()
                         }
                         
                     }
                 case .failure(let error):
                     print(error)
                     self.showAlert(message: "Lỗi mạng mời bạn kiểm tra lại")
-                   ACProgressHUD.shared.hideHUD()
+                    ACProgressHUD.shared.hideHUD()
                 }
                 observer.onCompleted()
             }
@@ -129,15 +129,15 @@ class APIClient: NSObject {
             }
         }
     }
-   
-   
+    
+    
     func requestUploadImage(path: String, image: UIImage?, method: HTTPMethod, params: Parameters!, completion: ((_ result: Result) -> Void)?)
     {
         let manager = Alamofire.SessionManager.default
         manager.session.configuration.timeoutIntervalForRequest = 180
         if image == nil
         {
-             let url = URL(string: "\(API.serverURL)\(path)")
+            let url = URL(string: "\(API.serverURL)\(path)")
             Alamofire.request(url!, method: method, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON {
                 response in
                 switch response.result {
@@ -333,7 +333,7 @@ class APIClient: NSObject {
     }
     func getDetailProject(id:String) -> Observable<Result> {
         let params: Parameters = [
-                "id":id
+            "id":id
             ] as Parameters
         return self.requestGet(path: API.detailProjrect, method: .get, params: params)
     }
@@ -348,7 +348,7 @@ class APIClient: NSObject {
         }
         else
         {
-             return self.requestGet(path: API.listNewsPost, method: .get, params: params)
+            return self.requestGet(path: API.listNewsPost, method: .get, params: params)
         }
     }
     
@@ -382,7 +382,7 @@ class APIClient: NSObject {
                 "type":type,
                 "id_news":id,
                 "id_user":Util.shared.currentUser.id
-            ] as Parameters
+                ] as Parameters
         return self.request(path: API.saveNews, method: .post, params: params)
     }
     
@@ -405,8 +405,8 @@ class APIClient: NSObject {
                 "birthday":userInfor.birthday,
                 "city_id":userInfor.city_id,
                 "city_name":userInfor.city_name
-               
-            ] as Parameters
+                
+                ] as Parameters
         if pass.count > 0
         {
             params["password"] = pass
@@ -427,12 +427,12 @@ class APIClient: NSObject {
     }
     
     func getCategoryProjectOfCity(id:String) -> Observable<Result> {
-         let params: Parameters = ["id":id]
+        let params: Parameters = ["id":id]
         return self.requestGet(path: API.getprojectCity, method: .get, params: params)
     }
     
     func getCategoryLand(type:String) -> Observable<Result> {
-         let params: Parameters = ["type":type]
+        let params: Parameters = ["type":type]
         return self.requestGet(path: API.getCategoryLand, method: .get, params: params)
     }
     
@@ -452,7 +452,7 @@ class APIClient: NSObject {
         }
         else
         {
-             params["city"] = "null"
+            params["city"] = "null"
         }
         if idDistrict != 0
         {
@@ -460,9 +460,9 @@ class APIClient: NSObject {
         }
         else
         {
-             params["district"] = "null"
+            params["district"] = "null"
         }
-         
+        
         return self.requestGet(path: API.searchProject, method: .get, params: params)
     }
     
@@ -518,24 +518,24 @@ class APIClient: NSObject {
     }
     
     func registerNews(project_id:String,type_bds:String,type:String,city:String,ward:String,area_min:String,area_max:String,price_min:String,price_max:String,district:String,numberbedroom:String,direction:String,email:String) -> Observable<Result> {
-       
-            var params: Parameters = [:]
-            params["project_id"] = project_id
-            params["type_bds"] = type_bds
-            params["type"] = type
-            params["city"] = city
-            params["ward"] = ward
-            params["area_min"] = area_min
-            params["area_max"] = area_max
-            params["price_min"] = price_min
-            params["price_max"] = price_max
-            params["district"] = district
-            params["id_user"] = Util.shared.currentUser.id
-            params["numberbedroom"] = numberbedroom
-            params["direction"] = direction
-            params["email"] = email
         
-            return self.requestGet(path: API.registerNews, method: .post, params: params)
+        var params: Parameters = [:]
+        params["project_id"] = project_id
+        params["type_bds"] = type_bds
+        params["type"] = type
+        params["city"] = city
+        params["ward"] = ward
+        params["area_min"] = area_min
+        params["area_max"] = area_max
+        params["price_min"] = price_min
+        params["price_max"] = price_max
+        params["district"] = district
+        params["id_user"] = Util.shared.currentUser.id
+        params["numberbedroom"] = numberbedroom
+        params["direction"] = direction
+        params["email"] = email
+        
+        return self.requestGet(path: API.registerNews, method: .post, params: params)
     }
     
     func getPrice(start:String,finish:String,type:Int)-> Observable<Result>
@@ -546,7 +546,7 @@ class APIClient: NSObject {
         return self.requestGet(path: API.getPrice, method: .get, params: params)
     }
     
-    func postNews(post_type:Int,startDate:String,endDate:String,user_type:String,title:String,project_id:String,type_bds:String,type:String,city:String,ward:String,area:String,price:String,price_type:String,district:String,address:String,des:String,numberbedroom:String,direction:String,image:UIImage!,poster_name:String,poster_address:String ,poster_phone:String,poster_mobile:String,poster_email:String,toilet:String,hbc:String,st:String,sndx:String,nt:String,dc:String, completion: ((_ result: Result) -> Void)?) {
+    func postNews(post_type:Int,startDate:String,endDate:String,user_type:String,title:String,project_id:String,type_bds:String,type:String,city:String,ward:String,area:String,price:String,price_type:String,district:String,address:String,des:String,numberbedroom:String,direction:String,image:UIImage!,poster_name:String,poster_address:String ,poster_phone:String,poster_mobile:String,poster_email:String,toilet:String,hbc:String,st:String,sndx:String,nt:String,dc:String,dv:String,mt:String, completion: ((_ result: Result) -> Void)?) {
         
         var params: Parameters = ["user_type":user_type,"title":title,"address":address,"des":des]
         params["project_id"] = project_id
@@ -575,11 +575,13 @@ class APIClient: NSObject {
         params["sndx"] = sndx
         params["dc"] = dc
         params["nt"] = nt
+        params["dv"] = dv
+        params["mt"] = mt
         
         self.requestUploadImage(path: API.postNews, image: image, method: .post, params: params, completion: { result in
             completion?(result)
         })
-    
+        
     }
     
     func getNewsPost(page:Int)-> Observable<Result> {
@@ -600,5 +602,6 @@ class APIClient: NSObject {
     func showAlert(message: String) {
         _ = UIAlertView.show(withTitle: "", message: NSLocalizedString(message, comment: ""), cancelButtonTitle: "OK", otherButtonTitles: nil, tap: nil)
     }
-
+    
 }
+

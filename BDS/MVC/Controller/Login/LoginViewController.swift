@@ -230,6 +230,9 @@ extension LoginViewController:GIDSignInDelegate,GIDSignInUIDelegate
             UserDefaults.standard.set(email, forKey: GGEMAIL)
             UserDefaults.standard.set(name, forKey: GGNAME)
             Util.shared.currentUser = UserModel(JSON: result.data!)!
+            if Util.shared.currentUser.username.count == 0 {
+                Util.shared.currentUser.username = name
+            }
             AppDelegate.shared?.setHomeRootViewControoler()
             AppDelegate.shared?.showMessageSuccessPopUp()
             OneSignal.sendTag("iduser", value: Util.shared.currentUser.id)

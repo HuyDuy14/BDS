@@ -663,7 +663,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lRI-Bu-6c1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1352.8" y="-16.641679160419791"/>
+            <point key="canvasLocation" x="1486" y="-16"/>
         </scene>
         <!--Maps View Controller-->
         <scene sceneID="MHl-j6-9ZS">
@@ -1126,7 +1126,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iri-dp-D3W">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                                 <connections>
-                                                    <action selector="showInforUserButtonDidTap:" destination="f00-sq-qf4" eventType="touchUpInside" id="Pfq-OD-MWH"/>
+                                                    <action selector="showInforUserButtonDidTap:" destination="f00-sq-qf4" eventType="touchUpInside" id="9uB-26-quv"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1164,7 +1164,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0FG-uX-b0G">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                                 <connections>
-                                                    <action selector="loguotButtonDidTap:" destination="f00-sq-qf4" eventType="touchUpInside" id="60O-HY-ZLX"/>
+                                                    <action selector="loguotButtonDidTap:" destination="f00-sq-qf4" eventType="touchUpInside" id="088-em-tnn"/>
                                                 </connections>
                                             </button>
                                         </subviews>

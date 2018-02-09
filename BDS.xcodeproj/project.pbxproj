@@ -12,6 +12,14 @@
 		1319EC1F1FD58E7D003D1B0D /* CategoryProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1319EC1E1FD58E7D003D1B0D /* CategoryProjectModel.swift */; };
 		1319EC211FD594E5003D1B0D /* ProjectsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1319EC201FD594E5003D1B0D /* ProjectsModel.swift */; };
 		131FB9B42018341100B25761 /* DetailImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131FB9B32018341100B25761 /* DetailImageViewController.swift */; };
+		13225B61202D73F50089FB8A /* ModelPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13225B5E202D73F40089FB8A /* ModelPicker.swift */; };
+		13225B62202D73F50089FB8A /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13225B5F202D73F40089FB8A /* PickerView.swift */; };
+		13225B63202D73F50089FB8A /* PickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13225B60202D73F50089FB8A /* PickerView.xib */; };
+		13225B66202D74010089FB8A /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13225B64202D74000089FB8A /* HeaderViewController.swift */; };
+		13225B67202D74010089FB8A /* HeaderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13225B65202D74000089FB8A /* HeaderViewController.xib */; };
+		13225B69202D740D0089FB8A /* ItemViewCellMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13225B68202D740D0089FB8A /* ItemViewCellMenu.swift */; };
+		13225B6B202D77590089FB8A /* ItemMenuObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13225B6A202D77590089FB8A /* ItemMenuObject.swift */; };
+		13225B6D202D7A3B0089FB8A /* RightMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13225B6C202D7A3B0089FB8A /* RightMenuViewController.swift */; };
 		132404371FE12DB700F9250F /* ImagePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132404361FE12DB700F9250F /* ImagePageViewController.swift */; };
 		132404391FE1303D00F9250F /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132404381FE1303D00F9250F /* ImageViewController.swift */; };
 		132532AA1FD6874C004BF9F5 /* Projects.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 132532A91FD6874C004BF9F5 /* Projects.storyboard */; };
@@ -65,14 +73,6 @@
 		139E64A11FCF076700117E0B /* ExtensionUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E64A01FCF076700117E0B /* ExtensionUIImageView.swift */; };
 		139E64A51FCF07C600117E0B /* MIDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E64A31FCF07C600117E0B /* MIDatePicker.swift */; };
 		139E64A61FCF07C600117E0B /* MIDatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 139E64A41FCF07C600117E0B /* MIDatePicker.xib */; };
-		139E64AB1FCF07E500117E0B /* ModelPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E64A81FCF07E500117E0B /* ModelPicker.swift */; };
-		139E64AC1FCF07E500117E0B /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E64A91FCF07E500117E0B /* PickerView.swift */; };
-		139E64AD1FCF07E500117E0B /* PickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 139E64AA1FCF07E500117E0B /* PickerView.xib */; };
-		139E64B11FCF07F800117E0B /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E64AF1FCF07F800117E0B /* HeaderViewController.swift */; };
-		139E64B21FCF07F800117E0B /* HeaderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 139E64B01FCF07F800117E0B /* HeaderViewController.xib */; };
-		139E64B61FCF083900117E0B /* ItemViewCellMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E64B51FCF083900117E0B /* ItemViewCellMenu.swift */; };
-		139E64B91FCF084900117E0B /* ItemMenuObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E64B81FCF084900117E0B /* ItemMenuObject.swift */; };
-		139E64BC1FCF085500117E0B /* RightMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E64BB1FCF085500117E0B /* RightMenuViewController.swift */; };
 		139E64C11FCF088000117E0B /* SideMenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E64BE1FCF088000117E0B /* SideMenuManager.swift */; };
 		139E64C21FCF088000117E0B /* SideMenuTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E64BF1FCF088000117E0B /* SideMenuTransition.swift */; };
 		139E64C31FCF088000117E0B /* UISideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E64C01FCF088000117E0B /* UISideMenuNavigationController.swift */; };
@@ -138,6 +138,14 @@
 		1319EC1E1FD58E7D003D1B0D /* CategoryProjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryProjectModel.swift; sourceTree = "<group>"; };
 		1319EC201FD594E5003D1B0D /* ProjectsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsModel.swift; sourceTree = "<group>"; };
 		131FB9B32018341100B25761 /* DetailImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailImageViewController.swift; sourceTree = "<group>"; };
+		13225B5E202D73F40089FB8A /* ModelPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelPicker.swift; sourceTree = "<group>"; };
+		13225B5F202D73F40089FB8A /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
+		13225B60202D73F50089FB8A /* PickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerView.xib; sourceTree = "<group>"; };
+		13225B64202D74000089FB8A /* HeaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
+		13225B65202D74000089FB8A /* HeaderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderViewController.xib; sourceTree = "<group>"; };
+		13225B68202D740D0089FB8A /* ItemViewCellMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemViewCellMenu.swift; sourceTree = "<group>"; };
+		13225B6A202D77590089FB8A /* ItemMenuObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemMenuObject.swift; sourceTree = "<group>"; };
+		13225B6C202D7A3B0089FB8A /* RightMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightMenuViewController.swift; sourceTree = "<group>"; };
 		132404361FE12DB700F9250F /* ImagePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePageViewController.swift; sourceTree = "<group>"; };
 		132404381FE1303D00F9250F /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		132532A91FD6874C004BF9F5 /* Projects.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Projects.storyboard; sourceTree = "<group>"; };
@@ -198,14 +206,6 @@
 		139E64A01FCF076700117E0B /* ExtensionUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIImageView.swift; sourceTree = "<group>"; };
 		139E64A31FCF07C600117E0B /* MIDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIDatePicker.swift; sourceTree = "<group>"; };
 		139E64A41FCF07C600117E0B /* MIDatePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MIDatePicker.xib; sourceTree = "<group>"; };
-		139E64A81FCF07E500117E0B /* ModelPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelPicker.swift; path = ../../../../../SocialNetwork/SocialNetwork/View/PickerView/ModelPicker.swift; sourceTree = "<group>"; };
-		139E64A91FCF07E500117E0B /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickerView.swift; path = ../../../../../SocialNetwork/SocialNetwork/View/PickerView/PickerView.swift; sourceTree = "<group>"; };
-		139E64AA1FCF07E500117E0B /* PickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PickerView.xib; path = ../../../../../SocialNetwork/SocialNetwork/View/PickerView/PickerView.xib; sourceTree = "<group>"; };
-		139E64AF1FCF07F800117E0B /* HeaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeaderViewController.swift; path = ../../../../../SocialNetwork/SocialNetwork/View/HeaderView/HeaderViewController.swift; sourceTree = "<group>"; };
-		139E64B01FCF07F800117E0B /* HeaderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HeaderViewController.xib; path = ../../../../../SocialNetwork/SocialNetwork/View/HeaderView/HeaderViewController.xib; sourceTree = "<group>"; };
-		139E64B51FCF083900117E0B /* ItemViewCellMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemViewCellMenu.swift; path = ../../../../../../SocialNetwork/SocialNetwork/Controller/CustomMenu/Menu/ItemViewCellMenu.swift; sourceTree = "<group>"; };
-		139E64B81FCF084900117E0B /* ItemMenuObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemMenuObject.swift; path = ../../../../../SocialNetwork/SocialNetwork/Controller/CustomMenu/Menu/ItemMenuObject.swift; sourceTree = "<group>"; };
-		139E64BB1FCF085500117E0B /* RightMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RightMenuViewController.swift; path = ../../../../../SocialNetwork/SocialNetwork/Controller/CustomMenu/Menu/RightMenuViewController.swift; sourceTree = "<group>"; };
 		139E64BE1FCF088000117E0B /* SideMenuManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuManager.swift; sourceTree = "<group>"; };
 		139E64BF1FCF088000117E0B /* SideMenuTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTransition.swift; sourceTree = "<group>"; };
 		139E64C01FCF088000117E0B /* UISideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISideMenuNavigationController.swift; sourceTree = "<group>"; };
@@ -588,9 +588,9 @@
 		139E64A71FCF07D100117E0B /* PickerView */ = {
 			isa = PBXGroup;
 			children = (
-				139E64A81FCF07E500117E0B /* ModelPicker.swift */,
-				139E64A91FCF07E500117E0B /* PickerView.swift */,
-				139E64AA1FCF07E500117E0B /* PickerView.xib */,
+				13225B5E202D73F40089FB8A /* ModelPicker.swift */,
+				13225B5F202D73F40089FB8A /* PickerView.swift */,
+				13225B60202D73F50089FB8A /* PickerView.xib */,
 			);
 			path = PickerView;
 			sourceTree = "<group>";
@@ -598,8 +598,8 @@
 		139E64AE1FCF07E900117E0B /* HeaderView */ = {
 			isa = PBXGroup;
 			children = (
-				139E64AF1FCF07F800117E0B /* HeaderViewController.swift */,
-				139E64B01FCF07F800117E0B /* HeaderViewController.xib */,
+				13225B64202D74000089FB8A /* HeaderViewController.swift */,
+				13225B65202D74000089FB8A /* HeaderViewController.xib */,
 			);
 			path = HeaderView;
 			sourceTree = "<group>";
@@ -615,7 +615,7 @@
 		139E64B41FCF082400117E0B /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				139E64B51FCF083900117E0B /* ItemViewCellMenu.swift */,
+				13225B68202D740D0089FB8A /* ItemViewCellMenu.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -623,7 +623,7 @@
 		139E64B71FCF084000117E0B /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				139E64B81FCF084900117E0B /* ItemMenuObject.swift */,
+				13225B6A202D77590089FB8A /* ItemMenuObject.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -631,7 +631,7 @@
 		139E64BA1FCF084C00117E0B /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				139E64BB1FCF085500117E0B /* RightMenuViewController.swift */,
+				13225B6C202D7A3B0089FB8A /* RightMenuViewController.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -875,13 +875,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				139E64AD1FCF07E500117E0B /* PickerView.xib in Resources */,
 				13B744581FD3CBE700A778A7 /* news.html in Resources */,
 				13FC19D81FE906E800538420 /* newsDetail.html in Resources */,
 				13372E951FD00C1200041A57 /* User.storyboard in Resources */,
-				139E64B21FCF07F800117E0B /* HeaderViewController.xib in Resources */,
 				139E64CF1FCF091800117E0B /* Login.storyboard in Resources */,
 				1344BE161FD1460C00498108 /* MenuHome.storyboard in Resources */,
+				13225B67202D74010089FB8A /* HeaderViewController.xib in Resources */,
 				13AA8D361FDA9D23007057DF /* NewsHeaderView.xib in Resources */,
 				13FB33161FD2FA2100FC5B55 /* GoogleService-Info.plist in Resources */,
 				139E64681FCF030300117E0B /* LaunchScreen.storyboard in Resources */,
@@ -891,6 +890,7 @@
 				139E64A61FCF07C600117E0B /* MIDatePicker.xib in Resources */,
 				13372E8D1FD0093400041A57 /* InforUserViewController.xib in Resources */,
 				139E64D11FCF099700117E0B /* Register.storyboard in Resources */,
+				13225B63202D73F50089FB8A /* PickerView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1117,7 +1117,7 @@
 				139E64C71FCF08C000117E0B /* LoginViewController.swift in Sources */,
 				139E64A11FCF076700117E0B /* ExtensionUIImageView.swift in Sources */,
 				1384B8341FDE6FFA001AE51A /* ContainerForgotPassViewController.swift in Sources */,
-				139E64B11FCF07F800117E0B /* HeaderViewController.swift in Sources */,
+				13225B61202D73F50089FB8A /* ModelPicker.swift in Sources */,
 				13195E251FD05B4600C60533 /* HomeMenuViewController.swift in Sources */,
 				13FC19DF1FE91F4C00538420 /* InforCompanyViewController.swift in Sources */,
 				139E64901FCF049400117E0B /* Result.swift in Sources */,
@@ -1128,11 +1128,12 @@
 				1344BE181FD149D800498108 /* SearchContactViewController.swift in Sources */,
 				139E64911FCF049400117E0B /* API.swift in Sources */,
 				13FC19DD1FE915F400538420 /* ProjectInforViewController.swift in Sources */,
+				13225B6B202D77590089FB8A /* ItemMenuObject.swift in Sources */,
 				13AB37641FCF9EA6000BA67D /* TutorialPageViewController.swift in Sources */,
 				13372E8F1FD009A300041A57 /* GetViewXib.swift in Sources */,
 				1344BE1F1FD14E2F00498108 /* SearchProjectsViewController.swift in Sources */,
+				13225B62202D73F50089FB8A /* PickerView.swift in Sources */,
 				132404391FE1303D00F9250F /* ImageViewController.swift in Sources */,
-				139E64B61FCF083900117E0B /* ItemViewCellMenu.swift in Sources */,
 				139E64C31FCF088000117E0B /* UISideMenuNavigationController.swift in Sources */,
 				1344BE2A1FD15E4B00498108 /* DetailNewsViewController.swift in Sources */,
 				139E64C21FCF088000117E0B /* SideMenuTransition.swift in Sources */,
@@ -1159,17 +1160,17 @@
 				139E64921FCF049400117E0B /* APIClient.swift in Sources */,
 				139E64981FCF04BA00117E0B /* ExtensionString.swift in Sources */,
 				1344BE091FD13EEF00498108 /* NewsLikeViewController.swift in Sources */,
-				139E64AB1FCF07E500117E0B /* ModelPicker.swift in Sources */,
 				136C569C1FD7F76200E38458 /* DetailContactViewController.swift in Sources */,
 				139E64C81FCF08C000117E0B /* ContainerViewController.swift in Sources */,
+				13225B66202D74010089FB8A /* HeaderViewController.swift in Sources */,
 				136C569A1FD7999800E38458 /* InforMapsProjectViewController.swift in Sources */,
 				1344BE2C1FD15EEB00498108 /* ExtensionUILabel.swift in Sources */,
 				1319EC211FD594E5003D1B0D /* ProjectsModel.swift in Sources */,
-				139E64B91FCF084900117E0B /* ItemMenuObject.swift in Sources */,
 				139E64A51FCF07C600117E0B /* MIDatePicker.swift in Sources */,
 				132532AC1FD6A7D8004BF9F5 /* DetailProjectViewController.swift in Sources */,
 				1344BE111FD143E900498108 /* ContactViewCell.swift in Sources */,
 				139E645E1FCF030300117E0B /* AppDelegate.swift in Sources */,
+				13225B6D202D7A3B0089FB8A /* RightMenuViewController.swift in Sources */,
 				13AA8D331FDA9AFC007057DF /* NewsSaveModel.swift in Sources */,
 				13CAB8861FD92EA60014F551 /* RegisterNewsViewController.swift in Sources */,
 				13195E281FD05DC500C60533 /* MapsViewController.swift in Sources */,
@@ -1180,15 +1181,14 @@
 				13C6EFD51FDA494100D6F1EF /* PopOverTypeMapsViewController.swift in Sources */,
 				134E23DD1FD0F8CD005387B7 /* InforMapsViewController.swift in Sources */,
 				139E64CC1FCF08DB00117E0B /* ContainerSingUpViewController.swift in Sources */,
-				139E64BC1FCF085500117E0B /* RightMenuViewController.swift in Sources */,
 				139E649F1FCF050300117E0B /* CustomUIView.swift in Sources */,
 				13B744531FD3BF5300A778A7 /* UserModel.swift in Sources */,
 				13372E9B1FD0118400041A57 /* SaveCurrentVC.swift in Sources */,
 				139E64991FCF04BA00117E0B /* UIColorExtensions.swift in Sources */,
+				13225B69202D740D0089FB8A /* ItemViewCellMenu.swift in Sources */,
 				13CAB8841FD915B80014F551 /* WaredModel.swift in Sources */,
 				137CF4221FD504B100E3EB91 /* CategoryNewsModel.swift in Sources */,
 				13AB37681FCF9FAC000BA67D /* NaviLoginViewController.swift in Sources */,
-				139E64AC1FCF07E500117E0B /* PickerView.swift in Sources */,
 				13C6EFD71FDA651F00D6F1EF /* MapsViewCell.swift in Sources */,
 				13AB376C1FCFA056000BA67D /* BaseViewController.swift in Sources */,
 			);

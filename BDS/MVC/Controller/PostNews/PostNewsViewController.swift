@@ -13,7 +13,7 @@ import RxCocoa
 import RxSwift
 
 class PostNewsViewController: BaseViewController {
-
+    
     @IBOutlet weak var btnDone: UIButton!
     @IBOutlet weak var headerView: HeaderViewController!
     @IBOutlet weak var sumPrice: UILabel!
@@ -207,7 +207,7 @@ class PostNewsViewController: BaseViewController {
         self.settingColorIcon()
         self.loadDataCity()
         self.loadData()
-    
+        
     }
     
     func setDelegate()
@@ -288,6 +288,10 @@ class PostNewsViewController: BaseViewController {
         self.typePrice.text = "Đơn vị"
         self.facadeTextField.text = ""
         self.distanceTextField.text = ""
+        self.numberOfFloors.text = ""
+        self.numberToilet.text = ""
+        self.garageNumber.text = ""
+        self.furnitureTextView.text = ""
         self.directionOfHouse.text = "Hướng nhà"
         self.directionBalcony.text = "Số phòng ngủ"
         self.furnitureTextView.text = ""
@@ -324,11 +328,11 @@ class PostNewsViewController: BaseViewController {
     
     func loadPrice()
     {
-         self.sumPrice.text = "Thành tiền: \(0) VND"
+        self.sumPrice.text = "Thành tiền: \(0) VND"
         self.showHUD("")
         let start = self.startDate.dateFormatString(formater: "yyyy-MM-dd")
         let end =  self.endDate.dateFormatString(formater: "yyyy-MM-dd")
-    
+        
         APIClient.shared.getPrice(start: start, finish: end, type: self.idTypeNews).asObservable().bind(onNext: {result in
             self.sumPrice.text = "Thành tiền: \(result.price) VND"
             self.hideHUD()
@@ -365,7 +369,7 @@ class PostNewsViewController: BaseViewController {
         self.numberOfFloors.isHidden = isShow
         self.garageNumber.isHidden = isShow
         self.numberToilet.isHidden = isShow
-      
+        
         if isShow == true
         {
             self.imageInforOther.image = #imageLiteral(resourceName: "icondown")
@@ -458,7 +462,7 @@ class PostNewsViewController: BaseViewController {
             self.heightViewContraint = self.heightViewContraint - 300
             
         }
-      
+        
         if (id == 3 || id == 4) && isShow == false
         {
             self.directionBalcony.isHidden = true
@@ -712,7 +716,7 @@ class PostNewsViewController: BaseViewController {
             self.hideHUD()
         }).disposed(by: self.disposeBag)
     }
-
+    
     // MARK: - UIAaction
     @IBAction func inforButtonDidTap(_ sender: Any) {
         if self.isShowInfor == false
@@ -722,7 +726,7 @@ class PostNewsViewController: BaseViewController {
         }
         else
         {
-             self.isShowInfor = false
+            self.isShowInfor = false
         }
         self.isShowInforView(isShow: self.isShowInfor)
     }
@@ -756,7 +760,7 @@ class PostNewsViewController: BaseViewController {
         }
         else
         {
-             self.isShowInforOther(isShow: self.isInforOther)
+            self.isShowInforOther(isShow: self.isInforOther)
         }
     }
     
@@ -954,7 +958,7 @@ class PostNewsViewController: BaseViewController {
     
     
     @IBAction func postNewsButtonDidTap(_ sender: Any) {
-       
+        
         if self.titleTextField.text?.count == 0
         {
             self.showAlert("Bạn chưa nhập tiêu đề")
@@ -1039,7 +1043,7 @@ class PostNewsViewController: BaseViewController {
             self.mobileContact.becomeFirstResponder()
             return
         }
-
+        
         
         self.showHUD("")
         var start = "null"
@@ -1074,7 +1078,7 @@ class PostNewsViewController: BaseViewController {
             nt = self.furnitureTextView.text
         }
         
-        APIClient.shared.postNews(post_type: self.idTypeNews, startDate:start , endDate:end, user_type: self.idTypeUser, title: self.titleTextField.text!, project_id: self.idProject, type_bds: self.idLandSale, type: self.idTypeLand, city: self.idCity, ward: self.idWards, area: self.acreageLabel.text!, price: self.priceLabel.text!, price_type: self.idTypePrice, district: self.idDistrict, address: self.address.text!, des: self.inforViewTextView.text, numberbedroom: self.idBedroom, direction: self.idDirection, image: self.image, poster_name: self.nameContact.text!,poster_address: self.addressContact.text!,poster_phone: self.phoneContact.text!,poster_mobile: self.mobileContact.text!,poster_email: self.emailContact.text!,toilet: numberToilet,hbc: self.idDirectionOfBalcony,st: st,sndx:sndx,nt:nt,dc:  self.address.text!,completion: {result in
+        APIClient.shared.postNews(post_type: self.idTypeNews, startDate:start , endDate:end, user_type: self.idTypeUser, title: self.titleTextField.text!, project_id: self.idProject, type_bds: self.idLandSale, type: self.idTypeLand, city: self.idCity, ward: self.idWards, area: self.acreageLabel.text!, price: self.priceLabel.text!, price_type: self.idTypePrice, district: self.idDistrict, address: self.address.text!, des: self.inforViewTextView.text, numberbedroom: self.idBedroom, direction: self.idDirection, image: self.image, poster_name: self.nameContact.text!,poster_address: self.addressContact.text!,poster_phone: self.phoneContact.text!,poster_mobile: self.mobileContact.text!,poster_email: self.emailContact.text!,toilet: numberToilet,hbc: self.idDirectionOfBalcony,st: st,sndx:sndx,nt:nt,dc:  self.address.text!, dv: self.distanceTextField.text!,mt: self.facadeTextField.text!,completion: {result in
             self.showAlert("Bạn đã đăng tin thành công! Tin của bạn sẽ được xét duyệt trong vòng vài giờ, hay kiểm tra trong phần quản lý tin đăng của tôi")
             self.resetData()
             self.isShowInfor = true
@@ -1087,7 +1091,7 @@ class PostNewsViewController: BaseViewController {
             self.isShowInforOther(isShow: self.isInforOther)
             self.hideHUD()
         })
-
+        
     }
     
 }
@@ -1141,7 +1145,7 @@ extension PostNewsViewController:PickerViewDelegate
                 self.idTypeLand = "rent"
                 self.setDataPickerRent()
             }
-           
+            
         case 2:
             self.typeLand.text = picker.name
             self.indexlandSale = index
@@ -1263,3 +1267,4 @@ extension PostNewsViewController:UIImagePickerControllerDelegate,UINavigationCon
         
     }
 }
+
