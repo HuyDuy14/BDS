@@ -26,6 +26,7 @@ target 'BDS' do
   pod 'FBSDKShareKit'
   pod 'FBSDKLoginKit'
   pod 'GoogleSignIn'
+  pod 'ResponsiveLabel'
   pod 'IQKeyboardManagerSwift'
   target 'BDSTests' do
     inherit! :search_paths

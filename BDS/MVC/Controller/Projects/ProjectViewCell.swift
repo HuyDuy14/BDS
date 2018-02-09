@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import ResponsiveLabel
 protocol ProjectViewCellDelegate:class
 {
     func saveProject(_ cell:ProjectViewCell,project:ProjectsModel,index:Int,type:Int)
@@ -18,7 +18,7 @@ class ProjectViewCell: UITableViewCell {
 
     @IBOutlet weak var imageViewProfile: UIImageView!
     @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var information: UILabel!
+    @IBOutlet weak var information: ResponsiveLabel!
     @IBOutlet weak var imageLike: UIImageView!
     @IBOutlet weak var btnLike: UIButton!
     var project:ProjectsModel!
@@ -30,6 +30,7 @@ class ProjectViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+         self.information.isUserInteractionEnabled = true
     }
 
     func loadData(project:ProjectsModel,index:Int,type:Int)
@@ -38,6 +39,10 @@ class ProjectViewCell: UITableViewCell {
         self.index = index
         self.type = type
         self.imageViewProfile.setImageProject(urlString: API.linkImage + project.image)
+        self.information.numberOfLines = 1
+        project.address = project.address.replacingOccurrences(of: "<p>", with: "")
+        project.address = project.address.replacingOccurrences(of: "&nbsp;", with: "")
+        self.information.setText(project.address, withTruncation: true)
         self.name.text = project.title
         self.information.text = project.address
         if project.isLike == true
@@ -57,7 +62,10 @@ class ProjectViewCell: UITableViewCell {
         self.type = type
         self.imageViewProfile.setImageProject(urlString: API.linkImage + project.image)
         self.name.text = project.title
-        self.information.text = project.content
+        self.information.numberOfLines = 1
+        project.content = project.content.replacingOccurrences(of: "<p>", with: "")
+        project.content = project.content.replacingOccurrences(of: "&nbsp;", with: "")
+        self.information.setText(project.content, withTruncation: true)
         var count = 0
         for land in Util.shared.listBDS
         {

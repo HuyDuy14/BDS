@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ResponsiveLabel
 protocol LandForSaleViewCellDelegate:class
 {
     func deleteSaveNews(_ cell:LandForSaleViewCell,news:NewsModel,index:Int,type:Int)
@@ -18,7 +19,7 @@ class LandForSaleViewCell: UITableViewCell {
 
     @IBOutlet weak var imageViewProfile: UIImageView!
     @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var information: UILabel!
+    @IBOutlet weak var information: ResponsiveLabel!
     @IBOutlet weak var imageLike: UIImageView!
     
     var news:NewsModel!
@@ -31,6 +32,7 @@ class LandForSaleViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.information.isUserInteractionEnabled = true
     }
 
     func loadDataProject(project:ProjectsModel,index:Int,type:Int)
@@ -39,7 +41,8 @@ class LandForSaleViewCell: UITableViewCell {
         self.project  = project
         self.imageViewProfile.setImageProject(urlString: API.linkImage + project.image)
         self.name.text = project.title
-        self.information.text = project.address
+        self.information.numberOfLines = 2
+        self.information.setText(project.address, withTruncation: true)
         self.indexNews = index
         self.type = type
         if project.isLike == true
@@ -60,11 +63,17 @@ class LandForSaleViewCell: UITableViewCell {
         self.imageViewProfile.setImageUrlNews(url: API.linkImage + cell.image)
         self.name.text = cell.title
         if cell.content.count > 0 {
-            self.information.text = cell.content
+            self.information.numberOfLines = 1
+            cell.content = cell.content.replacingOccurrences(of: "<p>", with: "")
+            cell.content = cell.content.replacingOccurrences(of: "&nbsp;", with: "")
+            self.information.setText(cell.content, withTruncation: true)
         }
         else
         {
-            self.information.text = cell.seo_description
+            self.information.numberOfLines = 1
+            cell.seo_description = cell.seo_description.replacingOccurrences(of: "<p>", with: "")
+            cell.seo_description = cell.seo_description.replacingOccurrences(of: "&nbsp;", with: "")
+            self.information.setText(cell.seo_description, withTruncation: true)
         }
         var count = 0
         for land in Util.shared.listBDS
