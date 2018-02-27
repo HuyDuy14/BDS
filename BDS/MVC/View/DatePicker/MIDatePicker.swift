@@ -1,9 +1,8 @@
 //
-//  MIDatePicker.swift
-//  Agenda medica
+//  DatePicker.swift
 //
-//  Created by Mario on 15/06/16.
-//  Copyright © 2016 Mario. All rights reserved.
+//  Created by HuyLD on 15/06/16.
+//  Copyright © 2016 HuyLD. All rights reserved.
 //
 
 import UIKit
@@ -31,11 +30,6 @@ class MIDatePicker: UIView {
         var headerHeight: CGFloat = 50
 
         var animationDuration: TimeInterval = 0.3
-
-//        var contentBackgroundColor: UIColor = UIColor.lightGray
-//        var headerBackgroundColor: UIColor = UIColor.white
-//        var confirmButtonColor: UIColor = UIColor.blue
-//        var cancelButtonColor: UIColor = UIColor.black
 
         var overlayBackgroundColor: UIColor = UIColor.black.withAlphaComponent(0.6)
 
@@ -85,14 +79,6 @@ class MIDatePicker: UIView {
 
         confirmButton.setTitle(config.confirmButtonTitle, for: UIControlState())
         cancelButton.setTitle(config.cancelButtonTitle, for: UIControlState())
-
-//        confirmButton.setTitleColor(config.confirmButtonColor, for: UIControlState())
-//        cancelButton.setTitleColor(config.cancelButtonColor, for: UIControlState())
-
-//        headerView.backgroundColor = config.headerBackgroundColor
-//        backgroundView.backgroundColor = config.contentBackgroundColor
-
-        // Overlay view constraints setup
 
         overlayButton = UIButton(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
         overlayButton.backgroundColor = config.overlayBackgroundColor
