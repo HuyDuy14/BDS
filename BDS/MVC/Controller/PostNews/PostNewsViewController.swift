@@ -132,8 +132,8 @@ class PostNewsViewController: BaseViewController {
     @IBOutlet weak var heightNameConact: NSLayoutConstraint!
     @IBOutlet weak var addressContact: UITextField!
     @IBOutlet weak var heightAddressContact: NSLayoutConstraint!
-    @IBOutlet weak var phoneContact: UITextField!
-    @IBOutlet weak var heightPhontContact: NSLayoutConstraint!
+//    @IBOutlet weak var phoneContact: UITextField!
+//    @IBOutlet weak var heightPhontContact: NSLayoutConstraint!
     @IBOutlet weak var mobileContact: UITextField!
     @IBOutlet weak var heightMobileContact: NSLayoutConstraint!
     @IBOutlet weak var emailContact: UITextField!
@@ -282,7 +282,7 @@ class PostNewsViewController: BaseViewController {
         self.priceLabel.text = ""
         self.emailContact.text = ""
         self.nameContact.text = ""
-        self.phoneContact.text = ""
+//        self.phoneContact.text = ""
         self.addressContact.text = ""
         self.mobileContact.text = ""
         self.typePrice.text = "Đơn vị"
@@ -506,7 +506,7 @@ class PostNewsViewController: BaseViewController {
     {
         self.mobileContact.isHidden = isShow
         self.nameContact.isHidden = isShow
-        self.phoneContact.isHidden = isShow
+//        self.phoneContact.isHidden = isShow
         self.addressContact.isHidden = isShow
         self.emailContact.isHidden = isShow
         if isShow == true
@@ -514,7 +514,7 @@ class PostNewsViewController: BaseViewController {
             self.imageContact.image = #imageLiteral(resourceName: "icondown")
             self.heightNameConact.constant = 0
             self.heightAddressContact.constant = 0
-            self.heightPhontContact.constant = 0
+//            self.heightPhontContact.constant = 0
             self.heightMobileContact.constant = 0
             self.heightEmailContact.constant = 0
             self.heightViewContraint = self.heightViewContraint - 300
@@ -523,7 +523,7 @@ class PostNewsViewController: BaseViewController {
         {
             self.heightNameConact.constant = 50
             self.heightAddressContact.constant = 50
-            self.heightPhontContact.constant = 50
+//            self.heightPhontContact.constant = 50
             self.heightMobileContact.constant = 50
             self.heightEmailContact.constant = 50
             self.imageContact.image = #imageLiteral(resourceName: "icon_up")
@@ -788,6 +788,7 @@ class PostNewsViewController: BaseViewController {
     
     @IBAction func endDateButtonDidTap(_ sender: Any) {
         self.datePicker.config.startDate = self.endDate
+        self.datePicker.datePicker.minimumDate = self.startDate.addingTimeInterval(7 * 86400)
         self.datePicker.isStart = false
         self.datePicker.show(inVC: self)
     }
@@ -1024,12 +1025,12 @@ class PostNewsViewController: BaseViewController {
             self.showAlert("Mã bảo mật chưa đúng")
             return
         }
-        
-        if !(self.phoneContact.text?.isPhone())!
-        {
-            self.showAlert("Bạn nhập sai định dạng số điện thoại")
-            return
-        }
+//
+//        if !(self.phoneContact.text?.isPhone())!
+//        {
+//            self.showAlert("Bạn nhập sai định dạng số điện thoại")
+//            return
+//        }
         
         if !(self.mobileContact.text?.isPhone())!
         {
@@ -1051,11 +1052,11 @@ class PostNewsViewController: BaseViewController {
         
         if self.startDateLabel.text != "Ngày bắt đầu"
         {
-            start = self.startDate.dateFormatString(formater: "yyyy-MM-dd HH:mm:ss")
+            start = self.startDate.dateFormatString(formater: "yyyy-MM-dd")
         }
         if self.endDateLabel.text != "Ngày kết thúc"
         {
-            end = self.endDate.dateFormatString(formater: "yyyy-MM-dd HH:mm:ss")
+            end = self.endDate.dateFormatString(formater: "yyyy-MM-dd")
         }
         var numberToilet = "null"
         if self.numberToilet.text.count > 0
@@ -1078,7 +1079,7 @@ class PostNewsViewController: BaseViewController {
             nt = self.furnitureTextView.text
         }
         
-        APIClient.shared.postNews(post_type: self.idTypeNews, startDate:start , endDate:end, user_type: self.idTypeUser, title: self.titleTextField.text!, project_id: self.idProject, type_bds: self.idLandSale, type: self.idTypeLand, city: self.idCity, ward: self.idWards, area: self.acreageLabel.text!, price: self.priceLabel.text!, price_type: self.idTypePrice, district: self.idDistrict, address: self.address.text!, des: self.inforViewTextView.text, numberbedroom: self.idBedroom, direction: self.idDirection, image: self.image, poster_name: self.nameContact.text!,poster_address: self.addressContact.text!,poster_phone: self.phoneContact.text!,poster_mobile: self.mobileContact.text!,poster_email: self.emailContact.text!,toilet: numberToilet,hbc: self.idDirectionOfBalcony,st: st,sndx:sndx,nt:nt,dc:  self.address.text!, dv: self.distanceTextField.text!,mt: self.facadeTextField.text!,idCompany: self.idCompany,completion: {result in
+        APIClient.shared.postNews(post_type: self.idTypeNews, startDate:start , endDate:end, user_type: self.idTypeUser, title: self.titleTextField.text!, project_id: self.idProject, type_bds: self.idLandSale, type: self.idTypeLand, city: self.idCity, ward: self.idWards, area: self.acreageLabel.text!, price: self.priceLabel.text!, price_type: self.idTypePrice, district: self.idDistrict, address: self.address.text!, des: self.inforViewTextView.text, numberbedroom: self.idBedroom, direction: self.idDirection, image: self.image, poster_name: self.nameContact.text!,poster_address: self.addressContact.text!,poster_phone: "",poster_mobile: self.mobileContact.text!,poster_email: self.emailContact.text!,toilet: numberToilet,hbc: self.idDirectionOfBalcony,st: st,sndx:sndx,nt:nt,dc:  self.address.text!, dv: self.distanceTextField.text!,mt: self.facadeTextField.text!,idCompany: self.idCompany,completion: {result in
             self.showAlert("Bạn đã đăng tin thành công! Tin của bạn sẽ được xét duyệt trong vòng vài giờ, hay kiểm tra trong phần quản lý tin đăng của tôi")
             self.resetData()
             self.isShowInfor = true

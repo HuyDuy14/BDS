@@ -14,20 +14,20 @@ class NewsLikeViewController: BaseViewController {
     @IBOutlet weak var titleView: UILabel!
     @IBOutlet weak var desView: UILabel!
     
-    @IBOutlet weak var tbaleView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     var refreshControl: UIRefreshControl!
     let disposeBag = DisposeBag()
     var listData:NewsSaveModel = NewsSaveModel()
     var isMenu:Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tbaleView.delegate = self
-        self.tbaleView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         self.refreshControl = UIRefreshControl()
         self.refreshControl.attributedTitle = NSAttributedString(string: "")
         refreshControl?.addTarget(self, action: #selector(NewsLikeViewController.refresh(_:)), for: UIControlEvents.valueChanged)
-        self.tbaleView.addSubview(refreshControl!)
-       self.tbaleView.register(UINib.init(nibName: "NewsHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier:  "NewsHeaderView")
+        self.tableView.addSubview(refreshControl!)
+       self.tableView.register(UINib.init(nibName: "NewsHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier:  "NewsHeaderView")
         self.showHUD("")
         self.getDataNews()
         
@@ -39,7 +39,7 @@ class NewsLikeViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.tbaleView.reloadData()
+        self.tableView.reloadData()
         if self.isMenu == false
         {
             self.listData.listBDS = Util.shared.listBDS
@@ -74,7 +74,7 @@ class NewsLikeViewController: BaseViewController {
                     bds.isLike = true
                 }
                 
-                self.tbaleView.reloadData()
+                self.tableView.reloadData()
                 self.refreshControl.endRefreshing()
                 self.hideHUD()
             }
@@ -107,72 +107,22 @@ extension NewsLikeViewController:UITableViewDelegate,UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        switch indexPath.section
-//        {
-//        case 0:
-//            let cell = self.tbaleView.dequeueReusableCell(withIdentifier: "NewsLikeViewCell") as! LandForSaleViewCell
-//            cell.loadDataNewsCell(cell: self.listData.listNews[indexPath.row], index: indexPath.row, type: 1)
-//            cell.delegate = self
-//            cell.imageLike.tintColor = UIColor.red
-//            return cell
-//        case 1:
-//            let cell = self.tbaleView.dequeueReusableCell(withIdentifier: "NewsLikeViewCell") as! LandForSaleViewCell
-//            cell.loadDataProject(project: self.listData.listProjects[indexPath.row], index: indexPath.row, type: 2)
-//            cell.delegate = self
-//            cell.imageLike.tintColor = UIColor.red
-//            return cell
-//        case 2:
         if self.listData.listBDS.count > indexPath.row
         {
-            let cell = self.tbaleView.dequeueReusableCell(withIdentifier: "NewsLikeViewCell") as! LandForSaleViewCell
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: "NewsLikeViewCell") as! LandForSaleViewCell
             cell.loadDataCell(cell: self.listData.listBDS[indexPath.row], index: indexPath.row, type: 3)
             cell.delegate = self
             cell.imageLike.tintColor = UIColor.red
             return cell
         }
         return UITableViewCell()
-//        default:
-//            return UITableViewCell()
-//        }
         
     }
     
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 0
-//    }
-//
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//
-//        let headerView = self.tbaleView.dequeueReusableHeaderFooterView(withIdentifier: "NewsHeaderView") as? NewsHeaderView
-//        switch section
-//        {
-//        case 0:
-//             headerView?.nameHeader.text =  "" //"Tin tức"
-//        case 1:
-//            headerView?.nameHeader.text = "" //"Dự án"
-//        case 2:
-//            headerView?.nameHeader.text = "" //"Bất động sản"
-//        default:
-//            return headerView
-//        }
-//        return headerView
-//    }
+
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-//        switch indexPath.section
-//        {
-//        case 0:
-//            let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
-//            let vcDetail = storyboard.instantiateViewController(withIdentifier: "DetailNewsViewController") as? DetailNewsViewController
-//            vcDetail?.news = self.listData.listNews[indexPath.row]
-//            self.pushViewController(viewController: vcDetail)
-//        case 1:
-//            let storyboard = UIStoryboard(name: "Projects", bundle: nil)
-//            let showDetail = storyboard.instantiateViewController(withIdentifier: "DetailProjectViewController") as? DetailProjectViewController
-//            showDetail?.project = self.listData.listProjects[indexPath.row]
-//            self.pushViewController(viewController: showDetail)
-//        case 2:
+    
         if self.listData.listBDS.count > indexPath.row
         {
             let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
@@ -182,9 +132,6 @@ extension NewsLikeViewController:UITableViewDelegate,UITableViewDataSource
             showDetail?.isQL = self.isMenu
             self.pushViewController(viewController: showDetail)
         }
-//        default:
-//           break
-//        }
     }
 }
 
@@ -224,9 +171,9 @@ extension NewsLikeViewController:LandForSaleViewCellDelegate
             let indexPath = NSIndexPath(row: index, section: 0)
             var arrayIndext: [NSIndexPath] = []
             arrayIndext.append(indexPath)
-            self.tbaleView.beginUpdates()
-            self.tbaleView.deleteRows(at: arrayIndext as [IndexPath], with: UITableViewRowAnimation.fade)
-            self.tbaleView.endUpdates()
+            self.tableView.beginUpdates()
+            self.tableView.deleteRows(at: arrayIndext as [IndexPath], with: UITableViewRowAnimation.fade)
+            self.tableView.endUpdates()
             
         }
         
@@ -242,9 +189,9 @@ extension NewsLikeViewController:LandForSaleViewCellDelegate
             let indexPath = NSIndexPath(row: index, section: 1)
             var arrayIndext: [NSIndexPath] = []
             arrayIndext.append(indexPath)
-            self.tbaleView.beginUpdates()
-            self.tbaleView.deleteRows(at: arrayIndext as [IndexPath], with: UITableViewRowAnimation.fade)
-            self.tbaleView.endUpdates()
+            self.tableView.beginUpdates()
+            self.tableView.deleteRows(at: arrayIndext as [IndexPath], with: UITableViewRowAnimation.fade)
+            self.tableView.endUpdates()
             
         }
         
@@ -254,7 +201,7 @@ extension NewsLikeViewController:LandForSaleViewCellDelegate
         if index >= 0 {
             if index >  Util.shared.listBDS.count - 1 {
                 Util.shared.listBDS.removeAll()
-                self.tbaleView.reloadData()
+                self.tableView.reloadData()
                 return
             }
             Util.shared.listBDS.remove(at: index)
@@ -262,9 +209,9 @@ extension NewsLikeViewController:LandForSaleViewCellDelegate
             let indexPath = NSIndexPath(row: index, section: 0)
             var arrayIndext: [NSIndexPath] = []
             arrayIndext.append(indexPath)
-            self.tbaleView.beginUpdates()
-            self.tbaleView.deleteRows(at: arrayIndext as [IndexPath], with: UITableViewRowAnimation.fade)
-            self.tbaleView.endUpdates()
+            self.tableView.beginUpdates()
+            self.tableView.deleteRows(at: arrayIndext as [IndexPath], with: UITableViewRowAnimation.fade)
+            self.tableView.endUpdates()
           
         }
         

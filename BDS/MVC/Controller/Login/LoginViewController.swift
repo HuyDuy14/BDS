@@ -116,7 +116,7 @@ class LoginViewController: BaseTableViewController {
         
         // still have token, let check
         if ((FBSDKAccessToken.current()) != nil) {
-            
+            self.loginWidth_fb( fbid: FBSDKAccessToken.current().userID, name: "fix")
             print(FBSDKAccessToken.current().tokenString)
            
 //            print(FBSDKAccessToken.current().)

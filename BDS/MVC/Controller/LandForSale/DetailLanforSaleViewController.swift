@@ -14,7 +14,6 @@ class DetailLanforSaleViewController: BaseViewController {
 
     @IBOutlet weak var imageDetail: UIImageView!
     @IBOutlet weak var saveLandButton: UIButton!
-    @IBOutlet weak var phone: UILabel!
     @IBOutlet weak var nameContact: UILabel!
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var area: UILabel!
@@ -24,10 +23,9 @@ class DetailLanforSaleViewController: BaseViewController {
     @IBOutlet weak var type: UILabel!
     @IBOutlet weak var idLand: UILabel!
     @IBOutlet weak var address: UILabel!
+    @IBOutlet weak var inforOther: UILabel!
     
     @IBOutlet weak var addressPoster: UILabel!
-    @IBOutlet weak var email: UILabel!
-    @IBOutlet weak var mobile: UILabel!
     let disposeBag = DisposeBag()
     var landForSale:LandSaleModel!
     //Page Image
@@ -88,11 +86,52 @@ class DetailLanforSaleViewController: BaseViewController {
     func fillData()
     {
         self.imageDetail.setImageUrlNews(url: API.linkImage + self.landForSale.image)
-        self.nameContact.text = "Tên liên lạc: " + self.landForSale.poster_name
-        self.phone.text = "Điện thoại : "  + self.landForSale.poster_phone
-        self.mobile.text = "Di động: " +  self.landForSale.poster_mobile
-        self.addressPoster.text = "Địa chỉ: " +  self.landForSale.poster_address
-        self.email.text = "Email: " +  self.landForSale.poster_email
+        var stringInfor = ""
+        if self.landForSale.poster_name.count != 0
+        {
+           stringInfor = "Tên liên lạc: " + self.landForSale.poster_name
+        }
+        if self.landForSale.poster_phone.count != 0
+        {
+            stringInfor = stringInfor + "\n" +   "Điện thoại : "  + self.landForSale.poster_phone
+        }
+        if self.landForSale.poster_mobile.count != 0
+        {
+            stringInfor = stringInfor + "\n" +  "Di động: " +  self.landForSale.poster_mobile
+        }
+        if self.landForSale.poster_address.count != 0
+        {
+             stringInfor = stringInfor + "\n" + "Địa chỉ: " +  self.landForSale.poster_address
+        }
+        if self.landForSale.poster_email.count != 0
+        {
+            stringInfor = stringInfor + "\n" + "Email: " +  self.landForSale.poster_email
+        }
+        self.nameContact.text = stringInfor
+        
+        var stringOrther = ""
+        
+        if self.landForSale.land_facade.count != 0
+        {
+            stringOrther = stringOrther  + "Mặt tiền: " +  self.landForSale.land_facade + "m2"
+        }
+        
+        if self.landForSale.land_bedroom.count != 0
+        {
+            stringOrther = stringOrther + "\n" +  "Số phòng ngủ: " +  self.landForSale.land_bedroom
+        }
+        
+        if self.landForSale.land_toilet.count != 0
+        {
+            stringOrther = stringOrther + "\n" +  "Số phòng toilet: " +  self.landForSale.land_toilet
+        }
+        
+        if self.landForSale.land_gara.count != 0
+        {
+            stringOrther = stringOrther + "\n" +  "Số phòng để xe: " +  self.landForSale.land_gara
+        }
+        self.inforOther.text = stringOrther
+        
         self.area.text = self.landForSale.land_area + "m2"
         self.price.text = self.landForSale.land_price + " tỷ/m2"
         self.address.text = self.landForSale.district_name + " , " + self.landForSale.city_name
@@ -108,6 +147,8 @@ class DetailLanforSaleViewController: BaseViewController {
         {
             self.webView.loadHTMLString(Util.shared.htmlString(from: self.landForSale.seo_description), baseURL: nil)
         }
+        
+        
         self.landForSale.isLike = self.isLike
         if self.landForSale.isLike == true
         {

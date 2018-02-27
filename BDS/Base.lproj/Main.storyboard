@@ -1660,7 +1660,7 @@
                     </view>
                     <connections>
                         <outlet property="desView" destination="oF8-8U-OEz" id="jkQ-TF-MXZ"/>
-                        <outlet property="tbaleView" destination="2S9-PS-bv3" id="Ktq-Kk-Apb"/>
+                        <outlet property="tableView" destination="2S9-PS-bv3" id="qES-Rk-Kod"/>
                         <outlet property="titleView" destination="XLk-WX-Baq" id="yZL-JG-hus"/>
                     </connections>
                 </viewController>
