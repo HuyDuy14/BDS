@@ -63,6 +63,7 @@ class SingUpViewController: BaseTableViewController {
         self.showHUD("")
         APIClient.shared.registerUser(email: self.email.text!, username: self.username.text!, password: self.pass.text!).asObservable().bind(onNext: {result in
             self.showAlert("Đăng ký thành công")
+            self.popToView()
             self.hideHUD()
             self.dismiss(animated: true, completion: nil)
         }).disposed(by: self.disposeBag)
@@ -79,7 +80,7 @@ class SingUpViewController: BaseTableViewController {
         if ((FBSDKAccessToken.current()) != nil) {
             
             print(FBSDKAccessToken.current().tokenString)
-            
+             self.loginWidth_fb( fbid: FBSDKAccessToken.current().userID, name: "fix")
             //            print(FBSDKAccessToken.current().)
             
         } else {
