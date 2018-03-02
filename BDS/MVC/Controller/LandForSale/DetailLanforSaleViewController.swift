@@ -12,6 +12,7 @@ import RxSwift
 
 class DetailLanforSaleViewController: BaseViewController {
 
+    @IBOutlet weak var titleLand: UILabel!
     @IBOutlet weak var imageDetail: UIImageView!
     @IBOutlet weak var saveLandButton: UIButton!
     @IBOutlet weak var nameContact: UILabel!
@@ -85,6 +86,7 @@ class DetailLanforSaleViewController: BaseViewController {
     
     func fillData()
     {
+        self.titleLand.text = self.landForSale.title
         self.imageDetail.setImageUrlNews(url: API.linkImage + self.landForSale.image)
         var stringInfor = ""
         if self.landForSale.poster_name.count != 0
@@ -113,7 +115,7 @@ class DetailLanforSaleViewController: BaseViewController {
         
         if self.landForSale.land_facade.count != 0
         {
-            stringOrther = stringOrther  + "Mặt tiền: " +  self.landForSale.land_facade + "m2"
+            stringOrther = stringOrther  + "Số tầng: " +  self.landForSale.land_floor
         }
         
         if self.landForSale.land_bedroom.count != 0
@@ -126,10 +128,6 @@ class DetailLanforSaleViewController: BaseViewController {
             stringOrther = stringOrther + "\n" +  "Số phòng toilet: " +  self.landForSale.land_toilet
         }
         
-        if self.landForSale.land_gara.count != 0
-        {
-            stringOrther = stringOrther + "\n" +  "Số phòng để xe: " +  self.landForSale.land_gara
-        }
         self.inforOther.text = stringOrther
         
         self.area.text = self.landForSale.land_area + "m2"
