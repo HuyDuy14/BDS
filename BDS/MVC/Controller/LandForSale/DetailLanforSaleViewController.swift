@@ -25,8 +25,11 @@ class DetailLanforSaleViewController: BaseViewController {
     @IBOutlet weak var idLand: UILabel!
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var inforOther: UILabel!
-    
     @IBOutlet weak var addressPoster: UILabel!
+    
+    var listTypePrice:[ModelPicker] = [ModelPicker(id: 0, name: "Thoả thuận"),ModelPicker(id: 1, name: "Triệu"),ModelPicker(id: 2, name: "Tỷ"),ModelPicker(id: 6, name: "Trăm nghìn/m2"),ModelPicker(id: 7, name: "Triệu/m2")]
+    var listTypePriceRent:[ModelPicker] = [ModelPicker(id: 0, name: "Thoả thuận"),ModelPicker(id: 1, name: "Trăm nghìn/tháng"),ModelPicker(id: 2, name: "Triệu/tháng"),ModelPicker(id: 3, name: "Trăm nghìn/m2/Tháng"),ModelPicker(id: 3, name: " Triệu/m2/Tháng"),ModelPicker(id: 5, name: " Nghìn/m2/Tháng")]
+    var isSale:Bool = false
     let disposeBag = DisposeBag()
     var landForSale:LandSaleModel!
     //Page Image
@@ -131,7 +134,7 @@ class DetailLanforSaleViewController: BaseViewController {
         self.inforOther.text = stringOrther
         
         self.area.text = self.landForSale.land_area + "m2"
-        self.price.text = self.landForSale.land_price + " tỷ/m2"
+       
         self.address.text = self.landForSale.district_name + " , " + self.landForSale.city_name
         self.dateBegin.text = self.landForSale.land_date_start.FromStringToDateToStringProjects()
         self.dateEnd.text = self.landForSale.land_date_finish.FromStringToDateToStringProjects()
@@ -156,6 +159,30 @@ class DetailLanforSaleViewController: BaseViewController {
         {
             self.saveLandButton.tintColor = UIColor.lightGray
         }
+        
+        if self.isSale == true
+        {
+            for item in self.listTypePrice
+            {
+                if String(item.id) ==  self.landForSale.land_price_type
+                {
+                    self.price.text = self.landForSale.land_price + " " + item.name
+                    return
+                }
+            }
+        }
+        else
+        {
+            for item in self.listTypePriceRent
+            {
+                if String(item.id) ==  self.landForSale.land_price_type
+                {
+                    self.price.text = self.landForSale.land_price + " " + item.name
+                    return
+                }
+            }
+        }
+        
     }
     
     func showController(controllerName: String, controller: UIViewController?)

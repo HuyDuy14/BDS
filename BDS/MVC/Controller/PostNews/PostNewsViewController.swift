@@ -156,7 +156,8 @@ class PostNewsViewController: BaseViewController {
     var listTypeLand:[ModelPicker] = [ModelPicker(id: 1, name: "Nhà đất bán"),ModelPicker(id: 2, name: "Nhà đất cho thuê")]
     var listTypeNews:[ModelPicker] = [ModelPicker(id: 2, name: "Tin miễn phí"),ModelPicker(id: 3, name: "Tin vip 3"),ModelPicker(id: 4, name: "Tin vip 2"),ModelPicker(id: 5, name: "Tin vip 1"),ModelPicker(id: 6, name: "Tin siêu vip")]
     var listDirection:[ModelPicker] =  [ModelPicker(id: 1, name: "Đông"),ModelPicker(id: 2, name: "Tây"),ModelPicker(id: 3, name: "Nam"),ModelPicker(id: 4, name: "Bắc"),ModelPicker(id: 5, name: "Đông-Bắc"),ModelPicker(id: 6, name: "Tây-Bắc"),ModelPicker(id: 7, name: "Đông-Nam"),ModelPicker(id: 8, name: "Tây-Nam")]
-    var listTypePrice:[ModelPicker] = [ModelPicker(id: 1, name: "Triệu"),ModelPicker(id: 2, name: "Tỷ"),ModelPicker(id: 6, name: "Trăm nghìn/m2"),ModelPicker(id: 7, name: "Triệu/m2")]
+    var listTypePrice:[ModelPicker] = [ModelPicker(id: 0, name: "Thoả thuận"),ModelPicker(id: 1, name: "Triệu"),ModelPicker(id: 2, name: "Tỷ"),ModelPicker(id: 6, name: "Trăm nghìn/m2"),ModelPicker(id: 7, name: "Triệu/m2")]
+    var listTypePriceRent:[ModelPicker] = [ModelPicker(id: 0, name: "Thoả thuận"),ModelPicker(id: 1, name: "Trăm nghìn/tháng"),ModelPicker(id: 2, name: "Triệu/tháng"),ModelPicker(id: 3, name: "Trăm nghìn/m2/Tháng"),ModelPicker(id: 3, name: " Triệu/m2/Tháng"),ModelPicker(id: 5, name: " Nghìn/m2/Tháng")]
     var listTypeUser:[ModelPicker] = [ModelPicker(id: 1, name: "Chính chủ"),ModelPicker(id: 2, name: "Môi giới"),ModelPicker(id: 3, name: "Chủ dự án"),ModelPicker(id: 4, name: "Khác")]
     var listTypeCompany:[ModelPicker] = [ModelPicker(id: 1, name: "Cá nhân"),ModelPicker(id: 2, name: "Doanh nghiệp")]
     var listNumberBedRoom:[ModelPicker] =  [ModelPicker(id: 1, name: "1"),ModelPicker(id: 2, name: "2"),ModelPicker(id: 3, name: "3"),ModelPicker(id: 4, name: "4"),ModelPicker(id: 5, name: "5"),ModelPicker(id: 6, name: "6"),ModelPicker(id: 7, name: "7"),ModelPicker(id: 8, name: "8"),ModelPicker(id: 9, name: "9"),ModelPicker(id: 10, name: "10")]
@@ -823,7 +824,14 @@ class PostNewsViewController: BaseViewController {
     }
     
     @IBAction func selectTypePriceButtonDidTap(_ sender: Any) {
-        self.pickerView.listData = self.listTypePrice
+        if self.idTypeLand == "sale"
+        {
+            self.pickerView.listData = self.listTypePrice
+        }
+        else
+        {
+            self.pickerView.listData = self.listTypePriceRent
+        }
         self.pickerView.status = 7
         self.pickerView.config.startIndex = self.indexTypePrice
         self.pickerView.show(inVC: self)
@@ -1025,13 +1033,7 @@ class PostNewsViewController: BaseViewController {
             self.showAlert("Mã bảo mật chưa đúng")
             return
         }
-//
-//        if !(self.phoneContact.text?.isPhone())!
-//        {
-//            self.showAlert("Bạn nhập sai định dạng số điện thoại")
-//            return
-//        }
-        
+
         if !(self.mobileContact.text?.isPhone())!
         {
             self.showAlert("Bạn nhập sai định dạng số điện thoại của bạn")
@@ -1044,8 +1046,7 @@ class PostNewsViewController: BaseViewController {
             self.mobileContact.becomeFirstResponder()
             return
         }
-        
-        
+
         self.showHUD("")
         var start = "null"
         var end =  "null"
@@ -1110,7 +1111,6 @@ extension PostNewsViewController:MIDatePickerDelegate
             self.endDate = date.addingTimeInterval(7*86400)
             self.endDateLabel.text = self.endDate.dateFormatString(formater: "dd/MM/yyyy")
             self.startDateLabel.text = date.dateFormatString(formater: "dd/MM/yyyy")
-            
         }
         else
         {

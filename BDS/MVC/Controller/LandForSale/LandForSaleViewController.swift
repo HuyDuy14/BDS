@@ -186,6 +186,7 @@ extension LandForSaleViewController:UITableViewDelegate,UITableViewDataSource
         if indexPath.row < self.listData.count {
             let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
             let showDetail = storyboard.instantiateViewController(withIdentifier: "DetailLanforSaleViewController") as? DetailLanforSaleViewController
+            showDetail?.isSale = true
             showDetail?.landForSale = self.listData[indexPath.row]
             
             self.pushViewController(viewController: showDetail)
