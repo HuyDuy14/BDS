@@ -160,10 +160,16 @@ class DetailLanforSaleViewController: BaseViewController {
             self.saveLandButton.tintColor = UIColor.lightGray
         }
         
+        if self.landForSale.land_price_type == "0"
+        {
+            self.price.text = "Thoả thuận"
+            return
+        }
         if self.isSale == true
         {
             for item in self.listTypePrice
             {
+            
                 if String(item.id) ==  self.landForSale.land_price_type
                 {
                     self.price.text = self.landForSale.land_price + " " + item.name

@@ -1146,8 +1146,11 @@ extension PostNewsViewController:PickerViewDelegate
                 self.idTypeLand = "rent"
                 self.setDataPickerRent()
             }
-            
+            self.typePrice.text = "Đơn vị"
+            self.idTypePrice = "null"
+            self.indexTypePrice = 0
         case 2:
+            
             self.typeLand.text = picker.name
             self.indexlandSale = index
             self.idLandSale = String(picker.id)
@@ -1158,6 +1161,7 @@ extension PostNewsViewController:PickerViewDelegate
                     self.isShowInforOtherSaleRent(isShow: self.isInforOther, id: Int(self.idLandSale)!)
                 }
             }
+           
         case 3:
             self.cityName.text = picker.name
             self.idCity = String(picker.id)
