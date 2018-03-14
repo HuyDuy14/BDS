@@ -24,6 +24,7 @@ class InforMapsViewController: BaseViewController {
     
     weak var delegate:InforMapsViewControllerDelegate?
     var listData:[LandSaleModel] = []
+    var listDataProjects:[ProjectsModel] = []
     let fullView: CGFloat = 90
     var partialView: CGFloat {
         return UIScreen.main.bounds.height - 90
@@ -176,7 +177,9 @@ extension InforMapsViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row < self.listData.count {
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "MapsViewCell") as! MapsViewCell
+            cell.type = self.type
             cell.loadDataCell(cell: self.listData[indexPath.row])
+            
             return cell
         }
         return UITableViewCell()
@@ -184,6 +187,14 @@ extension InforMapsViewController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row < self.listData.count {
+            if self.type == "project"
+            {
+                let storyboard = UIStoryboard(name: "Projects", bundle: nil)
+                let showDetail = storyboard.instantiateViewController(withIdentifier: "ProjectInforViewController") as? ProjectInforViewController
+                Util.shared.projectsIdDetail = self.listData[indexPath.row].id
+                self.pushViewController(viewController: showDetail)
+                return
+            }
             let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
             let showDetail = storyboard.instantiateViewController(withIdentifier: "DetailLanforSaleViewController") as? DetailLanforSaleViewController
             showDetail?.landForSale = self.listData[indexPath.row]

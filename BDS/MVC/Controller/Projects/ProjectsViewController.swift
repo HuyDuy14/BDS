@@ -289,6 +289,7 @@ extension ProjectsViewController:UITableViewDelegate,UITableViewDataSource
                     let storyboard = UIStoryboard(name: "Projects", bundle: nil)
                     let showDetail = storyboard.instantiateViewController(withIdentifier: "ProjectInforViewController") as? ProjectInforViewController
                     Util.shared.projectsDetail = self.listProject[indexPath.row]
+                    Util.shared.projectsIdDetail = self.listProject[indexPath.row].id
                     self.pushViewController(viewController: showDetail)
                 }
             }

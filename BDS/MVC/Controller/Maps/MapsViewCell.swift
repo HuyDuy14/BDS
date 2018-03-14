@@ -15,6 +15,7 @@ class MapsViewCell: UITableViewCell {
     @IBOutlet weak var information: UILabel!
     @IBOutlet weak var imageLike: UIImageView!
     
+    var type:String = "sale"
     var news:NewsModel!
     var indexNews:Int = 0
     weak var delegate:LandForSaleViewCellDelegate?
@@ -27,8 +28,13 @@ class MapsViewCell: UITableViewCell {
     func loadDataCell(cell:LandSaleModel)
     {
         self.imageViewProfile.setImageUrlNews(url: API.linkImage + cell.image)
-        self.name.text = cell.title
-        self.information.text = cell.content
+        self.name.attributedText = cell.title.convertHtml()
+        cell.content = cell.content.replacingOccurrences(of: "&amp;lt;p&amp;gt;", with: "")
+        self.information.attributedText = cell.content.convertHtml()
+        if self.type == "project"
+        {
+            self.information.attributedText = cell.investor.convertHtml()
+        }
         if cell.isLike == true
         {
             self.imageLike.tintColor = UIColor.red
@@ -44,8 +50,8 @@ class MapsViewCell: UITableViewCell {
         self.news = cell
         self.indexNews = index
         self.imageViewProfile.setImageUrlNews(url: API.linkImage + cell.image)
-        self.name.text = cell.title
-        self.information.text = cell.summary
+        self.name.attributedText = cell.title.convertHtml()
+        self.information.attributedText = cell.summary.convertHtml()
     }
 
     @IBAction func saveButtonDidTap(_ sender: Any) {

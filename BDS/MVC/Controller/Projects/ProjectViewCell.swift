@@ -44,7 +44,7 @@ class ProjectViewCell: UITableViewCell {
         project.address = project.address.replacingOccurrences(of: "&nbsp;", with: "")
         self.information.setText(project.address, withTruncation: true)
         self.name.text = project.title
-        self.information.text = project.address
+        self.information.attributedText = project.address.convertHtml()
         if project.isLike == true
         {
             self.imageLike.tintColor = UIColor.red
@@ -68,7 +68,7 @@ class ProjectViewCell: UITableViewCell {
         project.content = project.content.replacingOccurrences(of: "&nbsp;", with: "")
         project.content = project.content.replacingOccurrences(of: "<br />;", with: "")
 
-        self.information.setText(project.content, withTruncation: true)
+        self.information.attributedText = project.content.convertHtml()
         var count = 0
         for land in Util.shared.listBDS
         {

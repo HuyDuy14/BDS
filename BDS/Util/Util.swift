@@ -23,6 +23,7 @@ class Util: NSObject {
     var listCategorySale:[CategoryLand] = []
     var listCategoryRent:[CategoryLand] = []
     var listAllCategoryland:[CategoryLand] = []
+    var projectsIdDetail:String = ""
     var projectsDetail:ProjectsModel!
     
     func isValidEmail(email:String) -> Bool {

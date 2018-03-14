@@ -23,7 +23,7 @@ class DetailProjectViewController: BaseViewController {
     @IBOutlet weak var titleproject: UILabel!
     @IBOutlet weak var scaleProject: UILabel!
     
-    var project:ProjectsModel!
+    var project:ProjectsModel! = ProjectsModel()
     let disposeBag = DisposeBag()
     
     //Page Image
@@ -36,7 +36,7 @@ class DetailProjectViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.project = Util.shared.projectsDetail
+        self.project.id = Util.shared.projectsIdDetail
         self.fillData()
         self.loadDataServer()
        

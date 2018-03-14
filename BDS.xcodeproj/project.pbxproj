@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		131796182058CC5200182352 /* ServiceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131796172058CC5200182352 /* ServiceRequest.swift */; };
 		13195E251FD05B4600C60533 /* HomeMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13195E241FD05B4600C60533 /* HomeMenuViewController.swift */; };
 		13195E281FD05DC500C60533 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13195E271FD05DC500C60533 /* MapsViewController.swift */; };
 		1319EC1F1FD58E7D003D1B0D /* CategoryProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1319EC1E1FD58E7D003D1B0D /* CategoryProjectModel.swift */; };
@@ -133,6 +134,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		131796172058CC5200182352 /* ServiceRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceRequest.swift; sourceTree = "<group>"; };
 		13195E241FD05B4600C60533 /* HomeMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuViewController.swift; sourceTree = "<group>"; };
 		13195E271FD05DC500C60533 /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
 		1319EC1E1FD58E7D003D1B0D /* CategoryProjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryProjectModel.swift; sourceTree = "<group>"; };
@@ -493,6 +495,7 @@
 		139E648C1FCF047D00117E0B /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				131796172058CC5200182352 /* ServiceRequest.swift */,
 				139E648E1FCF049400117E0B /* API.swift */,
 				139E648F1FCF049400117E0B /* APIClient.swift */,
 				139E648D1FCF049400117E0B /* Result.swift */,
@@ -1175,6 +1178,7 @@
 				13225B6D202D7A3B0089FB8A /* RightMenuViewController.swift in Sources */,
 				13AA8D331FDA9AFC007057DF /* NewsSaveModel.swift in Sources */,
 				13CAB8861FD92EA60014F551 /* RegisterNewsViewController.swift in Sources */,
+				131796182058CC5200182352 /* ServiceRequest.swift in Sources */,
 				13195E281FD05DC500C60533 /* MapsViewController.swift in Sources */,
 				1344BE2E1FD162F100498108 /* SearchLandForSaleViewController.swift in Sources */,
 				1384B8361FDE70A4001AE51A /* ForgotPasswordViewController.swift in Sources */,
@@ -1368,10 +1372,10 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ChoBDS.vn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b03cbe0a-9e96-4b8f-bc78-41b82d8f3dfc";
+				PROVISIONING_PROFILE = "9775b5e2-8649-4e33-bcdf-a503db8c9fbe";
 				PROVISIONING_PROFILE_SPECIFIER = chobds;
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1389,10 +1393,10 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ChoBDS.vn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b03cbe0a-9e96-4b8f-bc78-41b82d8f3dfc";
+				PROVISIONING_PROFILE = "9775b5e2-8649-4e33-bcdf-a503db8c9fbe";
 				PROVISIONING_PROFILE_SPECIFIER = chobds;
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

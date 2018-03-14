@@ -56,6 +56,7 @@ class APIClient: NSObject {
         }
     }
     
+    
     func requestGet(path: String, method: HTTPMethod, params: Parameters!) -> Observable<Result> {
         // Set timeout for 3'
         let manager = Alamofire.SessionManager.default

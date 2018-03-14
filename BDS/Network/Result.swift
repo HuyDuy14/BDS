@@ -8,7 +8,7 @@
 //
 
 import UIKit
-
+import SwiftyJSON
 class Result:NSObject {
     
     var status: Int!
@@ -21,6 +21,23 @@ class Result:NSObject {
     
     internal init(error:NSError) {
         self.error = error
+    }
+    
+    internal  init(result:JSON) {
+        self.status = result["errorId"].intValue
+        self.message = result["message"].stringValue
+        if let data = result["data"].dictionaryObject {
+            self.data = data
+        } else {
+            if let dataArray = result["data"].arrayObject
+            {
+                self.dataArray = dataArray as NSArray
+            }
+            else
+            {
+                self.price = result["data"].intValue
+            }
+        }
     }
     
     internal  init(result:NSDictionary) {

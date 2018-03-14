@@ -68,7 +68,7 @@ class LandForSaleViewCell: UITableViewCell {
             cell.content = cell.content.replacingOccurrences(of: "&nbsp;", with: "")
             cell.content = cell.content.replacingOccurrences(of: "</p>", with: "")
             cell.content = cell.content.replacingOccurrences(of: "<br />", with: "")
-            self.information.text = cell.content
+            self.information.attributedText = cell.content.convertHtml()
         }
         else
         {
@@ -77,7 +77,7 @@ class LandForSaleViewCell: UITableViewCell {
             cell.seo_description = cell.seo_description.replacingOccurrences(of: "&nbsp;", with: "")
             cell.seo_description = cell.seo_description.replacingOccurrences(of: "</p>", with: "")
             cell.seo_description = cell.seo_description.replacingOccurrences(of: "<br />", with: "")
-            self.information.text = cell.seo_description
+            self.information.attributedText = cell.seo_description.convertHtml()
         }
         var count = 0
         for land in Util.shared.listBDS

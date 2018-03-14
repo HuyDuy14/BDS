@@ -16,6 +16,7 @@ class LandSaleModel: Mappable {
     var alias =  ""
     var image =  ""
     var type =  ""
+    var address =  ""
     var code =  ""
     var member_type =  ""
     var land_style =  ""
@@ -130,6 +131,7 @@ class LandSaleModel: Mappable {
     var note_advert =  ""
     var conhang =  ""
     var hangchoban =  ""
+    var investor = ""
     var list_image:[String] = []
     var isLike:Bool = false
     
@@ -139,11 +141,13 @@ class LandSaleModel: Mappable {
     
     func mapping(map: Map) {
         self.id <- map["id"]
+        self.investor <- map["investor"]
         self.title <- map["title"]
         self.alias <- map["alias"]
         self.image <- map["image"]
         self.type <- map["type"]
         self.code <- map["code"]
+        self.address <- map["address"]
         self.member_type <- map["member_type"]
         self.land_style <- map["land_style"]
         self.category_id <- map["category_id"]

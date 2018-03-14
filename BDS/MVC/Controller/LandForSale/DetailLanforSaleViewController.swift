@@ -132,8 +132,14 @@ class DetailLanforSaleViewController: BaseViewController {
         }
         
         self.inforOther.text = stringOrther
-        
-        self.area.text = self.landForSale.land_area + "m2"
+        if self.landForSale.land_area != "0"
+        {
+            self.area.text = self.landForSale.land_area + "m2"
+        }
+        else
+        {
+            self.area.text = "Liên hệ"
+        }
        
         self.address.text = self.landForSale.district_name + " , " + self.landForSale.city_name
         self.dateBegin.text = self.landForSale.land_date_start.FromStringToDateToStringProjects()
