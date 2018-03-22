@@ -67,9 +67,7 @@ class LoginViewController: BaseTableViewController {
             let email = defaults.object(forKey: GGEMAIL) as? String ?? ""
             self.loginWidth_GG(email: email, ggID: ggID!, name: name)
         }
-        
     }
-
 
     @IBAction func btnLoginView(_ sender: Any) {
         if self.email.text?.count == 0

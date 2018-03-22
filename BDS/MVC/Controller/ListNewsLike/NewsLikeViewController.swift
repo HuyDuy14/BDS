@@ -47,9 +47,7 @@ class NewsLikeViewController: BaseViewController {
         }
     }
     
-    func refresh(_ sender: Any) {
-        self.getDataNews()
-    }
+   `
     
     func getDataNews()
     {
