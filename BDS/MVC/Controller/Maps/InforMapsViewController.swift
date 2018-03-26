@@ -22,6 +22,7 @@ class InforMapsViewController: BaseViewController {
     @IBOutlet var topSeparatorView: UIView!
     @IBOutlet var headerSectionHeightConstraint: NSLayoutConstraint!
     
+
     weak var delegate:InforMapsViewControllerDelegate?
     var listData:[LandSaleModel] = []
     var listDataProjects:[ProjectsModel] = []
@@ -78,7 +79,7 @@ class InforMapsViewController: BaseViewController {
     {
         let frame = self.view.frame
         UIView.animate(withDuration: 0.6, animations: { [weak self] in
-            self?.view.frame = CGRect(x: 0, y: (self?.view.frame.height)! - 250, width: frame.width, height: (self?.view.frame.height)!)
+            self?.view.frame = CGRect(x: 0, y: (self?.view.frame.height)! - 250, width: frame.width, height: ((self?.view.frame.height))!)
         })
     }
     
@@ -89,7 +90,7 @@ class InforMapsViewController: BaseViewController {
         
         let y = self.view.frame.minY
         if (y + translation.y >= fullView) && (y + translation.y <= partialView) {
-            self.view.frame = CGRect(x: 0, y: y + translation.y, width: view.frame.width, height: view.frame.height)
+            self.view.frame = CGRect(x: 0, y: y + translation.y, width: view.frame.width, height: view.frame.height )
             recognizer.setTranslation(CGPoint.zero, in: self.view)
         }
         
@@ -100,9 +101,9 @@ class InforMapsViewController: BaseViewController {
             
             UIView.animate(withDuration: duration, delay: 0.0, options: [.allowUserInteraction], animations: {
                 if  velocity.y >= 0 {
-                    self.view.frame = CGRect(x: 0, y: self.partialView, width: self.view.frame.width, height: self.view.frame.height)
+                    self.view.frame = CGRect(x: 0, y: self.partialView, width: self.view.frame.width, height: self.view.frame.height )
                 } else {
-                    self.view.frame = CGRect(x: 0, y: self.view.frame.height - 400, width: self.view.frame.width, height: self.view.frame.height)
+                    self.view.frame = CGRect(x: 0, y: self.view.frame.height - 400, width: self.view.frame.width, height: self.view.frame.height )
                 }
                 
             }, completion: { [weak self] _ in
@@ -171,7 +172,7 @@ extension InforMapsViewController: UIGestureRecognizerDelegate {
 extension InforMapsViewController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.listData.count
+        return self.listData.count + 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -182,7 +183,14 @@ extension InforMapsViewController: UITableViewDelegate,UITableViewDataSource {
             
             return cell
         }
-        return UITableViewCell()
+        else
+        {
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: "MapsViewCell") as! MapsViewCell
+            cell.type = self.type
+            cell.loadDataCell()
+            
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

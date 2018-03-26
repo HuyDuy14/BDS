@@ -36,7 +36,30 @@ public extension String
         let dateFormat = DateFormatter()
         dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let date = dateFormat.date(from: self) ?? Date()
-        dateFormat.dateFormat = "HH:mm dd/MM/yyyy"
+        dateFormat.dateFormat = "HH:mm ngày dd/MM/yyyy"
+        return dateFormat.string(from: date)
+    }
+    
+    func FromStringToDateToDD()->String{
+        let dateFormat = DateFormatter()
+        dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let date = dateFormat.date(from: self) ?? Date()
+        dateFormat.dateFormat = "dd/"
+        return dateFormat.string(from: date)
+    }
+    func FromStringToDateToMM()->String{
+        let dateFormat = DateFormatter()
+        dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let date = dateFormat.date(from: self) ?? Date()
+        dateFormat.dateFormat = "MM/"
+        return dateFormat.string(from: date)
+    }
+    
+    func FromStringToDateToYYYY()->String{
+        let dateFormat = DateFormatter()
+        dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let date = dateFormat.date(from: self) ?? Date()
+        dateFormat.dateFormat = "yyyy"
         return dateFormat.string(from: date)
     }
     
@@ -70,7 +93,7 @@ extension String{
     func convertHtml() -> NSAttributedString{
         guard let data = data(using: .utf8) else { return NSAttributedString() }
         do{
-            return try NSAttributedString(data: data, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue], documentAttributes: nil)
+            return try NSAttributedString(data: data, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue,NSFontAttributeName:  UIFont(name: "Helvetica-Bold", size: 14.0)!], documentAttributes: nil)
         }catch{
             return NSAttributedString()
         }

@@ -102,7 +102,11 @@ class DetailNewsViewController: BaseViewController,UIWebViewDelegate {
         self.news.content = Util.shared.webViewChangeFont(htmlString: news.content)
         self.news.content = self.news.content.replacingOccurrences(of: "linkImageView", with: API.linkImage + news.image)
         self.news.content = self.news.content.replacingOccurrences(of: "00001px", with: "\(self.view.frame.width - 20)px")
-        self.news.content = self.news.content.replacingOccurrences(of: "datecreate...", with: "Ngày tạo: " + news.created_time.FromStringToDateToStringNews())
+        let dateString = news.created_time.FromStringToDateToStringNews()
+        self.news.content = self.news.content.replacingOccurrences(of: "datecreate...", with:  dateString )
+//        self.news.content = self.news.content.replacingOccurrences(of: "dd", with:  news.created_time.FromStringToDateToDD() )
+//        self.news.content = self.news.content.replacingOccurrences(of: "MM", with:  news.created_time.FromStringToDateToMM() )
+//        self.news.content = self.news.content.replacingOccurrences(of: "YY", with:  news.created_time.FromStringToDateToYYYY() )
         self.news.content = self.news.content.replacingOccurrences(of: "title...", with:  news.title)
         self.detailWebView.delegate = self
         self.detailWebView.loadHTMLString(self.news.content, baseURL: nil)

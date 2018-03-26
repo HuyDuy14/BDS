@@ -154,7 +154,7 @@ class PostNewsViewController: BaseViewController {
     
     // PickerView
     var listTypeLand:[ModelPicker] = [ModelPicker(id: 1, name: "Nhà đất bán"),ModelPicker(id: 2, name: "Nhà đất cho thuê")]
-    var listTypeNews:[ModelPicker] = [ModelPicker(id: 2, name: "Tin miễn phí"),ModelPicker(id: 3, name: "Tin vip 3"),ModelPicker(id: 4, name: "Tin vip 2"),ModelPicker(id: 5, name: "Tin vip 1"),ModelPicker(id: 6, name: "Tin siêu vip")]
+    var listTypeNews:[ModelPicker] = [ModelPicker(id: 2, name: "Tin miễn phí"),ModelPicker(id: 3, name: "Tin vip"),ModelPicker(id: 6, name: "Tin siêu vip")]
     var listDirection:[ModelPicker] =  [ModelPicker(id: 1, name: "Đông"),ModelPicker(id: 2, name: "Tây"),ModelPicker(id: 3, name: "Nam"),ModelPicker(id: 4, name: "Bắc"),ModelPicker(id: 5, name: "Đông-Bắc"),ModelPicker(id: 6, name: "Tây-Bắc"),ModelPicker(id: 7, name: "Đông-Nam"),ModelPicker(id: 8, name: "Tây-Nam")]
     var listTypePrice:[ModelPicker] = [ModelPicker(id: 0, name: "Thoả thuận"),ModelPicker(id: 1, name: "Triệu"),ModelPicker(id: 2, name: "Tỷ"),ModelPicker(id: 6, name: "Trăm nghìn/m2"),ModelPicker(id: 7, name: "Triệu/m2")]
     var listTypePriceRent:[ModelPicker] = [ModelPicker(id: 0, name: "Thoả thuận"),ModelPicker(id: 1, name: "Trăm nghìn/tháng"),ModelPicker(id: 2, name: "Triệu/tháng"),ModelPicker(id: 3, name: "Trăm nghìn/m2/Tháng"),ModelPicker(id: 3, name: " Triệu/m2/Tháng"),ModelPicker(id: 5, name: " Nghìn/m2/Tháng")]
@@ -397,7 +397,7 @@ class PostNewsViewController: BaseViewController {
             self.heightNumberOfFloors.constant = 50
             self.heightGarageNumber.constant = 50
             self.heightNumberToilet.constant = 50
-            self.heightViewContraint = self.heightViewContraint + 500
+            self.heightViewContraint = self.heightViewContraint + 550
         }
         self.heightView.constant = self.heightViewContraint
     }
@@ -1047,7 +1047,6 @@ class PostNewsViewController: BaseViewController {
             return
         }
 
-        self.showHUD("")
         var start = "null"
         var end =  "null"
         
@@ -1085,9 +1084,9 @@ class PostNewsViewController: BaseViewController {
         {
             ward_name = self.wardLabel.text!
         }
-        
+        self.showHUD("")
         APIClient.shared.userPostNews(post_type: self.idTypeNews, startDate:start , endDate:end, user_type: self.idTypeUser, title: self.titleTextField.text!, project_id: self.idProject, type_bds: self.idLandSale, type: self.idTypeLand, city: self.idCity, ward: self.idWards, area: self.acreageLabel.text!, price: self.priceLabel.text!, price_type: self.idTypePrice, district: self.idDistrict, address: self.address.text!, des: self.inforViewTextView.text, numberbedroom: self.idBedroom, direction: self.idDirection, image: self.image, poster_name: self.nameContact.text!,poster_address: self.addressContact.text!,poster_phone: "",poster_mobile: self.mobileContact.text!,poster_email: self.emailContact.text!,toilet: numberToilet,hbc: self.idDirectionOfBalcony,st: st,sndx:sndx,nt:nt,dc:  self.address.text!, dv: self.distanceTextField.text!,mt: self.facadeTextField.text!,idCompany: self.idCompany,ward_name:ward_name,completion: {result in
-            self.showAlert("Bạn đã đăng tin thành công! Tin của bạn sẽ được xét duyệt trong vòng vài giờ, hay kiểm tra trong phần quản lý tin đăng của tôi")
+            self.showAlert("Bạn đã đăng tin thành công! Tin của bạn sẽ được xét duyệt trong vòng vài giờ, hãy kiểm tra trong phần quản lý tin đăng của tôi")
             self.resetData()
             self.isShowInfor = true
             self.isShowInforBasic = true

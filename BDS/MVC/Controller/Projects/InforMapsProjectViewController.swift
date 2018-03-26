@@ -25,6 +25,8 @@ class InforMapsProjectViewController: BaseViewController {
     @IBOutlet weak var typeProject: UILabel!
     @IBOutlet weak var addRess: UILabel!
     
+    var listTypePrice:[ModelPicker] = [ModelPicker(id: 0, name: "Thoả thuận"),ModelPicker(id: 1, name: "Triệu"),ModelPicker(id: 2, name: "Tỷ"),ModelPicker(id: 6, name: "Trăm nghìn/m2"),ModelPicker(id: 7, name: "Triệu/m2")]
+    var listTypePriceRent:[ModelPicker] = [ModelPicker(id: 0, name: "Thoả thuận"),ModelPicker(id: 1, name: "Trăm nghìn/tháng"),ModelPicker(id: 2, name: "Triệu/tháng"),ModelPicker(id: 3, name: "Trăm nghìn/m2/Tháng"),ModelPicker(id: 3, name: " Triệu/m2/Tháng"),ModelPicker(id: 5, name: " Nghìn/m2/Tháng")]
     let fullView: CGFloat = 50
     var partialView: CGFloat {
         return UIScreen.main.bounds.height - 50
@@ -62,9 +64,18 @@ class InforMapsProjectViewController: BaseViewController {
             self.dateCreate.text = project.date_start.FromStringToDateToString()
             self.dateEnd.text = project.date_finish.FromStringToDateToString()
             self.addAre.text = project.land_area
-            self.priceProject.text = project.price + "/m2"
+            self.priceProject.text = project.price
             self.idProject.text = "BDS" + project.id
             self.typeProject.text = ""
+            for item in self.listTypePrice
+            {
+                
+                if String(item.id) ==  self.landForSale.land_price_type
+                {
+                    self.priceProject.text = self.project.price + " " + item.name
+                    return
+                }
+            }
         }
         else
         {
@@ -74,14 +85,38 @@ class InforMapsProjectViewController: BaseViewController {
             }
             self.titlelProject.text = self.landForSale.title
             self.addAre.text = self.landForSale.land_area + "m2"
-            self.priceProject.text = self.landForSale.land_price + " tỷ/m2"
+            self.priceProject.text = self.landForSale.land_price
             self.addRess.text = self.landForSale.district_name + " , " + self.landForSale.city_name
             self.dateCreate.text = self.landForSale.land_date_start.FromStringToDateToStringProjects()
             self.dateEnd.text = self.landForSale.land_date_finish.FromStringToDateToStringProjects()
             self.typeProject.text = self.landForSale.category_name
             self.idProject.text = self.landForSale.code
-            
+            if self.landForSale.type == "sale"
+            {
+                for item in self.listTypePrice
+                {
+                    
+                    if String(item.id) ==  self.landForSale.land_price_type
+                    {
+                        self.priceProject.text = self.landForSale.land_price + " " + item.name
+                        return
+                    }
+                }
+            }
+            else
+            {
+                for item in self.listTypePriceRent
+                {
+                    if String(item.id) ==  self.landForSale.land_price_type
+                    {
+                        self.priceProject.text = self.landForSale.land_price + " " + item.name
+                        return
+                    }
+                }
+            }
         }
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -99,7 +134,7 @@ class InforMapsProjectViewController: BaseViewController {
         UIView.animate(withDuration: 0.6, animations: { [weak self] in
             let frame = self?.view.frame
             //            let yComponent = self?.partialView
-            self?.view.frame = CGRect(x: 0, y: UIScreen.main.bounds.height / 2 , width: frame!.width, height: (frame?.height)! - 50)
+            self?.view.frame = CGRect(x: 0, y: UIScreen.main.bounds.height / 2.5 , width: frame!.width, height: (frame?.height)! - 50)
         })
     }
     

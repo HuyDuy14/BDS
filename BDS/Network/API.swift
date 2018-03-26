@@ -10,8 +10,8 @@ import UIKit
 
 class API: NSObject {
     
-    static var linkImage = "http://chobatdongsan.com.vn/"
-    static var serverURL = "http://chobatdongsan.com.vn/webservice/"
+    static var linkImage = "https://chobatdongsan.com.vn/"
+    static var serverURL = "https://chobatdongsan.com.vn/webservice/"
     static var registerUser = "register.php"
     static var loginUser = "login.php"
     static var getCity = "get_city.php"

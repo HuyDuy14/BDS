@@ -1419,61 +1419,61 @@ Email : lienhe@chobatdongsan.com.vn
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mã số" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6S-Hi-Voy">
-                                                <rect key="frame" x="20" y="245" width="163" height="17"/>
+                                                <rect key="frame" x="20" y="247.5" width="163" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="đâ" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZ3-A4-LVH">
-                                                <rect key="frame" x="20" y="270" width="163" height="17"/>
+                                                <rect key="frame" x="20" y="272.5" width="163" height="17"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="đá" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FVu-QU-cAC">
-                                                <rect key="frame" x="192" y="245" width="163" height="17"/>
+                                                <rect key="frame" x="192" y="247.5" width="163" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ngày đăng tin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBG-bN-ODp">
-                                                <rect key="frame" x="191.5" y="307" width="163" height="17"/>
+                                                <rect key="frame" x="191.5" y="309.5" width="163" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loại tin rao" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8o-1g-I9D">
-                                                <rect key="frame" x="20" y="307" width="163" height="17"/>
+                                                <rect key="frame" x="20" y="309.5" width="163" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="đá" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bn5-yO-wQ8">
-                                                <rect key="frame" x="20" y="332" width="163" height="17"/>
+                                                <rect key="frame" x="20" y="334.5" width="163" height="17"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sá" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CuK-ge-E2A">
-                                                <rect key="frame" x="191.5" y="332" width="163" height="17"/>
+                                                <rect key="frame" x="191.5" y="334.5" width="163" height="17"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="qe" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBT-px-y9F">
-                                                <rect key="frame" x="191.5" y="394" width="163" height="17"/>
+                                                <rect key="frame" x="191.5" y="396.5" width="163" height="17"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ngày hết hạn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tkN-0z-6k5">
-                                                <rect key="frame" x="191.5" y="369" width="163" height="17"/>
+                                                <rect key="frame" x="191.5" y="371.5" width="163" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Giá:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gih-Su-ip7">
-                                                <rect key="frame" x="20" y="369" width="30" height="17"/>
+                                                <rect key="frame" x="20" y="371.5" width="30" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="8m8-lE-yAe"/>
                                                 </constraints>
@@ -1482,7 +1482,7 @@ Email : lienhe@chobatdongsan.com.vn
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diện tích" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6h-WL-vZ5">
-                                                <rect key="frame" x="20" y="394" width="60.5" height="17"/>
+                                                <rect key="frame" x="20" y="396.5" width="60.5" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="60.5" id="msQ-pW-1O5"/>
                                                 </constraints>
@@ -1491,25 +1491,25 @@ Email : lienhe@chobatdongsan.com.vn
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="qe" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="euc-XG-yes">
-                                                <rect key="frame" x="54" y="369" width="128.5" height="17"/>
+                                                <rect key="frame" x="54" y="371.5" width="128.5" height="17"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bàn giao nhà" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Im2-JS-8Wq">
-                                                <rect key="frame" x="84.5" y="394" width="98" height="17"/>
+                                                <rect key="frame" x="84.5" y="396.5" width="98" height="17"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thông tin mô tả" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oDA-dL-RRy">
-                                                <rect key="frame" x="20" y="423" width="335" height="17"/>
+                                                <rect key="frame" x="20" y="425.5" width="335" height="17"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fM4-L1-kFu">
-                                                <rect key="frame" x="20" y="448" width="335" height="420"/>
+                                                <rect key="frame" x="20" y="450.5" width="335" height="417.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </webView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thông tin liên hệ:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2c4-Ni-zQc">
@@ -1566,8 +1566,8 @@ Email : lienhe@chobatdongsan.com.vn
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SiN-BZ-pO7">
-                                                <rect key="frame" x="20" y="218" width="335" height="17"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                <rect key="frame" x="20" y="218" width="335" height="19.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -4492,7 +4492,7 @@ Email : lienhe@chobatdongsan.com.vn
                                                         <rect key="frame" x="20" y="49.5" width="335" height="0.5"/>
                                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="0.5" id="fGw-Va-9B9"/>
+                                                            <constraint firstAttribute="height" constant="0.5" id="Btf-gA-AJ7"/>
                                                         </constraints>
                                                     </view>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fla-CM-wwo" customClass="KMPlaceholderTextView" customModule="KMPlaceholderTextView">
@@ -4510,14 +4510,14 @@ Email : lienhe@chobatdongsan.com.vn
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="LXh-qZ-nNF" firstAttribute="leading" secondItem="LYr-me-VCB" secondAttribute="leading" constant="20" id="5Yg-63-Me8"/>
-                                                    <constraint firstAttribute="bottom" secondItem="LXh-qZ-nNF" secondAttribute="bottom" id="FJG-eO-cBz"/>
-                                                    <constraint firstAttribute="trailing" secondItem="fla-CM-wwo" secondAttribute="trailing" constant="20" id="Ni7-oq-FmB"/>
-                                                    <constraint firstItem="fla-CM-wwo" firstAttribute="leading" secondItem="LYr-me-VCB" secondAttribute="leading" constant="60" id="YXT-e2-Nly"/>
-                                                    <constraint firstItem="LXh-qZ-nNF" firstAttribute="top" secondItem="fla-CM-wwo" secondAttribute="bottom" constant="2" id="bMP-fW-aIQ"/>
-                                                    <constraint firstAttribute="trailing" secondItem="LXh-qZ-nNF" secondAttribute="trailing" constant="20" id="eu0-bi-vo5"/>
-                                                    <constraint firstAttribute="height" constant="50" id="ltq-FQ-e9m"/>
-                                                    <constraint firstItem="fla-CM-wwo" firstAttribute="top" secondItem="LYr-me-VCB" secondAttribute="top" constant="2" id="myu-8B-xuy"/>
+                                                    <constraint firstItem="LXh-qZ-nNF" firstAttribute="top" secondItem="fla-CM-wwo" secondAttribute="bottom" constant="2" id="8hL-hY-ieZ"/>
+                                                    <constraint firstItem="fla-CM-wwo" firstAttribute="leading" secondItem="LYr-me-VCB" secondAttribute="leading" constant="60" id="M9B-NP-XUi"/>
+                                                    <constraint firstAttribute="bottom" secondItem="LXh-qZ-nNF" secondAttribute="bottom" id="R1D-xy-EpY"/>
+                                                    <constraint firstItem="LXh-qZ-nNF" firstAttribute="leading" secondItem="LYr-me-VCB" secondAttribute="leading" constant="20" id="Wjr-d3-9lb"/>
+                                                    <constraint firstAttribute="trailing" secondItem="fla-CM-wwo" secondAttribute="trailing" constant="20" id="aFu-Tg-BMa"/>
+                                                    <constraint firstItem="fla-CM-wwo" firstAttribute="top" secondItem="LYr-me-VCB" secondAttribute="top" constant="2" id="aaB-aQ-WhS"/>
+                                                    <constraint firstAttribute="height" constant="50" id="e16-zG-6wc"/>
+                                                    <constraint firstAttribute="trailing" secondItem="LXh-qZ-nNF" secondAttribute="trailing" constant="20" id="y1g-nT-5Ia"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fUO-NI-GgE">
@@ -5096,7 +5096,9 @@ Email : lienhe@chobatdongsan.com.vn
                                             <constraint firstAttribute="trailing" secondItem="Dvl-hQ-ZXb" secondAttribute="trailing" id="DhX-R5-g3i"/>
                                             <constraint firstItem="d5w-I2-ux8" firstAttribute="top" secondItem="whb-iN-8MD" secondAttribute="bottom" id="EAD-IH-rcP"/>
                                             <constraint firstItem="Acy-cw-9Zr" firstAttribute="top" secondItem="vHK-9k-JEL" secondAttribute="bottom" id="ETj-Gd-4mK"/>
+                                            <constraint firstAttribute="trailing" secondItem="LYr-me-VCB" secondAttribute="trailing" id="EvO-Pw-djL"/>
                                             <constraint firstAttribute="trailing" secondItem="qDx-ah-oYy" secondAttribute="trailing" id="FQw-L3-qcN"/>
+                                            <constraint firstItem="LYr-me-VCB" firstAttribute="top" secondItem="py6-CH-ZVr" secondAttribute="bottom" id="Fdn-r1-bAx"/>
                                             <constraint firstItem="whb-iN-8MD" firstAttribute="leading" secondItem="lEl-Jd-qeZ" secondAttribute="leading" id="Fdq-4N-fjH"/>
                                             <constraint firstItem="E9c-sX-V5L" firstAttribute="leading" secondItem="lEl-Jd-qeZ" secondAttribute="leading" id="Fp9-4Y-9fJ"/>
                                             <constraint firstAttribute="trailing" secondItem="pRM-x5-cMD" secondAttribute="trailing" id="GAT-QF-k2B"/>
@@ -5104,16 +5106,13 @@ Email : lienhe@chobatdongsan.com.vn
                                             <constraint firstAttribute="trailing" secondItem="ZEk-vh-lNH" secondAttribute="trailing" id="Gqg-BL-QTy"/>
                                             <constraint firstAttribute="trailing" secondItem="d5w-I2-ux8" secondAttribute="trailing" id="H0J-Rb-aMx"/>
                                             <constraint firstItem="DeZ-G6-gVX" firstAttribute="leading" secondItem="lEl-Jd-qeZ" secondAttribute="leading" id="HX6-lb-4Zw"/>
-                                            <constraint firstItem="LYr-me-VCB" firstAttribute="top" secondItem="py6-CH-ZVr" secondAttribute="bottom" id="Ic0-NU-R1D"/>
                                             <constraint firstAttribute="trailing" secondItem="vHK-9k-JEL" secondAttribute="trailing" id="JNJ-RX-aPh"/>
-                                            <constraint firstAttribute="trailing" secondItem="LYr-me-VCB" secondAttribute="trailing" id="JfO-8W-Duj"/>
                                             <constraint firstItem="BYQ-WW-Bfb" firstAttribute="top" secondItem="lEl-Jd-qeZ" secondAttribute="top" id="JtW-Io-rEv"/>
                                             <constraint firstAttribute="trailing" secondItem="W77-ZF-1Og" secondAttribute="trailing" id="K1i-wg-jgw"/>
                                             <constraint firstItem="dL7-PU-zky" firstAttribute="leading" secondItem="lEl-Jd-qeZ" secondAttribute="leading" id="LB2-xk-599"/>
                                             <constraint firstAttribute="trailing" secondItem="Acy-cw-9Zr" secondAttribute="trailing" id="LBf-t1-qHK"/>
                                             <constraint firstItem="Om7-6r-ocE" firstAttribute="top" secondItem="9vh-xL-lyE" secondAttribute="bottom" id="MAr-Cl-acz"/>
                                             <constraint firstItem="MK6-Tq-uGd" firstAttribute="leading" secondItem="lEl-Jd-qeZ" secondAttribute="leading" id="MLv-NM-Enq"/>
-                                            <constraint firstItem="LYr-me-VCB" firstAttribute="leading" secondItem="lEl-Jd-qeZ" secondAttribute="leading" id="MRN-Zg-LEt"/>
                                             <constraint firstItem="k2p-jZ-bWj" firstAttribute="leading" secondItem="lEl-Jd-qeZ" secondAttribute="leading" id="Mjo-Bv-OFO"/>
                                             <constraint firstAttribute="trailing" secondItem="BYQ-WW-Bfb" secondAttribute="trailing" id="Mts-JI-LKb"/>
                                             <constraint firstAttribute="trailing" secondItem="py6-CH-ZVr" secondAttribute="trailing" id="N3f-ci-VAQ"/>
@@ -5174,12 +5173,12 @@ Email : lienhe@chobatdongsan.com.vn
                                             <constraint firstAttribute="trailing" secondItem="HFP-w1-Bbj" secondAttribute="trailing" id="m2E-CS-5lV"/>
                                             <constraint firstItem="fUO-NI-GgE" firstAttribute="leading" secondItem="lEl-Jd-qeZ" secondAttribute="leading" id="nBj-i7-UdC"/>
                                             <constraint firstItem="5l5-uY-Xob" firstAttribute="leading" secondItem="lEl-Jd-qeZ" secondAttribute="leading" id="nWX-3j-2zo"/>
-                                            <constraint firstItem="b2S-NZ-ILi" firstAttribute="top" secondItem="LYr-me-VCB" secondAttribute="bottom" id="nw3-ei-NON"/>
                                             <constraint firstItem="vHK-9k-JEL" firstAttribute="leading" secondItem="lEl-Jd-qeZ" secondAttribute="leading" id="odC-py-HQw"/>
                                             <constraint firstItem="9ls-Yh-7nN" firstAttribute="height" secondItem="3Aw-44-GNh" secondAttribute="height" id="p5J-sP-axJ"/>
                                             <constraint firstAttribute="trailing" secondItem="l8R-2D-Xnl" secondAttribute="trailing" id="pfq-fZ-a86"/>
                                             <constraint firstAttribute="trailing" secondItem="DeZ-G6-gVX" secondAttribute="trailing" id="pi2-md-QFl"/>
                                             <constraint firstItem="HFP-w1-Bbj" firstAttribute="top" secondItem="BYQ-WW-Bfb" secondAttribute="bottom" id="pj3-T0-TJW"/>
+                                            <constraint firstItem="b2S-NZ-ILi" firstAttribute="top" secondItem="LYr-me-VCB" secondAttribute="bottom" id="pzU-Bv-Mym"/>
                                             <constraint firstItem="b2S-NZ-ILi" firstAttribute="leading" secondItem="lEl-Jd-qeZ" secondAttribute="leading" id="qcE-KQ-Cfm"/>
                                             <constraint firstItem="Sd9-9W-j5a" firstAttribute="top" secondItem="ZEk-vh-lNH" secondAttribute="bottom" id="rhg-IO-pvk"/>
                                             <constraint firstItem="d5w-I2-ux8" firstAttribute="leading" secondItem="lEl-Jd-qeZ" secondAttribute="leading" id="seY-s7-3sU"/>
@@ -5192,6 +5191,7 @@ Email : lienhe@chobatdongsan.com.vn
                                             <constraint firstAttribute="trailing" secondItem="whb-iN-8MD" secondAttribute="trailing" id="uSH-VU-kpv"/>
                                             <constraint firstItem="XpM-Y2-MOJ" firstAttribute="top" secondItem="Dvl-hQ-ZXb" secondAttribute="bottom" id="wEW-XV-4lK"/>
                                             <constraint firstItem="Om7-6r-ocE" firstAttribute="leading" secondItem="lEl-Jd-qeZ" secondAttribute="leading" id="wgd-1V-S41"/>
+                                            <constraint firstItem="LYr-me-VCB" firstAttribute="leading" secondItem="lEl-Jd-qeZ" secondAttribute="leading" id="xWT-Hh-NJX"/>
                                             <constraint firstItem="3Aw-44-GNh" firstAttribute="top" secondItem="HFP-w1-Bbj" secondAttribute="bottom" id="xuG-fz-5tI"/>
                                             <constraint firstItem="s8x-cb-48o" firstAttribute="centerX" secondItem="lEl-Jd-qeZ" secondAttribute="centerX" id="yPP-EM-ftx"/>
                                             <constraint firstItem="W77-ZF-1Og" firstAttribute="top" secondItem="DeZ-G6-gVX" secondAttribute="bottom" id="yfd-t3-yID"/>
@@ -5263,7 +5263,7 @@ Email : lienhe@chobatdongsan.com.vn
                         <outlet property="heightNameConact" destination="Gde-FL-pEV" id="ZZY-kT-CaM"/>
                         <outlet property="heightNameUserView" destination="u3k-0p-c0L" id="GbA-L2-qjM"/>
                         <outlet property="heightNumberOfFloors" destination="f8C-e0-Mby" id="9he-5b-ho0"/>
-                        <outlet property="heightNumberToilet" destination="ltq-FQ-e9m" id="4gB-Tp-DMv"/>
+                        <outlet property="heightNumberToilet" destination="e16-zG-6wc" id="RJ9-Bz-UTi"/>
                         <outlet property="heightPrice" destination="0MQ-XS-mxe" id="GVi-F4-N26"/>
                         <outlet property="heightPriceType" destination="Vht-nv-Q3D" id="bpM-ul-hNK"/>
                         <outlet property="heightProject" destination="dln-4O-xie" id="NiA-kf-9Og"/>

@@ -10,6 +10,7 @@ import UIKit
 
 class MapsViewCell: UITableViewCell {
 
+    @IBOutlet weak var viewLine: UIView!
     @IBOutlet weak var imageViewProfile: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var information: UILabel!
@@ -28,7 +29,7 @@ class MapsViewCell: UITableViewCell {
     func loadDataCell(cell:LandSaleModel)
     {
         self.imageViewProfile.setImageUrlNews(url: API.linkImage + cell.image)
-        self.name.attributedText = cell.title.convertHtml()
+        self.name.text  = cell.title
         cell.content = cell.content.replacingOccurrences(of: "&amp;lt;p&amp;gt;", with: "")
         self.information.attributedText = cell.content.convertHtml()
         if self.type == "project"
@@ -43,6 +44,17 @@ class MapsViewCell: UITableViewCell {
         {
             self.imageLike.tintColor = UIColor.lightGray
         }
+        self.imageViewProfile.isHidden = false
+        self.imageLike.isHidden = false
+        self.viewLine.isHidden = false
+    }
+    func loadDataCell()
+    {
+        self.imageViewProfile.isHidden = true
+        self.name.text  = ""
+        self.information.text = ""
+        self.imageLike.isHidden = true
+        self.viewLine.isHidden = true
     }
     
     func loadDataNewsCell(cell:NewsModel,index:Int)

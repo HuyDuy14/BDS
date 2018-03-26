@@ -1274,7 +1274,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="82" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AA2-E0-uWS">
-                                <rect key="frame" x="0.0" y="40" width="375" height="577"/>
+                                <rect key="frame" x="0.0" y="40" width="375" height="627"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MapsViewCell" rowHeight="82" id="uBN-dn-DbW" customClass="MapsViewCell" customModule="BDS" customModuleProvider="target">
@@ -1305,7 +1305,7 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dựn án gạ kajdb amb kjgdba dmn mdbkamndb adjabd admajbdkadjvad ma" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXD-mN-HyY">
                                                     <rect key="frame" x="80" y="14" width="255" height="33.5"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1354,6 +1354,7 @@
                                             <outlet property="imageViewProfile" destination="g8z-iw-nJg" id="g7y-Ne-9Qm"/>
                                             <outlet property="information" destination="xgf-eC-xh5" id="QaW-hC-yeP"/>
                                             <outlet property="name" destination="dXD-mN-HyY" id="Bno-Zi-hFZ"/>
+                                            <outlet property="viewLine" destination="Hbs-vL-HiD" id="Ry1-QA-jMT"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1361,7 +1362,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="cBE-dz-en4" firstAttribute="top" secondItem="AA2-E0-uWS" secondAttribute="bottom" constant="50" id="9bQ-TP-NPK"/>
+                            <constraint firstItem="cBE-dz-en4" firstAttribute="top" secondItem="AA2-E0-uWS" secondAttribute="bottom" id="9bQ-TP-NPK"/>
                             <constraint firstAttribute="trailing" secondItem="Jol-dk-UHq" secondAttribute="trailing" id="E76-h1-AsP"/>
                             <constraint firstItem="AA2-E0-uWS" firstAttribute="leading" secondItem="25e-6m-B4y" secondAttribute="leading" id="SGo-ij-zKd"/>
                             <constraint firstItem="Jol-dk-UHq" firstAttribute="top" secondItem="25e-6m-B4y" secondAttribute="top" id="kjO-mW-vi5"/>

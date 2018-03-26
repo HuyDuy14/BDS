@@ -52,6 +52,9 @@ class MapsViewController: BaseViewController {
             let model = ModelPicker(id: i-1, name: "\(i)")
             self.listPicker.append(model)
         }
+        self.addBottomSheetView()
+        self.addBottomSheetViewDetail()
+        
         self.pickerView.delegate = self
     }
     
@@ -155,15 +158,15 @@ class MapsViewController: BaseViewController {
         let bottomSheetViewController = storyboard.instantiateViewController(withIdentifier: "InforMapsViewController") as? InforMapsViewController
         self.inforMaps = bottomSheetViewController
         bottomSheetViewController?.delegate = self
-        bottomSheetViewController?.lat = String(self.originLatitude)
-        bottomSheetViewController?.lng =  String(self.originLongtitude)
+        bottomSheetViewController?.lat = "21.0301595790544" //String(self.originLatitude) //
+        bottomSheetViewController?.lng =  "105.782226450419" // String(self.originLongtitude) //
 //        bottomSheetViewController?.animationShow()
         self.addChildViewController(bottomSheetViewController!)
         self.view.addSubview((bottomSheetViewController?.view)!)
         bottomSheetViewController?.didMove(toParentViewController: self)
         let height = view.frame.height
         let width  = view.frame.width
-        bottomSheetViewController?.view.frame = CGRect(x: 0, y: self.view.frame.maxY, width: width, height: height)
+        bottomSheetViewController?.view.frame = CGRect(x: 0, y: self.view.frame.maxY , width: width, height: height )
     }
     
     func addBottomSheetViewDetail() {
@@ -178,7 +181,7 @@ class MapsViewController: BaseViewController {
         let width  = view.frame.width
         self.inforMapsDetail = bottomSheetViewController
         self.inforMapsDetail.view.isHidden = true
-        bottomSheetViewController?.view.frame = CGRect(x: 0, y: self.view.frame.maxY, width: width, height: height)
+        bottomSheetViewController?.view.frame = CGRect(x: 0, y: self.view.frame.maxY , width: width, height: height )
     }
     
     

@@ -15,8 +15,7 @@ import SwiftyJSON
 class APIClient: NSObject {
     static let shared = APIClient()
     let headers = [
-        "Content-Type": "application/x-www-form-urlencoded",
-        "Authorization": "GGS-API eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJuYW1lIjoiTmd1eVx1MWVjNW4gVFx1MWVhNXQgVmluaCIsImdlbmRlciI6Im1hbGUiLCJwaG9uZSI6IjA5MTYzNjI1NTkiLCJwYXNzd29yZCI6ImUxMGFkYzM5NDliYTU5YWJiZTU2ZTA1N2YyMGY4ODNlIiwiYWRkcmVzcyI6IkhcdTAwZTAgTlx1MWVkOWkiLCJlbWFpbCI6InZpbmhudDMzM0BnbWFpbC5jb20iLCJhdmF0YXIiOiIiLCJyb2xlIjoiYWRtaW5pc3RyYXRvciIsInN0YXR1cyI6ImFjdGl2ZSIsImlzX29ubGluZSI6Ik4iLCJjcmVhdGVkX2RhdGUiOiIyMDE3LTEwLTEyIDA1OjAyOjMyIiwiZmFjZWJvb2tfaWQiOm51bGx9.MxgqlHvfYd9AsDCTqcZ-wzZKFdNpZ9-8itzdLVn87hc"
+        "Content-Type": "application/x-www-form-urlencoded"
     ]
     //MARK: - Base function. Not change this section
     //======================================================
@@ -28,7 +27,7 @@ class APIClient: NSObject {
         let url = URL(string: "\(API.serverURL)\(path)")
         return Observable.create {
             observer in
-            let request = Alamofire.request(url!, method: method, parameters: params, encoding:  URLEncoding.default, headers: self.headers).responseJSON {
+            let request = Alamofire.request(url!, method: method, parameters: params, encoding: URLEncoding.httpBody, headers: self.headers).responseJSON {
                 response in
                 switch response.result {
                 case .success(let value):
@@ -58,7 +57,6 @@ class APIClient: NSObject {
         }
     }
     
-    
     func requestGet(path: String, method: HTTPMethod, params: Parameters!) -> Observable<Result> {
         // Set timeout for 3'
         let manager = Alamofire.SessionManager.default
@@ -67,10 +65,6 @@ class APIClient: NSObject {
         let url = URL(string: "\(API.serverURL)\(path)")
         return Observable.create {
             observer in
-//            ServiceRequest.sendGetRequest(urlStr: "\(API.serverURL)\(path)", params: params, completion: { (status, result, message) in
-//                let json = try! JSON(data: result as! Data)
-//                print(json)
-//            })
             let request = Alamofire.request(url!, method: method, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON {
                 response in
                 switch response.result {
@@ -88,7 +82,7 @@ class APIClient: NSObject {
                         
                     }
                 case .failure(let error):
-                    print(error.localizedDescription)
+                    print(error)
                     self.showAlert(message: "Lỗi mạng mời bạn kiểm tra lại")
                     ACProgressHUD.shared.hideHUD()
                 }
@@ -137,7 +131,6 @@ class APIClient: NSObject {
         }
     }
     
-    
     func requestUploadImage(path: String, image: UIImage?, method: HTTPMethod, params: Parameters!, completion: ((_ result: Result) -> Void)?)
     {
         let manager = Alamofire.SessionManager.default
@@ -145,7 +138,7 @@ class APIClient: NSObject {
         if image == nil
         {
             let url = URL(string: "\(API.serverURL)\(path)")
-            Alamofire.request(url!, method: method, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON {
+            Alamofire.request(url!, method: method, parameters: params, encoding: URLEncoding.httpBody, headers: self.headers).responseJSON {
                 response in
                 switch response.result {
                 case .success(let value):
@@ -159,7 +152,6 @@ class APIClient: NSObject {
                             }
                             ACProgressHUD.shared.hideHUD()
                         }
-                        
                     }
                 case .failure(let error):
                     print(error)
@@ -560,8 +552,8 @@ class APIClient: NSObject {
         params["type_bds"] = type_bds
         params["type"] = type
         params["city_id"] = city
-        params["ward_name"] = ward_name
         params["ward_id"] = ward
+        params["ward_name"] = ward_name
         params["area"] = area
         params["price"] = price
         params["price_type"] = price_type
@@ -610,6 +602,5 @@ class APIClient: NSObject {
     func showAlert(message: String) {
         _ = UIAlertView.show(withTitle: "", message: NSLocalizedString(message, comment: ""), cancelButtonTitle: "OK", otherButtonTitles: nil, tap: nil)
     }
-    
 }
 
