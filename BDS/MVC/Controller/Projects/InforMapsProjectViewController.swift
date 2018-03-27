@@ -24,7 +24,7 @@ class InforMapsProjectViewController: BaseViewController {
     @IBOutlet weak var dateCreate: UILabel!
     @IBOutlet weak var typeProject: UILabel!
     @IBOutlet weak var addRess: UILabel!
-    
+    var type = "sale"
     var listTypePrice:[ModelPicker] = [ModelPicker(id: 0, name: "Thoả thuận"),ModelPicker(id: 1, name: "Triệu"),ModelPicker(id: 2, name: "Tỷ"),ModelPicker(id: 6, name: "Trăm nghìn/m2"),ModelPicker(id: 7, name: "Triệu/m2")]
     var listTypePriceRent:[ModelPicker] = [ModelPicker(id: 0, name: "Thoả thuận"),ModelPicker(id: 1, name: "Trăm nghìn/tháng"),ModelPicker(id: 2, name: "Triệu/tháng"),ModelPicker(id: 3, name: "Trăm nghìn/m2/Tháng"),ModelPicker(id: 3, name: " Triệu/m2/Tháng"),ModelPicker(id: 5, name: " Nghìn/m2/Tháng")]
     let fullView: CGFloat = 50
@@ -67,6 +67,11 @@ class InforMapsProjectViewController: BaseViewController {
             self.priceProject.text = project.price
             self.idProject.text = "BDS" + project.id
             self.typeProject.text = ""
+            if  self.landForSale.land_price_type == "0"
+            {
+                self.priceProject.text = "Thoả thuận"
+                return
+            }
             for item in self.listTypePrice
             {
                 
@@ -91,6 +96,11 @@ class InforMapsProjectViewController: BaseViewController {
             self.dateEnd.text = self.landForSale.land_date_finish.FromStringToDateToStringProjects()
             self.typeProject.text = self.landForSale.category_name
             self.idProject.text = self.landForSale.code
+            if  self.landForSale.land_price_type == "0"
+            {
+                self.priceProject.text = "Thoả thuận"
+                return
+            }
             if self.landForSale.type == "sale"
             {
                 for item in self.listTypePrice

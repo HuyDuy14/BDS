@@ -1511,6 +1511,7 @@ Email : lienhe@chobatdongsan.com.vn
                                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fM4-L1-kFu">
                                                 <rect key="frame" x="20" y="450.5" width="335" height="417.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <dataDetectorType key="dataDetectorTypes"/>
                                             </webView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thông tin liên hệ:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2c4-Ni-zQc">
                                                 <rect key="frame" x="20" y="888" width="335" height="17"/>
@@ -1847,6 +1848,7 @@ Email : lienhe@chobatdongsan.com.vn
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TPB-2L-Eyd">
                                 <rect key="frame" x="0.0" y="70" width="375" height="597"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <dataDetectorType key="dataDetectorTypes"/>
                             </webView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bu6-ou-JOg">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>

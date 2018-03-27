@@ -67,16 +67,17 @@ class HomeMenuViewController: BaseViewController {
     }
     
     @IBAction func postNewsButtonDidTap(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
-        let postNews = storyboard.instantiateViewController(withIdentifier: "PostNewsViewController") as! PostNewsViewController
-        self.pushViewController(viewController: postNews)
-    }
-    
-    @IBAction func showPostsNewsButtonDidTap(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let postNews = storyboard.instantiateViewController(withIdentifier: "NewsLikeViewController") as! NewsLikeViewController
         postNews.isMenu = true
         self.pushViewController(viewController: postNews)
+    }
+    
+    @IBAction func showPostsNewsButtonDidTap(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
+        let postNews = storyboard.instantiateViewController(withIdentifier: "PostNewsViewController") as! PostNewsViewController
+        self.pushViewController(viewController: postNews)
+       
     }
     
     @IBAction func loguotButtonDidTap(_ sender: Any) {

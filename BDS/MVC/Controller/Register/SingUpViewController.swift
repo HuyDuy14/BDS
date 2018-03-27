@@ -63,8 +63,8 @@ class SingUpViewController: BaseTableViewController {
         self.showHUD("")
         APIClient.shared.registerUser(email: self.email.text!, username: self.username.text!, password: self.pass.text!).asObservable().bind(onNext: {result in
             self.showAlert("Đăng ký thành công")
-            self.popToView()
             self.hideHUD()
+            self.popToView()
             self.dismiss(animated: true, completion: nil)
         }).disposed(by: self.disposeBag)
     }

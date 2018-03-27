@@ -42,6 +42,7 @@ class MapsViewController: BaseViewController {
     var listPicker:[ModelPicker] = []
     let pickerView = PickerView.getFromNib()
     var r = "2"
+    var typeSearch:String = "sale"
     var selectDistance:Int = 0
     
     override func viewDidLoad() {
@@ -52,8 +53,8 @@ class MapsViewController: BaseViewController {
             let model = ModelPicker(id: i-1, name: "\(i)")
             self.listPicker.append(model)
         }
-        self.addBottomSheetView()
-        self.addBottomSheetViewDetail()
+//        self.addBottomSheetView()
+//        self.addBottomSheetViewDetail()
         
         self.pickerView.delegate = self
     }
@@ -95,6 +96,7 @@ class MapsViewController: BaseViewController {
                 self.indexType = index
                 self.inforMaps.type = "rent"
                 self.inforMaps.r = self.r
+                self.typeSearch = "rent"
                 self.inforMaps.lat = String(self.originLatitude)
                 self.inforMaps.lng = String(self.originLongtitude)
                 self.inforMaps.loadData()
@@ -103,6 +105,7 @@ class MapsViewController: BaseViewController {
                 self.indexType = index
                 self.inforMaps.r = self.r
                 self.inforMaps.type = "sale"
+                self.typeSearch = "sale"
                 self.inforMaps.lat = String(self.originLatitude)
                 self.inforMaps.lng = String(self.originLongtitude)
                 self.btnTypeSelect.setTitle("Nhà đất bán", for: .normal)
@@ -111,6 +114,7 @@ class MapsViewController: BaseViewController {
                 self.indexType = index
                 self.inforMaps.r = self.r
                 self.inforMaps.type = "project"
+                self.typeSearch = "project"
                 self.inforMaps.lat = String(self.originLatitude)
                 self.inforMaps.lng = String(self.originLongtitude)
                 self.btnTypeSelect.setTitle("Dự án", for: .normal)
@@ -158,8 +162,8 @@ class MapsViewController: BaseViewController {
         let bottomSheetViewController = storyboard.instantiateViewController(withIdentifier: "InforMapsViewController") as? InforMapsViewController
         self.inforMaps = bottomSheetViewController
         bottomSheetViewController?.delegate = self
-        bottomSheetViewController?.lat = "21.0301595790544" //String(self.originLatitude) //
-        bottomSheetViewController?.lng =  "105.782226450419" // String(self.originLongtitude) //
+        bottomSheetViewController?.lat = String(self.originLatitude) //"21.0301595790544" //
+        bottomSheetViewController?.lng =   String(self.originLongtitude) //"105.782226450419" //
 //        bottomSheetViewController?.animationShow()
         self.addChildViewController(bottomSheetViewController!)
         self.view.addSubview((bottomSheetViewController?.view)!)
@@ -273,7 +277,7 @@ extension MapsViewController: GMSMapViewDelegate {
             self.inforMapsDetail.animationHideView()
             self.inforMapsDetail.view.isHidden = false
             self.inforMaps.view.isHidden = true
-            
+            self.inforMaps.type = self.typeSearch
             self.inforMapsDetail.landForSale = self.landForSale
             self.inforMapsDetail.fillData()
             self.inforMapsDetail.animationShowView()
@@ -288,6 +292,14 @@ extension MapsViewController:InforMapsProjectViewControllerDelegate
     }
     
     func showFullInfor(_ controller: InforMapsProjectViewController) {
+        if self.typeSearch == "project"
+        {
+            let storyboard = UIStoryboard(name: "Projects", bundle: nil)
+            let showDetail = storyboard.instantiateViewController(withIdentifier: "ProjectInforViewController") as? ProjectInforViewController
+            Util.shared.projectsIdDetail = self.landForSale.id
+            self.pushViewController(viewController: showDetail)
+            return
+        }
         let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
         let showDetail = storyboard.instantiateViewController(withIdentifier: "DetailLanforSaleViewController") as? DetailLanforSaleViewController
         showDetail?.landForSale = self.landForSale
