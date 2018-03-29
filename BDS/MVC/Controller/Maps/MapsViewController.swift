@@ -261,7 +261,14 @@ extension MapsViewController: GMSMapViewDelegate {
             if self.landForSale == nil || self.landForSale.id != landForSale.id
             {
                 self.landForSale = landForSale
-                self.loadDataLand()
+                if self.typeSearch == "project"
+                {
+                    self.loadDataProjects()
+                }
+                else
+                {
+                    self.loadDataLand()
+                }
             }
 //
         }
@@ -277,8 +284,26 @@ extension MapsViewController: GMSMapViewDelegate {
             self.inforMapsDetail.animationHideView()
             self.inforMapsDetail.view.isHidden = false
             self.inforMaps.view.isHidden = true
+            self.inforMapsDetail.project = nil
             self.inforMaps.type = self.typeSearch
             self.inforMapsDetail.landForSale = self.landForSale
+            self.inforMapsDetail.fillData()
+            self.inforMapsDetail.animationShowView()
+            self.hideHUD()
+        }).disposed(by: self.disposeBag)
+    }
+    
+    func loadDataProjects()
+    {
+        self.showHUD("")
+        APIClient.shared.getDetailProject(id: self.landForSale.id).asObservable().bind(onNext: {result in
+            let project = ProjectsModel(JSON: result.data!)
+            self.inforMapsDetail.animationHideView()
+            self.inforMapsDetail.view.isHidden = false
+            self.inforMaps.view.isHidden = true
+            self.inforMaps.type = self.typeSearch
+            self.inforMapsDetail.landForSale = nil
+            self.inforMapsDetail.project = project
             self.inforMapsDetail.fillData()
             self.inforMapsDetail.animationShowView()
             self.hideHUD()
@@ -296,7 +321,7 @@ extension MapsViewController:InforMapsProjectViewControllerDelegate
         {
             let storyboard = UIStoryboard(name: "Projects", bundle: nil)
             let showDetail = storyboard.instantiateViewController(withIdentifier: "ProjectInforViewController") as? ProjectInforViewController
-            Util.shared.projectsIdDetail = self.landForSale.id
+            Util.shared.projectsIdDetail = self.inforMapsDetail.project.id
             self.pushViewController(viewController: showDetail)
             return
         }

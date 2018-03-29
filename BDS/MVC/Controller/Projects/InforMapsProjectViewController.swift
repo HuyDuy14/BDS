@@ -15,15 +15,22 @@ protocol  InforMapsProjectViewControllerDelegate:class
 
 class InforMapsProjectViewController: BaseViewController {
 
+    @IBOutlet weak var viewProject: UIView!
+    @IBOutlet weak var viewLand: UIView!
     @IBOutlet weak var titlelProject: UILabel!
     @IBOutlet weak var idProject: UILabel!
-    
     @IBOutlet weak var addAre: UILabel!
     @IBOutlet weak var dateEnd: UILabel!
     @IBOutlet weak var priceProject: UILabel!
     @IBOutlet weak var dateCreate: UILabel!
     @IBOutlet weak var typeProject: UILabel!
     @IBOutlet weak var addRess: UILabel!
+    
+    @IBOutlet weak var nameCompaner: UILabel!
+    @IBOutlet weak var nameProject: UILabel!
+    
+    @IBOutlet weak var addressProject: UILabel!
+    
     var type = "sale"
     var listTypePrice:[ModelPicker] = [ModelPicker(id: 0, name: "Thoả thuận"),ModelPicker(id: 1, name: "Triệu"),ModelPicker(id: 2, name: "Tỷ"),ModelPicker(id: 6, name: "Trăm nghìn/m2"),ModelPicker(id: 7, name: "Triệu/m2")]
     var listTypePriceRent:[ModelPicker] = [ModelPicker(id: 0, name: "Thoả thuận"),ModelPicker(id: 1, name: "Trăm nghìn/tháng"),ModelPicker(id: 2, name: "Triệu/tháng"),ModelPicker(id: 3, name: "Trăm nghìn/m2/Tháng"),ModelPicker(id: 3, name: " Triệu/m2/Tháng"),ModelPicker(id: 5, name: " Nghìn/m2/Tháng")]
@@ -33,6 +40,7 @@ class InforMapsProjectViewController: BaseViewController {
     }
     var project:ProjectsModel!
     var landForSale:LandSaleModel!
+    
     weak var delegate:InforMapsProjectViewControllerDelegate?
     
     fileprivate var drawerBottomSafeArea: CGFloat = 0.0 {
@@ -59,37 +67,29 @@ class InforMapsProjectViewController: BaseViewController {
     {
         if self.project != nil
         {
-            self.titlelProject.text = project.title
-            self.addRess.text = project.address
-            self.dateCreate.text = project.date_start.FromStringToDateToString()
-            self.dateEnd.text = project.date_finish.FromStringToDateToString()
-            self.addAre.text = project.land_area
-            self.priceProject.text = project.price
-            self.idProject.text = "BDS" + project.id
-            self.typeProject.text = ""
-            if  self.landForSale.land_price_type == "0"
-            {
-                self.priceProject.text = "Thoả thuận"
-                return
-            }
-            for item in self.listTypePrice
-            {
-                
-                if String(item.id) ==  self.landForSale.land_price_type
-                {
-                    self.priceProject.text = self.project.price + " " + item.name
-                    return
-                }
-            }
+            self.nameProject.text = project.title
+            self.addressProject.text = project.address
+            self.nameCompaner.text = project.investor
+            self.viewLand.isHidden = true
+            self.viewProject.isHidden = false
         }
         else
         {
+            self.viewLand.isHidden = false
+            self.viewProject.isHidden = true
             if self.landForSale == nil
             {
                 return
             }
             self.titlelProject.text = self.landForSale.title
-            self.addAre.text = self.landForSale.land_area + "m2"
+            if self.landForSale.land_area == "0"
+            {
+                 self.addAre.text = "Liên hệ"
+            }
+            else
+            {
+                self.addAre.text = self.landForSale.land_area + "m2"
+            }
             self.priceProject.text = self.landForSale.land_price
             self.addRess.text = self.landForSale.district_name + " , " + self.landForSale.city_name
             self.dateCreate.text = self.landForSale.land_date_start.FromStringToDateToStringProjects()
@@ -214,6 +214,12 @@ class InforMapsProjectViewController: BaseViewController {
     @IBAction func showFullInforDidTap(_ sender: Any) {
         self.delegate?.showFullInfor(self)
     }
+    
+    @IBAction func detailButton(_ sender: Any) {
+        self.delegate?.showFullInfor(self)
+
+    }
+    
     
 }
 

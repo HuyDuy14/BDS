@@ -347,7 +347,7 @@ class RegisterNewsViewController: BaseViewController {
             self.showAlert("Bạn chưa chọn loại nhà đất")
             return
         }
-        var email = self.email.text!
+        let email = self.email.text!
         if email.count == 0
         {
             self.showAlert("Bạn chưa nhập email")

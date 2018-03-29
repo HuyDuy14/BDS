@@ -259,6 +259,10 @@ extension DetailMapsViewController: CLLocationManagerDelegate {
             self.mapView.clear()
             if self.project != nil
             {
+                if self.project.lng.count == 0 || self.project.lng.count == 0
+                {
+                    return
+                }
                 let coordinates = CLLocationCoordinate2D(latitude: Double(project.lat)!, longitude: Double(project.lng)!)
                 let marker = GMSMarker(position: coordinates)
                 marker.map = self.mapView
@@ -267,6 +271,10 @@ extension DetailMapsViewController: CLLocationManagerDelegate {
             }
             else
             {
+                if self.landForSale.land_lat.count == 0 || self.landForSale.land_lng.count == 0
+                {
+                    return
+                }
                 let coordinates = CLLocationCoordinate2D(latitude: Double(self.landForSale.land_lat)!, longitude: Double(self.landForSale.land_lng)!)
                 let marker = GMSMarker(position: coordinates)
                 marker.map = self.mapView

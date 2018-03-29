@@ -13,6 +13,7 @@ class ProjectsModel: Mappable {
     var id =  ""
     var title =  ""
     var alias = ""
+    var code = ""
     var image =  ""
     var address =  ""
     var investor =  ""
@@ -31,11 +32,13 @@ class ProjectsModel: Mappable {
     var company_phone =  ""
     var company_website =  ""
     var area =  ""
-    var land_area =  ""
+    var land_area =  "0"
     var created_time =  ""
     var price =  ""
     var post_transfer_ground_price =  ""
     var land_price =  ""
+    var category_name = ""
+    var land_price_type = ""
     var land_pricereal =  ""
     var introduce =  ""
     var info =  ""
@@ -54,11 +57,13 @@ class ProjectsModel: Mappable {
         self.id <- map["id"]
         self.alias <- map["alias"]
         self.title <- map["title"]
+        self.code <- map["code"]
         self.image <- map["image"]
         self.address <- map["address"]
         self.investor <- map["investor"]
         self.lat <- map["lat"]
         self.lng <- map["lng"]
+        self.category_name <- map["category_name"]
         self.date_start <- map["date_start"]
         self.date_finish <- map["date_finish"]
         self.poster_name <- map["poster_name"]
@@ -75,6 +80,7 @@ class ProjectsModel: Mappable {
         self.land_area <- map["land_area"]
         self.created_time <- map["created_time"]
         self.price <- map["price"]
+        self.land_price_type <- map["land_price_type"]
         self.post_transfer_ground_price <- map["post_transfer_ground_price"]
         self.land_price <- map["land_price"]
         self.land_pricereal <- map["land_pricereal"]

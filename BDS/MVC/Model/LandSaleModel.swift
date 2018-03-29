@@ -43,7 +43,7 @@ class LandSaleModel: Mappable {
     var home_number =  ""
     var land_length =  ""
     var land_width =  ""
-    var land_area =  ""
+    var land_area =  "0"
     var land_area_type =  ""
     var land_legal_status =  ""
     var land_price =  ""

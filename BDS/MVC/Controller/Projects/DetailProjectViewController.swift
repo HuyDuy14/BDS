@@ -25,7 +25,7 @@ class DetailProjectViewController: BaseViewController {
     
     var project:ProjectsModel! = ProjectsModel()
     let disposeBag = DisposeBag()
-    
+    var listTypePrice:[ModelPicker] = [ModelPicker(id: 0, name: "Thoả thuận"),ModelPicker(id: 1, name: "Triệu"),ModelPicker(id: 2, name: "Tỷ"),ModelPicker(id: 6, name: "Trăm nghìn/m2"),ModelPicker(id: 7, name: "Triệu/m2")]
     //Page Image
     weak var currenviewController: UIViewController?
     @IBOutlet weak var containerView: UIView!
@@ -89,13 +89,38 @@ class DetailProjectViewController: BaseViewController {
     
     func fillData()
     {
-
         self.nameUserProjects.text = project.investor
         self.imageProjects.setImageProject(urlString: API.linkImage + project.image)
         self.addressProject.text = project.address
         self.titleproject.text = project.title
-        self.allAcreage.text = project.land_area + "m2"
-        self.monney.text = project.price + "/m2"
+        if self.project.land_area == "0"
+        {
+            self.allAcreage.text = "Liên hệ"
+        }
+        else
+        {
+            self.allAcreage.text = self.project.land_area + "m2"
+        }
+        
+        if  self.project.price.count == 0
+        {
+            self.monney.text = "Thoả thuận"
+            return
+        }
+        self.monney.text  = self.project.price
+        let array = self.project.price.components(separatedBy: " ")
+        if array.count == 1
+        {
+            for item in self.listTypePrice
+            {
+                
+                if String(item.id) ==  self.project.land_price_type
+                {
+                    self.monney.text = self.project.price + " " + item.name
+                    return
+                }
+            }
+        }
         self.date.text = project.date_finish.FromStringToDateToStringProjects()
         self.scaleProject.text = project.summary
         self.webView.loadHTMLString(Util.shared.htmlString(from: project.introduce), baseURL: nil)

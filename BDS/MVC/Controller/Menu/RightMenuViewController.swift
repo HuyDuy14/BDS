@@ -112,8 +112,13 @@ class RightMenuViewController: BaseViewController {
         UIAlertView.show(withTitle: "", message: NSLocalizedString("Bạn muốn thoát khỏi app?", comment: ""), cancelButtonTitle: NSLocalizedString("No", comment: ""), otherButtonTitles: [NSLocalizedString("Yes", comment: "")], tap: { (alerview: UIAlertView,
             buttonIndex: Int) -> Void in
             if buttonIndex == 1 {
+                UserDefaults.standard.set("", forKey: FBID)
+                UserDefaults.standard.set("", forKey: FBNAME)
                 UserDefaults.standard.set("", forKey: USERNAME)
                 UserDefaults.standard.set("", forKey: PASSWORD)
+                UserDefaults.standard.set("", forKey: GGID)
+                UserDefaults.standard.set("", forKey: GGEMAIL)
+                UserDefaults.standard.set("", forKey: GGNAME)
                 AppDelegate.shared?.setLoginRootViewControoler()
                 SideMenuTransition.hideMenu()
             } else {
