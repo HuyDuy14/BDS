@@ -141,7 +141,11 @@ class DetailProjectViewController: BaseViewController {
     }
     
     @IBAction func saveButtonDidTap(_ sender: Any) {
-        
+        if Util.shared.currentUser.id.count == 0
+        {
+            AppDelegate.shared?.setLoginRootViewControoler()
+            return
+        }
         self.showHUD("")
         if self.project.isLike == true
         {

@@ -42,18 +42,23 @@ class HomeMenuViewController: BaseViewController {
     }
     
     @IBAction func searchLandForSaleButtonDidTap(_ sender: Any) {
-        SaveCurrentVC.shared.homeController.tutorialPageViewController?.scrollToViewController(index: 3)
+        SaveCurrentVC.shared.homeController?.tutorialPageViewController?.scrollToViewController(index: 3)
     }
     
     
     @IBAction func registerNewsButtonDidTap(_ sender: Any) {
+        if Util.shared.currentUser.id.count == 0
+        {
+            AppDelegate.shared?.setLoginRootViewControoler()
+            return
+        }
         let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
         let newsController = storyboard.instantiateViewController(withIdentifier: "RegisterNewsViewController") as? RegisterNewsViewController
         self.pushViewController(viewController: newsController!)
     }
     
     @IBAction func landForRentButtonDidTap(_ sender: Any) {
-        SaveCurrentVC.shared.homeController.tutorialPageViewController?.scrollToViewController(index: 1)
+        SaveCurrentVC.shared.homeController?.tutorialPageViewController?.scrollToViewController(index: 1)
 
     }
     
@@ -67,6 +72,11 @@ class HomeMenuViewController: BaseViewController {
     }
     
     @IBAction func postNewsButtonDidTap(_ sender: Any) {
+        if Util.shared.currentUser.id.count == 0
+        {
+            AppDelegate.shared?.setLoginRootViewControoler()
+            return
+        }
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let postNews = storyboard.instantiateViewController(withIdentifier: "NewsLikeViewController") as! NewsLikeViewController
         postNews.isMenu = true
@@ -74,6 +84,11 @@ class HomeMenuViewController: BaseViewController {
     }
     
     @IBAction func showPostsNewsButtonDidTap(_ sender: Any) {
+        if Util.shared.currentUser.id.count == 0
+        {
+            AppDelegate.shared?.setLoginRootViewControoler()
+            return
+        }
         let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
         let postNews = storyboard.instantiateViewController(withIdentifier: "PostNewsViewController") as! PostNewsViewController
         self.pushViewController(viewController: postNews)
@@ -91,7 +106,8 @@ class HomeMenuViewController: BaseViewController {
             UserDefaults.standard.set("", forKey: GGID)
             UserDefaults.standard.set("", forKey: GGEMAIL)
             UserDefaults.standard.set("", forKey: GGNAME)
-            AppDelegate.shared?.setLoginRootViewControoler()
+            
+            Util.shared.currentUser = UserModel()
             SideMenuTransition.hideMenu()
         }))
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))

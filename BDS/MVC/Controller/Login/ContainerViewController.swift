@@ -12,8 +12,7 @@ class ContainerViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        SaveCurrentVC.shared.containerLogin = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +20,9 @@ class ContainerViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func dissmissController(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     @IBAction func resgisterButtonDidTap(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Register", bundle: nil)
         let singUp = storyboard.instantiateViewController(withIdentifier: "ContainerSingUpViewController") as! ContainerSingUpViewController

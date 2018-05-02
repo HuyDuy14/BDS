@@ -155,7 +155,14 @@ extension SingUpViewController
             UserDefaults.standard.set("", forKey: PASSWORD)
             UserDefaults.standard.set("", forKey: GGID)
             Util.shared.currentUser = UserModel(JSON: result.data!)!
-            AppDelegate.shared?.setHomeRootViewControoler()
+            if SaveCurrentVC.shared.homeController != nil
+            {
+                AppDelegate.shared?.setHomeRootViewControoler()
+            }
+            else
+            {
+                SaveCurrentVC.shared.containerLogin?.dismiss(animated: true, completion: nil)
+            }
             AppDelegate.shared?.showMessageSuccessPopUp()
             self.hideHUD()
         }).disposed(by: self.disposeBag)
@@ -184,7 +191,14 @@ extension SingUpViewController:GIDSignInDelegate,GIDSignInUIDelegate
             UserDefaults.standard.set(email, forKey: GGEMAIL)
             UserDefaults.standard.set(name, forKey: GGNAME)
             Util.shared.currentUser = UserModel(JSON: result.data!)!
-            AppDelegate.shared?.setHomeRootViewControoler()
+            if SaveCurrentVC.shared.homeController != nil
+            {
+                AppDelegate.shared?.setHomeRootViewControoler()
+            }
+            else
+            {
+                SaveCurrentVC.shared.containerLogin?.dismiss(animated: true, completion: nil)
+            }
             AppDelegate.shared?.showMessageSuccessPopUp()
             self.hideHUD()
         }).disposed(by: self.disposeBag)

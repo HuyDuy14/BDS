@@ -28,8 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     let disposeBag = DisposeBag()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        IQKeyboardManager.sharedManager().enable = true
-        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done"
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.toolbarDoneBarButtonItemText = "Done"
         GMSServices.provideAPIKey(API_KEY_GOOGLE)
         GMSPlacesClient.provideAPIKey(API_KEY_GOOGLE)
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -150,11 +150,9 @@ extension AppDelegate
     }
     
     func setLoginRootViewControoler() {
-        self.window = UIWindow(frame: UIScreen.main.bounds)
         let storyboard = UIStoryboard(name: "Login", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "NaviLoginViewController")
-        self.window?.rootViewController = initialViewController
-        self.window?.makeKeyAndVisible()
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "ContainerViewController")
+        SaveCurrentVC.shared.homeController?.present(initialViewController, animated: true, completion: nil)
     }
 }
 

@@ -226,14 +226,14 @@ class ProjectsViewController: BaseViewController {
         }
         else
         {
-           SaveCurrentVC.shared.homeController.tutorialPageViewController?.scrollToViewController(index: 2)
-            self.popToRootViewController(controller: SaveCurrentVC.shared.homeController)
+            SaveCurrentVC.shared.homeController?.tutorialPageViewController?.scrollToViewController(index: 2)
+            self.popToRootViewController(controller: SaveCurrentVC.shared.homeController!)
         }
     }
     
     @IBAction func backToHomeButtonDidTap(_ sender: Any) {
         if isBackHome == true {
-            SaveCurrentVC.shared.homeController.tutorialPageViewController?.scrollToViewController(index: 2)
+            SaveCurrentVC.shared.homeController?.tutorialPageViewController?.scrollToViewController(index: 2)
         }
         else
         {
@@ -434,6 +434,11 @@ extension ProjectsViewController:ProjectViewCellDelegate{
     }
 
     func saveLand(_ cell: ProjectViewCell, project: LandSaleModel, index: Int, type: Int) {
+        if Util.shared.currentUser.id.count == 0
+        {
+            AppDelegate.shared?.setLoginRootViewControoler()
+            return
+        }
         self.showHUD("")
         if project.isLike == false
         {
@@ -452,6 +457,11 @@ extension ProjectsViewController:ProjectViewCellDelegate{
     }
     
     func saveProject(_ cell: ProjectViewCell, project: ProjectsModel, index: Int, type: Int) {
+        if Util.shared.currentUser.id.count == 0
+        {
+            AppDelegate.shared?.setLoginRootViewControoler()
+            return
+        }
         self.showHUD("")
         if project.isLike == false
         {

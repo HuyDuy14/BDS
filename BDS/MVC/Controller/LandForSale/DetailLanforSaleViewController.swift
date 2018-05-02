@@ -226,6 +226,11 @@ class DetailLanforSaleViewController: BaseViewController {
     }
     
     @IBAction func saveLandButtonDidTap(_ sender: Any) {
+        if Util.shared.currentUser.id.count == 0
+        {
+            AppDelegate.shared?.setLoginRootViewControoler()
+            return
+        }
         self.showHUD("")
         if self.landForSale.isLike == true
         {

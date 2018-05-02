@@ -98,7 +98,14 @@ class LoginViewController: BaseTableViewController {
             UserDefaults.standard.set("", forKey: GGNAME)
             Util.shared.currentUser = UserModel(JSON: result.data!)!
             AppDelegate.shared?.showMessageSuccessPopUp()
-            AppDelegate.shared?.setHomeRootViewControoler()
+            if SaveCurrentVC.shared.homeController != nil
+            {
+                AppDelegate.shared?.setHomeRootViewControoler()
+            }
+            else
+            {
+                SaveCurrentVC.shared.containerLogin?.dismiss(animated: true, completion: nil)
+            }
             OneSignal.sendTag("iduser", value: Util.shared.currentUser.id)
             self.hideHUD()
         }).disposed(by: self.disposeBag)
@@ -197,7 +204,14 @@ extension LoginViewController
              UserDefaults.standard.set("", forKey: PASSWORD)
              UserDefaults.standard.set("", forKey: GGID)
              Util.shared.currentUser = UserModel(JSON: result.data!)!
-             AppDelegate.shared?.setHomeRootViewControoler()
+            if SaveCurrentVC.shared.homeController != nil
+            {
+                AppDelegate.shared?.setHomeRootViewControoler()
+            }
+            else
+            {
+                SaveCurrentVC.shared.containerLogin?.dismiss(animated: true, completion: nil)
+            }
              AppDelegate.shared?.showMessageSuccessPopUp()
             OneSignal.sendTag("iduser", value: Util.shared.currentUser.id)
             self.hideHUD()
@@ -231,7 +245,14 @@ extension LoginViewController:GIDSignInDelegate,GIDSignInUIDelegate
             if Util.shared.currentUser.username.count == 0 {
                 Util.shared.currentUser.username = name
             }
-            AppDelegate.shared?.setHomeRootViewControoler()
+            if SaveCurrentVC.shared.homeController != nil
+            {
+                AppDelegate.shared?.setHomeRootViewControoler()
+            }
+            else
+            {
+                SaveCurrentVC.shared.containerLogin?.dismiss(animated: true, completion: nil)
+            }
             AppDelegate.shared?.showMessageSuccessPopUp()
             OneSignal.sendTag("iduser", value: Util.shared.currentUser.id)
             self.hideHUD()

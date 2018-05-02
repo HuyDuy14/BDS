@@ -154,7 +154,7 @@ class LandForSaleViewController: BaseViewController {
     
     // MARK: - back to mapsviewcontroller
     @IBAction func backToMapsButtonDidTap(_ sender: Any) {
-        SaveCurrentVC.shared.homeController.tutorialPageViewController?.scrollToViewController(index: 2)
+        SaveCurrentVC.shared.homeController?.tutorialPageViewController?.scrollToViewController(index: 2)
     }
     
     @IBAction func searchButtonDidTap(_ sender: Any) {
@@ -244,6 +244,11 @@ extension LandForSaleViewController:LandForSaleViewCellDelegate
        
     }
     func deleteSaveLand(_ cell: LandForSaleViewCell, land: LandSaleModel, index: Int, type: Int) {
+        if Util.shared.currentUser.id.count == 0
+        {
+            AppDelegate.shared?.setLoginRootViewControoler()
+            return
+        }
         self.showHUD("")
         if land.isLike == true
         {

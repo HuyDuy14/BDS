@@ -91,13 +91,13 @@ class EditInforUserViewController: UITableViewController {
     
     @IBAction func birthdayButtonDidTap(_ sender: Any) {
        self.datePicker.config.startDate = self.dateSelect
-       self.datePicker.show(inVC: SaveCurrentVC.shared.inforUserVC)
+        self.datePicker.show(inVC: SaveCurrentVC.shared.inforUserVC!)
     }
     
     @IBAction func cityButtonDidTap(_ sender: Any) {
         self.pickerView.listData = self.listPickerCity
         self.pickerView.index = self.index
-        self.pickerView.show(inVC: SaveCurrentVC.shared.inforUserVC)
+        self.pickerView.show(inVC: SaveCurrentVC.shared.inforUserVC!)
     }
 }
 

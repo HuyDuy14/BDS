@@ -368,7 +368,7 @@ class RegisterNewsViewController: BaseViewController {
             self.showMore(isShow: false, height: 50)
             self.isShow = true
             self.heightView.constant = 800
-            self.imageMore.image = #imageLiteral(resourceName: "advance2")
+            self.imageMore.isHidden = true
         }
         else
         {

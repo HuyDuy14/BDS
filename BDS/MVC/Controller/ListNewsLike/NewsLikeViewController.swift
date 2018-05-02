@@ -86,7 +86,7 @@ class NewsLikeViewController: BaseViewController {
        
         if isMenu == false
         {
-            SaveCurrentVC.shared.homeController.tutorialPageViewController?.scrollToViewController(index: 0)
+            SaveCurrentVC.shared.homeController?.tutorialPageViewController?.scrollToViewController(index: 0)
         }
         else
         {

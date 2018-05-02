@@ -64,10 +64,10 @@ class RightMenuViewController: BaseViewController {
                 case 0:
                     SideMenuTransition.hideMenu()
                 case 1:
-                    SaveCurrentVC.shared.homeController.tutorialPageViewController?.scrollToViewController(index: 3)
+                    SaveCurrentVC.shared.homeController?.tutorialPageViewController?.scrollToViewController(index: 3)
                     SideMenuTransition.hideMenu()
                 case 2:
-                    SaveCurrentVC.shared.homeController.tutorialPageViewController?.scrollToViewController(index: 1)
+                    SaveCurrentVC.shared.homeController?.tutorialPageViewController?.scrollToViewController(index: 1)
                     SideMenuTransition.hideMenu()
                 case 3:
                     let storyboard = UIStoryboard(name: "MenuHome", bundle: nil)
@@ -109,21 +109,23 @@ class RightMenuViewController: BaseViewController {
         SideMenuTransition.hideMenu()
     }
     @IBAction func loguotButtonDidTap(_ sender: Any) {
-        UIAlertView.show(withTitle: "", message: NSLocalizedString("Bạn muốn thoát khỏi app?", comment: ""), cancelButtonTitle: NSLocalizedString("No", comment: ""), otherButtonTitles: [NSLocalizedString("Yes", comment: "")], tap: { (alerview: UIAlertView,
-            buttonIndex: Int) -> Void in
-            if buttonIndex == 1 {
-                UserDefaults.standard.set("", forKey: FBID)
-                UserDefaults.standard.set("", forKey: FBNAME)
-                UserDefaults.standard.set("", forKey: USERNAME)
-                UserDefaults.standard.set("", forKey: PASSWORD)
-                UserDefaults.standard.set("", forKey: GGID)
-                UserDefaults.standard.set("", forKey: GGEMAIL)
-                UserDefaults.standard.set("", forKey: GGNAME)
-                AppDelegate.shared?.setLoginRootViewControoler()
-                SideMenuTransition.hideMenu()
-            } else {
-            }
-        })
+        let alert = UIAlertController(title: "", message: "Bạn muốn thoát khỏi app?", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+            UserDefaults.standard.set("", forKey: FBID)
+            UserDefaults.standard.set("", forKey: FBNAME)
+            UserDefaults.standard.set("", forKey: USERNAME)
+            UserDefaults.standard.set("", forKey: PASSWORD)
+            UserDefaults.standard.set("", forKey: GGID)
+            UserDefaults.standard.set("", forKey: GGEMAIL)
+            UserDefaults.standard.set("", forKey: GGNAME)
+            Util.shared.currentUser = UserModel()
+//            AppDelegate.shared?.setLoginRootViewControoler()
+            SideMenuTransition.hideMenu()
+            
+        }))
+        
+      
     }
     
     
